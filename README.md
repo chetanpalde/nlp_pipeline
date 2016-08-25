@@ -13,8 +13,9 @@
 
 #SET UP:
 1. Download our NLP-Pipeline project.
-2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions 		given at https://www.playframework.com/documentation/2.5.x/Installing 
-3. Start the activator by ./bin/activator .
+2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions given at https://www.playframework.com/documentation/2.5.x/Installing 
+3. Start the activator by typing the followiung command:
+		./bin/activator .
 	Lets suppose, you have kept the project in Documents folder. Then type the following commands:	
 	
 	ironman@IDTP331:~$ cd Documents/Nlp-Pipeline/
