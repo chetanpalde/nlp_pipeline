@@ -155,14 +155,14 @@ The following are the APIs provided which you can use independently:
 	 
 	Token1:Barak		pos1:NNP
 	Token2:Obama		pos2:NNP
-	Token3:is		pos3:VBZ
-	Token4:the		pos4:DT
+	Token3:is			pos3:VBZ
+	Token4:the			pos4:DT
 	Token5:President	pos5:NNP
-	Token6:of		pos6:IN
-	Token7:the		pos7:DT
+	Token6:of			pos6:IN
+	Token7:the			pos7:DT
 	Token8:United		pos8:NNP
 	Token9:States		pos9:NNPS
-	Token10:of		pos10:IN
+	Token10:of			pos10:IN
 	Token11:America		pos11:NNP
 	
 	The output would be in the following JSON format:
