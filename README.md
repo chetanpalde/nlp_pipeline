@@ -1,13 +1,13 @@
 # NLP-Pipeline
 
 The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
-1. Tokenizer
-2. Sentence Splitter
-3. Part of speech
-4. Lemmatizer
-5. Deep Parser
-6. Shallow Parser
-7. Named Entity Recognizers 
+1.Tokenizer
+2.Sentence Splitter
+3.Part of speech
+4.Lemmatizer
+5.Deep Parser
+6.Shallow Parser
+7.Named Entity Recognizers 
 	a. Gate Annie Named Entity Recognizer 
 	b. Named Entity Open NLP 
 	c. Stanford Named Entity Recognizer Module
