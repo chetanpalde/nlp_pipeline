@@ -1,16 +1,15 @@
-# NLP-Pipeline
-
-The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
-1.Tokenizer
-2.Sentence Splitter
-3.Part of speech
-4.Lemmatizer
-5.Deep Parser
-6.Shallow Parser
-7.Named Entity Recognizers 
-	a. Gate Annie Named Entity Recognizer 
-	b. Named Entity Open NLP 
-	c. Stanford Named Entity Recognizer Module
+#Description:
+	The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
+	1.Tokenizer
+	2.Sentence Splitter
+	3.Part of speech
+	4.Lemmatizer
+	5.Deep Parser
+	6.Shallow Parser
+	7.Named Entity Recognizers 
+		A. Gate Annie Named Entity Recognizer 
+		B. Named Entity Open NLP 
+		C. Stanford Named Entity Recognizer Module
 
 #SET UP:
 1. Download our NLP-Pipeline project.
@@ -20,7 +19,7 @@ The NLP-Pipeline project provides variours APIs related to NLP. We have provided
 	
 	ironman@IDTP331:~$ cd Documents/Nlp-Pipeline/
 	ironman@IDTP331:~/Documents/Nlp-Pipeline$ ./bin/activator
-	Your activator will start. 
+	Your activator will start.  
 
 4. Type 'compile' to compile the project 
 	[play-java] $ compile
