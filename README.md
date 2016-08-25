@@ -411,20 +411,20 @@ The following are the APIs provided which you can use independently:
 	Output: 
 	
 	Phrase1:Sachin Tendulkar	label1:LOCATION
-	Phrase2:Obama			label2:PERSON
+	Phrase2:Obama				label2:PERSON
 	Phrase3:United States		label3:LOCATION
 	Phrase4:Narendra Modi		label4:PERSON
-	Phrase5:India			label5:LOCATION
-	Phrase6:India			label6:LOCATION
+	Phrase5:India				label5:LOCATION
+	Phrase6:India				label6:LOCATION
 	Phrase7:15th August 1947	label7:DATE
-	Phrase8:India			label8:LOCATION
-	Phrase9:Pakistan		label9:LOCATION
-	Phrase10:$ 60			label10:MONEY
-	Phrase11:Intel			label11:ORGANIZATION
-	Phrase12:Google			label12:ORGANIZATION
-	Phrase13:India			label13:LOCATION
-	Phrase14:85 %			label14:PERCENT
-	Phrase15:1:30 PM		label15:TIME
+	Phrase8:India				label8:LOCATION
+	Phrase9:Pakistan			label9:LOCATION
+	Phrase10:$ 60				label10:MONEY
+	Phrase11:Intel				label11:ORGANIZATION
+	Phrase12:Google				label12:ORGANIZATION
+	Phrase13:India				label13:LOCATION
+	Phrase14:85 %				label14:PERCENT
+	Phrase15:1:30 PM			label15:TIME
 	
 	The output would be in the following JSON format: 
 	{"ner":[{"sentence":"","stanford_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
