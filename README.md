@@ -302,14 +302,14 @@ The following are the APIs provided which you can use independently:
 	
 	Output:
 	
-	Phrase1:Barak Obama						label1:NP
+	Phrase1:Barak Obama								label1:NP
 	Phrase2:is the President of the United States of America	label2:VP
 	Phrase3:the President of the United States of America		label3:NP
-	Phrase4:the President						label4:NP
-	Phrase5:of the United States					label5:PP
-	Phrase6:the United States					label6:NP
-	Phrase7:of America						label7:PP
-	Phrase8:America							label8:NP
+	Phrase4:the President							label4:NP
+	Phrase5:of the United States							label5:PP
+	Phrase6:the United States							label6:NP
+	Phrase7:of America								label7:PP
+	Phrase8:America									label8:NP
 	
 	The output would be in the following JSON format:
 	{"shallow_parsing":[{"sentence":"","shallow_parse":[{"phrase":"","label":""}]}]}
