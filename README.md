@@ -12,21 +12,21 @@
 		C. Stanford Named Entity Recognizer Module
 
 #SET UP:
-1. Download our NLP-Pipeline project.
-2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions given at https://www.playframework.com/documentation/2.5.x/Installing 
-3. Start the activator by typing the followiung command:
-		./bin/activator .
-	Lets suppose, you have kept the project in Documents folder. Then type the following commands:	
+	1. Download our NLP-Pipeline project.
+	2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions given at https://www.playframework.com/documentation/2.5.x/Installing 
+	3. Start the activator by typing the followiung command:
+			./bin/activator .
+		Lets suppose, you have kept the project in Documents folder. Then type the following commands:	
+		
+		ironman@IDTP331:~$ cd Documents/Nlp-Pipeline/
+		ironman@IDTP331:~/Documents/Nlp-Pipeline$ ./bin/activator
+		Your activator will start.  
 	
-	ironman@IDTP331:~$ cd Documents/Nlp-Pipeline/
-	ironman@IDTP331:~/Documents/Nlp-Pipeline$ ./bin/activator
-	Your activator will start.  
-
-4. Type 'compile' to compile the project 
-	[play-java] $ compile
-5. Type 'run' to run the project.
-	[play-java] $ run
-After that, you are ready to use the APIs.
+	4. Type 'compile' to compile the project 
+		[play-java] $ compile
+	5. Type 'run' to run the project.
+		[play-java] $ run
+	After that, you are ready to use the APIs.
 
 Now we will discuss how to use the NLP-Pipeline in detail. 
 
