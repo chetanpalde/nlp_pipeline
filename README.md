@@ -57,7 +57,8 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 #Brief Description:
 The following are the APIs provided which you can use independently: 
 
-1. Tokenizer - The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
+#1. Tokenizer
+The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
 You can easily use this json output and retrieve the required data. The begin_position and end_position states the begin position and the end position of the words in that sentence respectively. Here, the input string is splitted into two sentences with respect to the fullstop by the use of sentence splitter. Here, for tokenization, we have used Stanford CoreNLP library.
 
 url: http://localhost:9000/tokenize
