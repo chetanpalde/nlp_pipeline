@@ -318,16 +318,16 @@ The following are the APIs provided which you can use independently:
 	Named-entity recognition (NER) is a subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organizations, locations, expressions of times, quantities, monetary values, percentages, etc.
 	Here we are providing three different NERs with different capabilities:
 
-	#(A) Gate Annie Named Entity Recognizer 
-		The Gate Annie Named Entity Recognizer module is capable of recognizing entities such as:
-			1. Person
-			2. Location
-			3. Organization
-			4. Date
-			5. Money
-		For Named Entity Recognization, here we have used Gate Annie NER library.	
-		It takes string as an input and returns the output of the mentioned entities in the  following JSON format.
-	
+#(A) Gate Annie Named Entity Recognizer 
+	The Gate Annie Named Entity Recognizer module is capable of recognizing entities such as:
+		1. Person
+		2. Location
+		3. Organization
+		4. Date
+		5. Money
+	For Named Entity Recognization, here we have used Gate Annie NER library.	
+	It takes string as an input and returns the output of the mentioned entities in the  following JSON format.
+
 	url: http://localhost:9000/get-gate-ner
 	
 	
@@ -355,15 +355,15 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"ner_gate":[{"sentence":"","gate_annie_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}
 	
-	#(B) Named Entity Open NLP 
-		The Named Entity Recognizer by Apache's Open NLP detects the named entities and numbers in the text. The following are the entities recognized by this method: 
-			1.Location
-			2.Person
-			3.Organization
-			4.Money 
-			5.Percentage
-			6.Date
-			7.Time 
+#(B) Named Entity Open NLP 
+	The Named Entity Recognizer by Apache's Open NLP detects the named entities and numbers in the text. The following are the entities recognized by this method: 
+		1.Location
+		2.Person
+		3.Organization
+		4.Money 
+		5.Percentage
+		6.Date
+		7.Time 
 	The method takes string as input and returns the output in the following JSON format.
 	
 	url: http://localhost:9000/get-open-nlp-ner
@@ -391,16 +391,16 @@ The following are the APIs provided which you can use independently:
 	{"ner_opennlp":[{"sentence":"","opennlp_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
 	
 	
-	#(C) Stanford Named Entity Recognizer Module
-		Here, for Named Entity Recognization, we have used the Stanford CoreNlp library of class 7.
-		The Stanford Named Entity Recognizer Module of class 7 detects the following entities in the sentence:
-			1.Location
-			2.Person
-			3.Organization
-			4.Money 
-			5.Percent
-			6.Date
-			7.Time 
+#(C) Stanford Named Entity Recognizer Module
+	Here, for Named Entity Recognization, we have used the Stanford CoreNlp library of class 7.
+	The Stanford Named Entity Recognizer Module of class 7 detects the following entities in the sentence:
+		1.Location
+		2.Person
+		3.Organization
+		4.Money 
+		5.Percent
+		6.Date
+		7.Time 
 	The method takes an input string and returns the output in the following JSON format. 
 	
 	url: http://localhost:9000/get-stanford-ner 
