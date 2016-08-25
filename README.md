@@ -270,15 +270,15 @@ The following are the APIs provided which you can use independently:
 	
 	Output:
 	
-	governor1:Obama		dependent1:Barak	relation1:nn
-	governor2:President	dependent2:Obama	relation2:nsubj
-	governor3:President	dependent3:is		relation3:cop
-	governor4:President	dependent4:the		relation4:det
-	governor5:ROOT		dependent5:President	relation5:root
-	governor6:States	dependent6:the		relation6:det
-	governor7:States	dependent7:United	relation7:nn
-	governor8:President	dependent8:States	relation8:prep_of
-	governor9:President	dependent9:America	relation9:prep_of
+	governor1:Obama			dependent1:Barak		relation1:nn
+	governor2:President		dependent2:Obama		relation2:nsubj
+	governor3:President		dependent3:is			relation3:cop
+	governor4:President		dependent4:the			relation4:det
+	governor5:ROOT			dependent5:President	relation5:root
+	governor6:States		dependent6:the			relation6:det
+	governor7:States		dependent7:United		relation7:nn
+	governor8:President		dependent8:States		relation8:prep_of
+	governor9:President		dependent9:America		relation9:prep_of
 	
 	
 	The output would be in the following JSON format:
