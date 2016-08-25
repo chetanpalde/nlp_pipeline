@@ -35,18 +35,18 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 		
 		#routes:	
 
-		   NAME			         ROUTE
+		   NAME			         		ROUTE
 
-		1. Tokenizer			/tokenize 
-		2. Sentence Splitter		/split-sentences 
-		3. Part of speech		/get-part-of-speech
-		4. Lemmatizer			/lemmatize 
-		5. Deep Parser			/deep-parse
-		6. Shallow Parser		/shallow-parse
+		1. Tokenizer					/tokenize 
+		2. Sentence Splitter				/split-sentences 
+		3. Part of speech				/get-part-of-speech
+		4. Lemmatizer					/lemmatize 
+		5. Deep Parser					/deep-parse
+		6. Shallow Parser				/shallow-parse
 		7. Named Entity Recognizers(NER) 
-			a.Gate Annie NER	/get-gate-ner
-			b.Apache OpenNLP NER	/get-open-nlp-ner
-			c.Stanford NER		/get-stanford-ner
+			a.Gate Annie NER			/get-gate-ner
+			b.Apache OpenNLP NER			/get-open-nlp-ner
+			c.Stanford NER				/get-stanford-ner
 	
 	2.User interface:
 		These APIs can also run through user interface. If you provide it an input string, it returns the output for all the APIs per sentence. To use it, you just need to run the project as 			discussed in the Set up section. And then go to the following url in the browser: http://localhost:9000 .	You need to write your sentences over the space provided and the output in 			JSON will be provided when you submit it. 
