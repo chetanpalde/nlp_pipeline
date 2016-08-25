@@ -84,7 +84,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"tokenizer":[{"sentence":"<Your sentence>","tokens":[{"begin_position":,"end_position":,"token":""},{"begin_position":,"end_position":,"token":""}]}]}
 
-2. Sentence Splitter 
+#2. Sentence Splitter 
 	The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
 	
 	url: http://localhost:9000/sentence-splitter
@@ -102,7 +102,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"sentences":[{"sentence":""},{"sentence":""}]}
 
-3. Part of speech 
+#3. Part of speech 
 	Part of speech module analyses the input string and returns the JSON format of the part of speech entities. The input string is splitted into sentences and for each sentence, part of speech is analysed for every word.  Here, for part of speech, we have used Stanford CoreNLP library.There are approximately 38 different parts of speech given below.
 	
 	POS Labels: 
@@ -168,7 +168,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"part_of_speech":[{"sentence":"<your sentence>","pos":[{"pos":"","begin_position":,"end_position":,"token":""},{"pos":"","begin_position":,"end_position":,"token":""}]}]}
 
-4. Lemmatizer
+#4. Lemmatizer
 	Lemmatization in linguistics is the process of grouping together the different inflected forms of a word so they can be analysed as a single item. Lets consider an example of the words compares, comparing and  compare. All the three words may look dissimilar but have a comman entity i.e. compare. This comman entity i.e. compare , is known as Lemma. And the process of retrieving  such lemmas from data is known as lemmatization.  Here, for lemmatization, we have used Stanford CoreNLP library.
 	
 	url: http://localhost:9000/lemmatize
@@ -189,7 +189,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
 
-5. Deep Parser 
+#5. Deep Parser 
 
 	Deep parsing is the process of retrieving meaningful gramatical relations between the governor and the dependent. 	Deep parsing Api accepts an input string and returns the result in following JSON format.  Here, for deep parsing, we have used Stanford CoreNLP library. It retrieves the following entities per sentence:
 
@@ -284,7 +284,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"deep_parsing":[{"sentence":","deep_parse":[{"governor":"","governor_index":,"dependent_index":,"dependent":"","relation":""}]}]}
 
-6. Shallow Parser 
+#6. Shallow Parser 
 
 		 Shallow parsing refers to chunking of data. This data is divided into the following chunks: 
 	
@@ -314,11 +314,11 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"shallow_parsing":[{"sentence":"","shallow_parse":[{"phrase":"","label":""}]}]}
 
-7. Named Entity Recognizer(NER)
+#7. Named Entity Recognizer(NER)
 	Named-entity recognition (NER) is a subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organizations, locations, expressions of times, quantities, monetary values, percentages, etc.
 	Here we are providing three different NERs with different capabilities:
 
-	(A) Gate Annie Named Entity Recognizer 
+	#(A) Gate Annie Named Entity Recognizer 
 		The Gate Annie Named Entity Recognizer module is capable of recognizing entities such as:
 			1. Person
 			2. Location
@@ -355,7 +355,7 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"ner_gate":[{"sentence":"","gate_annie_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}
 	
-	(B) Named Entity Open NLP 
+	#(B) Named Entity Open NLP 
 		The Named Entity Recognizer by Apache's Open NLP detects the named entities and numbers in the text. The following are the entities recognized by this method: 
 			1.Location
 			2.Person
@@ -391,7 +391,7 @@ The following are the APIs provided which you can use independently:
 	{"ner_opennlp":[{"sentence":"","opennlp_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
 	
 	
-	(C) Stanford Named Entity Recognizer Module
+	#(C) Stanford Named Entity Recognizer Module
 		Here, for Named Entity Recognization, we have used the Stanford CoreNlp library of class 7.
 		The Stanford Named Entity Recognizer Module of class 7 detects the following entities in the sentence:
 			1.Location
