@@ -338,19 +338,19 @@ The following are the APIs provided which you can use independently:
 	
 	Output:
 	
-	Phrase1:Mr.Barak		label1:Person
-	Phrase2:Obama			label2:Person
+	Phrase1:Mr.Barak			label1:Person
+	Phrase2:Obama				label2:Person
 	Phrase3:United States		label3:Location
-	Phrase4:India			label4:Location
-	Phrase5:Delhi			label5:Location
-	Phrase6:India			label6:Location
+	Phrase4:India				label4:Location
+	Phrase5:Delhi				label5:Location
+	Phrase6:India				label6:Location
 	Phrase7:15th August 1947	label7:Date
-	Phrase8:$60			label8:Money
-	Phrase9:India			label9:Location
-	Phrase10:Pakistan		label10:Location
-	Phrase11:Google			label11:Organization
-	Phrase12:India			label12:Location
-	Phrase13:Intel			label13:Organization
+	Phrase8:$60					label8:Money
+	Phrase9:India				label9:Location
+	Phrase10:Pakistan			label10:Location
+	Phrase11:Google				label11:Organization
+	Phrase12:India				label12:Location
+	Phrase13:Intel				label13:Organization
 	
 	The output would be in the following JSON format:
 	{"ner_gate":[{"sentence":"","gate_annie_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}
