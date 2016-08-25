@@ -38,14 +38,14 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 		   NAME			         		ROUTE
 
 		1. Tokenizer					/tokenize 
-		2. Sentence Splitter				/split-sentences 
+		2. Sentence Splitter			/split-sentences 
 		3. Part of speech				/get-part-of-speech
 		4. Lemmatizer					/lemmatize 
 		5. Deep Parser					/deep-parse
 		6. Shallow Parser				/shallow-parse
 		7. Named Entity Recognizers(NER) 
 			a.Gate Annie NER			/get-gate-ner
-			b.Apache OpenNLP NER			/get-open-nlp-ner
+			b.Apache OpenNLP NER		/get-open-nlp-ner
 			c.Stanford NER				/get-stanford-ner
 	
 	2.User interface:
