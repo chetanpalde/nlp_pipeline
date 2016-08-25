@@ -49,7 +49,10 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 			c.Stanford NER				/get-stanford-ner
 	
 	2.User interface:
-		These APIs can also run through user interface. If you provide it an input string, it returns the output for all the APIs per sentence. To use it, you just need to run the project as 			discussed in the Set up section. And then go to the following url in the browser: http://localhost:9000 .	You need to write your sentences over the space provided and the output in 			JSON will be provided when you submit it. 
+		These APIs can also run through user interface. If you provide it an input string, it returns the output
+		for all the APIs per sentence. To use it, you just need to run the project as discussed in the Set up
+		section. And then go to the following url in the browser: http://localhost:9000 . You need to write your
+		sentences over the space provided and the output in JSON will be provided when you submit it. 
 
 #Brief Description:
 The following are the APIs provided which you can use independently: 
