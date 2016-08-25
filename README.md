@@ -377,15 +377,15 @@ The following are the APIs provided which you can use independently:
 	
 	Phrase1:Mr.Barak Obama	label1:person
 	Phrase2:United States	label2:location
-	Phrase3:India		label3:location
-	Phrase4:India		label4:location
-	Phrase5:August 1947	label5:date
-	Phrase6:India		label6:location
-	Phrase7:Pakistan	label7:location
-	Phrase8:$ 60		label8:money
-	Phrase9:India		label9:location
-	Phrase10:Intel		label10:organization
-	Phrase11:85 %		label11:percentage
+	Phrase3:India			label3:location
+	Phrase4:India			label4:location
+	Phrase5:August 1947		label5:date
+	Phrase6:India			label6:location
+	Phrase7:Pakistan		label7:location
+	Phrase8:$ 60			label8:money
+	Phrase9:India			label9:location
+	Phrase10:Intel			label10:organization
+	Phrase11:85 %			label11:percentage
 	
 	The output would be in the following JSON format:
 	{"ner_opennlp":[{"sentence":"","opennlp_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
