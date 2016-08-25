@@ -1,4 +1,4 @@
-#Description:
+#NLP-Pipeline:
 	The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
 	1.Tokenizer
 	2.Sentence Splitter
