@@ -58,31 +58,31 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 The following are the APIs provided which you can use independently: 
 
 #1. Tokenizer
-The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
-You can easily use this json output and retrieve the required data. The begin_position and end_position states the begin position and the end position of the words in that sentence respectively. Here, the input string is splitted into two sentences with respect to the fullstop by the use of sentence splitter. Here, for tokenization, we have used Stanford CoreNLP library.
-
-url: http://localhost:9000/tokenize
-
-eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
-
-Input String: “Barak Obama is the President of the United States of America”
-
-Output: 
-
-Token1:Barak
-Token2:Obama
-Token3:is
-Token4:the
-Token5:President
-Token6:of
-Token7:the
-Token8:United
-Token9:States
-Token10:of
-Token11:America
-
-The output would be in the following JSON format:
-{"tokenizer":[{"sentence":"<Your sentence>","tokens":[{"begin_position":,"end_position":,"token":""},{"begin_position":,"end_position":,"token":""}]}]}
+	The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
+	You can easily use this json output and retrieve the required data. The begin_position and end_position states the begin position and the end position of the words in that sentence respectively. Here, the input string is splitted into two sentences with respect to the fullstop by the use of sentence splitter. Here, for tokenization, we have used Stanford CoreNLP library.
+	
+	url: http://localhost:9000/tokenize
+	
+	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
+	
+	Input String: “Barak Obama is the President of the United States of America”
+	
+	Output: 
+	
+	Token1:Barak
+	Token2:Obama
+	Token3:is
+	Token4:the
+	Token5:President
+	Token6:of
+	Token7:the
+	Token8:United
+	Token9:States
+	Token10:of
+	Token11:America
+	
+	The output would be in the following JSON format:
+	{"tokenizer":[{"sentence":"<Your sentence>","tokens":[{"begin_position":,"end_position":,"token":""},{"begin_position":,"end_position":,"token":""}]}]}
 
 2. Sentence Splitter - The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
 
