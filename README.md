@@ -180,11 +180,11 @@ The following are the APIs provided which you can use independently:
 	Output:
 	
 	Word1:Everyone	lemma1:everyone
-	Word2:loves	lemma2:love
-	Word3:NLP	lemma3:nlp
+	Word2:loves		lemma2:love
+	Word3:NLP		lemma3:nlp
 	Word4:because	lemma4:because
-	Word5:its	lemma5:its
-	Word6:cool	lemma6:cool
+	Word5:its		lemma5:its
+	Word6:cool		lemma6:cool
 	
 	The output would be in the following JSON format:
 	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
