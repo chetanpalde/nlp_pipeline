@@ -49,7 +49,23 @@
 		
 	
 #2.Nlp-Pipeline.jar
-		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
+	You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
+
+	#Set Up:
+		1. Download the nlp_pipeline.jar and the models.zip folder.
+		2. Extract the models.zip folder in the same directory where you are going to place your nlp_pipeline.jar.
+			If you do not keep the models folder with the jar, it wont compile.
+		3. To run nlp_pipeline.jar, you need Oracle Java 8 to be installed.
+		After you follow these instructions, you are ready to go furthur.
+
+	#How to use it:
+		#1.Using nlp_pipeline.jar into your project:
+			1. Place the downloaded models folder in your project directory where the src and bin folders are. 
+			2. Now go to your IDE and Right click on your project --> Build Path --> Configure Build Path --> Libraries --> Add External Jars --> Browse the jar and press ok. It will load the jar in your project.
+			3. To use the methods of this jar, you need to set up an NlpApi Object as follows:
+				NLPApi nlpApi = new NLPApi();
+			Now you can access the following methods using the nlpApi object.
+
 			1. Sentence Splitter			String getSentences(String input){}
 			2. Tokenizer					String getTokens(String input){}
 			3. Lemmatizer					String getLemmas(String input){}
@@ -60,6 +76,9 @@
 				a.Gate Annie NER			String getGateAnnieNer(String input){}
 				b.Apache OpenNLP NER		String getOpenNlpNer(String input){}
 				c.Stanford NER				String getStanfordNer(String input){}
+		#2. Using nlp_pipeline.jar through command line: 
+
+			
 
 #Brief Description
 The following are the APIs provided which you can use independently: 
