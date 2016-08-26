@@ -51,7 +51,7 @@
 #2.Nlp-Pipeline.jar
 		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
 			1. Sentence Splitter			String getSentences(String input){}
-			2. Tokenizer				String getTokens(String input){}
+			2. Tokenizer					String getTokens(String input){}
 			3. Lemmatizer					String getLemmas(String input){}
 			4. Part of speech				String getPartsOfSpeech(String input){}
 			5. Shallow Parser				String shallowParse(String input){}
