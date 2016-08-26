@@ -76,6 +76,9 @@
 				a.Gate Annie NER			String getGateAnnieNer(String input){}
 				b.Apache OpenNLP NER		String getOpenNlpNer(String input){}
 				c.Stanford NER				String getStanfordNer(String input){}
+			
+			Note that the return type of methods is given as String which is in Json format mentioned in detail in Breif description section.
+
 		#2. Using nlp_pipeline.jar through command line: 
 
 			
