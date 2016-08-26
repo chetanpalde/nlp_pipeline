@@ -47,10 +47,10 @@
 				b.Apache OpenNLP NER		/get-open-nlp-ner
 				c.Stanford NER				/get-stanford-ner
 		
-	#2.Nlp-Pipeline.jar:
+	
+#2.Nlp-Pipeline.jar:
 		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
 		
-
 #Brief Description:
 The following are the APIs provided which you can use independently: 
 
