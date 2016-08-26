@@ -101,10 +101,13 @@ The following are the APIs provided which you can use independently:
 #1. Sentence Splitter 
 	The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
 	
-	url: http://localhost:9000/sentence-splitter
-	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
-	
+	#For Play Apis: 
+		url: http://localhost:9000/sentence-splitter
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
+		
+	#For nlp_pipeline.jar: 
+		
 	Input String: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.
 	
 	Output: 
@@ -120,9 +123,12 @@ The following are the APIs provided which you can use independently:
 	The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
 	You can easily use this json output and retrieve the required data. The begin_position and end_position states the begin position and the end position of the words in that sentence respectively. Here, the input string is splitted into two sentences with respect to the fullstop by the use of sentence splitter. Here, for tokenization, we have used Stanford CoreNLP library.
 	
-	url: http://localhost:9000/tokenize
+	#For Play Apis:
+		url: http://localhost:9000/tokenize
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
+	#For nlp_pipeline.jar:
 	
 	Input String: “Barak Obama is the President of the United States of America”
 	
@@ -148,10 +154,13 @@ The following are the APIs provided which you can use independently:
 #3. Lemmatizer
 	Lemmatization in linguistics is the process of grouping together the different inflected forms of a word so they can be analysed as a single item. Lets consider an example of the words compares, comparing and  compare. All the three words may look dissimilar but have a comman entity i.e. compare. This comman entity i.e. compare , is known as Lemma. And the process of retrieving  such lemmas from data is known as lemmatization.  Here, for lemmatization, we have used Stanford CoreNLP library.
 	
-	url: http://localhost:9000/lemmatize
+	#For Play Apis:
+		url: http://localhost:9000/lemmatize
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
-	
+	#For nlp_pipeline.jar: 
+		
 	Input String: Everyone loves NLP because its cool
 	
 	Output:
@@ -165,6 +174,7 @@ The following are the APIs provided which you can use independently:
 	
 	The output would be in the following JSON format:
 	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
+
 #4. Part of speech 
 	Part of speech module analyses the input string and returns the JSON format of the part of speech entities. The input string is splitted into sentences and for each sentence, part of speech is analysed for every word.  Here, for part of speech, we have used Stanford CoreNLP library.There are approximately 38 different parts of speech given below.
 	
@@ -207,10 +217,12 @@ The following are the APIs provided which you can use independently:
 	WP$ Possessive wh­pronoun 
 	WRB Wh­adverb
 	
-	url: http://localhost:9000/get-part-of-speech
-	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-part-of-speech
-	
+	#For Play Apis:
+		url: http://localhost:9000/get-part-of-speech
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-part-of-speech
+		
+	#For nlp_pipeline.jar: 
 	
 	Input String: Barak Obama is the President of the United States of America
 	
@@ -242,10 +254,14 @@ The following are the APIs provided which you can use independently:
 	
 	Here, for shallow parsing, we have used Stanford CoreNLP library. The method takes an input string as parameter and returns the output in the following JSON format.
 	
-	url: http://localhost:9000/shallow-parse
+	#For Play Apis:
+		url: http://localhost:9000/shallow-parse
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	
+		http://localhost:9000/shallow-parse
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/shallow-parse
-	
+	#For nlp_pipeline.jar: 
+
 	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
@@ -334,9 +350,12 @@ The following are the APIs provided which you can use independently:
 		sdep - semantic dependent 
 			xsubj - controlling subject
 
-	url: http://localhost:9000/deep-parse
+	#For Play Apis:
+		url: http://localhost:9000/deep-parse
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/deep-parse
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/deep-parse
+	#For nlp_pipeline.jar: 
 	
 	Input text: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.  It is ambitious.
 	
@@ -370,11 +389,13 @@ The following are the APIs provided which you can use independently:
 	For Named Entity Recognization, here we have used Gate Annie NER library.	
 	It takes string as an input and returns the output of the mentioned entities in the  following JSON format.
 
-	url: http://localhost:9000/get-gate-ner
+	#For Play Apis:
+		url: http://localhost:9000/get-gate-ner
+		
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-gate-ner
 	
-	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-gate-ner
-	
+	#For nlp_pipeline.jar: 
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of 		    India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 		    85% in 10th grade
 	
@@ -408,9 +429,13 @@ The following are the APIs provided which you can use independently:
 		7.Time 
 	The method takes string as input and returns the output in the following JSON format.
 	
-	url: http://localhost:9000/get-open-nlp-ner
+	#For Play Apis:
+		url: http://localhost:9000/get-open-nlp-ner
+		
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-open-nlp-ner
+		
+	#For nlp_pipeline.jar: 
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-open-nlp-ner
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade.
 	
@@ -445,8 +470,12 @@ The following are the APIs provided which you can use independently:
 		7.Time 
 	The method takes an input string and returns the output in the following JSON format. 
 	
-	url: http://localhost:9000/get-stanford-ner 
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-stanford-ner 
+	#For Play Apis:
+		url: http://localhost:9000/get-stanford-ner 
+		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-stanford-ner 
+	
+	
+	#For nlp_pipeline.jar: 
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade. I knew about it at 1:30 PM.
 	
