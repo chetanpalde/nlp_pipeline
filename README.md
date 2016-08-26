@@ -33,20 +33,20 @@
 		Command: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"<Your Input>"}' http://localhost:9000/<your-route>		
 		
 		#routes:	
-
-		   NAME			         		ROUTE
-
-		1. Tokenizer					/tokenize 
-		2. Sentence Splitter			/split-sentences 
-		3. Part of speech				/get-part-of-speech
-		4. Lemmatizer					/lemmatize 
-		5. Deep Parser					/deep-parse
-		6. Shallow Parser				/shallow-parse
-		7. Named Entity Recognizers(NER) 
-			a.Gate Annie NER			/get-gate-ner
-			b.Apache OpenNLP NER		/get-open-nlp-ner
-			c.Stanford NER				/get-stanford-ner
 	
+			   NAME			         		ROUTE
+	
+			1. Tokenizer					/tokenize 
+			2. Sentence Splitter			/split-sentences 
+			3. Part of speech				/get-part-of-speech
+			4. Lemmatizer					/lemmatize 
+			5. Deep Parser					/deep-parse
+			6. Shallow Parser				/shallow-parse
+			7. Named Entity Recognizers(NER) 
+				a.Gate Annie NER			/get-gate-ner
+				b.Apache OpenNLP NER		/get-open-nlp-ner
+				c.Stanford NER				/get-stanford-ner
+		
 	#2.Nlp-Pipeline.jar:
 		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
 		
