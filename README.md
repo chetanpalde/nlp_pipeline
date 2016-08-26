@@ -107,7 +107,9 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
 		
 	#For nlp_pipeline.jar: 
+		String getSentences(String input){
 		
+		}
 	Input String: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.
 	
 	Output: 
@@ -129,7 +131,11 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
 	
 	#For nlp_pipeline.jar:
-	
+		String getTokens(String input){
+		
+		}
+		
+		
 	Input String: “Barak Obama is the President of the United States of America”
 	
 	Output: 
@@ -160,6 +166,10 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
 	
 	#For nlp_pipeline.jar: 
+		String getLemmas(String input){
+		
+		}
+		
 		
 	Input String: Everyone loves NLP because its cool
 	
@@ -223,7 +233,11 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-part-of-speech
 		
 	#For nlp_pipeline.jar: 
-	
+		String getPartsOfSpeech(String input){
+		
+		}
+		
+		
 	Input String: Barak Obama is the President of the United States of America
 	
 	Output:
@@ -261,7 +275,11 @@ The following are the APIs provided which you can use independently:
 		http://localhost:9000/shallow-parse
 	
 	#For nlp_pipeline.jar: 
+		String shallowParse(String input){
 
+		}
+		
+		
 	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
@@ -277,6 +295,7 @@ The following are the APIs provided which you can use independently:
 	
 	The output would be in the following JSON format:
 	{"shallow_parsing":[{"sentence":"","shallow_parse":[{"phrase":"","label":""}]}]}
+	
 #6. Deep Parser 
 
 	Deep parsing is the process of retrieving meaningful gramatical relations between the governor and the dependent. 	Deep parsing Api accepts an input string and returns the result in following JSON format.  Here, for deep parsing, we have used Stanford CoreNLP library. It retrieves the following entities per sentence:
@@ -357,6 +376,11 @@ The following are the APIs provided which you can use independently:
 	
 	#For nlp_pipeline.jar: 
 	
+		String deepParse(String input){
+		
+		}
+	
+	
 	Input text: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.  It is ambitious.
 	
 	Output:
@@ -396,7 +420,11 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-gate-ner
 	
 	#For nlp_pipeline.jar: 
-	
+		String getGateAnnieNer(String input){
+		
+		}
+		
+		
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of 		    India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 		    85% in 10th grade
 	
 	Output:
@@ -435,7 +463,9 @@ The following are the APIs provided which you can use independently:
 		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-open-nlp-ner
 		
 	#For nlp_pipeline.jar: 
-	
+		String getOpenNlpNer(String input){
+		
+		}
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade.
 	
@@ -476,7 +506,7 @@ The following are the APIs provided which you can use independently:
 	
 	
 	#For nlp_pipeline.jar: 
-	
+		String getStanfordNer(String input){}
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade. I knew about it at 1:30 PM.
 	
 	Output: 
