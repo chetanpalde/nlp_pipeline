@@ -80,7 +80,19 @@
 			Note that the return type of methods is given as String which is in Json format mentioned in detail in Breif description section.
 
 		#2. Using nlp_pipeline.jar through command line: 
-
+			Make sure that you have your models folder in the same directory in which jar file is kept.
+			You can also run the jar from the command line. There are two scenearios:
+			a. You provide a text file as input:
+				Run the following command:
+					java -jar nlp_pipeline.jar <your file path>
+				eg: java -jar nlp_pipeline.jar /home/input.txt
+				
+			b. Console based application:
+				Run the jar by using following command:
+					java -jar nlp_pipeline.jar
+				You will get : 'Enter the sentence: ' as output. Provide a sentence and press Enter.
+				
+		The output through the command line argument would be the merged version of all the above mentioned functions in the Json format.
 			
 
 #Brief Description
