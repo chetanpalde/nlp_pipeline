@@ -1,11 +1,11 @@
 #NLP-Pipeline:
 	The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
-	1.Tokenizer
-	2.Sentence Splitter
-	3.Part of speech
-	4.Lemmatizer
-	5.Deep Parser
-	6.Shallow Parser
+	1.Sentence Splitter
+	2.Tokenizer
+	3.Lemmatizer
+	4.Part of speech
+	5.Shallow Parser
+	6.Deep Parser
 	7.Named Entity Recognizers 
 		A. Gate Annie Named Entity Recognizer 
 		B. Named Entity Open NLP 
@@ -57,7 +57,25 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 #Brief Description:
 The following are the APIs provided which you can use independently: 
 
-#1. Tokenizer
+#1. Sentence Splitter 
+	The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
+	
+	url: http://localhost:9000/sentence-splitter
+	
+	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
+	
+	Input String: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.
+	
+	Output: 
+	
+		Sentence1:Everyone loves NLP because its cool.
+		Sentence2:Everyone should learn it.
+		Sentence3:You will enjoy it.
+	
+	The output would be in the following JSON format:
+	{"sentences":[{"sentence":""},{"sentence":""}]}
+
+#2. Tokenizer
 	The tokenizer splits the sentences in atomic entities known as tokens. The following method accepts a String of data and return the tokens in the following JSON format.
 	You can easily use this json output and retrieve the required data. The begin_position and end_position states the begin position and the end position of the words in that sentence respectively. Here, the input string is splitted into two sentences with respect to the fullstop by the use of sentence splitter. Here, for tokenization, we have used Stanford CoreNLP library.
 	
@@ -84,25 +102,29 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"tokenizer":[{"sentence":"<Your sentence>","tokens":[{"begin_position":,"end_position":,"token":""},{"begin_position":,"end_position":,"token":""}]}]}
 
-#2. Sentence Splitter 
-	The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
+
+
+#3. Lemmatizer
+	Lemmatization in linguistics is the process of grouping together the different inflected forms of a word so they can be analysed as a single item. Lets consider an example of the words compares, comparing and  compare. All the three words may look dissimilar but have a comman entity i.e. compare. This comman entity i.e. compare , is known as Lemma. And the process of retrieving  such lemmas from data is known as lemmatization.  Here, for lemmatization, we have used Stanford CoreNLP library.
 	
-	url: http://localhost:9000/sentence-splitter
+	url: http://localhost:9000/lemmatize
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
+	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
 	
-	Input String: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.
+	Input String: Everyone loves NLP because its cool
 	
-	Output: 
+	Output:
 	
-		Sentence1:Everyone loves NLP because its cool.
-		Sentence2:Everyone should learn it.
-		Sentence3:You will enjoy it.
+	Word1:Everyone	lemma1:everyone
+	Word2:loves		lemma2:love
+	Word3:NLP		lemma3:nlp
+	Word4:because	lemma4:because
+	Word5:its		lemma5:its
+	Word6:cool		lemma6:cool
 	
 	The output would be in the following JSON format:
-	{"sentences":[{"sentence":""},{"sentence":""}]}
-
-#3. Part of speech 
+	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
+#4. Part of speech 
 	Part of speech module analyses the input string and returns the JSON format of the part of speech entities. The input string is splitted into sentences and for each sentence, part of speech is analysed for every word.  Here, for part of speech, we have used Stanford CoreNLP library.There are approximately 38 different parts of speech given below.
 	
 	POS Labels: 
@@ -168,28 +190,37 @@ The following are the APIs provided which you can use independently:
 	The output would be in the following JSON format:
 	{"part_of_speech":[{"sentence":"<your sentence>","pos":[{"pos":"","begin_position":,"end_position":,"token":""},{"pos":"","begin_position":,"end_position":,"token":""}]}]}
 
-#4. Lemmatizer
-	Lemmatization in linguistics is the process of grouping together the different inflected forms of a word so they can be analysed as a single item. Lets consider an example of the words compares, comparing and  compare. All the three words may look dissimilar but have a comman entity i.e. compare. This comman entity i.e. compare , is known as Lemma. And the process of retrieving  such lemmas from data is known as lemmatization.  Here, for lemmatization, we have used Stanford CoreNLP library.
+
+#5. Shallow Parser 
+
+		 Shallow parsing refers to chunking of data. This data is divided into the following chunks: 
 	
-	url: http://localhost:9000/lemmatize
+			1. Noun Phrase(NP):  a word or group of words containing a noun and functioning in a sentence as subject, object, or prepositional object.
+			2. Verb Phrase(VP):   a verb with another word or words indicating tense, mood, or person.
+			3. Preposition Phase(PP): Every prepositional phrase is a series of words made up of a preposition and its object. The object may be a noun, pronoun, gerund or c clause. A prepositional 						phrase functions as an adjective or adverb.
 	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
+	Here, for shallow parsing, we have used Stanford CoreNLP library. The method takes an input string as parameter and returns the output in the following JSON format.
 	
-	Input String: Everyone loves NLP because its cool
+	url: http://localhost:9000/shallow-parse
+	
+	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/shallow-parse
+	
+	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
 	
-	Word1:Everyone	lemma1:everyone
-	Word2:loves		lemma2:love
-	Word3:NLP		lemma3:nlp
-	Word4:because	lemma4:because
-	Word5:its		lemma5:its
-	Word6:cool		lemma6:cool
+	Phrase1:Barak Obama											label1:NP
+	Phrase2:is the President of the United States of America	label2:VP
+	Phrase3:the President of the United States of America		label3:NP
+	Phrase4:the President										label4:NP
+	Phrase5:of the United States								label5:PP
+	Phrase6:the United States									label6:NP
+	Phrase7:of America											label7:PP
+	Phrase8:America												label8:NP
 	
 	The output would be in the following JSON format:
-	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
-
-#5. Deep Parser 
+	{"shallow_parsing":[{"sentence":"","shallow_parse":[{"phrase":"","label":""}]}]}
+#6. Deep Parser 
 
 	Deep parsing is the process of retrieving meaningful gramatical relations between the governor and the dependent. 	Deep parsing Api accepts an input string and returns the result in following JSON format.  Here, for deep parsing, we have used Stanford CoreNLP library. It retrieves the following entities per sentence:
 
@@ -283,36 +314,6 @@ The following are the APIs provided which you can use independently:
 	
 	The output would be in the following JSON format:
 	{"deep_parsing":[{"sentence":","deep_parse":[{"governor":"","governor_index":,"dependent_index":,"dependent":"","relation":""}]}]}
-
-#6. Shallow Parser 
-
-		 Shallow parsing refers to chunking of data. This data is divided into the following chunks: 
-	
-			1. Noun Phrase(NP):  a word or group of words containing a noun and functioning in a sentence as subject, object, or prepositional object.
-			2. Verb Phrase(VP):   a verb with another word or words indicating tense, mood, or person.
-			3. Preposition Phase(PP): Every prepositional phrase is a series of words made up of a preposition and its object. The object may be a noun, pronoun, gerund or c clause. A prepositional 						phrase functions as an adjective or adverb.
-	
-	Here, for shallow parsing, we have used Stanford CoreNLP library. The method takes an input string as parameter and returns the output in the following JSON format.
-	
-	url: http://localhost:9000/shallow-parse
-	
-	eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/shallow-parse
-	
-	Input text: Barak Obama is the President of the United States of America
-	
-	Output:
-	
-	Phrase1:Barak Obama											label1:NP
-	Phrase2:is the President of the United States of America	label2:VP
-	Phrase3:the President of the United States of America		label3:NP
-	Phrase4:the President										label4:NP
-	Phrase5:of the United States								label5:PP
-	Phrase6:the United States									label6:NP
-	Phrase7:of America											label7:PP
-	Phrase8:America												label8:NP
-	
-	The output would be in the following JSON format:
-	{"shallow_parsing":[{"sentence":"","shallow_parse":[{"phrase":"","label":""}]}]}
 
 #7. Named Entity Recognizer(NER)
 	Named-entity recognition (NER) is a subtask of information extraction that seeks to locate and classify named entities in text into pre-defined categories such as the names of persons, organizations, locations, expressions of times, quantities, monetary values, percentages, etc.
