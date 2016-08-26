@@ -28,8 +28,8 @@
 			[play-java] $ run
 		After that, you are ready to use the APIs.
 
-#How to use:
-	#1. Play APIs: Use the following command and specify your route from the following routes
+	#How to use:
+		Use the following command and specify your route from the following routes
 		Command: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"<Your Input>"}' http://localhost:9000/<your-route>		
 		
 		#routes:	
