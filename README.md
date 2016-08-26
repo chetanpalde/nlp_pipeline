@@ -1,4 +1,4 @@
-#NLP-Pipeline:
+#NLP-Pipeline
 	The NLP-Pipeline project provides variours APIs related to NLP. We have provided following APIs to our users:
 	1.Sentence Splitter
 	2.Tokenizer
@@ -12,7 +12,7 @@
 		C. Stanford Named Entity Recognizer Module
 
 	We have provided two kinds of APIs. The first form is built on the Play framework and the second is the Jar file.
-#1.Nlp-Pipeline on PLay Framework: 
+#1.Nlp-Pipeline on PLay Framework
 	#SET UP:
 		1. Download our NLP-Pipeline project.
 		2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions given at https://www.playframework.com/documentation/2.5.x/Installing 
@@ -36,22 +36,32 @@
 	
 			   NAME			         		ROUTE
 	
-			1. Tokenizer					/tokenize 
-			2. Sentence Splitter			/split-sentences 
-			3. Part of speech				/get-part-of-speech
-			4. Lemmatizer					/lemmatize 
-			5. Deep Parser					/deep-parse
-			6. Shallow Parser				/shallow-parse
+			1. Sentence Splitter			/split-sentences 
+		 	2. Tokenizer					/tokenize 
+			3. Lemmatizer					/lemmatize 
+			4. Part of speech				/get-part-of-speech
+			5. Shallow Parser				/shallow-parse
+			6. Deep Parser					/deep-parse
 			7. Named Entity Recognizers(NER) 
 				a.Gate Annie NER			/get-gate-ner
 				b.Apache OpenNLP NER		/get-open-nlp-ner
 				c.Stanford NER				/get-stanford-ner
 		
 	
-#2.Nlp-Pipeline.jar:
+#2.Nlp-Pipeline.jar
 		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
-		
-#Brief Description:
+			1. Sentence Splitter			String getSentences(String input){}
+			2. Tokenizer				String getTokens(String input){}
+			3. Lemmatizer					String getLemmas(String input){}
+			4. Part of speech				String getPartsOfSpeech(String input){}
+			5. Shallow Parser				String shallowParse(String input){}
+			6. Deep Parser					String deepParse(String input){}
+			7. Named Entity Recognizers(NER) 
+				a.Gate Annie NER			String getGateAnnieNer(String input){}
+				b.Apache OpenNLP NER		String getOpenNlpNer(String input){}
+				c.Stanford NER				String getStanfordNer(String input){}
+
+#Brief Description
 The following are the APIs provided which you can use independently: 
 
 #1. Sentence Splitter 
