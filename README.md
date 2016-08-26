@@ -11,6 +11,8 @@
 		B. Named Entity Open NLP 
 		C. Stanford Named Entity Recognizer Module
 
+	We have provided two kinds of APIs. The first form is built on the Play framework and the second is the Jar file.
+	#1.Nlp-Pipeline on PLay Framework: 
 #SET UP:
 	1. Download our NLP-Pipeline project.
 	2. Install and configure play framework : These project APIs are built under the play framework in java. To configure them, you will have to download and install the play framework from the instructions given at https://www.playframework.com/documentation/2.5.x/Installing 
@@ -30,7 +32,7 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 
 #How to use:
 	The NLP-Pipeline comes in dual format in which you can use these APIs through command line and also through the user interface as discussed below: 
-	1. APIs: Use the following command and specify your route from the following routes
+	#1. Play APIs: Use the following command and specify your route from the following routes
 		Command: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"<Your Input>"}' http://localhost:9000/<your-route>		
 		
 		#routes:	
@@ -48,11 +50,9 @@ Now we will discuss how to use the NLP-Pipeline in detail.
 			b.Apache OpenNLP NER		/get-open-nlp-ner
 			c.Stanford NER				/get-stanford-ner
 	
-	2.User interface:
-		These APIs can also run through user interface. If you provide it an input string, it returns the output
-		for all the APIs per sentence. To use it, you just need to run the project as discussed in the Set up
-		section. And then go to the following url in the browser: http://localhost:9000 . You need to write your
-		sentences over the space provided and the output in JSON will be provided when you submit it. 
+	#2.Nlp-Pipeline.jar:
+		You can also use Nlp-Pipeline.jar by importing it in your project. The Jar file also does all the functions which are defined earlier.
+		
 
 #Brief Description:
 The following are the APIs provided which you can use independently: 
