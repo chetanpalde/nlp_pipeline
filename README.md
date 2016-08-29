@@ -8,8 +8,8 @@
 	6.Deep Parser
 	7.Named Entity Recognizers 
 		A. Gate Annie Named Entity Recognizer 
-		B. Named Entity Open NLP 
-		C. Stanford Named Entity Recognizer Module
+		B. Apache OpenNLP Named Entity Recognizer 
+		C. Stanford Named Entity Recognizer
 
 	We have provided two kinds of APIs. The first form is built on the Play framework and the second is the Jar file.
 #1.Nlp-Pipeline on PLay Framework
