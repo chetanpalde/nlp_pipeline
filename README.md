@@ -444,7 +444,7 @@ The following are the APIs provided which you can use independently:
 	Phrase13:Intel				label13:Organization
 	
 	The output would be in the following JSON format:
-	{"ner_gate":[{"sentence":"","gate_annie_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}
+	{"gate_annie_ner":[{"sentence":"","ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}
 	
 #(B) Named Entity Open NLP 
 	The Named Entity Recognizer by Apache's Open NLP detects the named entities and numbers in the text. The following are the entities recognized by this method: 
@@ -485,7 +485,7 @@ The following are the APIs provided which you can use independently:
 	Phrase11:85 %			label11:percentage
 	
 	The output would be in the following JSON format:
-	{"ner_opennlp":[{"sentence":"","opennlp_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
+	{"opennlp_ner":[{"sentence":"","ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
 	
 	
 #(C) Stanford Named Entity Recognizer Module
@@ -528,4 +528,4 @@ The following are the APIs provided which you can use independently:
 	Phrase15:1:30 PM			label15:TIME
 	
 	The output would be in the following JSON format: 
-	{"ner":[{"sentence":"","stanford_ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
+	{"stanford_ner":[{"sentence":"","ner":[{"phrase":"","label":""},{"phrase":"","label":""}]}]}
