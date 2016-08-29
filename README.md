@@ -53,8 +53,8 @@
 
 	#Set Up:
 		1. Download the nlp_pipeline.jar and the models.zip folder.
-		2. Extract the models.zip folder in the same directory where you are going to place your nlp_pipeline.jar.
-			If you do not keep the models folder with the jar, it wont compile.
+		2.Extract the models.zip folder to the location given in 'How to use it' section.
+			If you do not keep the models folder on required location, it wont compile.
 		3. To run nlp_pipeline.jar, you need Oracle Java 8 to be installed.
 		After you follow these instructions, you are ready to go furthur.
 
