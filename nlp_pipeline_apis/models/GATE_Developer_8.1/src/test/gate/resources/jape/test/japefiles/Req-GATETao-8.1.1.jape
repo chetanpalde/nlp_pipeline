@@ -1,0 +1,23 @@
+Phase: Test
+Options: control = brill
+
+Rule:SimpleText
+({Token.string=="of"}):bind 
+--> 
+:bind.TranAnn = {rule="SimpleText"}
+
+Rule:ComplexText
+(
+	(
+		({Token.string == "http"} | {Token.string == "ftp"} )
+		{Token.string == ":"}
+		{Token.string == "/"}
+		{Token.string == "/"}
+	) 
+	|
+	({Token.string == "www"}
+	{Token.string == "."}
+	)
+):urlpre
+-->
+:urlpre.UrlPre = {rule = "ComplexText"}

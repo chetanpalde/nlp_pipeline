@@ -1,0 +1,87 @@
+BibTeX to help you create citations if ..
+
+%#Cunningham2011a I used GATE:
+
+%<@Book{Cunningham2011a,
+  author = {Hamish Cunningham and Diana Maynard and Kalina Bontcheva and Valentin Tablan and Niraj Aswani and Ian Roberts and
+    Genevieve Gorrell and Adam Funk and Angus Roberts and Danica Damljanovic and Thomas Heitz and Mark A. Greenwood and
+    Horacio Saggion and Johann Petrak and Yaoyong Li and Wim Peters},
+  title = {{Text Processing with GATE (Version 6)}},
+  isbn = {978-0956599315},
+  year = 2011,
+  url = {http://tinyurl.com/gatebook}
+}%>
+
+
+%#Cunningham2002 I used ANNIE:
+
+%<@InProceedings{Cunningham2002,
+  author = {Hamish Cunningham and Diana Maynard and Kalina Bontcheva and Valentin Tablan},
+  title = {{GATE: A Framework and Graphical Development Environment for Robust NLP Tools and Applications}},
+  booktitle = {Proceedings of the 40th Anniversary Meeting of the Association for Computational Linguistics (ACL'02)},
+  year = 2002
+}%>
+
+
+%#Bontcheva2004 I used the ontology features in GATE:
+
+%<@Article{Bontcheva2004,
+  author = {Kalina Bontcheva and Valentin Tablan and Diana Maynard and Hamish Cunningham},
+  title = {{Evolving GATE to Meet New Challenges in Language Engineering}},
+  journal = {Natural Language Engineering},
+  volume = 10,
+  number = {3/4},
+  pages = {349--373},
+  year = 2004
+}%>
+
+%#Tablan2014 I used GATE Mímir:
+
+%<@article{Tablan2014-Mimir,
+  author    = {Tablan, V. and Bontcheva, K. and Roberts, I. and Cunningham, H.},
+  title     = {M\'{i}mir: an Open-Source Semantic Search Framework for Interactive Information Seeking and Discovery},
+  journal   = {Journal of Web Semantics},
+  year      = {2014},
+  url       = {http://dx.doi.org/10.1016/j.websem.2014.10.002}
+}%>
+
+%#Cunningham2010 I used GATE for Information Retrieval
+
+%<@InProceedings{Cunningham2010,
+  author = {Hamish Cunningham and Allan Hanbury and Stefan R\"{u}ger},
+  title = {Scaling up High-Value Retrieval to Medium-Volume Data},
+  booktitle = {Advances in Multidisciplinary Retrieval (the 1st Information Retrieval Facility Conference)},
+  month = {May},
+  series = {Lecture Notes in Computer Science, Volume 6107},
+  publisher = {Springer},
+  address = {Vienna, Austria},
+  editor = {Hamish Cunningham and Allan Hanbury and Stefan R\"{u}ger},
+  isbn = {978-3-642-13083-0},
+  year = 2010
+}%>
+
+
+%#Dowman2005 I used GATE with multimedia:
+
+%<@InProceedings{Dowman2005,
+  author = {Mike Dowman and Valentin Tablan and Hamish Cunningham and Borislav Popov},
+  title = {Web-Assisted Annotation, Semantic Indexing and Search of Television and Radio News},
+  booktitle = {Proceedings of the 14th International World Wide Web Conference},
+  address = {Chiba, Japan},
+  url = {http://gate.ac.uk/sale/www05/web-assisted-annotation.pdf},
+  year = 2005
+}%>
+
+
+%#Li2009 I used the machine learning facilities in GATE:
+
+%<@Article{Li2009,
+  author = {Yaoyong Li and Kalina Bontcheva and Hamish Cunningham},
+  title = {{Adapting SVM for Data Sparseness and Imbalance: A Case Study on Information Extraction}},
+  journal = {Natural Language Engineering},
+  volume = 15,
+  number = 2,
+  pages = {241--271},
+  url = {http://journals.cambridge.org/repo_A45LfkBD},
+  year = 2009
+}%>

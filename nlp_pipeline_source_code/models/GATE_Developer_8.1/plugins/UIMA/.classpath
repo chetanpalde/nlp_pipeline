@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="examples/classes" path="examples/gen-src"/>
+	<classpathentry kind="src" output="examples/classes" path="examples/src"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="test/classes" path="test/src"/>
+	<classpathentry exported="true" kind="lib" path="lib/activation.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/axis.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-discovery-0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.0.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jaxrpc.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jVinci.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/mail.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/saaj.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-adapter-soap.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-adapter-vinci.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-cpe.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-document-annotation.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-examples.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/uima-tools.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/GATE"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

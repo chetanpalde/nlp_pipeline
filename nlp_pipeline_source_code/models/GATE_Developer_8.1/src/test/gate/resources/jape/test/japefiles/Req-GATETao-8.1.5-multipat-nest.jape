@@ -1,0 +1,12 @@
+Phase: PPhase
+Rule: PersonJobTitle
+Priority: 20
+(
+(
+{Lookup.majorType == jobtitle}
+):jobtitle
+{TempPerson}
+):person
+-->
+:jobtitle.JobTitle = {rule = "PersonJobTitle1"},
+:person.Person = {kind = "personName", rule = "PersonJobTitle2"}

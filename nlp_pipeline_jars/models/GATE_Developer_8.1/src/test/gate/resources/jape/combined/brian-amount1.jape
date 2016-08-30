@@ -1,0 +1,92 @@
+// amount1.jape
+// Brianm, 1/Oct/98
+
+
+Phase: Amount
+Options: control = brill
+/* this guarantees both rules will always trigger
+   which we want since the rules produce different kinds of annotations
+*/
+
+////////////////////////////////////////
+
+Rule: AmountName
+
+// amount of e.g cocaine: 100 tons
+
+(
+
+	({Token.kind == "num"}
+	 {Token, Lookup.majorType == "AMOUNT_UNIT"})
+	 :amountName
+)
+-->
+:amountName.Name = {kind = "amount", rule = "AmountName"}
+
+////////////////////////////////////////
+
+Rule: AmountOfDrug
+
+// 100 tons of cocaine
+
+(
+
+	(
+	({Token.kind == "num"}):amount
+	({Token, Lookup.majorType == "AMOUNT_UNIT"}):unit
+
+	{Token.lowerString == "of"}
+
+	({Token, Lookup.majorType == "DRUG"}):drug
+	):drugAmount
+)
+
+-->
+//:amount{}, // there is a JAPE bug (to be fixed) that forgets to create objects
+//:unit{},   // with these names, so the empty code forces it to do so.
+//:drug{},
+:drugAmount{ // let's do some Java!
+/*
+  try {
+    String amountStr = doc.spanStrings(amountAnnots.nth(0));
+    String unitStr   = doc.spanStrings(  unitAnnots.nth(0));
+    String drugStr   = doc.spanStrings(  drugAnnots.nth(0));
+
+    JdmSpanSequence spans = new JdmSpanSequence();
+    spans.append( new JdmSpan(amountAnnots.getLeftmostStart(),
+                              drugAnnots.getRightmostEnd() ) );
+
+    JdmAttribute amountAttrib = new JdmAttribute("amount", amountStr);
+    JdmAttribute unitAttrib   = new JdmAttribute("unit", unitStr);
+    JdmAttribute drugAttrib   = new JdmAttribute("drug", drugStr);
+    JdmAttribute ruleAttrib   = new JdmAttribute("rule", "drugAmount");
+
+
+    JdmAttributeSequence allAttribs = new JdmAttributeSequence();
+    allAttribs.append(amountAttrib);
+    allAttribs.append(unitAttrib);
+    allAttribs.append(drugAttrib);
+    allAttribs.append(ruleAttrib);
+
+    doc.addAnnotation(new JdmAnnotation("DrugQuantity", spans, allAttribs) );
+  } catch (JdmException ex) {
+    //do nothing for now
+  }
+*/
+  } // drugAmount javacode
+
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:22  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:29  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:06  hamish
+// added logs
+//

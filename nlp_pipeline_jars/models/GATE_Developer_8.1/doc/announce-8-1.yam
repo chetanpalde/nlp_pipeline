@@ -1,0 +1,19 @@
+GATE Developer/Embedded Version 8.1 release (June 2015)
+
+GATE Developer/Embedded 8.1 adds a number of new features:
+
+- Integration of the Stanford named entity recognition tools
+- Improvements to the crowd sourcing tools, including merging the work of
+  several annotators
+- Much improved support for data import and export, with new import formats,
+  improvements to existing importers, and a new framework for document export
+  formats
+- A new plugin for simplifying complex sentences using linguistic rules
+- API improvements, bug fixes, library updates and other changes under the
+  covers to improve stability.
+
+Full details can be found in the
+%(https://gate.ac.uk/userguide/sec:changes:8.1,changelog in the user guide).
+
+The GATE Developer/Embedded package can be downloaded from
+%(https://gate.ac.uk/download/).

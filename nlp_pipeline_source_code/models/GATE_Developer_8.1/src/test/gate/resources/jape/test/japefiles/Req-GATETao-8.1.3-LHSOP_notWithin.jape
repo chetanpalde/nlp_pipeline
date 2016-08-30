@@ -1,0 +1,7 @@
+Phase: Test
+Options: control = appelt
+
+Rule:OpNotWithin
+({Lookup notWithin TempPerson}):bind 
+--> 
+:bind.SomeAnnotation = {rule="OpNotWithin"}

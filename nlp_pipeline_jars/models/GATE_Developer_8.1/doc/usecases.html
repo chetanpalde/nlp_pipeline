@@ -1,0 +1,571 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <TITLE>GATE 2 usecases</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<H1>
+<A HREF="http://gate.ac.uk/">
+<IMG SRC="gateHeader.gif" ALT="GATE" HEIGHT=76 WIDTH=356 BORDER=0></A></H1>
+
+<H2>Use cases</H2>
+
+<P>
+There are these categories of work on <A HREF=http://gate.ac.uk/sale/>Software
+Architecture for Language Engineering (SALE)</A>:
+
+<OL>
+<LI><B>Processing resources</B>
+  
+<OL>
+<LI><EM>Locating, loading and initialising components from local and non-local
+    machines.</EM>
+</LI>
+<LI><EM>Executing processing components, serially or in parallel.</EM>
+</LI>
+<LI><EM>Representing information about components.</EM>
+</LI>
+<LI><EM>Factoring out commonalities amongst components.</EM>
+  
+</LI>
+</OL>
+</LI>
+<LI><B>Language Resources, corpora and annotation</B>
+  
+<OL>
+<LI><EM>Accessing data components.</EM>
+</LI>
+<LI><EM>Managing collections of documents (including recordings) and their 
+    formats.</EM>
+</LI>
+<LI><EM>Representing information about text and speech.</EM>
+</LI>
+<LI><EM>Representing information about language.</EM>
+</LI>
+<LI><EM>Indexing and retrieving information.</EM>
+  
+</LI>
+</OL>
+</LI>
+<LI><B>Methods and applications</B>
+  
+<OL>
+<LI><EM>Method support</EM>
+      
+<UL>
+<LI><EM>FST, unification and statistics over information.</EM>
+</LI>
+<LI><EM>Comparing different versions of information.</EM>
+      
+</LI>
+</UL>
+</LI>
+<LI><EM>Application issues</EM>
+      
+<UL>
+<LI><EM>Storing information.</EM>
+</LI>
+<LI><EM>Deployment and embedding.</EM>
+      
+</LI>
+</UL>
+</LI>
+<LI><EM>Development issues</EM>
+      
+<UL>
+<LI><EM>Interoperation with other infrastructures.</EM>
+</LI>
+<LI><EM>Viewing and editing data components and information.</EM>
+</LI>
+<LI><EM>UI access to architectural facilities (development environments).</EM>
+      
+</LI>
+</UL>
+</LI>
+</OL>
+</LI>
+</OL>
+
+<P>
+The rest of this page presents use cases for these categories.
+
+
+
+<H2><A NAME="SECTION00041000000000000000"></A><A NAME="sec:gendes"></A><BR>
+General desiderata
+</H2>
+
+<P>
+<P>
+<HR><B>Use case 1</B>: LE research and development
+
+<P>
+<B>Goal</B>: 
+  To support LE R&amp;D workers producing software and performing
+  experiments.
+
+<P>
+<B>Description</B>: 
+  During design, developers use the architectural component of SALE
+  for guidance on the overall shape of the system.
+  During development they use the framework
+  for implementations of the architecture, and of commonly occuring tasks.
+  The development environment is used for convenient ways of
+  exploiting the framework and of accessing common tasks.
+  For deployment the framework is available independently of the development
+  environment and can be embedded in other applications.
+
+<P>
+<HR><B>Use case 2</B>: Documentation, maintenance, and support
+
+<P>
+<B>Goal</B>: 
+  To document, maintain and support the architecture.
+
+<P>
+<B>Description</B>: 
+  Without adequate documentation of its facilities an architecture is next to
+  useless. Without bug fixes and addition of new features to meet changing
+  requirements it will not evolve and fall into disuse. Without occasional 
+  help from experts users will learn more slowly than they could.
+
+<P>
+<HR><B>Use case 3</B>: Localisation and internationalisation
+
+<P>
+<B>Goal</B>: 
+  To allow the use of the architecture in and for different languages.
+
+<P>
+<B>Description</B>: 
+  Users of the architecture need to be able to have menus and at least some of
+  the documentation in a familiar language, and they need to be able to build
+  applications which process and display virtually any human language.
+
+<P>
+<HR><B>Use case 4</B>: Software development good practice
+
+<P>
+<B>Goal</B>: 
+  To promote good software engineering in LE development.
+
+<P>
+<B>Description</B>: 
+  We can derive a number of
+  general desiderata for SALEs on the basis that they are used for software
+  development. In common with other software developers, SALE users need
+  extensibility;
+  interoperability;
+  openness;
+  explicit design documentation in appropriate modelling languages;
+  graphical development environments;
+  usage examples, or patterns.
+
+<P>
+<HR><B>Use case 5</B>: Framework requirements
+
+<P>
+<B>Goal</B>: 
+  To exploit the benefits of the framework.
+
+<P>
+<B>Description</B>: 
+  Some general requirements for frameworks:
+
+<P>
+Orthogonality of elements: a user shouldn't have to learn everything in order
+  to use one thing.
+
+<P>
+Availability of abstractions at different levels of complexity: a user should
+  be able to do something basic in a simple fashion, but also be able to fiddle
+  under the hood in a more complex scenario if necessary.
+
+<HR>
+
+
+<H2><A NAME="SECTION00042000000000000000"></A><A NAME="sec:compuses"></A><BR>
+Components, PRs and LRs
+</H2>
+
+<HR>
+
+<H3><A NAME="SECTION00042100000000000000">
+Locating, loading and initialising components</A>
+</H3>
+
+<P>
+<HR><B>Use case 6</B>: Locate and load components
+
+<P>
+<B>Goal</B>: 
+  To discover components at runtime, load and initialise them.
+
+<P>
+<B>Description</B>: 
+  R&amp;D developers create LR and PR components and reuse those created by others.
+  Experimenters, students and teachers use components provided for them. Systems
+  administrators install components. Applications developers embedd components
+  in their systems. The set of components required in different cases is dynamic
+  and loading should be dynamic as a consequence. The SALE should find all
+  available components given minimal clues (perhaps a list of URLs), load them
+  and initialise them ready for use.
+
+<HR>
+
+<H3><A NAME="SECTION00042200000000000000">
+Executing processing components</A>
+</H3>
+
+
+<HR><B>Use case 7</B>: PR and LR Management
+
+<P>
+<B>Goal</B>: 
+  To allow the building of systems from sets of components.
+
+<P>
+<B>Description</B>: 
+  Developers need to be able to choose a subset of the available components and
+  wire them together to form systems. These configurations should be shareable
+  with other developers.
+
+<P>
+<HR><B>Use case 8</B>: Distributed Processing
+
+<P>
+<B>Goal</B>: 
+  To allow the construction of systems based on components residing on different
+  host computers.
+
+<P>
+<B>Description</B>: 
+  Components developed on one computer platform are seldom easy to move to other
+  platforms. In order to reuse a diverse set of such components they must be
+  made available over the net for distributed processing. Networks are often
+  slow, however, so there must also be the capability to do all processing on
+  one machine if the component set allows.
+
+<P>
+<HR><B>Use case 9</B>: Parallel Processing
+
+<P>
+<B>Goal</B>: 
+  To allow asynchronous execution of processing components.
+
+<P>
+<B>Description</B>: 
+  Certain tasks can be carried out in parallel in some language processing
+  systems. This implies that the execution of PRs should be 
+  multithreaded and means made available for parallel execution.
+
+<HR>
+
+<H3><A NAME="SECTION00042300000000000000">
+Representing information about components.</A>
+</H3>
+
+<P>
+<HR><B>Use case 10</B>: Component metadata
+
+<P>
+<B>Goal</B>: 
+  To allow the association of structured data with LR and PR components.
+
+<P>
+<B>Description</B>: 
+  Components are wired together with executive and task-specific
+  code to form experimental systems or applications. Component metadata helps
+  automate the wiring process, e.g. by describing the I/O contraints of the
+  component. To use components they have to be found: metadata can be used to
+  allow categorisation and description for browsing component sets.
+
+<HR>
+
+<H3><A NAME="SECTION00042400000000000000">
+Factoring out commonalities amongst components.</A>
+</H3>
+
+<P>
+<HR><B>Use case 11</B>: Component commonalities
+
+<P>
+<B>Goal</B>: 
+  To factor out commonalities between related components.
+
+<P>
+<B>Description</B>: 
+  Where there are families of components that share certain characteristics
+  those commonalities should be modelled in the architecture.
+  For example language analyser PRs characteristically take a document as input
+  and add certain annotations to the document. Developers of analysers should be
+  able to extend a part of the model which captures this and other
+  characteristics.
+
+<HR>
+
+<H3><A NAME="SECTION00042500000000000000">
+Accessing data components</A>
+</H3>
+
+<P>
+<HR><B>Use case 12</B>: LR access
+
+<P>
+<B>Goal</B>: 
+  To provide uniform, simple methods for accessing data components.
+
+<P>
+<B>Description</B>: 
+  Just as the execution of PRs should be normalised by a SALE, so access to data
+  components should be done in a uniform and efficient manner.
+
+<HR>
+
+<H3><A NAME="SECTION00042600000000000000">
+Managing collections of documents their formats</A>
+</H3>
+
+<P>
+<HR><B>Use case 13</B>: Corpora (Language Data LRs)
+
+<P>
+<B>Goal</B>: 
+  To manage (possibly very large) collections of documents in an efficient
+  manner.
+
+<P>
+<B>Description</B>: 
+  Documents (texts and audiovisual materials)
+  are grouped into collections which may have data associated
+  with them. Operations which relate to documents should be generalisable
+  to collections of documents.
+
+<P>
+<HR><B>Use case 14</B>: Format-Independent Document Processing
+
+<P>
+<B>Goal</B>: 
+  To allow SALE users to use documents of various formats without
+  knowledge of those formats.
+
+<P>
+<B>Description</B>: 
+  Documents can be processed independent of their formats. For example, an
+  IE system can get to the text in an RTF document or an HTML
+  document without worrying about the structure of these formats.
+  The structure is available for access where needed.
+
+<HR>
+
+<H3><A NAME="SECTION00042700000000000000">
+Representing information about text and speech</A>
+</H3>
+
+<P>
+<HR><B>Use case 15</B>: Annotations on Documents
+
+<P>
+<B>Goal</B>: 
+  To support theory-neutral format-independent annotation of documents.
+
+<P>
+<B>Description</B>: 
+  Many of the data structures produced and consumed by PR components are
+  associated with text. Even NLG components can be viewed as producing data
+  structures that relate to nascent texts that become progressively better
+  specified, culminating in surface strings of words. See also interoperation
+  use case (annotation import/export to/from SGML/XML).
+
+<HR>
+
+<H3><A NAME="SECTION00042800000000000000">
+Representing information about language</A>
+</H3>
+
+<P>
+<HR><B>Use case 16</B>: Data About Language LRs
+
+<P>
+<B>Goal</B>: 
+  To support creation and maintenance of LRs that describe language.
+
+<P>
+<B>Description</B>: 
+  Lexicons, grammars, ontologies, etc. etc. all require support tools for their
+  development, for example for consistency checking, browsing and so on. (Note
+  that this use case is potentially very large, and may fall outside of our
+  scope.) In addition, developers of these types of resource use tools such as
+  concordancers (e.g. KWIC) which should be provided by the development 
+  environment.
+
+<HR>
+
+<H3><A NAME="SECTION00042900000000000000">
+Indexing and retrieving information</A>
+</H3>
+
+<P>
+<HR><B>Use case 17</B>: Indices
+
+<P>
+<B>Goal</B>: 
+  To cater for indexing and retrieval of diverse data structures.
+
+<P>
+<B>Description</B>: 
+  The architecture includes data structures for annotating documents and for
+  associating metadata with components. These data structures need efficient
+  indices to make computation over large data sets tractable.
+
+<HR>
+
+<H2><A NAME="SECTION00043000000000000000"></A><A NAME="sec:methuses"></A><BR>
+Method support
+</H2>
+
+<P>
+
+<P>
+<HR><B>Use case 18</B>: Common algorithms
+
+<P>
+<B>Goal</B>: 
+  To provide a library of well-known algorithms over native data structures.
+
+<P>
+<B>Description</B>: 
+  Although infrastructure should not in general stray into open research fields,
+  where a particular algorithm is well-known it would be advantageous to provide
+  a baseline implementation. For example, finite state transduction over
+  annotation data structures, perhaps unification, ngram models and so on.
+  (This use case is not under the annotation heading because it would be
+  advantageous to generalise its application across other data structures and
+  across text itself in some cases.)
+
+<P>
+
+<P>
+<HR><B>Use case 19</B>: Data comparison
+
+<P>
+<B>Goal</B>: 
+  To provide simple methods for comparing data structures.
+
+<P>
+<B>Description</B>: 
+  Machine learning methods, evaluation methods and introspective methods all
+  need ways of comparing desired results on a particular language processing 
+  task with the results that a set of components has produced. In some cases
+  this is a complex task (e.g. the comparison of MUC templates was found in some
+  circumstances to be NP complete!), but in many cases a simple comparison
+  measure based on identity is useful for a first-cut approximantion of success.
+  This measure can be expressed as precision/recall where appropriate.
+  (This use case is not under the annotation heading because it would be
+  advantageous to generalise its application across other data structures and
+  across text itself in some cases.)
+
+<HR>
+
+<H2><A NAME="SECTION00044000000000000000"></A><A NAME="sec:appluses"></A><BR>
+Application issues
+</H2>
+
+<P>
+
+<P>
+<HR><B>Use case 20</B>: Persistence
+
+<P>
+<B>Goal</B>: 
+  All data structures native to the architecture should be persistent.
+
+<P>
+<B>Description</B>: 
+  The storage of data created automatically
+  by components or manually by editing should be 
+  managed by the framework. This management should be transparent to a large
+  degree, but must also be efficient and therefore should be amenable to
+  tinkering where necessary. Access control may also be provided here.
+
+<P>
+
+<P>
+<HR><B>Use case 21</B>: Deployment
+
+<P>
+<B>Goal</B>: 
+  To allow the use of the framework in diverse contexts.
+
+<P>
+<B>Description</B>: 
+  The framework must be available in many context in order to allow the
+  transfer of experimental and prototype systems from the development environment
+  to external applications and parts of applications. Users must be able to use
+  framework classes as a library, including classes of their own that are
+  derived from the framework classes. They should also be able to build programs
+  based on the framework by supplying their own executive code, and be able to
+  access data resources from other contexts using standard database protocols.
+
+<HR>
+
+<H2><A NAME="SECTION00045000000000000000"></A><A NAME="sec:devuses"></A><BR>
+Development issues
+</H2>
+
+<P>
+
+<P>
+<HR><B>Use case 22</B>: Interoperation and Embedding
+
+<P>
+<B>Goal</B>: 
+  To enable data import from and export to other infrastructures
+  and embedding of components in other environments.
+
+<P>
+<B>Description</B>: 
+  Formats and formalisms for the expression of LRs come in many shapes and
+  sizes. Some of these are dealt with by wrapping those formats in code that
+  talks the language of the SALE framework. Other, widespread formats should be
+  made more generally accessible via import/export filters. The prime case here
+  is SGML/XML.
+
+<P>
+Certain common execution environments should be catered for, such as MS
+  Office, OLE and Netscape Communicator.
+
+<P>
+
+<P>
+<HR><B>Use case 23</B>: Viewing and Editing
+
+<P>
+<B>Goal</B>: 
+  To manipulate LE data structures.
+
+<P>
+<B>Description</B>: 
+  SALEs are used to view and edit the data structures that LE systems
+  process. This applies to both LRs and PRs.
+
+<P>
+
+<P>
+<HR><B>Use case 24</B>: Development UI
+
+<P>
+<B>Goal</B>: 
+  To give access to all the framework and architectural services and support
+  development of LE experiments and applications.
+
+<P>
+<B>Description</B>: 
+  A large part of the story is components, which can be viewed, edited,
+  stored, accessed from the framework API and so on. The final element is a UI
+  for developers that wires all these together and gives top-level access to
+  storage and component management, and execution of PRs.
+
+</BODY>
+</HTML>

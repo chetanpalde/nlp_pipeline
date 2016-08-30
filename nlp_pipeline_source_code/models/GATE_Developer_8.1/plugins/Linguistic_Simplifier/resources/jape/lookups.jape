@@ -1,0 +1,88 @@
+/*
+ * lookups.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original version developed by Mark A. Greenwood as part of his PhD thesis.
+ *
+ * This grammar implements some of the ideas found in:
+ * http://owl.english.purdue.edu/owl/resource/572/1/
+ *
+ * In the examples redundant is <RT></RT> while replace is <RP WITH></RP>
+ */
+
+Phase: ProcessLookups
+Input: Token Lookup
+Options: control = appelt
+
+//Based on 1. Eliminate Unnecessary Determiners and Modifiers
+// <RT>For all intents and purposes</RT>, American industrial productivity <RT>generally</RT> depends on certain factors that are <RT>really</RT> more psychological in kind than of any given technological aspect.
+Rule:DL1
+(
+	{Lookup.majorType == "removable"}	
+):removable
+-->
+    :removable.Redundant = {rule = "DL1"}
+
+
+Rule:RL1
+(
+	{Lookup.majorType == "replaceable"}
+):replace
+-->
+{
+	Annotation lookup = bindings.get("replace").iterator().next();
+		
+	// get the start and end of this section
+	Node start = lookup.getStartNode();
+	Node end = lookup.getEndNode();
+	
+	FeatureMap params = Factory.newFeatureMap();
+	params.put("replacement",lookup.getFeatures().get("minorType"));
+	params.put("rule","RL1");
+	
+	outputAS.add(start,end,"Redundant",params);
+}
+
+Rule:N1
+(
+	{Token.string == "is"}
+	({Token.string == "the"}
+	({Lookup.majorType == "nominalizations"}):lookup
+	{Token.string == "of"}):replace
+)
+-->
+{
+	Annotation lookup = bindings.get("lookup").iterator().next();
+	
+	AnnotationSet replace = bindings.get("replace");
+		
+	// get the start and end of this section
+	Node start = replace.firstNode();
+	Node end = replace.lastNode();
+	
+	try
+	{
+		String noun = doc.getContent().getContent(lookup.getStartNode().getOffset(),lookup.getEndNode().getOffset()).toString().toLowerCase();
+		
+		String verb = ((Map<String,String>)getActionContext().getPRFeatures().get("noun2verb")).get(noun);
+		
+		if (verb != null)
+		{	
+			FeatureMap params = Factory.newFeatureMap();
+			params.put("replacement","to "+verb);
+			params.put("rule","N1");
+		
+			outputAS.add(start,end,"Redundant",params);
+		}
+	}
+	catch (Exception e)
+	{
+		e.printStackTrace();
+	}		
+}

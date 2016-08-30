@@ -1,0 +1,38 @@
+<?xml version="1.0"?>  
+<ML-CONFIG>  
+  <DATASET>  
+  <!-- The type of annotation used as instance -->  
+  <INSTANCE-TYPE>Token</INSTANCE-TYPE>  
+
+  <!-- Both attributes are the same, so the learning is very easy - just learn that LOOKUPS should be LOOKUPS! -->
+  <ATTRIBUTE>  
+    <!-- The name given to the attribute -->  
+    <NAME>Lookup(0)</NAME>  
+    <!-- The type of annotation used as attribute -->  
+    <TYPE>Lookup</TYPE>  
+    <!-- N.B. no feature type because we just want to know if the attribute is present or not -->	
+    <!-- The position relative to the instance annotation -->  
+    <POSITION>0</POSITION>  
+  </ATTRIBUTE>  
+ 
+  <ATTRIBUTE>  
+    <CLASS/>
+    <!-- The name given to the attribute -->  
+    <NAME>Lookup(0)</NAME>  
+    <!-- The type of annotation used as attribute -->  
+    <TYPE>Lookup</TYPE>  
+    <!-- N.B. no feature type because we just want to know if the attribute is present or not -->	
+    <!-- The position relative to the instance annotation -->  
+    <POSITION>0</POSITION>  
+  </ATTRIBUTE>  
+  </DATASET>
+ 
+  <ENGINE>  
+    <WRAPPER>gate.creole.ml.maxent.MaxentWrapper</WRAPPER>  
+    <OPTIONS>  
+     <CUT-OFF>1</CUT-OFF>
+     <CONFIDENCE-THRESHOLD>0.2</CONFIDENCE-THRESHOLD>  
+     <ITERATIONS>5</ITERATIONS>
+    </OPTIONS>  
+  </ENGINE>  
+</ML-CONFIG>

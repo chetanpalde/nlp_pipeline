@@ -1,0 +1,94 @@
+// Person Names with initials and quotes
+Phase: InitialFirst
+Options: control = appelt
+
+//S.A.
+Rule: Initial1
+(
+  ({Token.orth == "allCaps", Token.length == 1}
+  {Token.string == "."})+
+):initial
+-->
+:initial.InitPatt = {kind = "initial", rule = "Initial1"}
+
+// "J..."
+Rule: Initial2
+(
+  {Token.symbol == "dblquote"}
+	 (
+          {Token.orth == "initCap"}
+          |
+          {Token.orth ==  "allCaps"}
+         )+
+  {Token.symbol == "dblquote"}
+  
+):initial
+-->
+:initial.InitFin = {kind = "initial", rule = "Initial2"}
+// ` Abbb Bddd'
+Rule: Initial3
+(
+   {Token.symbol == "lquote"}
+    (
+
+          {Token.orth == "initCap"}
+          |
+          {Token.orth ==  "allCaps"}
+    )+
+   {Token.symbol == "rquote"}
+):initial
+-->
+:initial.InitFin = {kind = "initial", rule = "Initial3"}
+
+//''Aaa Bbb''
+Rule: Initial4
+(
+   {Token.symbol == "lquote"}
+   {Token.symbol == "lquote"}
+    (
+
+          {Token.orth == "initCap"}
+          |
+          {Token.orth ==  "allCaps"}
+    )+
+   {Token.symbol == "lquote"}
+   {Token.symbol == "lquote"}
+):initial
+-->
+:initial.InitFin = {kind = "initial", rule = "Initial4"}
+
+
+
+Rule: Initial5
+(
+   {Token.symbol == "lquote"}
+   {Token.symbol == "lquote"}
+    (
+
+          {Token.orth == "initCap"}
+          |
+          {Token.orth ==  "allCaps"}
+    )+
+   {Token.symbol == "rquote"}
+   {Token.symbol == "rquote"}
+   {Token.symbol == "rquote"}
+   {Token.symbol == "rquote"}
+):initial
+-->
+:initial.InitFin = {kind = "initial", rule = "Initial4"}
+
+
+///Phase that uses Patterni and Patternf 
+
+Phase: InitialSecond
+Options: Control = appelt
+
+
+Rule: Initial7
+
+(
+  {Token, InitPatt.kind == "initial"}
+  {Token, InitFin.kind == "initial"}
+):initial
+-->
+:initial.InitialEnd = {kind = "initial", rule = "Initial7"}

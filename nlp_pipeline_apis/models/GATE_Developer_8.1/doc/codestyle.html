@@ -1,0 +1,408 @@
+<HTML>
+<HEAD>
+  <TITLE>GATE code style</TITLE>
+  <STYLE type="text/css">
+  PRE {font-family: "fixed";}
+  </STYLE>  
+  <LINK rel="stylesheet" type="text/css" href="gate.css"></LINK>
+</HEAD>
+<BODY>
+
+<!-- body ************************************************************ -->
+<BODY>
+
+<!-- header gif ****************************************************** -->
+<P ALIGN="center">
+<A HREF="http://gate.ac.uk/">
+<IMG SRC="gateHeader.gif" ALT="GATE" HEIGHT=76 WIDTH=356 BORDER="0"></A>
+</P>
+
+<!-- top banner ****************************************************** -->
+<DIV CLASS="banner">
+  <P>
+  GATE Code Style
+  </P>
+</DIV>
+
+<!-- ***************************************************************** -->
+<P>
+``A computer language is not just a way of getting a computer to perform
+operations but rather that it is a novel formal medium for expressing ideas
+about methodology. Thus, programs must be written for people to read, and
+only incidentally for machines to execute.''
+<I>The Structure and Interpretation of Computer Programs</I>,
+H. Abelson, G. Sussman and J. Sussman, 1985.
+
+
+<!--------------------------------------------------------------------->
+<A NAME=contents></A><H2>Contents</H2>
+
+<P>
+This page describes the Java and HTML coding styles for GATE (and the
+structure of the source and Web server trees). <B>Note</B> that this style
+applies to the GATE codebase; you don't need to use this style for external
+resources if you don't want to (but it would probably be a good idea if you
+did).
+
+<UL>
+<LI>
+<A HREF="http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html">Code Conventions</A> for the Java Programming Language (from Sun)
+<LI>
+<A HREF=#javacodestyle>Example Java code</A>
+<LI>
+<A HREF=#htmlcodestyle>Example HTML</A>
+<LI>
+<A HREF=#structure>Notes on the structure of the source tree and the Web
+servers</A>
+</UL>
+
+
+<!----------------------------------------------------------------------->
+<A NAME=javacodestyle></A>
+<H2>Java code style</H2>
+
+<P>
+Every bit of Java code in GATE should look like the following example.
+(Note that "like" does NOT mean "sort of kind of fairly similar".)
+
+<P>
+Notes:
+<UL>
+<LI>
+Break lines before 80 characters.
+<LI>
+Use 2-space indents in Java code, and follow the same style as the existing
+codebase.
+<LI>
+Put a CVS ID flag in each file. Start each file with the standard header.
+<LI>
+Make a javadoc comment on every class member, inc. private members.
+<LI>
+Where appropriate (almost always!)
+use the Java collections library for collections.
+</UL>
+
+<P>
+<B>Debugging policy:</B>
+if you want to debug a class using print statements and so on,
+add this member:
+<PRE>
+  /** Are we debugging? */
+  private static final boolean DEBUG = false;
+</PRE>
+then do stuff like
+<PRE>
+  if(DEBUG) {
+    Out.pr("your debug stuff");
+  }
+</PRE>
+Remember to set the variable false before you check in.
+
+
+<P><B>Code example</B> (read this in a fixed-width font).
+
+<PRE>
+/*
+ *  DataStoreRegister.java
+ *
+ *  Copyright (c) 1995-2010, The University of Sheffield. See the file
+ *  COPYRIGHT.txt in the software or at http://gate.ac.uk/gate/COPYRIGHT.txt
+ *
+ *  This file is part of GATE (see http://gate.ac.uk/), and is free
+ *  software, licenced under the GNU Library General Public License,
+ *  Version 2, June 1991 (in the distribution as file licence.html,
+ *  and also available at http://gate.ac.uk/gate/licence.html).
+ *
+ *  Hamish Cunningham, 23/Jan/2001
+ *
+ *  $Id: codestyle.html 12006 2009-12-01 17:24:28Z thomas_heitz $
+ */
+
+package gate;
+
+import java.util.*;
+import java.net.*;
+
+import gate.util.*;
+import gate.persist.*;
+import gate.event.*;
+
+/** 
+ * Records all the open DataStores.
+ */
+public class DataStoreRegister extends HashSet {
+
+  /** 
+   * All the DataStore classes available. This is a map of class name
+   * to descriptive text.
+   */
+  public static Map getDataStoreClassNames() {
+    Map names = new HashMap();
+
+    // no plugability here at present.... at some future point there should
+    // be a capability to add new data store classes via creole.xml metadata
+    // and resource jars
+    names.put(
+      "gate.persist.SerialDataStore",
+      "SerialDataStore: file-based storage using Java serialisation"
+    );
+
+    return names;
+  } // getDataStoreClassNames()
+
+  /**
+   * Adds the specified element to this set if it is not already
+   * present. Overriden here for event registration code.
+   */
+  public boolean add(Object o) {
+    return super.add(o);
+  } // add
+
+  /**
+   * Removes the given element from this set if it is present.
+   * Overriden here for event registration code.
+   */
+  public boolean remove(Object o) {
+    boolean res = super.remove(o);
+    if(res) fireDatastoreClosed(
+      new CreoleEvent((DataStore)o, CreoleEvent.DATASTORE_CLOSED)
+    );
+    return res;
+  } // remove
+
+  /**
+   * Removes all of the elements from this set.
+   * Overriden here for event registration code.
+   */
+  public void clear() {
+    Set datastores = new HashSet(this);
+    super.clear();
+
+    Iterator iter = datastores.iterator();
+    while(iter.hasNext()) {
+      fireDatastoreClosed(
+        new CreoleEvent((DataStore) iter.next(), CreoleEvent.DATASTORE_CLOSED)
+      );
+    } // while
+  }   // clear()
+
+
+  ......
+
+
+} // class DataStoreRegister
+</PRE>
+
+
+<!----------------------------------------------------------------------->
+<A NAME=htmlcodestyle></A>
+<H2>HTML code style</H2>
+
+<P>
+Notes:
+<UL>
+<LI>
+Break lines before 80 characters.
+<LI>
+Use 2-space indents. Indent tables so they're meaningful.
+<LI>
+Put markup on separate lines to make things clearer (e.g. in lists).
+<LI>
+If you use complex HTML you must: explain it in comments; make sure it runs on
+recent Netscape and IE; think about the implications for people who e.g. have
+vision problems and may not be able to get a speech generator to read your page;
+think about how long the page will take to go down a modem link.
+<LI>
+Put a CVS ID flag in each file. Start each file with a header that includes
+meaningful title.
+<LI>
+Always use size tags for images, so that the browser can display the rest of
+the page while waiting for the image to load. (You can use
+<A HREF=../build/wwwis.perl>this script</A>
+to generate size tags.)
+</UL>
+
+<P>(Read this in a fixed-width font).
+
+<PRE>
+&lt;P>
+GATE is a domain-specific software architecure and development environment
+that supports:
+
+&lt;UL>
+&lt;LI>
+researchers in Natural Language Processing and Computational Linguistics
+&lt;LI>
+developers who are producing and delivering
+&lt;A HREF=http://www.dcs.shef.ac.uk/~hamish/thesis/le.html>Language
+Engineering&lt;/A> systems.
+&lt;/UL>
+
+&lt;P>
+The GATE distrubution includes a free
+&lt;A HREF="http://www.dcs.shef.ac.uk/nlp/extraction/">Information
+Extraction&lt;/A> system, which is free for all research purposes.
+
+&lt;P>
+&lt;TABLE BORDER=1>
+  &lt;TR>
+    &lt;TD>
+    &lt;B>Introduction&lt;/B>
+    &lt;BR> 
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=http://www.dcs.shef.ac.uk/~hamish/GateIntro.html>A
+    non-technical introduction&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=architecture.html>Some more technical details&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=publications.html>Links to publications&lt;/A>
+    &lt;/TD>
+  &lt;/TR>
+  &lt;TR>
+    &lt;TD>
+    &lt;B>Download&lt;/B>
+    &lt;BR> 
+    &lt;/TD>
+    &lt;TD>
+    To download, you first need to
+    &lt;A HREF=registration/reg-form.html>register here&lt;/A>,
+    &lt;/TD>
+    &lt;TD>
+    and a password will be emailed to you;
+    &lt;/TD>
+    &lt;TD>
+    then go to &lt;A HREF=software.html>the download page&lt;/A>.
+    &lt;/TD>
+  &lt;/TR>
+  &lt;TR>
+    &lt;TD>
+    &lt;B>Documentation&lt;/B>
+    &lt;BR> 
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=system_docs/gate_docs.html>System manuals&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=news.html>Known bugs&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=tipster.html>The TIPSTER architecture&lt;/A>
+    &lt;/TD>
+  &lt;/TR>
+  &lt;TR>
+    &lt;TD>
+    &lt;B>Misc&lt;/B>
+    &lt;BR> 
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=users.html>Users of GATE&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF=people.html>The people involved&lt;/A>
+    &lt;/TD>
+    &lt;TD>
+    &lt;A HREF="http://www.dcs.shef.ac.uk/nlp/gate/contrib/michael.dorna/">A
+    tutorial in German&lt;/A>
+    &lt;/TD>
+  &lt;/TR>
+&lt;/TABLE>
+
+</PRE>
+
+
+<!----------------------------------------------------------------------->
+<A NAME=structure></A>
+<H2>Notes on the structure of the source tree and web servers</H2>
+
+<P>
+The tree looks like this:
+<PRE>
+gate/build			home of makefiles and scripts, and gate.jar
+
+gate/classes			.class, resource and .tcl files
+
+gate/doc			documentation
+gate/doc/internal		stuff we don't release, e.g. design notes
+gate/doc/javadoc		autogenerated javadoc stuff
+gate/doc/javadoc/internal	javadoc stuff including private members
+
+gate/lib			.jars, .zips and associated licences
+
+gate/misc			misc stuff like example jape grammars
+
+gate/src			the source code
+
+gate/src/gate/resources	resources (NOT CREOLE resources, 
+				Java resources!) which get copied into the
+				classes directory (and gate.jar)
+gate/src/gate/resources/gate.ac.uk
+				resources that get copied to the web servers
+</PRE>
+
+<P>
+Web servers:
+
+<UL>
+<LI>
+<A HREF=http://gate.ac.uk/>http://gate.ac.uk/</A>
+is the production server
+<LI>
+<A HREF=http://redmires/>http://redmires/</A>
+is the linux development server, with lots of Java and tool
+documentation
+</UL>
+
+<P>
+Derwent and gate.ac.uk both serve files used by the test suite, and also any CREOLE metadata or GATE config data that we may want to distribute 
+centrally.  These files are also available in the resources tree. Some
+important files are:
+<PRE>
+creole/creole.xml		a central CREOLE metadata file
+tests/creole.xml		a file for TestCreole tests
+tests/gate.xml			a file for TestConfig tests
+</PRE>
+
+<P>
+These are copied onto the web servers and live in:
+
+<PRE>
+gate/src/gate/resources/gate.ac.uk/creole/creole.xml
+gate/src/gate/resources/gate.ac.uk/tests/creole.xml
+gate/src/gate/resources/gate.ac.uk/tests/gate.xml
+</PRE>
+
+<P>
+Not on the web servers, but in <TT>gate/classes</TT> and <TT>gate.jar</TT>:
+
+<PRE>
+gate/resources/creole/creole.xml
+				CREOLE metadata file for builtins
+gate/resources/gate.xml		central configuration data
+</PRE>
+
+<P>
+Which live in:
+<PRE>
+gate/src/gate/resources/creole/creole.xml
+gate/src/gate/resources/gate.xml
+</PRE>
+
+
+<P>
+The resources tree, the test suite and the web servers all interconnect,
+so that a) we can maintain the server files under CVS and b) we can have the
+test files in <TT>gate/classes</TT> and in <TT>gate.jar</TT>
+so we can run tests even when there is no web server accessible. The CVS
+version of the tests and central CREOLE metadata is all kept in the resources
+tree. Those under <TT>gate/src/gate/resources/gate.ac.uk</TT> are copied into 
+locations on derwent by the nightly build script.
+
+
+<!----------------------------------------------------------------------->
+<!-- $Id: codestyle.html 12006 2009-12-01 17:24:28Z thomas_heitz $ -->
+</BODY>
+</HTML>
+

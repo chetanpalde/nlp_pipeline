@@ -1,0 +1,1709 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+****** This page is generated automatically by plugins-info-to-HTML.pl. ******
+****** Do not edit it manually.  To modify the external plugins list at ******
+****** the bottom of this page edit external-plugins.html and run       ******
+****** "ant plugins.html" from the top-level GATE directory.            ******
+
+-->
+<html>
+
+<head>
+<title>List of plugins available to GATE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="gate.css">
+<style type="text/css">
+	a img {border: none;}
+	th {background-color: #A0D0F0;}
+</style>
+</head>
+<body>
+<center>
+	<a href="http://gate.ac.uk/"><img src="http://www.gate.ac.uk/gateHeader.gif" alt="GATE" height="76" width="356"/></a>
+</center>
+<br/>
+<!-- top banner ****************************************************** -->
+<div class="banner">
+	<p>Plugins for GATE</p>
+</div>
+
+<p>This page lists some of the plugins that are currently available with GATE:</p>
+<ul>
+	<li><a href="#internal-plugins">
+Plugins included in the GATE distribution	</a></li>
+	<li><a href="#external-plugins">
+Other contributed plugins	
+	</a></li>
+</ul>
+
+<p>For more information on how the plugins work, see the online user guide "<a href="http://gate.ac.uk/sale/tao/#sec:howto:plugins">Developing Language Processing Components with GATE</a>".</p>
+<p>To submit a plugin, please contact us via the <a
+href="http://www.gate.ac.uk/mail/index.html">gate-users mailing
+list</a>.</p>
+<hr/>
+<a name='internal-plugins'></a>
+<h2>Plugins included in the GATE distribution</h2>
+<ul type='circle'><li><a href='#AlchemyAPI'>AlchemyAPI</a></li>
+<li><a href='#Alignment'>Alignment</a></li>
+<li><a href='#ANNIE'>ANNIE</a></li>
+<li><a href='#Annotation_Merging'>Annotation_Merging</a></li>
+<li><a href='#Copy_Annots_Between_Docs'>Copy_Annots_Between_Docs</a></li>
+<li><a href='#Coref_Tools'>Coref_Tools</a></li>
+<li><a href='#Crowd_Sourcing'>Crowd_Sourcing</a></li>
+<li><a href='#Developer_Tools'>Developer_Tools</a></li>
+<li><a href='#DocumentNormalizer'>DocumentNormalizer</a></li>
+<li><a href='#Format_CSV'>Format_CSV</a></li>
+<li><a href='#Format_DataSift'>Format_DataSift</a></li>
+<li><a href='#Format_FastInfoset'>Format_FastInfoset</a></li>
+<li><a href='#Format_HTML5Microdata'>Format_HTML5Microdata</a></li>
+<li><a href='#Format_MediaWiki'>Format_MediaWiki</a></li>
+<li><a href='#Format_PubMed'>Format_PubMed</a></li>
+<li><a href='#Gazetteer_LKB'>Gazetteer_LKB</a></li>
+<li><a href='#Gazetteer_Ontology_Based'>Gazetteer_Ontology_Based</a></li>
+<li><a href='#GENIA'>GENIA</a></li>
+<li><a href='#Groovy'>Groovy</a></li>
+<li><a href='#Information_Retrieval'>Information_Retrieval</a></li>
+<li><a href='#Inter_Annotator_Agreement'>Inter_Annotator_Agreement</a></li>
+<li><a href='#JAPE_Plus'>JAPE_Plus</a></li>
+<li><a href='#Keyphrase_Extraction_Algorithm'>Keyphrase_Extraction_Algorithm</a></li>
+<li><a href='#Language_Identification'>Language_Identification</a></li>
+<li><a href='#Lang_Arabic'>Lang_Arabic</a></li>
+<li><a href='#Lang_Bulgarian'>Lang_Bulgarian</a></li>
+<li><a href='#Lang_Cebuano'>Lang_Cebuano</a></li>
+<li><a href='#Lang_Chinese'>Lang_Chinese</a></li>
+<li><a href='#Lang_French'>Lang_French</a></li>
+<li><a href='#Lang_German'>Lang_German</a></li>
+<li><a href='#Lang_Hindi'>Lang_Hindi</a></li>
+<li><a href='#Lang_Romanian'>Lang_Romanian</a></li>
+<li><a href='#Lang_Russian'>Lang_Russian</a></li>
+<li><a href='#Learning'>Learning</a></li>
+<li><a href='#LingPipe'>LingPipe</a></li>
+<li><a href='#Linguistic_Simplifier'>Linguistic_Simplifier</a></li>
+<li><a href='#Machine_Learning'>Machine_Learning</a></li>
+<li><a href='#Ontology'>Ontology</a></li>
+<li><a href='#Ontology_BDM_Computation'>Ontology_BDM_Computation</a></li>
+<li><a href='#Ontology_Tools'>Ontology_Tools</a></li>
+<li><a href='#OpenNLP'>OpenNLP</a></li>
+<li><a href='#Parser_Minipar'>Parser_Minipar</a></li>
+<li><a href='#Parser_RASP'>Parser_RASP</a></li>
+<li><a href='#Parser_SUPPLE'>Parser_SUPPLE</a></li>
+<li><a href='#Schema_Annotation_Editor'>Schema_Annotation_Editor</a></li>
+<li><a href='#Schema_Tools'>Schema_Tools</a></li>
+<li><a href='#Stanford_CoreNLP'>Stanford_CoreNLP</a></li>
+<li><a href='#Stemmer_Snowball'>Stemmer_Snowball</a></li>
+<li><a href='#Tagger_Abner'>Tagger_Abner</a></li>
+<li><a href='#Tagger_Boilerpipe'>Tagger_Boilerpipe</a></li>
+<li><a href='#Tagger_Chemistry'>Tagger_Chemistry</a></li>
+<li><a href='#Tagger_DateNormalizer'>Tagger_DateNormalizer</a></li>
+<li><a href='#Tagger_Framework'>Tagger_Framework</a></li>
+<li><a href='#Tagger_Lupedia'>Tagger_Lupedia</a></li>
+<li><a href='#Tagger_Measurements'>Tagger_Measurements</a></li>
+<li><a href='#Tagger_MetaMap'>Tagger_MetaMap</a></li>
+<li><a href='#Tagger_MutationFinder'>Tagger_MutationFinder</a></li>
+<li><a href='#Tagger_NormaGene'>Tagger_NormaGene</a></li>
+<li><a href='#Tagger_NP_Chunking'>Tagger_NP_Chunking</a></li>
+<li><a href='#Tagger_Numbers'>Tagger_Numbers</a></li>
+<li><a href='#Tagger_OpenCalais'>Tagger_OpenCalais</a></li>
+<li><a href='#Tagger_PennBio'>Tagger_PennBio</a></li>
+<li><a href='#Tagger_TextRazor'>Tagger_TextRazor</a></li>
+<li><a href='#Tagger_Zemanta'>Tagger_Zemanta</a></li>
+<li><a href='#Teamware_Tools'>Teamware_Tools</a></li>
+<li><a href='#TermRaider'>TermRaider</a></li>
+<li><a href='#Text_Categorization'>Text_Categorization</a></li>
+<li><a href='#Tools'>Tools</a></li>
+<li><a href='#Twitter'>Twitter</a></li>
+<li><a href='#UIMA'>UIMA</a></li>
+<li><a href='#Web_Crawler_Websphinx'>Web_Crawler_Websphinx</a></li>
+<li><a href='#WordNet'>WordNet</a></li>
+</ul>
+<table border='1'>
+	<tr>
+		<th colspan='3'><a name='AlchemyAPI'>AlchemyAPI</a></th>
+	</tr>
+	<tr>
+		<td>AlchemyAPI: Entity Extraction&nbsp;</td>
+		<td>Runs the AlchemyAPI Entity Extraction service on a GATE document&nbsp;</td>
+		<td>gate.alchemyAPI.EntityExtraction</td>
+	</tr>
+	<tr>
+		<td>AlchemyAPI: Keyword Extraction&nbsp;</td>
+		<td>Runs the AlchemyAPI Keyword Extraction service on a GATE document&nbsp;</td>
+		<td>gate.alchemyAPI.KeywordExtraction</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Alignment'>Alignment</a></th>
+	</tr>
+	<tr>
+		<td>Compound Document&nbsp;</td>
+		<td>GATE Compound Document. (<a href="http://gate.ac.uk/userguide/sec:alignment:compounddocument">docs</a>)&nbsp;</td>
+		<td>gate.compound.impl.CompoundDocumentImpl</td>
+	</tr>
+	<tr>
+		<td>Compound Document From Xml&nbsp;</td>
+		<td>GATE Compound Document. (<a href="http://gate.ac.uk/userguide/sec:alignment:compounddocument">docs</a>)&nbsp;</td>
+		<td>gate.compound.impl.CompoundDocumentFromXml</td>
+	</tr>
+	<tr>
+		<td>Compound Document Editor&nbsp;</td>
+		<td>Editor for compound documents. (<a href="http://gate.ac.uk/userguide/sec:alignment:compounddoceditor">docs</a>)&nbsp;</td>
+		<td>gate.compound.gui.CompoundDocumentEditor</td>
+	</tr>
+	<tr>
+		<td>GATE Composite document&nbsp;</td>
+		<td>GATE Composite document. (<a href="http://gate.ac.uk/userguide/sec:alignment:compositedoc">docs</a>)&nbsp;</td>
+		<td>gate.composite.impl.CompositeDocumentImpl</td>
+	</tr>
+	<tr>
+		<td>Switch Member PR&nbsp;</td>
+		<td>Sets the focus of a compound document to a specified member document. (<a href="http://gate.ac.uk/userguide/sec:alignment:switchmembers">docs</a>)&nbsp;</td>
+		<td>gate.compound.impl.SwitchMemberPR</td>
+	</tr>
+	<tr>
+		<td>Delete Member PR&nbsp;</td>
+		<td>Deletes one member document from a compound doc. (<a href="http://gate.ac.uk/userguide/sec:alignment:deletemembers">docs</a>)&nbsp;</td>
+		<td>gate.compound.impl.DeleteMemberPR</td>
+	</tr>
+	<tr>
+		<td>Combine Members PR&nbsp;</td>
+		<td>Combines documents in a composite document. (<a href="http://gate.ac.uk/userguide/sec:alignment:compositedoc">docs</a>)&nbsp;</td>
+		<td>gate.composite.impl.CombineMembersPR</td>
+	</tr>
+	<tr>
+		<td>Segment Processing PR&nbsp;</td>
+		<td>Processes individual segments as separate documents (<a href="http://gate.ac.uk/userguide/sec:alignment:segment-processing">docs</a>)&nbsp;</td>
+		<td>gate.composite.impl.SegmentProcessingPR</td>
+	</tr>
+	<tr>
+		<td>ExportAlignmentPR&nbsp;</td>
+		<td>A PR to export alignment information in an xml file.&nbsp;</td>
+		<td>gate.alignment.ExportAlignmentPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='ANNIE'>ANNIE</a></th>
+	</tr>
+	<tr>
+		<td>GATE Unicode Tokeniser&nbsp;</td>
+		<td>A customisable Unicode tokeniser. (<a href="http://gate.ac.uk/userguide/sec:annie:tokeniser">docs</a>)&nbsp;</td>
+		<td>gate.creole.tokeniser.SimpleTokeniser</td>
+	</tr>
+	<tr>
+		<td>ANNIE English Tokeniser&nbsp;</td>
+		<td>A customisable English tokeniser. (<a href="http://gate.ac.uk/userguide/sec:annie:tokeniser">docs</a>)&nbsp;</td>
+		<td>gate.creole.tokeniser.DefaultTokeniser</td>
+	</tr>
+	<tr>
+		<td>ANNIE Gazetteer&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>gate.creole.gazetteer.DefaultGazetteer</td>
+	</tr>
+	<tr>
+		<td>Sharable Gazettee&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>gate.creole.gazetteer.SharedDefaultGazetteer</td>
+	</tr>
+	<tr>
+		<td>Hash Gazetteer&nbsp;</td>
+		<td>A list lookup component implemented by OntoText Lab. The licence information is also available in licence.ontotext.html in the lib folder of GATE (<a href="http://www.ontotext.com/downloads/index.html#gazetteer">docs</a>)&nbsp;</td>
+		<td>com.ontotext.gate.gazetteer.HashGazetteer</td>
+	</tr>
+	<tr>
+		<td>JAPE Transducer&nbsp;</td>
+		<td>A module for executing Jape grammars. (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>gate.creole.Transducer</td>
+	</tr>
+	<tr>
+		<td>ANNIE NE Transducer&nbsp;</td>
+		<td>ANNIE named entity grammar. (<a href="http://gate.ac.uk/userguide/sec:annie:semantic-tagger">docs</a>)&nbsp;</td>
+		<td>gate.creole.ANNIETransducer</td>
+	</tr>
+	<tr>
+		<td>ANNIE Sentence Splitter&nbsp;</td>
+		<td>ANNIE sentence splitter. (<a href="http://gate.ac.uk/userguide/sec:annie:splitter">docs</a>)&nbsp;</td>
+		<td>gate.creole.splitter.SentenceSplitter</td>
+	</tr>
+	<tr>
+		<td>RegEx Sentence Splitter&nbsp;</td>
+		<td>A sentence splitter based on regular expressions. (<a href="http://gate.ac.uk/userguide/sec:annie:regex-splitter">docs</a>)&nbsp;</td>
+		<td>gate.creole.splitter.RegexSentenceSplitter</td>
+	</tr>
+	<tr>
+		<td>ANNIE POS Tagger&nbsp;</td>
+		<td>Mark Hepple's Brill-style POS tagger (<a href="http://gate.ac.uk/userguide/sec:annie:tagger">docs</a>)&nbsp;</td>
+		<td>gate.creole.POSTagger</td>
+	</tr>
+	<tr>
+		<td>ANNIE OrthoMatcher&nbsp;</td>
+		<td>ANNIE orthographical coreference component. (<a href="http://gate.ac.uk/userguide/sec:annie:orthomatcher">docs</a>)&nbsp;</td>
+		<td>gate.creole.orthomatcher.OrthoMatcher</td>
+	</tr>
+	<tr>
+		<td>ANNIE Pronominal Coreferencer&nbsp;</td>
+		<td>Pronominal Coreference resolution component. (<a href="http://gate.ac.uk/userguide/sec:annie:pronom-coref">docs</a>)&nbsp;</td>
+		<td>gate.creole.coref.Coreferencer</td>
+	</tr>
+	<tr>
+		<td>ANNIE Nominal Coreferencer&nbsp;</td>
+		<td>Nominal Coreference resolution component (<a href="http://gate.ac.uk/userguide/sec:annie:pronom-coref">docs</a>)&nbsp;</td>
+		<td>gate.creole.coref.NominalCoref</td>
+	</tr>
+	<tr>
+		<td>Document Reset PR&nbsp;</td>
+		<td>Remove named annotation sets or reset the default annotation set (<a href="http://gate.ac.uk/userguide/sec:misc-creole:reset">docs</a>)&nbsp;</td>
+		<td>gate.creole.annotdelete.AnnotationDeletePR</td>
+	</tr>
+	<tr>
+		<td>Jape Viewer&nbsp;</td>
+		<td>A JAPE grammar file viewer (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>gate.gui.jape.JapeViewer</td>
+	</tr>
+	<tr>
+		<td>Gazetteer Editor&nbsp;</td>
+		<td>Gazetteer viewer and editor. (<a href="http://gate.ac.uk/userguide/sec:gazetteers:anniegazeditor">docs</a>)&nbsp;</td>
+		<td>gate.gui.GazetteerEditor</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Annotation_Merging'>Annotation_Merging</a></th>
+	</tr>
+	<tr>
+		<td>Annotation Merging PR&nbsp;</td>
+		<td>Merge Annotations from different annotators. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:merging">docs</a>)&nbsp;</td>
+		<td>gate.merger.AnnotationMergingMain</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Copy_Annots_Between_Docs'>Copy_Annots_Between_Docs</a></th>
+	</tr>
+	<tr>
+		<td>Copy Anns to Another Doc PR&nbsp;</td>
+		<td>Copy the annotations from one document to another document. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:copyAS2AnoDoc">docs</a>)&nbsp;</td>
+		<td>gate.copyAS2AnoDoc.CopyAS2AnoDocMain</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Coref_Tools'>Coref_Tools</a></th>
+	</tr>
+	<tr>
+		<td>Legacy Coref Data Writer&nbsp;</td>
+		<td>A simple PR that converts co-reference data from the Relations-based model to the legacy format (based on 'matches' annotation and document features).&nbsp;</td>
+		<td>gate.creole.coref.LegacyCorefDataWriter</td>
+	</tr>
+	<tr>
+		<td>OrthoRef&nbsp;</td>
+		<td>An orthographic coreferencer&nbsp;</td>
+		<td>gate.creole.coref.OrthoRef</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Crowd_Sourcing'>Crowd_Sourcing</a></th>
+	</tr>
+	<tr>
+		<td>Entity Classification Job Builder&nbsp;</td>
+		<td>Build a CrowdFlower job asking users to select the right label for entities (<a href="http://gate.ac.uk/userguide/sec:crowd:classification">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.classification.EntityClassificationJobBuilder</td>
+	</tr>
+	<tr>
+		<td>Entity Classification Results Importer&nbsp;</td>
+		<td>Import judgments from a CrowdFlower job created by the Entity Classification Job Builder as GATE annotations. (<a href="http://gate.ac.uk/userguide/sec:crowd:classification:import">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.classification.EntityClassificationResultsImporter</td>
+	</tr>
+	<tr>
+		<td>Majority-vote consensus builder (classification)&nbsp;</td>
+		<td>Process results of a crowd annotation task to find where annotators agree and disagree. (<a href="http://gate.ac.uk/userguide/sec:crowd:classification:adjudication">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.classification.MajorityVoteClassificationConsensus</td>
+	</tr>
+	<tr>
+		<td>Entity Annotation Job Builder&nbsp;</td>
+		<td>Build a CrowdFlower job asking users to annotate entities within a snippet of text (<a href="http://gate.ac.uk/userguide/sec:crowd:annotation">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.ne.EntityAnnotationJobBuilder</td>
+	</tr>
+	<tr>
+		<td>Entity Annotation Results Importer&nbsp;</td>
+		<td>Import judgments from a CrowdFlower job created by the Entity Annotation Job Builder as GATE annotations. (<a href="http://gate.ac.uk/userguide/sec:crowd:annotation:import">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.ne.EntityAnnotationResultsImporter</td>
+	</tr>
+	<tr>
+		<td>Majority-vote consensus builder (annotation)&nbsp;</td>
+		<td>Process results of a crowd annotation task to find where annotators agree and disagree. (<a href="http://gate.ac.uk/userguide/sec:crowd:annotation:adjudication">docs</a>)&nbsp;</td>
+		<td>gate.crowdsource.ne.MajorityVoteAnnotationConsensus</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Developer_Tools'>Developer_Tools</a></th>
+	</tr>
+	<tr>
+		<td>EDT Monitor&nbsp;</td>
+		<td>Warns whenever an AWT component is updated from anywhere other than the event dispatch thread (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.EDTMonitor</td>
+	</tr>
+	<tr>
+		<td>Java Heap Dumper&nbsp;</td>
+		<td>Dumps the Java heap to the specified file (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.HeapDumper</td>
+	</tr>
+	<tr>
+		<td>Log4J Level: ALL&nbsp;</td>
+		<td>Allows the Log4J log level to be set to ALL from within the GUI (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.Log4JALL</td>
+	</tr>
+	<tr>
+		<td>Show/Hide Resources&nbsp;</td>
+		<td>Show resources that would otherwise be hidden, e.g. resources created for internal use by other resources (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.Reveal</td>
+	</tr>
+	<tr>
+		<td>The Duplicator&nbsp;</td>
+		<td>Duplicate any resource with a right click menu option (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.TheDuplicator</td>
+	</tr>
+	<tr>
+		<td>Unload Unused Plugins&nbsp;</td>
+		<td>Unloads all plugins for which we cannot find any loaded instances (<a href="http://gate.ac.uk/userguide/sec:misc-creole:dev-tools">docs</a>)&nbsp;</td>
+		<td>gate.creole.UnusedPluginUnloader</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='DocumentNormalizer'>DocumentNormalizer</a></th>
+	</tr>
+	<tr>
+		<td>Document normalizer&nbsp;</td>
+		<td>Normalize document content to remove "smart quotes" etc. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:doc-normalizer">docs</a>)&nbsp;</td>
+		<td>gate.creole.DocumentNormalizer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_CSV'>Format_CSV</a></th>
+	</tr>
+	<tr>
+		<td>CSV Corpus Populater&nbsp;</td>
+		<td>Populate a corpus from CSV files (<a href="http://gate.ac.uk/userguide/sec:creole:csv">docs</a>)&nbsp;</td>
+		<td>gate.corpora.CSVImporter</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_DataSift'>Format_DataSift</a></th>
+	</tr>
+	<tr>
+		<td>GATE DataSift JSON Document Format&nbsp;</td>
+		<td>Format parser for DataSift JSON files&nbsp;</td>
+		<td>gate.corpora.DataSiftFormat</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_FastInfoset'>Format_FastInfoset</a></th>
+	</tr>
+	<tr>
+		<td>Fast Infoset Document Format&nbsp;</td>
+		<td>Format parser for GATE XML stored in the binary Fast Infoset format (<a href="http://gate.ac.uk/userguide/sec:creole:fastinfoset">docs</a>)&nbsp;</td>
+		<td>gate.corpora.FastInfosetDocumentFormat</td>
+	</tr>
+	<tr>
+		<td>Fast Infoset Exporter&nbsp;</td>
+		<td>Export GATE documents to GATE XML stored in the binary Fast Infoset format (<a href="http://gate.ac.uk/userguide/sec:creole:fastinfoset">docs</a>)&nbsp;</td>
+		<td>gate.corpora.FastInfosetExporter</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_HTML5Microdata'>Format_HTML5Microdata</a></th>
+	</tr>
+	<tr>
+		<td>HTML5 Microdata Exporter&nbsp;</td>
+		<td>Exports Annotations as HTML5 Microdata&nbsp;</td>
+		<td>gate.creole.microdata.MicrodataExporter</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_MediaWiki'>Format_MediaWiki</a></th>
+	</tr>
+	<tr>
+		<td>MediaWiki Document Format&nbsp;</td>
+		<td>Document format for parsing MediaWiki markup (<a href="http://gate.ac.uk/userguide/sec:creole:mediawiki">docs</a>)&nbsp;</td>
+		<td>gate.corpora.MediaWikiDocumentFormat</td>
+	</tr>
+	<tr>
+		<td>MediaWiki Corpus Populater&nbsp;</td>
+		<td>Populate a corpus from a MediaWiki XML dump (<a href="http://gate.ac.uk/userguide/sec:creole:mediawiki">docs</a>)&nbsp;</td>
+		<td>gate.corpora.MediaWikiPopulater</td>
+	</tr>
+	<tr>
+		<td>MediaWiki XML Document Format&nbsp;</td>
+		<td>Deprecated MediaWiki importer&nbsp;</td>
+		<td>gate.corpora.MediaWikiXMLDocumentFormat</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Format_PubMed'>Format_PubMed</a></th>
+	</tr>
+	<tr>
+		<td>GATE .cochrane.txt document format&nbsp;</td>
+		<td><html>Load this to allow the opening of Cochrane text documents, and choose the mime type <strong>"text/x-cochrane"</strong>, or use the correct file extension.&nbsp;</td>
+		<td>gate.corpora.CochraneTextDocumentFormat</td>
+	</tr>
+	<tr>
+		<td>GATE .pubMed.txt document format&nbsp;</td>
+		<td><html>Load this to allow the opening of PubMed text documents, and choose the mime type <strong>"text/x-pubmed"</strong>or use the correct file extension.&nbsp;</td>
+		<td>gate.corpora.PubmedTextDocumentFormat</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Gazetteer_LKB'>Gazetteer_LKB</a></th>
+	</tr>
+	<tr>
+		<td>Large KB Gazetteer&nbsp;</td>
+		<td>KIM KB based alias-lookup commponent (<a href="http://nmwiki.ontotext.com/lkb_gazetteer">docs</a>)&nbsp;</td>
+		<td>com.ontotext.kim.gate.KimGazetteer</td>
+	</tr>
+	<tr>
+		<td>Semantic Enrichment PR&nbsp;</td>
+		<td>The Semantic Enrichment PR allows adding new data to semantic annotations by querying external RDF (Linked Data) repositories. (<a href="http://nmwiki.ontotext.com/lkb_gazetteer/semantic_encrichment_pr.html">docs</a>)&nbsp;</td>
+		<td>com.ontotext.kim.gate.SesameEnrichment</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Gazetteer_Ontology_Based'>Gazetteer_Ontology_Based</a></th>
+	</tr>
+	<tr>
+		<td>Onto Root Gazetteer&nbsp;</td>
+		<td>An ontology lookup component (<a href="http://gate.ac.uk/userguide/sec:gazetteers:ontoRootGaz">docs</a>)&nbsp;</td>
+		<td>gate.clone.ql.OntoRootGaz</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='GENIA'>GENIA</a></th>
+	</tr>
+	<tr>
+		<td>GENIA Sentence Splitter&nbsp;</td>
+		<td>A processing resource that takes document and corpus parameters (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:genia">docs</a>)&nbsp;</td>
+		<td>gate.creole.genia.splitter.GENIASentenceSplitter</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Groovy'>Groovy</a></th>
+	</tr>
+	<tr>
+		<td>Groovy support for GATE&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>gate.groovy.GroovySupport</td>
+	</tr>
+	<tr>
+		<td>Groovy scripting PR&nbsp;</td>
+		<td>Runs a Groovy script as a processing resource (<a href="http://gate.ac.uk/userguide/sec:api:groovy">docs</a>)&nbsp;</td>
+		<td>gate.groovy.ScriptPR</td>
+	</tr>
+	<tr>
+		<td>Scriptable Controller&nbsp;</td>
+		<td>A controller whose execution strategy is controlled by a Groovy script (<a href="http://gate.ac.uk/userguide/sec:api:groovy:controller">docs</a>)&nbsp;</td>
+		<td>gate.groovy.ScriptableController</td>
+	</tr>
+	<tr>
+		<td>Control Script&nbsp;</td>
+		<td>Editor for the Groovy script controlling a scriptable controller&nbsp;</td>
+		<td>gate.groovy.gui.ControllerScriptEditor</td>
+	</tr>
+	<tr>
+		<td>Script Editor&nbsp;</td>
+		<td>Editor for the Groovy script behind this PR&nbsp;</td>
+		<td>gate.groovy.gui.ScriptPREditor</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Information_Retrieval'>Information_Retrieval</a></th>
+	</tr>
+	<tr>
+		<td>SearchPR&nbsp;</td>
+		<td>Provides IR functionality. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:ir">docs</a>)&nbsp;</td>
+		<td>gate.creole.ir.SearchPR</td>
+	</tr>
+	<tr>
+		<td>Search Results&nbsp;</td>
+		<td>Viewer for IR search results&nbsp;</td>
+		<td>gate.gui.SearchPRViewer</td>
+	</tr>
+	<tr>
+		<td>Corpus Indexing Support&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>gate.creole.ir.CorpusIndexingSupport</td>
+	</tr>
+	<tr>
+		<td>Lucene IR Engine&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>gate.creole.ir.lucene.LuceneIREngine</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Inter_Annotator_Agreement'>Inter_Annotator_Agreement</a></th>
+	</tr>
+	<tr>
+		<td>IAA Computation PR&nbsp;</td>
+		<td>Compute inter-annotator agreement (IAA). (<a href="http://gate.ac.uk/userguide/sec:eval:iaaplugin">docs</a>)&nbsp;</td>
+		<td>gate.iaaplugin.IaaMain</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='JAPE_Plus'>JAPE_Plus</a></th>
+	</tr>
+	<tr>
+		<td>JAPE-Plus Viewer&nbsp;</td>
+		<td>A JAPE grammar file viewer (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>gate.gui.jape.plus.Viewer</td>
+	</tr>
+	<tr>
+		<td>JAPE-Plus Transducer&nbsp;</td>
+		<td>An optimised, JAPE-compatible transducer.&nbsp;</td>
+		<td>gate.jape.plus.Transducer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Keyphrase_Extraction_Algorithm'>Keyphrase_Extraction_Algorithm</a></th>
+	</tr>
+	<tr>
+		<td>KEA Keyphrase Extractor&nbsp;</td>
+		<td>A Keyphrase Extractor by Eibe Frank. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:kea">docs</a>)&nbsp;</td>
+		<td>gate.creole.kea.Kea</td>
+	</tr>
+	<tr>
+		<td>KEA Corpus Importer&nbsp;</td>
+		<td>Imports a KEA-style corpus into GATE&nbsp;</td>
+		<td>gate.creole.kea.CorpusImporter</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Language_Identification'>Language_Identification</a></th>
+	</tr>
+	<tr>
+		<td>TextCat Fingerprint Generator&nbsp;</td>
+		<td>Generate language fingerprints for use with the TextCat Language Indentification PR (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-identification:fingerprints">docs</a>)&nbsp;</td>
+		<td>org.knallgrau.utils.textcat.FingerprintGenerator</td>
+	</tr>
+	<tr>
+		<td>TextCat Language Identification&nbsp;</td>
+		<td>Recognizes the document language using TextCat (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-identification">docs</a>)&nbsp;</td>
+		<td>org.knallgrau.utils.textcat.LanguageIdentifier</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Arabic'>Lang_Arabic</a></th>
+	</tr>
+	<tr>
+		<td>Arabic Gazetteer Collector&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>arabic.ArabicGazCollector</td>
+	</tr>
+	<tr>
+		<td>Arabic Gazetteer&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>arabic.ArabicGazetteer</td>
+	</tr>
+	<tr>
+		<td>Arabic IE System&nbsp;</td>
+		<td>Ready-made Arabic IE application&nbsp;</td>
+		<td>arabic.ArabicIE</td>
+	</tr>
+	<tr>
+		<td>Arabic Infered Gazetteer&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>arabic.ArabicInferedGazetteer</td>
+	</tr>
+	<tr>
+		<td>Arabic OrthoMatcher&nbsp;</td>
+		<td>ANNIE orthographical coreference component. (<a href="http://gate.ac.uk/userguide/sec:annie:orthomatcher">docs</a>)&nbsp;</td>
+		<td>arabic.ArabicOrthoMatcher</td>
+	</tr>
+	<tr>
+		<td>Arabic Tokeniser&nbsp;</td>
+		<td>A customisable English tokeniser. (<a href="http://gate.ac.uk/userguide/sec:annie:tokeniser">docs</a>)&nbsp;</td>
+		<td>arabic.ArabicTokeniser</td>
+	</tr>
+	<tr>
+		<td>Arabic Main Grammar&nbsp;</td>
+		<td>A module for executing Jape grammars. (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>arabic.ArabicTransducer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Bulgarian'>Lang_Bulgarian</a></th>
+	</tr>
+	<tr>
+		<td>BulStem&nbsp;</td>
+		<td>This plugin is an implementation of the BulStem stemmer algorithm for Bulgarian developed by Preslav Nakov. (<a href="http://lml.bas.bg/~nakov/bulstem/">docs</a>)&nbsp;</td>
+		<td>gate.bulstem.BulStemPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Cebuano'>Lang_Cebuano</a></th>
+	</tr>
+	<tr>
+		<td>Cebuano POS Tagger&nbsp;</td>
+		<td>Mark Hepple's Brill-style POS tagger, adapted for languages where entries are multiword&nbsp;</td>
+		<td>cebtag.postag.CebuanoPOSTagger</td>
+	</tr>
+	<tr>
+		<td>Cebuano Gazetteer&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>cebuano.CebuanoGazetteer</td>
+	</tr>
+	<tr>
+		<td>Cebuano Gazetteer Tokeniser&nbsp;</td>
+		<td>A list lookup component. (<a href="http://gate.ac.uk/userguide/sec:annie:gazetteer">docs</a>)&nbsp;</td>
+		<td>cebuano.CebuanoGazetteerTokeniser</td>
+	</tr>
+	<tr>
+		<td>Cebuano IE System&nbsp;</td>
+		<td>Ready-made Cebuano IE application&nbsp;</td>
+		<td>cebuano.CebuanoIE</td>
+	</tr>
+	<tr>
+		<td>Cebuano Tokeniser&nbsp;</td>
+		<td>A customisable English tokeniser. (<a href="http://gate.ac.uk/userguide/sec:annie:tokeniser">docs</a>)&nbsp;</td>
+		<td>cebuano.CebuanoTokeniser</td>
+	</tr>
+	<tr>
+		<td>Cebuano Transducer&nbsp;</td>
+		<td>A module for executing Jape grammars. (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>cebuano.CebuanoTransducer</td>
+	</tr>
+	<tr>
+		<td>Cebuano Transducer Postprocessor&nbsp;</td>
+		<td>A module for executing Jape grammars. (<a href="http://gate.ac.uk/userguide/chap:jape">docs</a>)&nbsp;</td>
+		<td>cebuano.CebuanoTransducerPost</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Chinese'>Lang_Chinese</a></th>
+	</tr>
+	<tr>
+		<td>Chinese Segmenter PR&nbsp;</td>
+		<td>Segment the Chinese text into words, based on the PAUM learning algorithm. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:chineseSeg">docs</a>)&nbsp;</td>
+		<td>gate.chineseSeg.ChineseSegMain</td>
+	</tr>
+	<tr>
+		<td>Chinese IE System&nbsp;</td>
+		<td>Ready-made Chinese IE application&nbsp;</td>
+		<td>chinese.ChineseIE</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_French'>Lang_French</a></th>
+	</tr>
+	<tr>
+		<td>French IE System&nbsp;</td>
+		<td>Ready-made French IE application&nbsp;</td>
+		<td>french.FrenchIE</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_German'>Lang_German</a></th>
+	</tr>
+	<tr>
+		<td>German IE System&nbsp;</td>
+		<td>Ready-made German IE application&nbsp;</td>
+		<td>german.GermanIE</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Hindi'>Lang_Hindi</a></th>
+	</tr>
+	<tr>
+		<td>Hindi Tokeniser&nbsp;</td>
+		<td>A customisable Hindi tokeniser.&nbsp;</td>
+		<td>hindi.HindiTokeniser</td>
+	</tr>
+	<tr>
+		<td>Hindi Gazetteer&nbsp;</td>
+		<td>A list lookup component.&nbsp;</td>
+		<td>hindi.HindiGazetteer</td>
+	</tr>
+	<tr>
+		<td>Hindi Splitter&nbsp;</td>
+		<td>A Sentence Splitter.&nbsp;</td>
+		<td>hindi.HindiSplitter</td>
+	</tr>
+	<tr>
+		<td>Hindi Tokeniser Gazetteer&nbsp;</td>
+		<td>A list lookup component.&nbsp;</td>
+		<td>hindi.HindiTokeniserGazetteer</td>
+	</tr>
+	<tr>
+		<td>Hindi Main Grammar&nbsp;</td>
+		<td>A module for executing Jape grammars&nbsp;</td>
+		<td>hindi.HindiTransducer</td>
+	</tr>
+	<tr>
+		<td>Hindi Tokeniser Postprocessor&nbsp;</td>
+		<td>A module for executing Jape grammars&nbsp;</td>
+		<td>hindi.HindiTokeniserPostprocessor</td>
+	</tr>
+	<tr>
+		<td>Hindi OrthoMatcher&nbsp;</td>
+		<td>Hindi Orthomatcher&nbsp;</td>
+		<td>hindi.HindiOrthoMatcher</td>
+	</tr>
+	<tr>
+		<td>Hindi POS Tagger&nbsp;</td>
+		<td>Mark Hepple's Brill-style POS tagger, adapted for languages where entries are multiword&nbsp;</td>
+		<td>cebtag.postag.CebuanoPOSTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Romanian'>Lang_Romanian</a></th>
+	</tr>
+	<tr>
+		<td>Romanian Tokeniser&nbsp;</td>
+		<td>A customisable Romanian tokeniser.&nbsp;</td>
+		<td>romanian.RomanianTokeniser</td>
+	</tr>
+	<tr>
+		<td>Romanian Gazetteer&nbsp;</td>
+		<td>A list lookup component.&nbsp;</td>
+		<td>romanian.RomanianGazetteer</td>
+	</tr>
+	<tr>
+		<td>Romanian Transducer&nbsp;</td>
+		<td>A module for executing Jape grammars&nbsp;</td>
+		<td>romanian.RomanianTransducer</td>
+	</tr>
+	<tr>
+		<td>Romanian IE System&nbsp;</td>
+		<td>Ready-made Romanian IE application&nbsp;</td>
+		<td>romanian.RomanianIE</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Lang_Russian'>Lang_Russian</a></th>
+	</tr>
+	<tr>
+		<td>RussIE&nbsp;</td>
+		<td>Basic version of the RussIE application (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.apps.RussIE</td>
+	</tr>
+	<tr>
+		<td>RussIE + Inflectional Gazetter&nbsp;</td>
+		<td>RussIE application with inflexional gazetteer (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.apps.RussIEInflex</td>
+	</tr>
+	<tr>
+		<td>RussIE + OrthoMatcher&nbsp;</td>
+		<td>RussIE application with orthomatcher (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.apps.RussIEOrtho</td>
+	</tr>
+	<tr>
+		<td>RussIE + Inflectional Gazetteer & OrthoMatcher&nbsp;</td>
+		<td>RussIE application with orthomatcher and inflexional gazetteer (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.apps.RussIEOrthoInflex</td>
+	</tr>
+	<tr>
+		<td>Inflectional gazetteer&nbsp;</td>
+		<td>Gazetteer with support for inflectional morphology (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.gazetteer.InflectionalGazetteer</td>
+	</tr>
+	<tr>
+		<td>Russian Gazetteer&nbsp;</td>
+		<td>Customised version of the hash gazetteer (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.gazetteer.RussGazetteer</td>
+	</tr>
+	<tr>
+		<td>POS Mapper&nbsp;</td>
+		<td>Map complex Russian morphology tags into simpler POS categories (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.morph.POSMapper</td>
+	</tr>
+	<tr>
+		<td>Russian POS Tagger&nbsp;</td>
+		<td>Part-of-speech tagger for Russian (<a href="http://gate.ac.uk/userguide/sec:misc-creole:language-plugins:russian">docs</a>)&nbsp;</td>
+		<td>com.ontotext.russie.morph.POSTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Learning'>Learning</a></th>
+	</tr>
+	<tr>
+		<td>Batch Learning PR&nbsp;</td>
+		<td>Supports training, application and evaluation of machine
+      learning models for NLP tasks (<a href="http://gate.ac.uk/userguide/chap:ml">docs</a>)&nbsp;</td>
+		<td>gate.learning.LearningAPIMain</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='LingPipe'>LingPipe</a></th>
+	</tr>
+	<tr>
+		<td>LingPipe Tokenizer PR&nbsp;</td>
+		<td>Provides a LingPipe tokenizer. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lingpipe:tokenizer">docs</a>)&nbsp;</td>
+		<td>gate.lingpipe.TokenizerPR</td>
+	</tr>
+	<tr>
+		<td>LingPipe NER PR&nbsp;</td>
+		<td>LingPipe Named Entity Recognizer (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lingpipe:ner">docs</a>)&nbsp;</td>
+		<td>gate.lingpipe.NamedEntityRecognizerPR</td>
+	</tr>
+	<tr>
+		<td>LingPipe Language Identifier PR&nbsp;</td>
+		<td>GATE PR for language identification using LingPipe (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lingpipe:langid">docs</a>)&nbsp;</td>
+		<td>gate.lingpipe.LanguageIdentifierPR</td>
+	</tr>
+	<tr>
+		<td>LingPipe POS Tagger PR&nbsp;</td>
+		<td>Provides a LingPipe part of speech tagger. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lingpipe:postagger">docs</a>)&nbsp;</td>
+		<td>gate.lingpipe.POSTaggerPR</td>
+	</tr>
+	<tr>
+		<td>LingPipe Sentence Splitter PR&nbsp;</td>
+		<td>Provides an interface to LingPipe sentence splitter API. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lingpipe:splitter">docs</a>)&nbsp;</td>
+		<td>gate.lingpipe.SentenceSplitterPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Linguistic_Simplifier'>Linguistic_Simplifier</a></th>
+	</tr>
+	<tr>
+		<td>Simplified Text Exporter&nbsp;</td>
+		<td>Simplified text exporter (HTML output)&nbsp;</td>
+		<td>gate.corpora.export.ExportSimplifiedHTML</td>
+	</tr>
+	<tr>
+		<td>Simplified Text Exporter&nbsp;</td>
+		<td>Simplified text exporter (plain text output)&nbsp;</td>
+		<td>gate.corpora.export.ExportSimplifiedText</td>
+	</tr>
+	<tr>
+		<td>Linguistic Simplifier&nbsp;</td>
+		<td>A processing resource that takes document and corpus parameters&nbsp;</td>
+		<td>gate.creole.summarization.linguistic.Simplifier</td>
+	</tr>
+	<tr>
+		<td>Linguistic Simplifier&nbsp;</td>
+		<td>Example application for the linguistic simplifier&nbsp;</td>
+		<td>gate.creole.summarization.linguistic.SimplifierApplication</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Machine_Learning'>Machine_Learning</a></th>
+	</tr>
+	<tr>
+		<td>Machine Learning PR&nbsp;</td>
+		<td>Trains a machine learning algorithm from a corpus. For new code, consider using the "learning" plugin instead. (<a href="http://gate.ac.uk/userguide/sec:ml:machine-learning-pr">docs</a>)&nbsp;</td>
+		<td>gate.creole.ml.MachineLearningPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Ontology'>Ontology</a></th>
+	</tr>
+	<tr>
+		<td>ConnectSesameOntology&nbsp;</td>
+		<td>Connect to a repository containing and ontology (<a href="http://gate.ac.uk/userguide/sec:ontologies:ontoplugin:connect">docs</a>)&nbsp;</td>
+		<td>gate.creole.ontology.impl.sesame.ConnectSesameOntology</td>
+	</tr>
+	<tr>
+		<td>CreateSesameOntology&nbsp;</td>
+		<td>Create a ontology from a Sesame configuration file for a repository (<a href="http://gate.ac.uk/userguide/sec:ontologies:ontoplugin:create">docs</a>)&nbsp;</td>
+		<td>gate.creole.ontology.impl.sesame.CreateSesameOntology</td>
+	</tr>
+	<tr>
+		<td>OWLIM Ontology&nbsp;</td>
+		<td>Ontology created as a temporary OWLIM3 in-memory repository (<a href="http://gate.ac.uk/userguide/sec:ontologies:ontoplugin:owlim">docs</a>)&nbsp;</td>
+		<td>gate.creole.ontology.impl.sesame.OWLIMOntology</td>
+	</tr>
+	<tr>
+		<td>OWLIM Ontology DEPRECATED&nbsp;</td>
+		<td>Ontology created as a temporary OWLIM3 in-memory repository, for backwards compatibility only (<a href="http://gate.ac.uk/userguide/sec:ontologies:ontoplugin:owlim2compat">docs</a>)&nbsp;</td>
+		<td>gate.creole.ontology.owlim.OWLIMOntologyLR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Ontology_BDM_Computation'>Ontology_BDM_Computation</a></th>
+	</tr>
+	<tr>
+		<td>BDM Computation PR&nbsp;</td>
+		<td>Compute BDM score for each  pair of concepts in the given ontology. (<a href="http://gate.ac.uk/userguide/sec:eval:bdmplugin">docs</a>)&nbsp;</td>
+		<td>gate.bdmComp.BDMCompMain</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Ontology_Tools'>Ontology_Tools</a></th>
+	</tr>
+	<tr>
+		<td>OntoGazetteer&nbsp;</td>
+		<td>A list lookup component based on mapping between ontology classes and gazetteer lists. (<a href="http://gate.ac.uk/userguide/sec:gazetteers:ontogaz">docs</a>)&nbsp;</td>
+		<td>gate.creole.gazetteer.OntoGazetteerImpl</td>
+	</tr>
+	<tr>
+		<td>GATE Ontology Editor&nbsp;</td>
+		<td>Ontology editing tool. (<a href="http://gate.ac.uk/userguide/sec:ontologies:vr">docs</a>)&nbsp;</td>
+		<td>gate.gui.ontology.OntologyEditor</td>
+	</tr>
+	<tr>
+		<td>OAT&nbsp;</td>
+		<td>Ontology Annotation Tool. (<a href="http://gate.ac.uk/userguide/sec:ontologies:ocat">docs</a>)&nbsp;</td>
+		<td>gate.creole.ontology.ocat.OntologyViewer</td>
+	</tr>
+	<tr>
+		<td>RAT-C&nbsp;</td>
+		<td>Relation Annotation Tool Class view. (<a href="http://gate.ac.uk/userguide/sec:ontologies:rat">docs</a>)&nbsp;</td>
+		<td>gate.gui.docview.OntologyClassView</td>
+	</tr>
+	<tr>
+		<td>RAT-I&nbsp;</td>
+		<td>Relation Annotation Tool Instance view. (<a href="http://gate.ac.uk/userguide/sec:ontologies:rat">docs</a>)&nbsp;</td>
+		<td>gate.gui.docview.OntologyInstanceView</td>
+	</tr>
+	<tr>
+		<td>GAZE&nbsp;</td>
+		<td>Gazetteer viewer and editor (<a href="http://gate.ac.uk/userguide/sec:gazetteers:onto_gaze">docs</a>)&nbsp;</td>
+		<td>com.ontotext.gate.vr.Gaze</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='OpenNLP'>OpenNLP</a></th>
+	</tr>
+	<tr>
+		<td>OpenNLP NER&nbsp;</td>
+		<td>NER PR using a set of OpenNLP maxent models (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNLPNameFin</td>
+	</tr>
+	<tr>
+		<td>OpenNLP Chunker&nbsp;</td>
+		<td>Chunker using an OpenNLP maxent model (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNlpChunker</td>
+	</tr>
+	<tr>
+		<td>OpenNLP POS Tagger&nbsp;</td>
+		<td>POS Tagger using an OpenNLP maxent model (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNlpPOS</td>
+	</tr>
+	<tr>
+		<td>OpenNLP Parser&nbsp;</td>
+		<td>Syntactic parser from Apache OpenNLP (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNlpParser</td>
+	</tr>
+	<tr>
+		<td>OpenNLP Sentence Splitter&nbsp;</td>
+		<td>Sentence splitter using an OpenNLP maxent model (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNlpSentenceSplit</td>
+	</tr>
+	<tr>
+		<td>OpenNLP Tokenizer&nbsp;</td>
+		<td>Tokenizer using an OpenNLP maxent model (<a href="http://gate.ac.uk/userguide/sec:misc-creole:opennlp">docs</a>)&nbsp;</td>
+		<td>gate.opennlp.OpenNlpTokenizer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Parser_Minipar'>Parser_Minipar</a></th>
+	</tr>
+	<tr>
+		<td>Minipar Wrapper&nbsp;</td>
+		<td>MiniPar is a shallow parser. It determines the dependency relationships between the words of a sentence. (<a href="http://gate.ac.uk/userguide/sec:parsers:minipar">docs</a>)&nbsp;</td>
+		<td>minipar.Minipar</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Parser_RASP'>Parser_RASP</a></th>
+	</tr>
+	<tr>
+		<td>RASP2 Tokenizer&nbsp;</td>
+		<td>
+		RASP2 Tokenizer. Faster than the original GATE component but generates Tokens which have 
+		only a 'string' feature. Requires annotations of type Sentence. See RASP package for 
+		platform restrictions.
+	   (<a href="http://gate.ac.uk/userguide/sec:parsers:rasp">docs</a>)&nbsp;</td>
+		<td>com.digitalpebble.rasp2.token.RASPTokenizer</td>
+	</tr>
+	<tr>
+		<td>RASP POS Converter&nbsp;</td>
+		<td>
+				Converts from PennTreebank POS tags to the C2 tagset used by RASP.
+				Generates annotations of type MorphObj which hold the tag and lemma
+			 (<a href="http://gate.ac.uk/userguide/sec:parsers:rasp">docs</a>)&nbsp;</td>
+		<td>com.digitalpebble.rasp2.tagger.C2Transducer</td>
+	</tr>
+	<tr>
+		<td>RASP2 POS Tagger&nbsp;</td>
+		<td>RASP part-of-speech tagger, creating WordForm annotations (<a href="http://gate.ac.uk/userguide/sec:parsers:rasp">docs</a>)&nbsp;</td>
+		<td>com.digitalpebble.rasp2.tagger.PosTagger</td>
+	</tr>
+	<tr>
+		<td>RASP2 Morphological Analyser&nbsp;</td>
+		<td>
+        RASP morphological analyser, which adds lemma and suffix to the
+        WordForm annotations produced by the RASP POS tagger (or the ANNIE POS
+        tagger plus the RASP converter)
+       (<a href="http://gate.ac.uk/userguide/sec:parsers:rasp">docs</a>)&nbsp;</td>
+		<td>com.digitalpebble.rasp2.morph.MorphoAnnotator</td>
+	</tr>
+	<tr>
+		<td>RASP2 Parser&nbsp;</td>
+		<td>RASP dependency parser (<a href="http://gate.ac.uk/userguide/sec:parsers:rasp">docs</a>)&nbsp;</td>
+		<td>com.digitalpebble.rasp2.parser.ParserAnnotator</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Parser_SUPPLE'>Parser_SUPPLE</a></th>
+	</tr>
+	<tr>
+		<td>SUPPLE Parser&nbsp;</td>
+		<td>SUPPLE bottom-up chart parser. (<a href="http://gate.ac.uk/userguide/sec:parsers:supple">docs</a>)&nbsp;</td>
+		<td>shef.nlp.supple.SUPPLE</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Schema_Annotation_Editor'>Schema_Annotation_Editor</a></th>
+	</tr>
+	<tr>
+		<td>Schema Annotations Editor&nbsp;</td>
+		<td>An annotation editor restricted by schemas. (<a href="http://gate.ac.uk/userguide/sec:corpora:schemas">docs</a>)&nbsp;</td>
+		<td>gate.gui.annedit.SchemaAnnotationEditor</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Schema_Tools'>Schema_Tools</a></th>
+	</tr>
+	<tr>
+		<td>Schema Enforcer&nbsp;</td>
+		<td>Produces an annotation set whose content is restricted by the specified set of schemas (<a href="http://gate.ac.uk/userguide/sec:misc-creole:schemaenforcer">docs</a>)&nbsp;</td>
+		<td>gate.creole.schema.SchemaEnforcer</td>
+	</tr>
+	<tr>
+		<td>Simple Schema Viewer&nbsp;</td>
+		<td>A Simple Annotation Schema Viewer&nbsp;</td>
+		<td>gate.gui.schema.SimpleSchemaViewer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Stanford_CoreNLP'>Stanford_CoreNLP</a></th>
+	</tr>
+	<tr>
+		<td>Stanford NER&nbsp;</td>
+		<td>Stanford Named Entity Recogniser (<a href="http://gate.ac.uk/userguide/sec:misc:creole:stanford">docs</a>)&nbsp;</td>
+		<td>gate.stanford.NER</td>
+	</tr>
+	<tr>
+		<td>StanfordParser&nbsp;</td>
+		<td>Stanford parser wrapper (<a href="http://gate.ac.uk/userguide/sec:parsers:stanford">docs</a>)&nbsp;</td>
+		<td>gate.stanford.Parser</td>
+	</tr>
+	<tr>
+		<td>Stanford POS Tagger&nbsp;</td>
+		<td>Stanford Part-of-Speech Tagger (<a href="http://gate.ac.uk/userguide/sec:misc:creole:stanford">docs</a>)&nbsp;</td>
+		<td>gate.stanford.Tagger</td>
+	</tr>
+	<tr>
+		<td>Stanford PTB Tokenizer&nbsp;</td>
+		<td>Stanford Penn Treebank v3 Tokenizer, for English (<a href="http://gate.ac.uk/userguide/sec:misc:creole:stanford">docs</a>)&nbsp;</td>
+		<td>gate.stanford.Tokenizer</td>
+	</tr>
+	<tr>
+		<td>English Dependency Parser&nbsp;</td>
+		<td>Ready-made application for Stanford English parser&nbsp;</td>
+		<td>gate.stanford.apps.EnglishDependencies</td>
+	</tr>
+	<tr>
+		<td>English POS Tagger and Dependency Parser&nbsp;</td>
+		<td>Ready-made application for Stanford English POS tagger and parser&nbsp;</td>
+		<td>gate.stanford.apps.EnglishPOSDependencies</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Stemmer_Snowball'>Stemmer_Snowball</a></th>
+	</tr>
+	<tr>
+		<td>Stemmer PR&nbsp;</td>
+		<td>Wrapper for the Snowball stemmer. (<a href="http://gate.ac.uk/userguide/sec:parsers:stemmer">docs</a>)&nbsp;</td>
+		<td>stemmer.SnowballStemmer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Abner'>Tagger_Abner</a></th>
+	</tr>
+	<tr>
+		<td>ABNER Tagger&nbsp;</td>
+		<td>GATE wrapper over ABNER (<a href="http://gate.ac.uk/userguide/sec:parsers:abner">docs</a>)&nbsp;</td>
+		<td>gate.abner.AbnerTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Boilerpipe'>Tagger_Boilerpipe</a></th>
+	</tr>
+	<tr>
+		<td>Boilerpipe Content Detection&nbsp;</td>
+		<td>Uses boilerpipe to determine which sections of a document are interesting content and which are just boilerplate (<a href="http://gate.ac.uk/userguide/sec:misc-creole:boilerpipe">docs</a>)&nbsp;</td>
+		<td>gate.creole.boilerpipe.BoilerPipe</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Chemistry'>Tagger_Chemistry</a></th>
+	</tr>
+	<tr>
+		<td>Chemistry Tagger&nbsp;</td>
+		<td>A tagger for chemical names. (<a href="http://gate.ac.uk/userguide/sec:parsers:chemistrytagger">docs</a>)&nbsp;</td>
+		<td>mark.chemistry.Tagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_DateNormalizer'>Tagger_DateNormalizer</a></th>
+	</tr>
+	<tr>
+		<td>Date Annotation Normalizer&nbsp;</td>
+		<td>provides normalized values for all existing date annotations (<a href="http://gate.ac.uk/userguide/sec:misc-creole:datenormalizer">docs</a>)&nbsp;</td>
+		<td>gate.creole.dates.DateAnnotationNormalizer</td>
+	</tr>
+	<tr>
+		<td>Date Normalizer&nbsp;</td>
+		<td>provides normalized values for all known dates (<a href="http://gate.ac.uk/userguide/sec:misc-creole:datenormalizer">docs</a>)&nbsp;</td>
+		<td>gate.creole.dates.DateNormalizer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Framework'>Tagger_Framework</a></th>
+	</tr>
+	<tr>
+		<td>GenericTagger&nbsp;</td>
+		<td>The Generic Tagger is Generic! (<a href="http://gate.ac.uk/userguide/sec:parsers:taggerframework">docs</a>)&nbsp;</td>
+		<td>gate.taggerframework.GenericTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Lupedia'>Tagger_Lupedia</a></th>
+	</tr>
+	<tr>
+		<td>Lupedia Service PR&nbsp;</td>
+		<td>Runs a lupedia annotation service on a GATE document (<a href="http://gate.ac.uk/userguide/sec:misc-creole:lupedia">docs</a>)&nbsp;</td>
+		<td>gate.lupedia.LupediaServicePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Measurements'>Tagger_Measurements</a></th>
+	</tr>
+	<tr>
+		<td>ANNIE+Measurements&nbsp;</td>
+		<td>Ready-made application for ANNIE plus the measurement tagger&nbsp;</td>
+		<td>gate.creole.measurements.ANNIEMeasurements</td>
+	</tr>
+	<tr>
+		<td>Measurements&nbsp;</td>
+		<td>Ready-made application for measurement annotator&nbsp;</td>
+		<td>gate.creole.measurements.MeasurementsApplication</td>
+	</tr>
+	<tr>
+		<td>Measurement Tagger&nbsp;</td>
+		<td>A measurement tagger based upon GNU Units&nbsp;</td>
+		<td>gate.creole.measurements.MeasurementsTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_MetaMap'>Tagger_MetaMap</a></th>
+	</tr>
+	<tr>
+		<td>MetaMap Annotator&nbsp;</td>
+		<td>This plugin uses the MetaMap Java API to send GATE document content to MetaMap skrmedpostctl server and PrologBeans mmserver instances running on the given machine/port (<a href="http://gate.ac.uk/userguide/sec:misc-creole:metamap">docs</a>)&nbsp;</td>
+		<td>gate.metamap.MetaMapPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_MutationFinder'>Tagger_MutationFinder</a></th>
+	</tr>
+	<tr>
+		<td>MutationFinder&nbsp;</td>
+		<td>GATE MutationFinder Wrapper (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:mutationfinder">docs</a>)&nbsp;</td>
+		<td>gate.creole.mutationfinder.MutationFinderPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_NormaGene'>Tagger_NormaGene</a></th>
+	</tr>
+	<tr>
+		<td>NormaGene Tagger&nbsp;</td>
+		<td>A processing resource that takes document and corpus parameters&nbsp;</td>
+		<td>gate.creole.normagene.NormaGene</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_NP_Chunking'>Tagger_NP_Chunking</a></th>
+	</tr>
+	<tr>
+		<td>Noun Phrase Chunker&nbsp;</td>
+		<td>Implementation of the Ramshaw and Marcus base noun phrase chunker (<a href="http://gate.ac.uk/userguide/sec:parsers:npchunker">docs</a>)&nbsp;</td>
+		<td>mark.chunking.GATEWrapper</td>
+	</tr>
+	<tr>
+		<td>Noun Phrase Chunker&nbsp;</td>
+		<td>Ready-made NP chunking application&nbsp;</td>
+		<td>mark.chunking.ChunkingApp</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Numbers'>Tagger_Numbers</a></th>
+	</tr>
+	<tr>
+		<td>Numbers Tagger&nbsp;</td>
+		<td>Finds numbers in (both words and digits) and annotates them with their numeric value (<a href="http://gate.ac.uk/userguide/sec:misc-creole:numbers:numbers">docs</a>)&nbsp;</td>
+		<td>gate.creole.numbers.NumbersTagger</td>
+	</tr>
+	<tr>
+		<td>Roman Numerals Tagger&nbsp;</td>
+		<td>Finds and annotates Roman numerals (<a href="http://gate.ac.uk/userguide/sec:misc-creole:numbers:roman">docs</a>)&nbsp;</td>
+		<td>gate.creole.numbers.RomanNumeralsTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_OpenCalais'>Tagger_OpenCalais</a></th>
+	</tr>
+	<tr>
+		<td>OpenCalais Tagger&nbsp;</td>
+		<td>An OpenCalais based semantic annotator (<a href="http://gate.ac.uk/userguide/sec:misc-creole:OpenCalais">docs</a>)&nbsp;</td>
+		<td>gate.opencalais.OpenCalais</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_PennBio'>Tagger_PennBio</a></th>
+	</tr>
+	<tr>
+		<td>Penn BioTagger&nbsp;</td>
+		<td>Ready-made application for the Penn BioTagger&nbsp;</td>
+		<td>gate.creole.pennbio.BioTagger</td>
+	</tr>
+	<tr>
+		<td>Penn BioTagger: Genes&nbsp;</td>
+		<td>Penn BioTagger for Genes (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:pennbio">docs</a>)&nbsp;</td>
+		<td>gate.creole.pennbio.GeneTagger</td>
+	</tr>
+	<tr>
+		<td>Penn BioTagger: Malignancy&nbsp;</td>
+		<td>Penn BioTagger for malignancy types (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:pennbio">docs</a>)&nbsp;</td>
+		<td>gate.creole.pennbio.MalignancyTagger</td>
+	</tr>
+	<tr>
+		<td>Penn BioTokenizer&nbsp;</td>
+		<td>Tokenizer for biomedical text (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:pennbio">docs</a>)&nbsp;</td>
+		<td>gate.creole.pennbio.Tokenizer</td>
+	</tr>
+	<tr>
+		<td>Penn BioTagger: Variation&nbsp;</td>
+		<td>Penn BioTagger for variations (<a href="http://gate.ac.uk/userguide/sec:domain-creole:biomed:pennbio">docs</a>)&nbsp;</td>
+		<td>gate.creole.pennbio.VariationTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_TextRazor'>Tagger_TextRazor</a></th>
+	</tr>
+	<tr>
+		<td>TextRazor Service PR&nbsp;</td>
+		<td>Runs the TextRazor annotation service (http://textrazor.com) on a GATE document (<a href="http://gate.ac.uk/userguide/sec:misc-creole:textrazor">docs</a>)&nbsp;</td>
+		<td>gate.textrazor.TextRazorServicePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tagger_Zemanta'>Tagger_Zemanta</a></th>
+	</tr>
+	<tr>
+		<td>Zemanta Service PR&nbsp;</td>
+		<td>Runs a zemanta annotation service on a GATE document (<a href="http://gate.ac.uk/userguide/sec:misc-creole:zemanta">docs</a>)&nbsp;</td>
+		<td>gate.zemanta.ZemantaServicePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Teamware_Tools'>Teamware_Tools</a></th>
+	</tr>
+	<tr>
+		<td>QA Summariser for Teamware&nbsp;</td>
+		<td>The Quality Assurance PR for teamware (<a href="http://gate.ac.uk/userguide/sec:eval:qaForTW">docs</a>)&nbsp;</td>
+		<td>gate.qa.QAForTeamwarePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='TermRaider'>TermRaider</a></th>
+	</tr>
+	<tr>
+		<td>PMI Example (English)&nbsp;</td>
+		<td>Example application for the PMI (pointwise mutual information) tool&nbsp;</td>
+		<td>gate.termraider.PMIExample</td>
+	</tr>
+	<tr>
+		<td>TermRaider English Term Extraction&nbsp;</td>
+		<td>Example application showing typical set-up for the TermRaider tools&nbsp;</td>
+		<td>gate.termraider.TermRaiderEnglish</td>
+	</tr>
+	<tr>
+		<td>Termbank Score Copier&nbsp;</td>
+		<td>Copy scores from Termbanks back to their source annotations (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:copier">docs</a>)&nbsp;</td>
+		<td>gate.termraider.apply.TermScoreCopier</td>
+	</tr>
+	<tr>
+		<td>AnnotationTermbank&nbsp;</td>
+		<td>TermRaider Termbank derived from document annotations (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:annotation">docs</a>)&nbsp;</td>
+		<td>gate.termraider.bank.AnnotationTermbank</td>
+	</tr>
+	<tr>
+		<td>DocumentFrequencyBank&nbsp;</td>
+		<td>Document frequency counter derived from corpora and other DFBs (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:docfrequency">docs</a>)&nbsp;</td>
+		<td>gate.termraider.bank.DocumentFrequencyBank</td>
+	</tr>
+	<tr>
+		<td>HyponymyTermbank&nbsp;</td>
+		<td>TermRaider Termbank derived from head/string hyponymy (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:hyponymy">docs</a>)&nbsp;</td>
+		<td>gate.termraider.bank.HyponymyTermbank</td>
+	</tr>
+	<tr>
+		<td>PMI Bank&nbsp;</td>
+		<td>Pointwise Mutual Information from corpora (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:pmi">docs</a>)&nbsp;</td>
+		<td>gate.termraider.bank.PMIBank</td>
+	</tr>
+	<tr>
+		<td>TfIdfTermbank&nbsp;</td>
+		<td>TermRaider Termbank derived from vectors in document features (<a href="http://gate.ac.uk/userguide/sec:creole:termraider:tfidf">docs</a>)&nbsp;</td>
+		<td>gate.termraider.bank.TfIdfTermbank</td>
+	</tr>
+	<tr>
+		<td>Pairbank Viewer&nbsp;</td>
+		<td>viewer for the TermRaider Pairbank (<a href="http://gate.ac.uk/userguide/sec:creole:termraider">docs</a>)&nbsp;</td>
+		<td>gate.termraider.gui.PairbankViewer</td>
+	</tr>
+	<tr>
+		<td>Termbank Viewer&nbsp;</td>
+		<td>viewer for the TermRaider Termbank (<a href="http://gate.ac.uk/userguide/sec:creole:termraider">docs</a>)&nbsp;</td>
+		<td>gate.termraider.gui.TermbankViewer</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Text_Categorization'>Text_Categorization</a></th>
+	</tr>
+	<tr>
+		<td>TextCategorizationPR&nbsp;</td>
+		<td>A processing resource that takes document and corpus parameters&nbsp;</td>
+		<td>gate.ml.categorization.TextCategorizationPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Tools'>Tools</a></th>
+	</tr>
+	<tr>
+		<td>Gazetteer List Collector&nbsp;</td>
+		<td>Gazetteer lists collector. (<a href="http://gate.ac.uk/userguide/sec:gazetteers:listscollector">docs</a>)&nbsp;</td>
+		<td>gate.creole.GazetteerListsCollector</td>
+	</tr>
+	<tr>
+		<td>ANNIE VP Chunker&nbsp;</td>
+		<td>ANNIE VP Chunker component. (<a href="http://gate.ac.uk/userguide/sec:parsers:vgchunker">docs</a>)&nbsp;</td>
+		<td>gate.creole.VPChunker</td>
+	</tr>
+	<tr>
+		<td>Annotation Set Transfer&nbsp;</td>
+		<td>Annotation set transfer component. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:ast">docs</a>)&nbsp;</td>
+		<td>gate.creole.annotransfer.AnnotationSetTransfer</td>
+	</tr>
+	<tr>
+		<td>Flexible Exporter&nbsp;</td>
+		<td>Exports a document with GATE annotations to its original format. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:flexexport">docs</a>)&nbsp;</td>
+		<td>gate.creole.dumpingPR.DumpingPR</td>
+	</tr>
+	<tr>
+		<td>GATE Morphological analyser&nbsp;</td>
+		<td>Morphological Analyzer for the English Language. (<a href="http://gate.ac.uk/userguide/sec:parsers:morpher">docs</a>)&nbsp;</td>
+		<td>gate.creole.morph.Morph</td>
+	</tr>
+	<tr>
+		<td>Flexible Gazetteer&nbsp;</td>
+		<td>A more flexible list lookup component. (<a href="http://gate.ac.uk/userguide/sec:gazetteers:flexgazetteer">docs</a>)&nbsp;</td>
+		<td>gate.creole.gazetteer.FlexibleGazetteer</td>
+	</tr>
+	<tr>
+		<td>Syntax tree viewer&nbsp;</td>
+		<td>Viewer for syntax trees generated by a parser. (<a href="http://gate.ac.uk/userguide/sec:parsers:supple:treeviewer">docs</a>)&nbsp;</td>
+		<td>gate.gui.SyntaxTreeViewer</td>
+	</tr>
+	<tr>
+		<td>Configurable Exporter&nbsp;</td>
+		<td>Allows annotations to be exported according to a specified format.&nbsp;</td>
+		<td>gate.configurableexporter.ConfigurableExporter</td>
+	</tr>
+	<tr>
+		<td>Quality Assurance PR&nbsp;</td>
+		<td>The Quality Assurance PR provides a functionality of the Corpus QA Tool in GATE Developer&nbsp;</td>
+		<td>gate.qa.QualityAssurancePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Twitter'>Twitter</a></th>
+	</tr>
+	<tr>
+		<td>GATE JSON Tweet Document Format&nbsp;</td>
+		<td>Format parser for Twitter JSON files (<a href="http://gate.ac.uk/userguide/sec:social:twitter:format">docs</a>)&nbsp;</td>
+		<td>gate.corpora.JSONTweetFormat</td>
+	</tr>
+	<tr>
+		<td>GATE JSON Exporter&nbsp;</td>
+		<td>Export documents and corpora in JSON format&nbsp;</td>
+		<td>gate.corpora.export.GATEJsonExporter</td>
+	</tr>
+	<tr>
+		<td>Twitter Corpus Populator&nbsp;</td>
+		<td>Populate a corpus from Twitter JSON containing multiple Tweets (<a href="http://gate.ac.uk/userguide/sec:social:twitter:format">docs</a>)&nbsp;</td>
+		<td>gate.corpora.twitter.Population</td>
+	</tr>
+	<tr>
+		<td>Hashtag Tokenizer&nbsp;</td>
+		<td>Tokenizes Multi-Word Hashtags (<a href="http://gate.ac.uk/userguide/sec:social:twitter:hashtag">docs</a>)&nbsp;</td>
+		<td>gate.twitter.HashtagTokenizer</td>
+	</tr>
+	<tr>
+		<td>Tweet Normaliser&nbsp;</td>
+		<td>Normalise texts in tweets (convert into standard English spelling mistakes, colloquialisms, typing variations and so on) (<a href="http://gate.ac.uk/userguide/sec:social:twitter:prs">docs</a>)&nbsp;</td>
+		<td>gate.twitter.Normaliser</td>
+	</tr>
+	<tr>
+		<td>TwitIE (EN)&nbsp;</td>
+		<td>English TwitIE application&nbsp;</td>
+		<td>gate.twitter.apps.TwitIEEN</td>
+	</tr>
+	<tr>
+		<td>Twitter POS Tagger (EN)&nbsp;</td>
+		<td>Stanford POS tagger trained on Tweets (<a href="http://gate.ac.uk/userguide/sec:social:twitter:prs">docs</a>)&nbsp;</td>
+		<td>gate.twitter.pos.POSTaggerEN</td>
+	</tr>
+	<tr>
+		<td>Twitter Tokenizer (EN)&nbsp;</td>
+		<td>Tokenizer tuned for Tweets (<a href="http://gate.ac.uk/userguide/sec:social:twitter:prs">docs</a>)&nbsp;</td>
+		<td>gate.twitter.tokenizer.TokenizerEN</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='UIMA'>UIMA</a></th>
+	</tr>
+	<tr>
+		<td>UIMA Analysis Engine&nbsp;</td>
+		<td>Wrapper for a Text Analysis Engine from UIMA. (<a href="http://gate.ac.uk/userguide/chap:uima">docs</a>)&nbsp;</td>
+		<td>gate.uima.AnalysisEnginePR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='Web_Crawler_Websphinx'>Web_Crawler_Websphinx</a></th>
+	</tr>
+	<tr>
+		<td>Crawler PR&nbsp;</td>
+		<td>GATE implementation of the Websphinx crawling API (<a href="http://gate.ac.uk/userguide/sec:misc-creole:crawler">docs</a>)&nbsp;</td>
+		<td>crawl.CrawlPR</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name='WordNet'>WordNet</a></th>
+	</tr>
+	<tr>
+		<td>WordNet 1.6&nbsp;</td>
+		<td>Princeton WordNet 1.6. (<a href="http://gate.ac.uk/userguide/sec:misc-creole:wn">docs</a>)&nbsp;</td>
+		<td>gate.wordnet.IndexFileWordNetImpl</td>
+	</tr>
+	<tr>
+		<td>WordNet&nbsp;</td>
+		<td>WordNet (<a href="http://gate.ac.uk/userguide/sec:misc-creole:wn">docs</a>)&nbsp;</td>
+		<td>gate.wordnet.JWNLWordNetImpl</td>
+	</tr>
+	<tr>
+		<td>WordNet Viewer&nbsp;</td>
+		<td>WordNet viewer&nbsp;</td>
+		<td>gate.gui.wordnet.WordNetViewer</td>
+	</tr>
+</table>
+<hr/>
+<a name='external-plugins'></a>
+<h2>Other contributed plugins</h2>
+<ul type='circle'>
+	<li><a href='#OrganismTagger'>OrganismTagger</a></li>	
+	<li><a href='#munpex'>Multi-lingual Noun Phrase Extractor (MuNPEx)</a></li>
+	<li><a href='#durm'>Durm German lemmatizer</a></li> 
+	<li><a href='#S4'>S4 Annotator</a></li>	
+	<li><a href='#anc'>XCES tools</a></li>
+	<li><a href='#sen'><i>Sen</i> wrapper (Japanese morphological analyser)</a></li>
+	<li><a href='#russianprs'>Russian morph tagger</a></li>
+	<li><a href='#stringannotation'>String Annotation</a></li>
+	<li><a href='#appdoc'>GATE Application Documentation</a></li>
+	<li><a href='#virtualcorpus'>VirtualCorpus - Directory- and JDBC Corpus LR</a></li>
+	<li><a href='#bwp'>BWP Gazetteer</a></li>
+	<li><a href='#apolda'>Apolda</a></li>
+	<li><a href='#reportedspeech'>Reported Speech Tagger</a></li>
+	<li><a href='#keyphrase'>Keyphrase extraction module from SmILE</a></li>
+</ul>
+
+<table border='1'>
+	<tr>
+		<th colspan='3'><a name="munpex"></a>OrganismTagger<br/><a
+                href="http://www.semanticsoftware.info/organism-tagger">website</a> <a
+                href="http://www.semanticsoftware.info/organism-tagger#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>OrganismTagger</td>
+		<td>The OrganismTagger is a hybrid rule-based/machine-learning system that extracts organism
+		mentions from the biomedical literature, normalizes them to their scientific name, and provides
+		grounding to the NCBI Taxonomy database.
+		<td>&nbsp;</td>
+	</tr>
+
+
+	<tr>
+		<th colspan='3'><a name="munpex"></a>Multi-lingual Noun Phrase Extractor (MuNPEx)<br/><a
+                href="http://www.semanticsoftware.info/munpex">website</a> <a
+                href="http://www.semanticsoftware.info/munpex#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>Munpex</td>
+		<td>MuNPEx is a multi-lingual noun phrase (NP) extraction component developed for the GATE
+                architecture, implemented in JAPE. It currently supports English, German, French, and
+                Spanish (in beta).</td>
+		<td>en-np_main.jape</td>
+	</tr>
+<tr>
+		<th colspan='3'><a name="durm"></a>Durm German lemmatizer<br/><a
+                href="http://www.semanticsoftware.info/durm-german-lemmatizer">website</a> <a
+                href="http://www.semanticsoftware.info/durm-german-lemmatizer#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>Durm German lemmatizer</td>
+		<td>The Durm German Lemmatization System consists of a number of GATE components and resources that perform morphological analysis and lemmatization for German nouns.
+</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<th colspan='3'><a name="S4"></a>GATE Plugin for <a href="https://console.s4.ontotext.com">S4</a><br/><a
+                href="http://docs.s4.ontotext.com/display/S4docs/GATE+Plugin+for+S4">website</a> (download via the <a href="http://docs.s4.ontotext.com/display/S4docs/GATE+Plugin+for+S4#GATEPluginforS4-DownloadingviatheCREOLEPluginManager">update site</a>)</th>
+	</tr>
+	<tr>
+		<td>S4 Annotator</td>
+                <td>Provides access to the text analytics services of
+                Ontotext's Self Service Semantic Suite (S4) directly from the
+                GATE platform, via their RESTful APIs.  The PR can be
+                integrated in any GATE processing pipeline regardless of the
+                context and it does not have any requirements or assumptions
+                about the type of pre-processing or post-processing of the
+                textual data being annotated.</td>
+		<td>com.ontotext.s4.api.S4Plugin</td>
+	</tr>
+
+	<tr>
+		<th colspan='3'><a name="anc"></a>XCES tools<br/><a href="http://americannationalcorpus.org/tools/index.html#gate-tools">website</a> <a href="http://americannationalcorpus.org/tools/ANC.zip">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>Tools to handle documents conforming to the XML Corpus Encoding Standard (XCES) format, used by the American National Corpus. XCES is a way of encoding texts with standoff markup in XML.</i></center></td></tr>
+	<tr>
+		<td>ANC Document</td>
+		<td>An XCES document. Allows loading of the document text, plus some or all of the sets of standoff markup associated with the document.</td>
+		<td>org.xces.gate.XCESDocument</td>
+	</tr>
+	<tr>
+		<td>ANC Load Standoff</td>
+		<td>Loads standoff annotations into an existing document.</td>
+		<td>org.xces.creole.LoadStandoff</td>
+	</tr>
+	<tr>
+		<td>ANC Save Content</td>
+		<td>Saves just the text content of a document to a file. This will work for any document - it is not specific to ANC/XCES documents.</td>
+		<td>org.xces.creole.SaveContent</td>
+	</tr>
+	<tr>
+		<td>ANC Save Standoff</td>
+		<td>Saves annotations from a Document to an XCES-compliant standoff markup file.</td>
+		<td>org.xces.creole.SaveStandoff</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="sen"></a><i>Sen</i> wrapper (Japanese morphological analyser)<br/><a href="http://gate.ac.uk/sale/gateplugins/SenWrapper/">website (in Japanese)</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i><a href="http://ultimania.org/sen/">Sen</a> is a morphological analyser for Japanese.  This is a wrapper to allow it to be used from GATE, you must also install sen itself.  See the <a href="http://gate.ac.uk/sale/gateplugins/SenWrapper/">documentation</a> (in Japanese) for details.</i></center></td></tr>
+	<tr>
+		<td>Sen Wrapper</td>
+		<td>Morphological analyser for Japanese</td>
+		<td>jp.co.ditlab.jgate.SenWrapper</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="russianprs"></a>Russian morph tagger<br/><a
+                href="http://code.google.com/p/mystem-morphtagger/">website</a> <a
+                href="http://mystem-morphtagger.googlecode.com/files/ru-morph-tagger-0.1.zip">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>Provides GATE wrapper for mystem russian morphological parser.
+        Allows to execute native analyzer, parse output, and assign morpho features as GATE annotations
+        for the document.</i></center></td></tr>
+	<tr>
+		<td>Russian MorphTagger</td>
+		<td>MorphTagger for russian language, based on MyStem Yandex' parser</td>
+		<td>ru.itbrains.gate.morph.MorphTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="stringannotation"></a>String Annotation Plugin<br/>
+		<a href="http://www.ofai.at/~johann.petrak/GATE/StringAnnotation.html">website</a>
+		<a href="http://code.google.com/p/gateplugin-stringannotation/downloads/list">download</a>
+		</th>
+	</tr>
+	<tr><td colspan='3'><center><i>Processing resources for directly annotating the string content of a document.</i></center></td></tr>
+	<tr>
+		<td>Extended List Gazetteer</td>
+		<td>Extended version of the GATE Default List Gazetteer. In addition to the features of the original, built-in version of the List Gazetteer, this version provides features for more powerful matching of partial words and annotating prefixes and suffixes as well as more versatile handling of word boundaries and whitespace.</td>
+		<td>at.ofai.gate.extendedgazetteer.ExtendedGazetteer</td>
+	</tr>
+	<tr>
+		<td>Simple Regexp Annotator</td>
+		<td>Use rules based on Java regular expressions to annotate the document content.</td>
+		<td>at.ofai.gate.regexpannotator.SimpleRegexpAnnotator</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="appdoc"></a>AppDoc &mdash; GATE Application Documentation<br/>
+		  <a href="http://www.ofai.at/~johann.petrak/GATE/AppDoc.html">website</a>
+                 <a href="http://code.google.com/p/gateplugin-appdoc/downloads/list">download</a>
+               </th>
+	</tr>
+	<tr><td colspan='3'><center><i>A plugin that generations documentation from your application/pipeline/gapp files in various formats. In addition it provides new visual resources in the GATE Developer GUI to add author, version and documentation comments to pipelines and processing resources.</i></center></td></tr>
+	<tr>
+		<td>AppDoc</td>
+		<td>Visual resource for adding author/version/comment to pipelines and processing resources</td>
+		<td>at.ofai.gate.appdoc.AppDoc</td>
+	</tr>
+	<tr>
+		<td>AppDocGen</td>
+		<td>Visual resource for selecting a documentation template and generating documentation files</td>
+		<td>at.ofai.gate.appdoc.AppDocGen</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="virtualcorpus"></a>VirtualCorpus &mdash; Directory- and JDBC Corpus LRs<br/>
+		  <a href="http://www.ofai.at/~johann.petrak/GATE/VirtualCorpus.html">website</a>
+                 <a href="http://code.google.com/p/gateplugin-virtualcorpus/downloads/list">download</a>
+               </th>
+	</tr>
+	<tr><td colspan='3'><center><i>A plugin that provides two new corpus language resources, DirectoryCorpus for directly using files in a directory through a corpus LR and JDBCCorpus for directly using documents stored in a field of a JDBC database table.</i></center></td></tr>
+	<tr>
+		<td>DirectoryCorpus</td>
+		<td>Language resource for accessing GATE XML files in a directory directly via a corpus resource</td>
+		<td>at.ofai.gate.virtualcorpus.DirectoryCorpus</td>
+	</tr>
+	<tr>
+		<td>JDBCCorpus</td>
+		<td>Language resource for accessing GATE XML documents stored in a field of a JDBC database table directly via a corpus resource</td>
+		<td>at.ofai.gate.virtualcorpus.JDBCCorpus</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="bwp"></a>BWP Gazetteer<br/>
+		<a href="http://sourceforge.net/projects/bwp-gazetteer/">website</a>
+	       	<a href="http://sourceforge.net/projects/bwp-gazetteer/">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>This plugin provides an approximate gazetteer for GATE, based on Levenshtein's Edit Distance for strings. Its goal is to handle texts with noise and errors, in which GATE's default gazetteers may have difficulties.</i></center></td></tr>
+	<tr>
+		<td>BWP Gazetteer</td>
+		<td>Extended version of the transducer-based List Gazetteer</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="apolda"></a>Apolda<br/>
+		<a href="http://apolda.sourceforge.net">website</a>
+		<a href="http://sourceforge.net/project/showfiles.php?group_id=189547">download</a></th>
+	</tr>
+	<tr>
+		<td colspan='3'><center><i>Annotates documents like a gazetteer, but takes the terms from OWL annotation properties in an ontology, rather than from a separate list of terms.</i></center></td>
+	</tr>
+	<tr>
+		<td>Apolda Ontology Annotator</td>
+		<td>Ontology-based lookup taking terms from properties in the ontology.</td>
+		<td>telin.Apolda</td>
+	</tr>
+
+
+<tr>
+		<th colspan='3'><a name="reportedspeech">Reported Speech Tagger</a><br/>
+		<a href="http://www.semanticsoftware.info/reported-speech-tagger">website</a>
+		<a href="http://www.semanticsoftware.info/reported-speech-tagger">download</a></th>
+	</tr>
+	<tr>
+		<td colspan='3'><center><i>Automatically detects and tags reported speech constructs, in particular the source, reporting verb and content.</i></center></td>
+	</tr>
+	<tr>
+		<td>Reporting Verb marker</td>
+		<td>JAPE transducer which tags reporting verbs</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>Reported Speech finder</td>
+		<td>JAPE transducer which tags reported speech</td>
+		<td>&nbsp;</td>
+	</tr>
+
+
+	<tr>
+	  <th colspan='3'><a name="keyphrase">Keyphrase Extraction Module</a><br/>
+	    <a href="http://smile.deri.ie/projects/keyphrase-extraction">website</a>
+	    <a href="http://smile.deri.ie/projects/keyphrase-extraction/download">download</a>
+	  </th>
+	</tr>
+	<tr>
+	  <td colspan='3'><center><i>Keyphrase extraction and language identification.</i></center></td>
+	</tr>
+	<tr>
+	  <td>FrequencyAnalyser</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>KeywordAnalyser</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>LanguageIdentification</td>
+	  <td>identifies the language of a document using character n-grams</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>POSTagMapper</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>SimpleNounChunking</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>StopwordMarker</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	
+</table>
+<hr/>
+<div class="banner">| <a href="../../index.html">gate home</a> |</div>
+<table width="100%">
+	<tr>
+		<td>
+			<a href="http://nlp.shef.ac.uk/"><img src="http://www.gate.ac.uk/revNlpLogo.jpg" width="164" height="60" alt="NLP group"/></a>
+		</td>
+		<td align="right">
+			<img src="http://www.gate.ac.uk/nlpTitle.gif" width="250" height="18" alt="NLP Group"/>
+			<br/>
+			<img src="http://www.gate.ac.uk/redline.jpg" width="500" height="17" alt="kewl red line"/>
+		</td>
+	</tr>
+</table>	
+</body>
+</html>
+

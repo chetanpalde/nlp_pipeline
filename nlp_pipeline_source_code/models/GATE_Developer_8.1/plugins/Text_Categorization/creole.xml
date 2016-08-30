@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- $Id: creole.xml 11850 2009-10-30 15:22:04Z ian_roberts $ -->
+<CREOLE-DIRECTORY>
+  <JAR SCAN="true">textCategorization.jar</JAR>
+  <IVY>build/ivy.xml</IVY>
+</CREOLE-DIRECTORY>

@@ -1,0 +1,43 @@
+// main.jape
+// hamish, 8/Oct/98
+
+MultiPhase:	TestTheGrammars
+Phases:
+  saliha-sections
+  brian-default brian-money1 brian-money2 brian-amount1
+      brian-date1 brian-transport1 brian-orgs1
+  saliha-persontitle saliha-person saliha-personending
+      saliha-personfinal
+
+  brian-drugperson
+
+  brian-loc-region1
+  brian-loc1
+  brian-soc-loc1
+  brian-loc-final
+
+  brian-definite-orgs1
+  brian-definite-orgs2
+  brian-orgs-final
+
+  brian-definite-person
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:26  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:34  hamish
+// updates from unix
+//
+// Revision 1.6  1998/11/04 20:54:49  brianm
+// Final checkin for 5/11/98 delivery
+//
+// Revision 1.3  1998/10/09 12:26:59  saliha
+// *** empty log message ***
+//
+// Revision 1.2  1998/10/08 12:55:13  hamish
+// added logs
+//

@@ -1,0 +1,28 @@
+Phase: NamedEntities
+Input: Person  Organization  Location
+Options: control = all
+
+
+Rule: NamedEntity
+({Person}|{Organization}|{Location}):match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end   = matchAnnots.lastNode().getOffset();
+   Annotation match = matchAnnots.iterator().next();
+
+   String canonical = gate.Utils.cleanStringFor(doc, matchAnnots).toLowerCase();
+   
+   FeatureMap fm = Factory.newFeatureMap();	
+   fm.putAll(match.getFeatures());
+   fm.put("canonical", canonical);
+   fm.put("original_type", match.getType());
+
+   try {
+       outputAS.add(start, end, "Entity", fm);
+
+   }
+   catch (InvalidOffsetException e) {
+     e.printStackTrace();
+   }
+}

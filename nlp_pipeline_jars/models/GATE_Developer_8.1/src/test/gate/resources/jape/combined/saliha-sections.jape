@@ -1,0 +1,22 @@
+Phase: FindTheSections
+
+    Rule: BreakingSpaces
+    (
+      {SpaceToken.kind == "break"}
+    ):break
+    -->
+    :break.Token = { orth = "break", rule = "BreakingSpaces" }
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:27  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:15  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:11:03  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:17  hamish
+// added logs
+//

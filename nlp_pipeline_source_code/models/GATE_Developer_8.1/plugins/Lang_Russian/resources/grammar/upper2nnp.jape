@@ -1,0 +1,35 @@
+/*
+* upper 2 nnp
+*/
+
+Phase:	upper2nnp
+Input: Upper
+Options: control = appelt debug = no
+
+
+Rule: Upper2NNP
+(
+  {Upper}
+)	
+:upper
+-->
+{
+gate.AnnotationSet upperSet = (gate.AnnotationSet)bindings.get("upper");  
+gate.Annotation upper = (gate.Annotation)upperSet.iterator().next();
+
+gate.AnnotationSet tokenSet = (gate.AnnotationSet)inputAS.get("Token");  
+
+if( tokenSet != null && tokenSet.size() > 0 ) {
+  // get only Token annotations in range of the Upper
+  gate.AnnotationSet tokInSent = upperSet.get(upperSet.firstNode().getOffset(), 
+      upperSet.lastNode().getOffset());
+  if( tokInSent != null && tokInSent.size() > 0 ) {
+	gate.Annotation token = (gate.Annotation)tokInSent.iterator().next();
+	FeatureMap f = token.getFeatures(); 
+	String category = (String) f.get("category");
+	if (category == null || category.length()==0) {
+		f.put("category","NNP");
+	}
+  }  
+} 
+}

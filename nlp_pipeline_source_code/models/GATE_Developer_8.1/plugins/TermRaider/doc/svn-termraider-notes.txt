@@ -1,0 +1,22 @@
+
+1.
+svn cp  svn+ssh://svn.code.sf.net/p/gate/code/gate/trunk svn+ssh://svn.code.sf.net/p/gate/code/gate/branches/termraider-refactor
+
+2.
+svn switch  ^/gate/branches/termraider-refactor
+
+3. 
+make all the changes, intermediate commits, etc., until done
+
+4. 
+svn sw my local copy back to the trunk
+
+4a.
+svn up
+
+5.
+svn rm  TermRaider
+svn cp  svn+ssh://.../termraider-refactor/plugins/TermRaider  .
+
+6.
+svn rm the old branch

@@ -1,0 +1,17 @@
+GATE Developer/Embedded Version 7.1 release (November 2012)
+
+GATE Developer/Embedded 7.1 introduces
+
+- new plugins such as _TermRaider_ (for term extraction) and _Coref\_Tools_
+  (for improved coreference resolution),
+- support for new document formats including _MediaWiki_ and _PubMed_
+- updates for plugins that wrap third-party tools (_OpenNLP_,
+  _Parser\_Stanford_, ...)
+- architectural changes to improve stability and scalability of GATE Embedded in
+  long-running applications.
+
+... and many other improvements and bug fixes.  Full details can be found in the 
+%(http://gate.ac.uk/userguide/sec:changes:7.1,changelog in the user guide).
+
+The GATE Developer/Embedded package is available for download from
+%(http://gate.ac.uk/download/).

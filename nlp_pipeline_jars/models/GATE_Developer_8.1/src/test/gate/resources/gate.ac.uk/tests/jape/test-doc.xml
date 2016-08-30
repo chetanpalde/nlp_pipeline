@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GateDocument>
+<!-- The document's features-->
+
+<GateDocumentFeatures>
+<Feature>
+  <Name className="java.lang.String">gate.SourceURL</Name>
+  <Value className="java.lang.String">created from String</Value>
+</Feature>
+</GateDocumentFeatures>
+<!-- The document content area with serialized nodes -->
+
+<TextWithNodes>This is a test document for JAPE grammars, checking the various features of the tool, including different application styles.
+
+
+<Node id="128" />First let's test APPELT<Node id="151" /> <Node id="152" />execution<Node id="161" /> <Node id="162" />mode. A properly working Appelt<Node id="193" /> grammar should match this whole line.<Node id="231" />
+
+<Node id="233" />Second test for APPELT mode - explicit rule priority.<Node id="286" /> <Node id="287" />This line should be matched with an annotation of type X.<Node id="344" />
+
+<Node id="346" />Third test for APPELTmode - implicit rule priority.<Node id="397" /> <Node id="398" />This line should be matched with an annotation of type X.<Node id="455" />
+
+Next, let't test Brill and all modes.
+
+<Node id="496" />This piece of text<Node id="514" /> <Node id="515" />should<Node id="521" /> <Node id="522" />generate 4<Node id="532" /> <Node id="533" />annotations of type X, when running in Brill mode, and 6 when running in All mode.<Node id="615" />
+
+<Node id="617" />Finally<Node id="624" />, <Node id="626" />let's test<Node id="636" /> <Node id="637" />Once mode<Node id="646" />. A single annotation should be created.</TextWithNodes>
+<!-- The default annotation set -->
+
+<AnnotationSet>
+</AnnotationSet>
+<!-- Named annotation set -->
+
+<AnnotationSet Name="input">
+<Annotation Id="34" Type="A" StartNode="346" EndNode="397">
+</Annotation>
+<Annotation Id="35" Type="B" StartNode="152" EndNode="231">
+</Annotation>
+<Annotation Id="32" Type="B" StartNode="162" EndNode="193">
+</Annotation>
+<Annotation Id="33" Type="A" StartNode="128" EndNode="151">
+</Annotation>
+<Annotation Id="38" Type="A" StartNode="233" EndNode="286">
+</Annotation>
+<Annotation Id="39" Type="C" StartNode="287" EndNode="344">
+</Annotation>
+<Annotation Id="37" Type="B" StartNode="398" EndNode="455">
+</Annotation>
+<Annotation Id="42" Type="F" StartNode="496" EndNode="521">
+</Annotation>
+<Annotation Id="43" Type="F" StartNode="496" EndNode="532">
+</Annotation>
+<Annotation Id="40" Type="D" StartNode="286" EndNode="344">
+</Annotation>
+<Annotation Id="41" Type="F" StartNode="496" EndNode="514">
+</Annotation>
+<Annotation Id="46" Type="F" StartNode="515" EndNode="615">
+</Annotation>
+<Annotation Id="44" Type="F" StartNode="533" EndNode="615">
+</Annotation>
+<Annotation Id="45" Type="F" StartNode="522" EndNode="615">
+</Annotation>
+<Annotation Id="105" Type="E" StartNode="398" EndNode="455">
+</Annotation>
+<Annotation Id="119" Type="G" StartNode="617" EndNode="624">
+</Annotation>
+<Annotation Id="121" Type="G" StartNode="637" EndNode="646">
+</Annotation>
+<Annotation Id="31" Type="A" StartNode="128" EndNode="161">
+</Annotation>
+<Annotation Id="120" Type="G" StartNode="626" EndNode="636">
+</Annotation>
+</AnnotationSet>
+<!-- Named annotation set -->
+
+<AnnotationSet Name="once">
+<Annotation Id="135" Type="X" StartNode="617" EndNode="624">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">once</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+<!-- Named annotation set -->
+
+<AnnotationSet Name="appelt">
+<Annotation Id="124" Type="X" StartNode="346" EndNode="455">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">appelt1</Value>
+</Feature>
+</Annotation>
+<Annotation Id="123" Type="X" StartNode="233" EndNode="344">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">appelt3</Value>
+</Feature>
+</Annotation>
+<Annotation Id="122" Type="X" StartNode="128" EndNode="231">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">appelt1</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+<!-- Named annotation set -->
+
+<AnnotationSet Name="brill">
+<Annotation Id="127" Type="X" StartNode="496" EndNode="514">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">brill</Value>
+</Feature>
+</Annotation>
+<Annotation Id="128" Type="X" StartNode="533" EndNode="615">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">brill</Value>
+</Feature>
+</Annotation>
+<Annotation Id="126" Type="X" StartNode="496" EndNode="532">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">brill</Value>
+</Feature>
+</Annotation>
+<Annotation Id="125" Type="X" StartNode="496" EndNode="521">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">brill</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+<!-- Named annotation set -->
+
+<AnnotationSet Name="all">
+<Annotation Id="129" Type="X" StartNode="496" EndNode="521">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+<Annotation Id="131" Type="X" StartNode="496" EndNode="514">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+<Annotation Id="130" Type="X" StartNode="496" EndNode="532">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+<Annotation Id="133" Type="X" StartNode="522" EndNode="615">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+<Annotation Id="132" Type="X" StartNode="515" EndNode="615">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+<Annotation Id="134" Type="X" StartNode="533" EndNode="615">
+<Feature>
+  <Name className="java.lang.String">rule</Name>
+  <Value className="java.lang.String">all</Value>
+</Feature>
+</Annotation>
+</AnnotationSet>
+</GateDocument>

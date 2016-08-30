@@ -1,0 +1,114 @@
+// loc-region1.jape
+// Brianm, 28/Oct/98
+
+Phase:	Regions1  // find all regions, provinces, countries and continents
+Options: control = appelt
+
+////////////////////////////////////////
+
+Rule:	StateOfX
+// (the) State of xxx
+
+  {Token.lowerString == "the"}  // this is not included in the name
+
+  (    ({Token.orth == "initCap", Token.lowerString == "state"} |
+        {Token.orth == "allCaps", Token.lowerString == "state"})
+
+       {Token.lowerString == "of"}
+
+       ( ({Token.orth == "initCap"})+ | ({Token.orth == "allCaps"})+ )
+
+  ) :locName
+
+  -->
+
+  :locName.Region = {rule = "StateOfX"}
+
+////////////////////////////////////////
+
+Rule:	XRegionOfY
+// X region of Y
+
+  (    {Token.orth == "initCap"} | {Token.orth == "allCaps"}
+  ) :locName1
+
+       {Token.lowerString == "region"}
+       {Token.lowerString == "of"}
+
+       ( ({Token.orth == "initCap"})+ | ({Token.orth == "allCaps"})+ ):locName2
+
+
+  -->
+
+  :locName1.Region = {rule = "XRegionOfY"},
+  :locName2.Name = {kind = "location", rule = "XRegionOfY"}
+
+////////////////////////////////////////
+
+Rule:	XRegion
+// (The) xxx Region
+
+  {Token.lowerString == "the"} // this is not included in the name
+
+  (
+       ( {Token.orth == "initCap"} | {Token.orth == "allCaps"} )
+
+       {Token.lowerString == "region"}
+
+  ):locName
+
+  -->
+
+  :locName.Region = {rule = "XRegion"}
+
+////////////////////////////////////////
+
+Rule:	XXRegion
+// (The) xxx xxx Region
+
+  {Token.lowerString == "the"} // this is not included in the name
+
+  (
+       ( ({Token.orth == "initCap"} {Token.orth == "initCap"}) |
+         ({Token.orth == "allCaps"} {Token.orth == "allCaps"}) )
+
+       {Token.lowerString == "region"}
+
+  ):locName
+
+  -->
+
+  :locName.Region = {rule = "XXRegion"}
+
+////////////////////////////////////////
+
+Rule:	LookupRegion
+  ({Lookup.minorType == "REGION"}
+  ):locName
+
+  -->
+
+  :locName.Region = {rule = "LookupRegion"}
+
+////////////////////////////////////////
+
+Rule:	LookupProvince
+  ({Lookup.minorType == "PROVINCE"}
+  ):locName
+
+  -->
+
+  :locName.Region = {rule = "LookupProvince"}
+
+////////////////////////////////////////
+
+Rule:	LookupCountry
+  ({Lookup.minorType == "COUNTRY"}
+  ):locName
+
+  -->
+
+  :locName.Region = {rule = "LookupCountry"}
+
+////////////////////////////////////////
+

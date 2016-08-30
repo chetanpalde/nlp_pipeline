@@ -1,0 +1,58 @@
+<project name="FastInfoset4GCP" basedir="." default="jar">
+  <!-- Prevent Ant from warning about includeantruntime not being set -->
+  <property name="build.sysclasspath" value="ignore" />
+  
+	<property file="build.properties" />
+
+	<fail unless="gcp.home">"gcp.home" property must be set before FastInfoset support for GCP can be compiled</fail>
+
+	<property name="gcp.lib" location="${gcp.home}/lib" />
+	<property name="src.dir" location="src" />
+	<property name="classes.dir" location="classes" />
+	<property name="jar.location" location="fastinfoset4gcp.jar" />
+	<property name="lib" location="../lib" />
+
+	<!-- Path to compile - includes gcp/lib/*.jar -->
+	<path id="compile.classpath">
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${gcp.lib}">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+
+	<!-- create build directory structure -->
+	<target name="prepare">
+		<mkdir dir="${classes.dir}" />
+	</target>
+
+	<target name="resources" depends="prepare">
+		<!-- <copy todir="${classes.dir}/gate/resources" includeEmptyDirs="true">
+			<fileset dir="${src.dir}/gate/resources" />
+		</copy> -->
+	</target>
+
+	<!-- compile the source -->
+	<target name="compile" depends="prepare, resources">
+		<javac classpathref="compile.classpath" srcdir="${src.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" source="1.5" target="1.5">
+		</javac>
+	</target>
+
+	<!-- create the JAR file -->
+	<target name="jar" depends="compile">
+		<jar destfile="${jar.location}" update="false" basedir="${classes.dir}" />
+	</target>
+
+	<!-- remove the generated .class files -->
+	<target name="clean.classes">
+		<delete dir="${classes.dir}" />
+	</target>
+
+	<!-- Clean up - remove .class and .jar files -->
+	<target name="clean" depends="clean.classes">
+		<delete file="${jar.location}" />
+	</target>
+
+</project>

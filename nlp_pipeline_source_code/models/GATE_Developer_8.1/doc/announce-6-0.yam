@@ -1,0 +1,19 @@
+GATE Version 6.0 release (November 2010)
+
+GATE version 6.0 adds a number of new features to GATE including:
+
+- A tool to support the annotation of relational information in documents using
+  an ontology.
+- A _scriptable controller_ to execute PRs under the control of a Groovy
+  script, providing more powerful conditional behaviour than is possible with
+  the standard conditional controllers.
+- A new version of the alignment editor for handling aligned parallel texts
+  (for example in different languages).
+- A plugin to support on-the-fly translation of documents using the Google
+  translation web service.
+- Enhancements to JAPE, an improved gazetteer editor, integration of the NLM's
+  MetaMap tagger for biomedical terms, and much more...
+
+Full details of the changes can be found in the
+%(http://gate.ac.uk/userguide/sec:changes:6.0,changelog in the user guide).
+GATE is available for download from %(http://gate.ac.uk/download/).

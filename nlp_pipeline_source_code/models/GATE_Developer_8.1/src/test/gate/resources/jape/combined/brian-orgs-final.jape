@@ -1,0 +1,24 @@
+// brian-orgs-final.jape
+// Brianm, 1/Nov/98
+
+Phase:	OrgsFinal1
+Options: control = appelt
+
+////////////////////////////////////////
+
+Rule:	AppendAbbrev
+
+  ( ({Name.kind == "organization"}):subSpan
+    {Token.lowerString == "("}
+    {Token.orth == "allCaps"}
+    {Token.lowerString == ")"}
+  ):orgName
+
+  -->
+
+  :orgName.Name = {kind = "organization", subrule = "AppendAbbrev",
+                   rule = :subSpan.Name.rule}
+
+////////////////////////////////////////
+
+

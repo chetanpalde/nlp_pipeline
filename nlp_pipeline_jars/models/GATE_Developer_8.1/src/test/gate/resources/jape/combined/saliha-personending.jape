@@ -1,0 +1,64 @@
+Phase: Ending
+Options: control = appelt
+
+
+//Rules with PersonEnding
+
+Macro: PersonEnding
+(
+ ({Token, Token.string == "Jr"}{Token.string == "."})
+ |
+ {Token, Token.string == "Jr"}
+ |
+ ({Token, Token.string == "jr"}{Token.string == "."})
+ |
+ {Token, Token.string == "jr"}
+ |
+ ({Token, Token.string == "Sr"}{Token.string == "."})
+ |
+ {Token, Token.string == "Sr"}
+ |
+ ({Token, Token.string == "sr"}{Token.string == "."})
+ |
+ {Token, Token.string == "sr"}
+ |
+ {Token, Token.string == "II"}
+ |
+ {Token, Token.string == "III"}
+)
+
+
+Rule: PersonName6
+
+(
+    (
+       {Token, Token.orth == "initCap"}
+       |
+       {Token, Token.orth == "allCaps"}
+    )+
+    PersonEnding
+
+):personName
+-->
+:personName.Patternp = {kind = "person", rule = "PersonName6"}
+
+
+
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:26  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:15  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:11:01  hamish
+// updates from unix
+//
+// Revision 1.3  1998/10/16 16:41:51  saliha
+// *** empty log message ***
+//
+// Revision 1.2  1998/10/08 12:55:15  hamish
+// added logs
+//

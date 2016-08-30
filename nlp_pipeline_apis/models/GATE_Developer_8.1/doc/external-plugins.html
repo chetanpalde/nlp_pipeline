@@ -1,0 +1,257 @@
+<ul type='circle'>
+	<li><a href='#OrganismTagger'>OrganismTagger</a></li>	
+	<li><a href='#munpex'>Multi-lingual Noun Phrase Extractor (MuNPEx)</a></li>
+	<li><a href='#durm'>Durm German lemmatizer</a></li> 
+	<li><a href='#S4'>S4 Annotator</a></li>	
+	<li><a href='#anc'>XCES tools</a></li>
+	<li><a href='#sen'><i>Sen</i> wrapper (Japanese morphological analyser)</a></li>
+	<li><a href='#russianprs'>Russian morph tagger</a></li>
+	<li><a href='#stringannotation'>String Annotation</a></li>
+	<li><a href='#appdoc'>GATE Application Documentation</a></li>
+	<li><a href='#virtualcorpus'>VirtualCorpus - Directory- and JDBC Corpus LR</a></li>
+	<li><a href='#bwp'>BWP Gazetteer</a></li>
+	<li><a href='#apolda'>Apolda</a></li>
+	<li><a href='#reportedspeech'>Reported Speech Tagger</a></li>
+	<li><a href='#keyphrase'>Keyphrase extraction module from SmILE</a></li>
+</ul>
+
+<table border='1'>
+	<tr>
+		<th colspan='3'><a name="munpex"></a>OrganismTagger<br/><a
+                href="http://www.semanticsoftware.info/organism-tagger">website</a> <a
+                href="http://www.semanticsoftware.info/organism-tagger#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>OrganismTagger</td>
+		<td>The OrganismTagger is a hybrid rule-based/machine-learning system that extracts organism
+		mentions from the biomedical literature, normalizes them to their scientific name, and provides
+		grounding to the NCBI Taxonomy database.
+		<td>&nbsp;</td>
+	</tr>
+
+
+	<tr>
+		<th colspan='3'><a name="munpex"></a>Multi-lingual Noun Phrase Extractor (MuNPEx)<br/><a
+                href="http://www.semanticsoftware.info/munpex">website</a> <a
+                href="http://www.semanticsoftware.info/munpex#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>Munpex</td>
+		<td>MuNPEx is a multi-lingual noun phrase (NP) extraction component developed for the GATE
+                architecture, implemented in JAPE. It currently supports English, German, French, and
+                Spanish (in beta).</td>
+		<td>en-np_main.jape</td>
+	</tr>
+<tr>
+		<th colspan='3'><a name="durm"></a>Durm German lemmatizer<br/><a
+                href="http://www.semanticsoftware.info/durm-german-lemmatizer">website</a> <a
+                href="http://www.semanticsoftware.info/durm-german-lemmatizer#Download">download</a></th>
+	</tr>
+	<tr>
+		<td>Durm German lemmatizer</td>
+		<td>The Durm German Lemmatization System consists of a number of GATE components and resources that perform morphological analysis and lemmatization for German nouns.
+</td>
+		<td>&nbsp;</td>
+	</tr>
+
+	<tr>
+		<th colspan='3'><a name="S4"></a>GATE Plugin for <a href="https://console.s4.ontotext.com">S4</a><br/><a
+                href="http://docs.s4.ontotext.com/display/S4docs/GATE+Plugin+for+S4">website</a> (download via the <a href="http://docs.s4.ontotext.com/display/S4docs/GATE+Plugin+for+S4#GATEPluginforS4-DownloadingviatheCREOLEPluginManager">update site</a>)</th>
+	</tr>
+	<tr>
+		<td>S4 Annotator</td>
+                <td>Provides access to the text analytics services of
+                Ontotext's Self Service Semantic Suite (S4) directly from the
+                GATE platform, via their RESTful APIs.  The PR can be
+                integrated in any GATE processing pipeline regardless of the
+                context and it does not have any requirements or assumptions
+                about the type of pre-processing or post-processing of the
+                textual data being annotated.</td>
+		<td>com.ontotext.s4.api.S4Plugin</td>
+	</tr>
+
+	<tr>
+		<th colspan='3'><a name="anc"></a>XCES tools<br/><a href="http://americannationalcorpus.org/tools/index.html#gate-tools">website</a> <a href="http://americannationalcorpus.org/tools/ANC.zip">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>Tools to handle documents conforming to the XML Corpus Encoding Standard (XCES) format, used by the American National Corpus. XCES is a way of encoding texts with standoff markup in XML.</i></center></td></tr>
+	<tr>
+		<td>ANC Document</td>
+		<td>An XCES document. Allows loading of the document text, plus some or all of the sets of standoff markup associated with the document.</td>
+		<td>org.xces.gate.XCESDocument</td>
+	</tr>
+	<tr>
+		<td>ANC Load Standoff</td>
+		<td>Loads standoff annotations into an existing document.</td>
+		<td>org.xces.creole.LoadStandoff</td>
+	</tr>
+	<tr>
+		<td>ANC Save Content</td>
+		<td>Saves just the text content of a document to a file. This will work for any document - it is not specific to ANC/XCES documents.</td>
+		<td>org.xces.creole.SaveContent</td>
+	</tr>
+	<tr>
+		<td>ANC Save Standoff</td>
+		<td>Saves annotations from a Document to an XCES-compliant standoff markup file.</td>
+		<td>org.xces.creole.SaveStandoff</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="sen"></a><i>Sen</i> wrapper (Japanese morphological analyser)<br/><a href="http://gate.ac.uk/sale/gateplugins/SenWrapper/">website (in Japanese)</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i><a href="http://ultimania.org/sen/">Sen</a> is a morphological analyser for Japanese.  This is a wrapper to allow it to be used from GATE, you must also install sen itself.  See the <a href="http://gate.ac.uk/sale/gateplugins/SenWrapper/">documentation</a> (in Japanese) for details.</i></center></td></tr>
+	<tr>
+		<td>Sen Wrapper</td>
+		<td>Morphological analyser for Japanese</td>
+		<td>jp.co.ditlab.jgate.SenWrapper</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="russianprs"></a>Russian morph tagger<br/><a
+                href="http://code.google.com/p/mystem-morphtagger/">website</a> <a
+                href="http://mystem-morphtagger.googlecode.com/files/ru-morph-tagger-0.1.zip">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>Provides GATE wrapper for mystem russian morphological parser.
+        Allows to execute native analyzer, parse output, and assign morpho features as GATE annotations
+        for the document.</i></center></td></tr>
+	<tr>
+		<td>Russian MorphTagger</td>
+		<td>MorphTagger for russian language, based on MyStem Yandex' parser</td>
+		<td>ru.itbrains.gate.morph.MorphTagger</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="stringannotation"></a>String Annotation Plugin<br/>
+		<a href="http://www.ofai.at/~johann.petrak/GATE/StringAnnotation.html">website</a>
+		<a href="http://code.google.com/p/gateplugin-stringannotation/downloads/list">download</a>
+		</th>
+	</tr>
+	<tr><td colspan='3'><center><i>Processing resources for directly annotating the string content of a document.</i></center></td></tr>
+	<tr>
+		<td>Extended List Gazetteer</td>
+		<td>Extended version of the GATE Default List Gazetteer. In addition to the features of the original, built-in version of the List Gazetteer, this version provides features for more powerful matching of partial words and annotating prefixes and suffixes as well as more versatile handling of word boundaries and whitespace.</td>
+		<td>at.ofai.gate.extendedgazetteer.ExtendedGazetteer</td>
+	</tr>
+	<tr>
+		<td>Simple Regexp Annotator</td>
+		<td>Use rules based on Java regular expressions to annotate the document content.</td>
+		<td>at.ofai.gate.regexpannotator.SimpleRegexpAnnotator</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="appdoc"></a>AppDoc &mdash; GATE Application Documentation<br/>
+		  <a href="http://www.ofai.at/~johann.petrak/GATE/AppDoc.html">website</a>
+                 <a href="http://code.google.com/p/gateplugin-appdoc/downloads/list">download</a>
+               </th>
+	</tr>
+	<tr><td colspan='3'><center><i>A plugin that generations documentation from your application/pipeline/gapp files in various formats. In addition it provides new visual resources in the GATE Developer GUI to add author, version and documentation comments to pipelines and processing resources.</i></center></td></tr>
+	<tr>
+		<td>AppDoc</td>
+		<td>Visual resource for adding author/version/comment to pipelines and processing resources</td>
+		<td>at.ofai.gate.appdoc.AppDoc</td>
+	</tr>
+	<tr>
+		<td>AppDocGen</td>
+		<td>Visual resource for selecting a documentation template and generating documentation files</td>
+		<td>at.ofai.gate.appdoc.AppDocGen</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="virtualcorpus"></a>VirtualCorpus &mdash; Directory- and JDBC Corpus LRs<br/>
+		  <a href="http://www.ofai.at/~johann.petrak/GATE/VirtualCorpus.html">website</a>
+                 <a href="http://code.google.com/p/gateplugin-virtualcorpus/downloads/list">download</a>
+               </th>
+	</tr>
+	<tr><td colspan='3'><center><i>A plugin that provides two new corpus language resources, DirectoryCorpus for directly using files in a directory through a corpus LR and JDBCCorpus for directly using documents stored in a field of a JDBC database table.</i></center></td></tr>
+	<tr>
+		<td>DirectoryCorpus</td>
+		<td>Language resource for accessing GATE XML files in a directory directly via a corpus resource</td>
+		<td>at.ofai.gate.virtualcorpus.DirectoryCorpus</td>
+	</tr>
+	<tr>
+		<td>JDBCCorpus</td>
+		<td>Language resource for accessing GATE XML documents stored in a field of a JDBC database table directly via a corpus resource</td>
+		<td>at.ofai.gate.virtualcorpus.JDBCCorpus</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="bwp"></a>BWP Gazetteer<br/>
+		<a href="http://sourceforge.net/projects/bwp-gazetteer/">website</a>
+	       	<a href="http://sourceforge.net/projects/bwp-gazetteer/">download</a></th>
+	</tr>
+	<tr><td colspan='3'><center><i>This plugin provides an approximate gazetteer for GATE, based on Levenshtein's Edit Distance for strings. Its goal is to handle texts with noise and errors, in which GATE's default gazetteers may have difficulties.</i></center></td></tr>
+	<tr>
+		<td>BWP Gazetteer</td>
+		<td>Extended version of the transducer-based List Gazetteer</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<th colspan='3'><a name="apolda"></a>Apolda<br/>
+		<a href="http://apolda.sourceforge.net">website</a>
+		<a href="http://sourceforge.net/project/showfiles.php?group_id=189547">download</a></th>
+	</tr>
+	<tr>
+		<td colspan='3'><center><i>Annotates documents like a gazetteer, but takes the terms from OWL annotation properties in an ontology, rather than from a separate list of terms.</i></center></td>
+	</tr>
+	<tr>
+		<td>Apolda Ontology Annotator</td>
+		<td>Ontology-based lookup taking terms from properties in the ontology.</td>
+		<td>telin.Apolda</td>
+	</tr>
+
+
+<tr>
+		<th colspan='3'><a name="reportedspeech">Reported Speech Tagger</a><br/>
+		<a href="http://www.semanticsoftware.info/reported-speech-tagger">website</a>
+		<a href="http://www.semanticsoftware.info/reported-speech-tagger">download</a></th>
+	</tr>
+	<tr>
+		<td colspan='3'><center><i>Automatically detects and tags reported speech constructs, in particular the source, reporting verb and content.</i></center></td>
+	</tr>
+	<tr>
+		<td>Reporting Verb marker</td>
+		<td>JAPE transducer which tags reporting verbs</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>Reported Speech finder</td>
+		<td>JAPE transducer which tags reported speech</td>
+		<td>&nbsp;</td>
+	</tr>
+
+
+	<tr>
+	  <th colspan='3'><a name="keyphrase">Keyphrase Extraction Module</a><br/>
+	    <a href="http://smile.deri.ie/projects/keyphrase-extraction">website</a>
+	    <a href="http://smile.deri.ie/projects/keyphrase-extraction/download">download</a>
+	  </th>
+	</tr>
+	<tr>
+	  <td colspan='3'><center><i>Keyphrase extraction and language identification.</i></center></td>
+	</tr>
+	<tr>
+	  <td>FrequencyAnalyser</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>KeywordAnalyser</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>LanguageIdentification</td>
+	  <td>identifies the language of a document using character n-grams</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>POSTagMapper</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>SimpleNounChunking</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	<tr>
+	  <td>StopwordMarker</td>
+	  <td>&nbsp;</td>
+	  <td>&nbsp;</td>
+	</tr>
+	
+</table>
+<hr/>

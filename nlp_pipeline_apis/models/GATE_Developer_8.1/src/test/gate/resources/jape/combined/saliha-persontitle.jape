@@ -1,0 +1,102 @@
+//// Titles
+Phase: TitleBasic
+Options: Control = appelt
+
+Rule: Title1
+// K3
+
+(
+ 	 
+ 	{Token, Lookup.majorType == "TITLE"}
+):title
+-->
+:title.TitlPatt = {kind = "title", rule = "Title1"}
+
+
+Rule: Title11
+// K3
+
+(
+ 	{Token, Lookup.majorType == "TITLE"}
+	{Token.string == "."}
+):title
+-->
+:title.TitlPatt = {kind = "title", rule = "Title11"}
+
+//// Titles
+Phase: TitleFirst
+Options: Control = appelt
+
+Rule: Title2
+// K4
+
+(
+      ({Token, TitlPatt.kind == "title"})+
+	(
+          {Token.orth == "initCaps"}
+          |
+          {Token.orth ==  "allCaps"}
+        )
+       ({Token, TitlPatt.kind == "title"})+
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title2"}
+
+Rule: Title3
+// K5
+(
+ 	({Token, TitlPatt.kind == "title"})+ 
+	{Token.string == "of"}
+        {Token}
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title3"}
+
+
+Rule: Title4
+// K6
+(
+ 	({Token, TitlPatt.kind == "title"})+ 
+	{Token.string == "of"}
+        (
+          {Token.orth == "initCaps"}
+          |
+          {Token.orth ==  "allCaps"}
+        )+
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title4"}
+
+Rule: Title5
+
+(
+ 	 ({Token, Lookup.majorType == COUNTRY_ADJ})+
+         ({Token, TitlPatt.kind == "title"})+ 
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title5"}
+
+
+Rule: Title6
+
+(
+	({Token, Lookup.majorType == COUNTRY_ADJ})+
+	 (
+          {Token.orth == "initCaps"}
+          |
+          {Token.orth ==  "allCaps"}
+         )+
+         ({Token, TitlPatt.kind == "title"})+
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title6"}
+
+
+Rule: Title7
+
+(
+	 ({Token, TitlPatt.kind == "title"})+
+):title
+-->
+:title.TitlFin = {kind = "title", rule = "Title7"}
+

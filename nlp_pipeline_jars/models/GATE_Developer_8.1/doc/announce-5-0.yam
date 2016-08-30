@@ -1,0 +1,84 @@
+GATE Version 5.0 release (May 2009)
+
+%1 Major new features
+
+%2 JAPE language improvements
+
+GATE 5.0 introduces several new extensions to the JAPE language to make it more
+flexible:
+
+- %(http://gate.ac.uk/userguide/sec:jape:negation,"Negative" constraints), to
+  support patterns like "match Person annotations, but only where they do
+  not start with an upper-case initial word".
+- A richer set of %(http://gate.ac.uk/userguide/sec:jape:operators,matching
+  operators) for feature values, e.g. ^{Token.length < 5}^.
+- "Meta-property" accessors, giving access to things like the document text
+  covered by an annotation, e.g. ^{Organization@string == "IBM"}^.
+- %(http://gate.ac.uk/userguide/sec:jape:operators:contextual,Contextual
+  operators), allowing you to search for one annotation contained within (or
+  containing) another.
+- Bounded range Kleene operators, e.g. ^({Token})[2,5]^ to match between 2 and
+  5 consecutive tokens.
+- Additional operators can be added via runtime configuration.
+
+Montreal transducer users will be familiar with some of these operators, this
+release brings support for them into the core of GATE.
+
+%2 Resource configuration via Java 5 Annotations
+
+This release introduces the ability to configure resource classes via
+%(http://gate.ac.uk/userguide/sec:creole-model:config,source-level
+annotations), to complement (but not replace) the ^creole.xml^ mechanism.
+
+%2 Ontology-based gazetteer
+
+A %(http://gate.ac.uk/userguide/sec:misc-creole:ontoRootGaz,new plugin) which
+matches terms taken from an OWL ontology.  In combination with a few other
+generic GATE resources this can produce ontology-aware annotations over text.
+
+%2 Tools for inter-annotator agreement and merging
+
+Three new plugins to support manual annotation tasks with several annotators
+working on the same documents.  The plugins can
+%(http://gate.ac.uk/userguide/sec:misc-creole:copyAS2AnoDoc,copy annotations)
+from several parallel documents into one master document, compute
+%(http://gate.ac.uk/userguide/sec:gui:iaaplugin,inter-annotator agreement)
+scores between the different annotators, and
+%(http://gate.ac.uk/userguide/sec:misc-creole:merging,merge) the annotations
+into a single "consensus" set.
+
+%2 Packaging applications for GATE Teamware
+
+A %(http://gate.ac.uk/userguide/sec:howto:export,menu item) and underlying
+%(http://gate.ac.uk/userguide/sec:ant:packagegapp,Ant task) to assemble a saved
+GATE application along with all the resource files it uses into a single
+self-contained package to run on another machine (for example as a
+%(http://gate.ac.uk/teamware,GATE Teamware) service).
+
+%1 GUI improvements
+
+Many elements of the GATE GUI (now called GATE-Developer) have been overhauled
+to be more user-friendly, with context-sensitive help, a "search and annotate"
+function in the document editor, drag and drop support in appropriate places,
+etc.  In addition, there is a new
+%(http://gate.ac.uk/userguide/sec:howto:schemaannotationeditor,schema-driven
+tool) to streamline manual annotation tasks.
+
+%1 Other new features and improvements
+
+Many smaller features have also been added.  The full list is in the
+%(http://gate.ac.uk/userguide/sec:changes:5.0,changelog), and includes the
+following:
+
+- %(http://gate.ac.uk/userguide/sec:applications,Real-time corpus controller),
+  which terminates processing of a document if it takes longer than a
+  configurable timeout, useful for large batch processes.
+- A new %(http://gate.ac.uk/userguide/sec:regex-splitter,sentence splitter)
+  based on regular expressions.
+- Re-designed %(http://gate.ac.uk/userguide/sec:misc-creole:annic,ANNIC GUI).
+
+...and many more.
+
+Full details of this release can be found in the
+%(http://gate.ac.uk/userguide/sec:changes:5.0,changelog).  To download GATE,
+visit the %(http://gate.ac.uk/download/,download page).

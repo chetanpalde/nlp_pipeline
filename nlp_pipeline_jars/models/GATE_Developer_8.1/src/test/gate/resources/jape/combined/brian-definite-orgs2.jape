@@ -1,0 +1,56 @@
+// brian-definite-orgs2.jape
+// Brianm, 28/Oct/98
+
+Phase:	DefOrgs2
+Options: control = appelt
+// requires brian-definite-orgs1.jape to have run first
+
+Rule:	CountryOrgKey
+// eg Dutch police
+  (
+	(
+	 {Lookup.majorType == "COUNTRY_ADJ"}
+	 {Token, Lookup.majorType == "ORG_KEY"}
+	):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "CountryOrgKey"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerEntryCdg
+  (
+	(({Lookup.majorType == "ORGANISATION"}|{Lookup.majorType == "ORGANIZATION"})
+         CDG_MACRO):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "GazetteerEntryCdg"}
+
+////////////////////////////////////////
+
+Rule:	InitCapsCdg
+  (
+	(({Token.orth == "initCap", ! Lookup.majorType == "CDG"})+
+         CDG_MACRO):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "InitCapsCdg"}
+
+////////////////////////////////////////
+
+Rule:	GovernmentKey
+  (
+	(
+	 ({Token.orth == "initCap"})+
+	 {Token, Lookup.majorType == "GOVERN_KEY"}
+	):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "GovernmentKey"}
+
+////////////////////////////////////////
+

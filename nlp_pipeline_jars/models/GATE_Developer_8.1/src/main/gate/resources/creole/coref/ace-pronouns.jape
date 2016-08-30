@@ -1,0 +1,136 @@
+/*
+*  ace-pronouns.jape
+*
+* Copyright (c) 1998-2004, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Marin DImitrov, 19/Dec/2001
+* 
+*  $Id: ace-pronouns.jape 5922 2004-07-21 17:10:11Z akshay $
+*/
+
+
+Phase:	count_pronouns
+Input: Token
+Options: control = brill
+
+Rule:countPronouns
+Priority: 99
+(
+    (
+        {Token.category==PRP,Token.string==I}  |      
+        {Token.category==PRP,Token.string==Me}  |      
+        {Token.category==PRP,Token.string==me}  |      
+        {Token.category==PRP,Token.string==You}  |
+        {Token.category==PRP,Token.string==you}  |            
+        {Token.category==PRP,Token.string==He} |  
+        {Token.category==PRP,Token.string==he}  |
+        {Token.category==PRP,Token.string==Him} |  
+        {Token.category==PRP,Token.string==him}  |
+        {Token.category==PRP,Token.string==She} |  
+        {Token.category==PRP,Token.string==she}  |
+        {Token.category==PRP,Token.string==Her} |  
+        {Token.category==PRP,Token.string==her}  |
+        {Token.category==PRP,Token.string==It} |  
+        {Token.category==PRP,Token.string==it}  |
+        {Token.category==PRP,Token.string==We}  |
+        {Token.category==PRP,Token.string==we}    |
+        {Token.category==PRP,Token.string==Us}  |
+        {Token.category==PRP,Token.string==us}    |
+        {Token.category==PRP,Token.string==They} |  
+        {Token.category==PRP,Token.string==they}  |
+        {Token.category==PRP,Token.string==Them} |  
+        {Token.category==PRP,Token.string==them}  |
+
+        {Token.category=="PRP$",Token.string==My}  |                            
+        {Token.category=="PRP$",Token.string==my}  |                        
+        {Token.category==PRP,Token.string==Mine}  |      
+        {Token.category==PRP,Token.string==mine}  |      
+        {Token.category=="PRP$",Token.string==Your}  |
+        {Token.category=="PRP$",Token.string==your}  |
+        {Token.category=="PRP$",Token.string==Yours}  |
+        {Token.category=="PRP$",Token.string==yours}  |
+        {Token.category=="PRP$",Token.string==His} |  
+        {Token.category=="PRP$",Token.string==his}  |
+        {Token.category=="PRP$",Token.string==Her} |  
+        {Token.category=="PRP$",Token.string==her}  |
+        {Token.category==PRP,Token.string==Hers}  |        
+        {Token.category==PRP,Token.string==hers}  |                
+        {Token.category=="PRP$",Token.string==Its} |  
+        {Token.category=="PRP$",Token.string==its}  |
+        {Token.category=="PRP$",Token.string==Our}  |
+        {Token.category=="PRP$",Token.string==our}   |
+        {Token.category==PRP,Token.string==Ours}  |
+        {Token.category==PRP,Token.string==ours}    |
+        {Token.category=="PRP$",Token.string==Their} |  
+        {Token.category=="PRP$",Token.string==their} 
+        {Token.category==PRP,Token.string==Theirs} |  
+        {Token.category==PRP,Token.string==theirs}  |                
+        
+        {Token.category==PRP,Token.string==Myself}  |      
+        {Token.category==PRP,Token.string==myself}  |                                                                
+        {Token.category==PRP,Token.string==Yourself}  |
+        {Token.category==PRP,Token.string==yourself}  |                    
+        {Token.category==PRP,Token.string==Himself} |  
+        {Token.category==PRP,Token.string==himself}  |
+        {Token.category==PRP,Token.string==Herself}  |                        
+        {Token.category==PRP,Token.string==herself}  |                
+        {Token.category==PRP,Token.string==Itself}  |
+        {Token.category==PRP,Token.string==itself}  |                
+        {Token.category==PRP,Token.string==Oneself}  |
+        {Token.category==PRP,Token.string==oneself}  |                
+
+        {Token.category==PRP,Token.string==Ourselves}  |
+        {Token.category==PRP,Token.string==ourselves}    |
+        {Token.category==PRP,Token.string==Yourselves}  |
+        {Token.category==PRP,Token.string==yourselves}    |
+        {Token.category==PRP,Token.string==Themselves} |  
+        {Token.category==PRP,Token.string==themselves}            
+    ) :PRP
+)
+-->
+{
+    gate.AnnotationSet pronouns = (gate.AnnotationSet)bindings.get("PRP");
+    Annotation prn = (Annotation) pronouns.iterator().next();
+    
+    String prnType = ((String)prn.getFeatures().get("string")).toLowerCase();
+    
+    //try to get doc feature    
+    Integer cnt = (Integer)doc.getFeatures().get(prnType);
+
+    if (null == cnt) {
+        cnt = new Integer(1);
+    }
+    else {
+        cnt = new Integer(cnt.intValue() + 1);
+    }
+    
+    doc.getFeatures().put(prnType,cnt);
+}
+
+
+
+Rule:countWords
+Priority: 11
+(
+  (
+        {Token}         
+    ) :word  
+)
+-->
+{
+    Integer currCount = (Integer)doc.getFeatures().get("WORDS");
+
+    if (null == currCount) {
+        currCount = new Integer(1);
+    }
+    else {
+        currCount = new Integer(currCount.intValue() + 1);
+    }
+    
+    doc.getFeatures().put("WORDS",currCount);
+}

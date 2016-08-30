@@ -1,0 +1,17 @@
+GATE Developer/Embedded Version 7.0 release (February 2012)
+
+GATE Developer/Embedded version 7.0 introduces a number of new features,
+including:
+
+- a rewritten plugin manager supporting the installation of new plugins from
+  remote update sites directly from the GATE Developer GUI
+- the first public release of the new JAPE Plus execution engine for JAPE
+  grammars
+- a new suite of tools for biomedical text processing
+- improved support for right-to-left languages in the document editor
+
+... and many more improvements and bug fixes.  Full details can be found in the 
+%(http://gate.ac.uk/userguide/sec:changes:7.0,changelog in the user guide).
+
+The GATE Developer/Embedded package is available for download from
+%(http://gate.ac.uk/download/).

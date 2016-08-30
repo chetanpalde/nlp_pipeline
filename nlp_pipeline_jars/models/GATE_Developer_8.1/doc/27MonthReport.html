@@ -1,0 +1,102 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <TITLE>GATE2 27-month report</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<H1>
+<A HREF="http://gate.ac.uk/">
+<IMG SRC="gateHeader.gif" ALT="GATE" HEIGHT=76 WIDTH=356 BORDER=0></A></H1>
+
+<H2>GATE 2: 27-month report</H2>
+
+<H3>
+<A HREF=http://gate.ac.uk/hamish>Hamish Cunningham</A>,
+<A HREF=http://gate.ac.uk/valyt>Valentin Tablan</A>,
+<A HREF=http://gate.ac.uk/cursu>Cristian Ursu</A>,
+<A HREF=http://gate.ac.uk/kalina>Kalina Bontcheva</A>,
+1st October, 2001</H3>
+
+
+<P>
+This is the third in a series of progress reports for the GATE 2 project
+(EPSRC grant GR/M31699, running from July 1999 to summer 2002).
+The previous report <A HREF=18MonthReport.html>is here</A>.
+
+<P>
+Our work over the last 9 months, from January through September 
+2001 has centered on:
+<UL>
+<LI>
+releasing version 2 beta 1 of the system;
+<LI>
+adapting GATE and the IE components delivered with it to Indic languages.
+</UL>
+
+
+<!------------------------------------------------------------------->
+<H2>GATE version 2</H2>
+
+<P>
+GATE version 2 
+has been completely redeveloped in Java, and is a stable, robust,
+and scalable infrastructure for Natural Language Processing, which
+allows users to focus on the NLP tasks, while mundane tasks like
+data storage, format analysis, data visualisation are handled
+by GATE. The new version has NLP components that will enable you 
+to reliably process documents, including Web documents supplied 
+as URLs, and obtain information such as the sentences they 
+contain, person names, organisations, etc. This is based on a set 
+of reusable NLP components, which you can also use outside GATE 
+by putting them into your own applications (e.g. a news indexing 
+service). GATE also provides standard tools for manual annotation 
+and performance evaluation, which are needed during application 
+development. GATE and its NLP modules have been successfully used 
+in a number of research projects and commercial applications.
+
+
+<!------------------------------------------------------------------->
+<H2>GATE and EMILLE</H2>
+
+<P>
+GATE has been upgraded as a result of the requirements of the
+EMILLE project, and both the core system and the bundled Information
+Extraction system are now proven capable of handling Indic (and many
+other) languages.
+
+<P>
+The software now supports display of all the EMILLE languages that
+are in the Unicode standard. This display is imperfect in JDK1.3 but
+has been improved in JDK1.4. We are currently working on porting to
+the latter system. In addition, the system supports input methods (for
+editing of text) for 27 languages, including these EMILLE languages:
+Bengali, Urdu, Hindi (two variants).
+
+<P>
+We have conducted successfull experiments in performing Named Entity
+recognition in Bengali.
+
+<P>
+The work has been made available to the community under the GNU open
+source library licence, and has already been taken up by the Max
+Planck Institute technical group in Nijmegen, who have extended the
+system's support for Chinese languages.
+
+
+<!------------------------------------------------------------------->
+<P>
+<A HREF=http://nlp.shef.ac.uk/>
+<IMG src="revNlpLogo.jpg" align="left" border="0"
+  width="164" height="060" name="revNlpLogo" alt="NLP group">
+<BR>
+<IMG src="nlpTitle.gif" border="0" align="left">
+<BR>
+<IMG src="redline.jpg" border="0" align="left">
+</A>
+<!------------------------------------------------------------------->
+
+<!-- $Id: 27MonthReport.html 3642 2002-03-14 18:27:43Z hamish $ -->
+</BODY>
+</HTML>
+

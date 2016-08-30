@@ -1,0 +1,60 @@
+<microdata>
+  <itemscope>
+    <annotation>Person</annotation>
+    <itemtype>http://schema.org/Person</itemtype>
+    <itemprop>name</itemprop>
+    <metadata>
+      <content itemprop="gender">gender</content>
+    </metadata>
+  </itemscope>
+  <itemscope>
+    <annotation>Organization</annotation>
+    <itemtype>http://schema.org/Organization</itemtype>
+    <itemprop>name</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Location</annotation>
+    <restrictions>
+      <feature name="locType">country</feature>
+    </restrictions>
+    <itemtype>http://schema.org/Country</itemtype>
+    <itemprop>name</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Location</annotation>
+    <restrictions>
+      <feature name="locType">city</feature>
+    </restrictions>
+    <itemtype>http://schema.org/City</itemtype>
+    <itemprop>name</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Location</annotation>
+    <restrictions>
+      <feature name="locType">airport</feature>
+    </restrictions>
+    <itemtype>http://schema.org/Airport</itemtype>
+    <itemprop>name</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Location</annotation>
+    <itemtype>http://schema.org/Place</itemtype>
+    <itemprop>name</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Address</annotation>
+    <restrictions>
+      <feature name="kind">email</feature>
+    </restrictions>
+    <itemtype>http://schema.org/ContactPoint</itemtype>
+    <itemprop>email</itemprop>
+  </itemscope>
+  <itemscope>
+    <annotation>Address</annotation>
+    <restrictions>
+      <feature name="kind">phone</feature>
+    </restrictions>
+    <itemtype>http://schema.org/ContactPoint</itemtype>
+    <itemprop>telephone</itemprop>
+  </itemscope>
+</microdata>

@@ -1,0 +1,42 @@
+/*
+ * $Id$
+ */
+
+Phase:	brill_test
+Options: control = brill
+
+Rule:Find_A
+(
+    (
+        {A}
+    ) :res
+)
+-->
+:res.Result = {rule="Find_A"}
+
+Rule:Find_A_B
+(
+    (
+        {A}{B}
+    ) :res
+)
+-->
+:res.Result = {rule="Find_A_B"}
+
+Rule:Find_B_C
+(
+    (
+        {B}{C}
+    ) :res
+)
+-->
+:res.Result = {rule="Find_B_C"}
+
+Rule:Find_A_B_C
+(
+    (
+        {A}{B}{C}
+    ) :res
+)
+-->
+:res.Result = {rule="Find_A_B_C"}

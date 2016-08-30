@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!-- creole.xml resource metadata file for test resources -->
+<!-- $Id: creole.xml 485 2000-09-04 19:20:35Z hamish $ -->
+<CREOLE>
+  <RESOURCE>
+    <NAME>Sheffield Test PR 1</NAME>
+    <JAR>TestResources.jar</JAR>
+    <CLASS>testpkg.TestPR1</CLASS>
+  </RESOURCE>
+  <RESOURCE>
+    <NAME>Sheffield Test PR 2</NAME>
+    <JAR>TestResources.jar</JAR>
+    <CLASS>testpkg.TestPR2</CLASS>
+    <AUTOLOAD/>
+  </RESOURCE>
+</CREOLE> 

@@ -1,0 +1,1248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This Document is created with the Clark System! http://www.bultreebank.org -->
+<rusnames>
+<name>
+<cat>Artifact</cat>
+<form n="9"><ph>Титаник</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="5"><ph>Титаника</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Титанике</ph><tag>Npmisl</tag></form>
+<form n="5"><ph>Титаником</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Титанику</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="106"><ph>Сомали</ph><tag>Nfi</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="211"><ph>Сочи</ph><tag>Nmi</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="84"><ph>Внуково</ph><tag>Nni</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="109"><ph>Шереметьево</ph><tag>Nni</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="5"><ph>Венгрией</ph><tag>Npfisi</tag></form>
+<form n="94"><ph>Венгрии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="10"><ph>Венгрию</ph><tag>Npfisa</tag></form>
+<form n="23"><ph>Венгрия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="2"><ph>Голландией</ph><tag>Npfisi</tag></form>
+<form n="85"><ph>Голландии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="3"><ph>Голландию</ph><tag>Npfisa</tag></form>
+<form n="2"><ph>Голландия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Зеландией</ph><tag>Npfisi</tag></form>
+<form n="98"><ph>Зеландии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="14"><ph>Зеландию</ph><tag>Npfisa</tag></form>
+<form n="24"><ph>Зеландия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="49"><ph>Исландией</ph><tag>Npfisi</tag></form>
+<form n="49"><ph>Исландии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="6"><ph>Исландию</ph><tag>Npfisa</tag></form>
+<form n="6"><ph>Исландия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="53"><ph>Ичкерией</ph><tag>Npfisi</tag></form>
+<form n="53"><ph>Ичкерии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="1"><ph>Ичкерию</ph><tag>Npfisa</tag></form>
+<form n="14"><ph>Ичкерия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="88"><ph>Карелией</ph><tag>Npfisi</tag></form>
+<form n="88"><ph>Карелии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="7"><ph>Карелию</ph><tag>Npfisa</tag></form>
+<form n="10"><ph>Карелия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="2"><ph>Норвегией</ph><tag>Npfisi</tag></form>
+<form n="97"><ph>Норвегии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="15"><ph>Норвегию</ph><tag>Npfisa</tag></form>
+<form n="16"><ph>Норвегия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Эфиопией</ph><tag>Npfisi</tag></form>
+<form n="63"><ph>Эфиопии</ph><tag>Npfisg</tag><tag>Npfisd</tag><tag>Npfisl</tag></form>
+<form n="12"><ph>Эфиопию</ph><tag>Npfisa</tag></form>
+<form n="6"><ph>Эфиопия</ph><tag>Npfisn</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="25"><ph>Аргун</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="16"><ph>Аргуна</ph><tag>Npmisg</tag></form>
+<form n="54"><ph>Аргуне</ph><tag>Npmisl</tag></form>
+<form n="3"><ph>Аргуном</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Аргуну</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="99"><ph>Байконур</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="35"><ph>Байконура</ph><tag>Npmisg</tag></form>
+<form n="21"><ph>Байконуре</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Байконуром</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Байконуру</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="28"><ph>Бейрут</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="15"><ph>Бейрута</ph><tag>Npmisg</tag></form>
+<form n="88"><ph>Бейруте</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Бейрутом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Бейруту</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="42"><ph>Бишкек</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="27"><ph>Бишкека</ph><tag>Npmisg</tag></form>
+<form n="54"><ph>Бишкеке</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Бишкеком</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Бишкеку</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="32"><ph>Ватикан</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="60"><ph>Ватикана</ph><tag>Npmisg</tag></form>
+<form n="29"><ph>Ватикане</ph><tag>Npmisl</tag></form>
+<form n="10"><ph>Ватиканом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Ватикану</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="30"><ph>Волгоград</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="71"><ph>Волгограда</ph><tag>Npmisg</tag></form>
+<form n="58"><ph>Волгограде</ph><tag>Npmisl</tag></form>
+<form n="4"><ph>Волгоградом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Волгограду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="2"><ph>Волгодонск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="0"><ph>Волгодонска</ph><tag>Npmisg</tag></form>
+<form n="50"><ph>Волгодонске</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Волгодонском</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Волгодонску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="43"><ph>Вьетнам</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="83"><ph>Вьетнама</ph><tag>Npmisg</tag></form>
+<form n="45"><ph>Вьетнаме</ph><tag>Npmisl</tag></form>
+<form n="13"><ph>Вьетнамом</ph><tag>Npmisi</tag></form>
+<form n="11"><ph>Вьетнаму</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="68"><ph>Герман</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="14"><ph>Германа</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Германе</ph><tag>Npmisl</tag></form>
+<form n="4"><ph>Германом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Герману</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="82"><ph>Герхард</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="24"><ph>Герхарда</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Герхарде</ph><tag>Npmisl</tag></form>
+<form n="36"><ph>Герхардом</ph><tag>Npmisi</tag></form>
+<form n="5"><ph>Герхарду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="17"><ph>Гонконг</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="58"><ph>Гонконга</ph><tag>Npmisg</tag></form>
+<form n="24"><ph>Гонконге</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Гонконгом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Гонконгу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="70"><ph>Греф</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="11"><ph>Грефа</ph><tag>Npmisg</tag></form>
+<form n="11"><ph>Грефе</ph><tag>Npmisl</tag></form>
+<form n="5"><ph>Грефом</ph><tag>Npmisi</tag></form>
+<form n="2"><ph>Грефу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="83"><ph>Гуджарат</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="6"><ph>Гуджарата</ph><tag>Npmisg</tag></form>
+<form n="38"><ph>Гуджарате</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Гуджаратом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Гуджарату</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="65"><ph>Джеймс</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="21"><ph>Джеймса</ph><tag>Npmisg</tag></form>
+<form n="3"><ph>Джеймсе</ph><tag>Npmisl</tag></form>
+<form n="10"><ph>Джеймсом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Джеймсу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="17"><ph>Джексон</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="19"><ph>Джексона</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Джексоне</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Джексоном</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Джексону</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Джелалабад</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="9"><ph>Джелалабада</ph><tag>Npmisg</tag></form>
+<form n="16"><ph>Джелалабаде</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Джелалабадом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Джелалабаду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="2"><ph>Донецк</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="5"><ph>Донецка</ph><tag>Npmisg</tag></form>
+<form n="19"><ph>Донецке</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Донецком</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Донецку</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="79"><ph>Египет</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Египета</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Египете</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Египетом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Египету</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="24"><ph>Екатеринбург</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="43"><ph>Екатеринбурга</ph><tag>Npmisg</tag></form>
+<form n="67"><ph>Екатеринбурге</ph><tag>Npmisl</tag></form>
+<form n="20"><ph>Екатеринбургом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Екатеринбургу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Зеленоград</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="5"><ph>Зеленограда</ph><tag>Npmisg</tag></form>
+<form n="7"><ph>Зеленограде</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Зеленоградом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Зеленограду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="1"><ph>Зеленокумск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Зеленокумска</ph><tag>Npmisg</tag></form>
+<form n="4"><ph>Зеленокумске</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Зеленокумском</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Зеленокумску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="54"><ph>Исламабад</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="51"><ph>Исламабада</ph><tag>Npmisg</tag></form>
+<form n="68"><ph>Исламабаде</ph><tag>Npmisl</tag></form>
+<form n="17"><ph>Исламабадом</ph><tag>Npmisi</tag></form>
+<form n="8"><ph>Исламабаду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="7"><ph>Казбек</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="6"><ph>Казбека</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Казбеке</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Казбеком</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Казбеку</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="57"><ph>Калининград</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="79"><ph>Калининграда</ph><tag>Npmisg</tag></form>
+<form n="64"><ph>Калининграде</ph><tag>Npmisl</tag></form>
+<form n="25"><ph>Калининградом</ph><tag>Npmisi</tag></form>
+<form n="19"><ph>Калининграду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="26"><ph>Кандагар</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="64"><ph>Кандагара</ph><tag>Npmisg</tag></form>
+<form n="60"><ph>Кандагаре</ph><tag>Npmisl</tag></form>
+<form n="20"><ph>Кандагаром</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Кандагару</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="1"><ph>Каракас</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="37"><ph>Каракаса</ph><tag>Npmisg</tag></form>
+<form n="52"><ph>Каракасе</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Каракасом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Каракасу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Квебек</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="3"><ph>Квебека</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Квебеке</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Квебеком</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Квебеку</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="6"><ph>Квинсленд</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Квинсленда</ph><tag>Npmisg</tag></form>
+<form n="2"><ph>Квинсленде</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Квинслендом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Квинсленду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="89"><ph>Кипр</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="99"><ph>Кипра</ph><tag>Npmisg</tag></form>
+<form n="49"><ph>Кипре</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Кипром</ph><tag>Npmisi</tag></form>
+<form n="8"><ph>Кипру</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="16"><ph>Кишинев</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="34"><ph>Кишинева</ph><tag>Npmisg</tag></form>
+<form n="75"><ph>Кишиневе</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Кишиневом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Кишиневу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="14"><ph>Кунашир</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Кунашира</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Кунашире</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Кунаширом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Кунаширу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="10"><ph>Люксембург</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="15"><ph>Люксембурга</ph><tag>Npmisg</tag></form>
+<form n="17"><ph>Люксембурге</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Люксембургом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Люксембургу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="1"><ph>Люнебург</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Люнебурга</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Люнебурге</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Люнебургом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Люнебургу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="41"><ph>Наблус</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="52"><ph>Наблуса</ph><tag>Npmisg</tag></form>
+<form n="73"><ph>Наблусе</ph><tag>Npmisl</tag></form>
+<form n="14"><ph>Наблусом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Наблусу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="1"><ph>Неттлфорд</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="1"><ph>Неттлфорда</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Неттлфорде</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Неттлфордом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Неттлфорду</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="27"><ph>Новороссийск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="78"><ph>Новороссийска</ph><tag>Npmisg</tag></form>
+<form n="44"><ph>Новороссийске</ph><tag>Npmisl</tag></form>
+<form n="30"><ph>Новороссийском</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Новороссийску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="1"><ph>Питсбург</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="0"><ph>Питсбурга</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Питсбурге</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Питсбургом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Питсбургу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="93"><ph>Пхеньян</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="80"><ph>Пхеньяна</ph><tag>Npmisg</tag></form>
+<form n="48"><ph>Пхеньяне</ph><tag>Npmisl</tag></form>
+<form n="41"><ph>Пхеньяном</ph><tag>Npmisi</tag></form>
+<form n="11"><ph>Пхеньяну</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="6"><ph>Пятигорск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="16"><ph>Пятигорска</ph><tag>Npmisg</tag></form>
+<form n="86"><ph>Пятигорске</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Пятигорском</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Пятигорску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="10"><ph>Ростов</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="4"><ph>Ростова</ph><tag>Npmisg</tag></form>
+<form n="5"><ph>Ростове</ph><tag>Npmisl</tag></form>
+<form n="1"><ph>Ростовом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Ростову</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="59"><ph>Сеул</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="63"><ph>Сеула</ph><tag>Npmisg</tag></form>
+<form n="70"><ph>Сеуле</ph><tag>Npmisl</tag></form>
+<form n="13"><ph>Сеулом</ph><tag>Npmisi</tag></form>
+<form n="4"><ph>Сеулу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="4"><ph>Смоленск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="6"><ph>Смоленска</ph><tag>Npmisg</tag></form>
+<form n="7"><ph>Смоленске</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Смоленском</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Смоленску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="3"><ph>Солигорск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="0"><ph>Солигорска</ph><tag>Npmisg</tag></form>
+<form n="2"><ph>Солигорске</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Солигорском</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Солигорску</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="3"><ph>Страсбург</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="3"><ph>Страсбурга</ph><tag>Npmisg</tag></form>
+<form n="61"><ph>Страсбурге</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Страсбургом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Страсбургу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="20"><ph>Судан</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="93"><ph>Судана</ph><tag>Npmisg</tag></form>
+<form n="44"><ph>Судане</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Суданом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Судану</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="11"><ph>Таймыр</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="56"><ph>Таймыра</ph><tag>Npmisg</tag></form>
+<form n="37"><ph>Таймыре</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Таймыром</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Таймыру</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="55"><ph>Техас</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="17"><ph>Техаса</ph><tag>Npmisg</tag></form>
+<form n="73"><ph>Техасе</ph><tag>Npmisl</tag></form>
+<form n="3"><ph>Техасом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Техасу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="32"><ph>Тимор</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="61"><ph>Тимора</ph><tag>Npmisg</tag></form>
+<form n="52"><ph>Тиморе</ph><tag>Npmisl</tag></form>
+<form n="6"><ph>Тимором</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Тимору</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="64"><ph>Урал</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="6"><ph>Урала</ph><tag>Npmisg</tag></form>
+<form n="3"><ph>Урале</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Уралом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Уралу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="40"><ph>Хеврон</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="42"><ph>Хеврона</ph><tag>Npmisg</tag></form>
+<form n="81"><ph>Хевроне</ph><tag>Npmisl</tag></form>
+<form n="10"><ph>Хевроном</ph><tag>Npmisi</tag></form>
+<form n="6"><ph>Хеврону</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="25"><ph>Иркутск</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="34"><ph>Иркутска</ph><tag>Npmisg</tag></form>
+<form n="69"><ph>Иркутске</ph><tag>Npmisl</tag></form>
+<form n="134"><ph>Иркутском</ph><tag>Npmisi</tag></form>
+<form n="4"><ph>Иркутском</ph><tag>Npmisi</tag></form>
+</name>
+<name>
+<cat>Loc</cat>
+<form n="5"><ph>Воронеж</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="46"><ph>Воронежа</ph><tag>Npmisg</tag></form>
+<form n="58"><ph>Воронеже</ph><tag>Npmisl</tag></form>
+<form n="6"><ph>Воронежем</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="4"><ph>Воронежу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="59"><ph>Генпрокуратура</ph><tag>Nfisn</tag></form>
+<form n="32"><ph>Генпрокуратуре</ph><tag>Nfisd</tag><tag>Nfisl</tag></form>
+<form n="37"><ph>Генпрокуратурой</ph><tag>Nfisi</tag></form>
+<form n="37"><ph>Генпрокуратуру</ph><tag>Nfisa</tag></form>
+<form n="185"><ph>Генпрокуратуры</ph><tag>Nfisg</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="142"><ph>Хезболлах</ph><tag>Nmi</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="146"><ph>Гидрометеобюро</ph><tag>Nni</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="16"><ph>Центризбирком</ph><tag>Npmisi</tag></form>
+<form n="67"><ph>Центризбиркома</ph><tag>Npmisg</tag></form>
+<form n="9"><ph>Центризбиркоме</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Центризбиркомом</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Центризбиркому</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="71"><ph>Аэрофлот</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="88"><ph>Аэрофлота</ph><tag>Npmisg</tag></form>
+<form n="3"><ph>Аэрофлоте</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Аэрофлотом</ph><tag>Npmisi</tag></form>
+<form n="3"><ph>Аэрофлоту</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="2"><ph>Генштаб</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="99"><ph>Генштаба</ph><tag>Npmisg</tag></form>
+<form n="5"><ph>Генштабе</ph><tag>Npmisl</tag></form>
+<form n="2"><ph>Генштабом</ph><tag>Npmisi</tag></form>
+<form n="7"><ph>Генштабу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="22"><ph>Госдепартамент</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="91"><ph>Госдепартамента</ph><tag>Npmisg</tag></form>
+<form n="9"><ph>Госдепартаменте</ph><tag>Npmisl</tag></form>
+<form n="5"><ph>Госдепартаментом</ph><tag>Npmisi</tag></form>
+<form n="2"><ph>Госдепартаменту</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="7"><ph>Дальэнергосбыт</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="5"><ph>Дальэнергосбыта</ph><tag>Npmisg</tag></form>
+<form n="1"><ph>Дальэнергосбыте</ph><tag>Npmisl</tag></form>
+<form n="5"><ph>Дальэнергосбытом</ph><tag>Npmisi</tag></form>
+<form n="1"><ph>Дальэнергосбыту</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="3"><ph>Легпромбанк</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="7"><ph>Легпромбанка</ph><tag>Npmisg</tag></form>
+<form n="0"><ph>Легпромбанке</ph><tag>Npmisl</tag></form>
+<form n="0"><ph>Легпромбанком</ph><tag>Npmisi</tag></form>
+<form n="0"><ph>Легпромбанку</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Org</cat>
+<form n="16"><ph>Росавиакосмос</ph><tag>Npmisn</tag><tag>Npmisa</tag></form>
+<form n="56"><ph>Росавиакосмоса</ph><tag>Npmisg</tag></form>
+<form n="23"><ph>Росавиакосмосе</ph><tag>Npmisl</tag></form>
+<form n="8"><ph>Росавиакосмосом</ph><tag>Npmisi</tag></form>
+<form n="2"><ph>Росавиакосмосу</ph><tag>Npmisd</tag></form>
+</name>
+<name>
+<cat>Per</cat>
+<form n="304"><ph>Аравии</ph><tag>Nfasg</tag><tag>Nfasd</tag><tag>Nfasl</tag></form>
+<form n="50"><ph>Аравию</ph><tag>Nfasa</tag></form>
+<form n="94"><ph>Аравия</ph><tag>Nfasn</tag></form>
+<form n="0"><ph>Аравией</ph><tag>Nfasi</tag></form>
+</name>
+<name>
+<cat>Per</cat>
+<form n="199"><ph>Чен</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>Per</cat>
+<form n="77"><ph>Захир</ph><tag>Npmasn</tag></form>
+<form n="0"><ph>Захира</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Захире</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Захиром</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Захиру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>Per</cat>
+<form n="8"><ph>Ханссен</ph><tag>Npmasn</tag></form>
+<form n="9"><ph>Ханссена</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Ханссене</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Ханссеном</ph><tag>Npmasi</tag></form>
+<form n="1"><ph>Ханссену</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>Per</cat>
+<form n="52"><ph>Шейх</ph>               <tag>Npmasn</tag></form>
+<form n="23"><ph>Шейха</ph>             <tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="2"><ph>Шейхе</ph>               <tag>Npmasl</tag></form>
+<form n="3"><ph>Шейхом</ph>            <tag>Npmasi</tag></form>
+<form n="1"><ph>Шейху</ph>               <tag>Npmasd</tag></form>
+</name>
+<name>
+<name>
+<form n="69"><ph>Ханс</ph><tag>Npmasn</tag></form>                                          
+<form n="23"><ph>Ханса</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>           
+<form n="0"><ph>Хансе</ph><tag>Npmasl</tag></form>                                          
+<form n="11"><ph>Хансом</ph><tag>Npmasi</tag></form>                                           
+<form n="6"><ph>Хансу</ph><tag>Npmasd</tag></form>                                          
+</name>
+<cat>Per</cat>
+<form n="71"><ph>Спартак</ph><tag>Npmasn</tag></form>                                    
+<form n="25"><ph>Спартака</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>     
+<form n="0"><ph>Спартаке</ph><tag>Npmasl</tag></form>                                    
+<form n="5"><ph>Спартаком</ph><tag>Npmasi</tag></form>                                     
+<form n="3"><ph>Спартаку</ph><tag>Npmasd</tag></form>                                    
+</name>
+<name>
+<cat>Loc</cat>
+<form n="83"><ph>Плесецк</ph><tag>Npmasn</tag><tag>Npmasa</tag></form>                                    
+<form n="1"><ph>Плесецка</ph><tag>Npmasg</tag></form>     
+<form n="8"><ph>Плесецке</ph><tag>Npmasl</tag></form>                                    
+<form n="1"><ph>Плесецком</ph><tag>Npmasi</tag></form>                                     
+<form n="0"><ph>Плесецку</ph><tag>Npmasd</tag></form>                                    
+</name>
+<name>
+<cat>Per?</cat>
+<form n="4"><ph>Нептун</ph><tag>Nmasn</tag></form>
+<form n="3"><ph>Нептуна</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Нептуну</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Нептуном</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Нептуне</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="5"><ph>Боткинской</ph><tag>Nfasg</tag><tag>Nfasd</tag><tag>Nfasi</tag><tag>Nfasl</tag></form>
+<form n="5"><ph>Боткинскую</ph><tag>Nfasa</tag></form>
+<form n="0"><ph>Боткинская</ph><tag>Nfasn</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="156"><ph>Берлускони</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="123"><ph>Дзюнъитиро</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="333"><ph>Лукашенко</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="12"><ph>Паваротти</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="5"><ph>Пахоменко</ph><tag>Nma</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="2"><ph>Ботлихского</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="1"><ph>Ботлихском</ph><tag>Nmasl</tag></form>
+<form n="1"><ph>Ботлихскому</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Ботлихский</ph><tag>Nmasn</tag></form>
+<form n="0"><ph>Ботлихским</ph><tag>Nmasi</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="63"><ph>Карзаем</ph><tag>Nmasi</tag></form>
+<form n="3"><ph>Карзаи</ph><tag>Nmasl</tag></form>
+<form n="238"><ph>Карзай</ph><tag>Nmasn</tag></form>
+<form n="18"><ph>Карзаю</ph><tag>Nmasd</tag></form>
+<form n="136"><ph>Карзая</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="23"><ph>Николаем</ph><tag>Nmasi</tag></form>
+<form n="422"><ph>Николай</ph><tag>Nmasn</tag></form>
+<form n="34"><ph>Николаю</ph><tag>Nmasd</tag></form>
+<form n="145"><ph>Николая</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Николае</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1"><ph>Абделькарим</ph><tag>Nmasn</tag></form>
+<form n="2"><ph>Абделькарима</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Абделькариму</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Абделькаримом</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Абделькариме</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="49"><ph>Буданов</ph><tag>Nmasn</tag></form>
+<form n="186"><ph>Буданова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="23"><ph>Буданову</ph><tag>Nmasd</tag></form>
+<form n="15"><ph>Будановым</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Буданове</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="43"><ph>Быков</ph><tag>Nmasn</tag></form>
+<form n="156"><ph>Быкова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="21"><ph>Быкову</ph><tag>Nmasd</tag></form>
+<form n="21"><ph>Быковым</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Быкове</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1553"><ph>Иванов</ph><tag>Nmasn</tag></form>
+<form n="300"><ph>Иванова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="21"><ph>Иванову</ph><tag>Nmasd</tag></form>
+<form n="150"><ph>Ивановым</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Иванове</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="208"><ph>Лужков</ph><tag>Nmasn</tag></form>
+<form n="43"><ph>Лужкова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="7"><ph>Лужкову</ph><tag>Nmasd</tag></form>
+<form n="22"><ph>Лужковым</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Лужкове</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="66"><ph>Масхадов</ph><tag>Nmasn</tag></form>
+<form n="176"><ph>Масхадова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="12"><ph>Масхадову</ph><tag>Nmasd</tag></form>
+<form n="37"><ph>Масхадовым</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Масхадове</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1"><ph>Петерсен</ph><tag>Nmasn</tag></form>
+<form n="1"><ph>Петерсена</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Петерсену</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Петерсеном</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Петерсене</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="138"><ph>Ширак</ph><tag>Nmasn</tag></form>
+<form n="111"><ph>Ширака</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Шираке</ph><tag>Nmasl</tag></form>
+<form n="53"><ph>Шираком</ph><tag>Nmasi</tag></form>
+<form n="16"><ph>Шираку</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="102"><ph>Флейшер</ph><tag>Nmasn</tag></form>
+<form n="13"><ph>Флейшера</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Флейшере</ph><tag>Nmasl</tag></form>
+<form n="1"><ph>Флейшером</ph><tag>Nmasi</tag></form>
+<form n="1"><ph>Флейшеру</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="87"><ph>Чавес</ph><tag>Nmasn</tag></form>
+<form n="116"><ph>Чавеса</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Чавесе</ph><tag>Nmasl</tag></form>
+<form n="6"><ph>Чавесом</ph><tag>Nmasi</tag></form>
+<form n="19"><ph>Чавесу</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="256"><ph>Хусейн</ph><tag>Nmasn</tag></form>
+<form n="371"><ph>Хусейна</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="3"><ph>Хусейне</ph><tag>Nmasl</tag></form>
+<form n="31"><ph>Хусейном</ph><tag>Nmasi</tag></form>
+<form n="48"><ph>Хусейну</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="320"><ph>Шарон</ph><tag>Nmasn</tag></form>
+<form n="235"><ph>Шарона</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="2"><ph>Шароне</ph><tag>Nmasl</tag></form>
+<form n="92"><ph>Шароном</ph><tag>Nmasi</tag></form>
+<form n="40"><ph>Шарону</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="70"><ph>Робертсон</ph><tag>Nmasn</tag></form>
+<form n="15"><ph>Робертсона</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="12"><ph>Робертсоном</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Робертсону</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Робертсоне</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="13"><ph>Ришар</ph><tag>Nmasn</tag></form>
+<form n="6"><ph>Ришара</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="0"><ph>Ришару</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Ришаром</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Ришаре</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="130"><ph>Шредер</ph><tag>Nmasn</tag></form>
+<form n="64"><ph>Шредера</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="1"><ph>Шредере</ph><tag>Nmasl</tag></form>
+<form n="43"><ph>Шредером</ph><tag>Nmasi</tag></form>
+<form n="5"><ph>Шредеру</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1"><ph>Рихтер</ph><tag>Nmasn</tag></form>
+<form n="237"><ph>Рихтера</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="1"><ph>Рихтеру</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Рихтером</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Рихтере</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="2"><ph>Абдурахманов</ph><tag>Nmasn</tag></form>
+<form n="1"><ph>Абдурахманова</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="1"><ph>Абдурахманову</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Абдурахманове</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Абдурахмановым</ph><tag>Nmasi</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="169"><ph>Кудрин</ph><tag>Nmasn</tag></form>
+<form n="34"><ph>Кудрина</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Кудрину</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Кудрине</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Кудрином</ph><tag>Nmasi</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="3"><ph>Ленин</ph><tag>Nmasn</tag></form>
+<form n="56"><ph>Ленина</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="5"><ph>Ленину</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Ленине</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Ленином</ph><tag>Nmasi</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="217"><ph>Аннан</ph><tag>Nmasn</tag></form>
+<form n="79"><ph>Аннана</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="42"><ph>Аннаном</ph><tag>Nmasi</tag></form>
+<form n="28"><ph>Аннану</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Аннане</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="126"><ph>Ахмад</ph><tag>Nmasn</tag></form>
+<form n="43"><ph>Ахмада</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="12"><ph>Ахмадом</ph><tag>Nmasi</tag></form>
+<form n="6"><ph>Ахмаду</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Ахмаде</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="141"><ph>Ахмед</ph><tag>Nmasn</tag></form>
+<form n="122"><ph>Ахмеда</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="19"><ph>Ахмедом</ph><tag>Nmasi</tag></form>
+<form n="7"><ph>Ахмеду</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Ахмеде</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="116"><ph>Бликс</ph><tag>Nmasn</tag></form>
+<form n="39"><ph>Бликса</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="15"><ph>Бликсом</ph><tag>Nmasi</tag></form>
+<form n="6"><ph>Бликсу</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Бликсе</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="205"><ph>Блэр</ph><tag>Nmasn</tag></form>
+<form n="81"><ph>Блэра</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="58"><ph>Блэром</ph><tag>Nmasi</tag></form>
+<form n="12"><ph>Блэру</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Блэре</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="97"><ph>Милошевич</ph><tag>Nmasn</tag></form>
+<form n="214"><ph>Милошевича</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="51"><ph>Милошевичем</ph><tag>Nmasi</tag></form>
+<form n="21"><ph>Милошевичу</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Милошевиче</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="16"><ph>Милутинович</ph><tag>Nmasn</tag></form>
+<form n="11"><ph>Милутиновича</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="1"><ph>Милутиновичем</ph><tag>Nmasi</tag></form>
+<form n="3"><ph>Милутиновичу</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Милутиновиче</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="171"><ph>Мушарраф</ph><tag>Nmasn</tag></form>
+<form n="122"><ph>Мушаррафа</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="52"><ph>Мушаррафом</ph><tag>Nmasi</tag></form>
+<form n="12"><ph>Мушаррафу</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Мушаррафе</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="454"><ph>Пауэлл</ph><tag>Nmasn</tag></form>
+<form n="127"><ph>Пауэлла</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="90"><ph>Пауэллом</ph><tag>Nmasi</tag></form>
+<form n="19"><ph>Пауэллу</ph><tag>Nmasd</tag></form>
+<form n="19"><ph>Пауэлле</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1"><ph>Петерсон</ph><tag>Nmasn</tag></form>
+<form n="1"><ph>Петерсона</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="1"><ph>Петерсоном</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Петерсону</ph><tag>Nmasd</tag></form>
+<form n="0"><ph>Петерсоне</ph><tag>Nmasl</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="347"><ph>Арафат</ph><tag>Nmasn</tag></form>
+<form n="579"><ph>Арафата</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="8"><ph>Арафате</ph><tag>Nmasl</tag></form>
+<form n="201"><ph>Арафатом</ph><tag>Nmasi</tag></form>
+<form n="80"><ph>Арафату</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1087"><ph>Буш</ph><tag>Nmasn</tag></form>
+<form n="712"><ph>Буша</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="3"><ph>Буше</ph><tag>Nmasl</tag></form>
+<form n="219"><ph>Бушем</ph><tag>Nmasi</tag></form>
+<form n="103"><ph>Бушу</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="3"><ph>Буш-младший</ph><tag>Nmasn</tag></form>
+<form n="1"><ph>Буша-младшего</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="1"><ph>Буше-младшем</ph><tag>Nmasl</tag></form>
+<form n="1"><ph>Бушем-младшим</ph><tag>Nmasi</tag></form>
+<form n="1"><ph>Бушу-младшему</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="157"><ph>Ладен</ph><tag>Nmasn</tag></form>
+<form n="254"><ph>Ладена</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="4"><ph>Ладене</ph><tag>Nmasl</tag></form>
+<form n="41"><ph>Ладеном</ph><tag>Nmasi</tag></form>
+<form n="20"><ph>Ладену</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="8"><ph>Нигматулин</ph><tag>Nmasn</tag></form>
+<form n="3"><ph>Нигматулина</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Нигматулине</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Нигматулином</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Нигматулину</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="1"><ph>Нигматуллин</ph><tag>Nmasn</tag></form>
+<form n="1"><ph>Нигматуллина</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="0"><ph>Нигматуллине</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Нигматуллином</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Нигматуллину</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="102"><ph>Омар</ph><tag>Nmasn</tag></form>
+<form n="47"><ph>Омара</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="2"><ph>Омаре</ph><tag>Nmasl</tag></form>
+<form n="8"><ph>Омаром</ph><tag>Nmasi</tag></form>
+<form n="6"><ph>Омару</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="4"><ph>Буш-старший</ph><tag>Nmasn</tag></form>
+<form n="4"><ph>Буша-старшего</ph><tag>Nmasg</tag><tag>Nmasa</tag></form>
+<form n="1"><ph>Буше-старшем</ph><tag>Nmasl</tag></form>
+<form n="0"><ph>Бушем-старшим</ph><tag>Nmasi</tag></form>
+<form n="0"><ph>Бушу-старшему</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="84"><ph>Березовский</ph><tag>Nmasn</tag></form>
+<form n="16"><ph>Березовским</ph><tag>Nmasi</tag></form>
+<form n="107"><ph>Березовского</ph><tag>Nmasa</tag><tag>Nmasg</tag></form>
+<form n="3"><ph>Березовском</ph><tag>Nmasl</tag></form>
+<form n="6"><ph>Березовскому</ph><tag>Nmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="90"><ph>Баучер</ph><tag>Npmasn</tag></form>
+<form n="13"><ph>Баучера</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Баучере</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Баучером</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Баучеру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="86"><ph>Ельцин</ph><tag>Npmasn</tag></form>
+<form n="39"><ph>Ельцина</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="2"><ph>Ельцине</ph><tag>Npmasl</tag></form>
+<form n="1"><ph>Ельцином</ph><tag>Npmasi</tag></form>
+<form n="6"><ph>Ельцину</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="54"><ph>Кретьен</ph><tag>Npmasn</tag></form>
+<form n="12"><ph>Кретьена</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Кретьене</ph><tag>Npmasl</tag></form>
+<form n="11"><ph>Кретьеном</ph><tag>Npmasi</tag></form>
+<form n="3"><ph>Кретьену</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="56"><ph>Мубарак</ph><tag>Npmasn</tag></form>
+<form n="29"><ph>Мубарака</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Мубараке</ph><tag>Npmasl</tag></form>
+<form n="31"><ph>Мубараком</ph><tag>Npmasi</tag></form>
+<form n="4"><ph>Мубараку</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="92"><ph>Первез</ph><tag>Npmasn</tag></form>
+<form n="45"><ph>Первеза</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Первезе</ph><tag>Npmasl</tag></form>
+<form n="33"><ph>Первезом</ph><tag>Npmasi</tag></form>
+<form n="5"><ph>Первезу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="75"><ph>Перес</ph><tag>Npmasn</tag></form>
+<form n="27"><ph>Переса</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Пересе</ph><tag>Npmasl</tag></form>
+<form n="14"><ph>Пересом</ph><tag>Npmasi</tag></form>
+<form n="2"><ph>Пересу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="3"><ph>Пиночет</ph><tag>Npmasn</tag></form>
+<form n="7"><ph>Пиночета</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Пиночете</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Пиночетом</ph><tag>Npmasi</tag></form>
+<form n="1"><ph>Пиночету</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="31"><ph>Хаттаб</ph><tag>Npmasn</tag></form>
+<form n="76"><ph>Хаттаба</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Хаттабе</ph><tag>Npmasl</tag></form>
+<form n="9"><ph>Хаттабом</ph><tag>Npmasi</tag></form>
+<form n="2"><ph>Хаттабу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFamily</cat>
+<form n="2"><ph>Шекспир</ph><tag>Npmasn</tag></form>
+<form n="2"><ph>Шекспира</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Шекспире</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Шекспиром</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Шекспиру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="21"><ph>Дэниел</ph><tag>Npmasn</tag></form>
+<form n="51"><ph>Дэниела</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Дэниеле</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Дэниелому</ph><tag>Npmasd</tag></form>
+<form n="1"><ph>Дэниелу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="24"><ph>Аслан</ph><tag>Npmasn</tag></form>
+<form n="68"><ph>Аслана</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="1"><ph>Аслане</ph><tag>Npmasl</tag></form>
+<form n="9"><ph>Асланом</ph><tag>Npmasi</tag></form>
+<form n="3"><ph>Аслану</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="54"><ph>Атал</ph><tag>Npmasn</tag></form>
+<form n="9"><ph>Атала</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Атале</ph><tag>Npmasl</tag></form>
+<form n="22"><ph>Аталом</ph><tag>Npmasi</tag></form>
+<form n="5"><ph>Аталу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="54"><ph>Джек</ph><tag>Npmasn</tag></form>
+<form n="14"><ph>Джека</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Джеке</ph><tag>Npmasl</tag></form>
+<form n="9"><ph>Джеком</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Джеку</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="61"><ph>Дэвид</ph><tag>Npmasn</tag></form>
+<form n="11"><ph>Дэвида</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="2"><ph>Дэвиде</ph><tag>Npmasl</tag></form>
+<form n="3"><ph>Дэвидом</ph><tag>Npmasi</tag></form>
+<form n="2"><ph>Дэвиду</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="20"><ph>Дэниэл</ph><tag>Npmasn</tag></form>
+<form n="52"><ph>Дэниэла</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Дэниэле</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Дэниэлом</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Дэниэлу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="10"><ph>Егор</ph><tag>Npmasn</tag></form>
+<form n="1"><ph>Егора</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="2"><ph>Егоре</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Егором</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Егору</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="21"><ph>Исмаил</ph><tag>Npmasn</tag></form>
+<form n="7"><ph>Исмаила</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Исмаиле</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Исмаилом</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Исмаилу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="2"><ph>Лоуренс</ph><tag>Npmasn</tag></form>
+<form n="2"><ph>Лоуренса</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Лоуренсе</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Лоуренсом</ph><tag>Npmasi</tag></form>
+<form n="1"><ph>Лоуренсу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="53"><ph>Майкл</ph><tag>Npmasn</tag></form>
+<form n="21"><ph>Майкла</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Майкле</ph><tag>Npmasl</tag></form>
+<form n="5"><ph>Майклом</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Майклу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="64"><ph>Марк</ph><tag>Npmasn</tag></form>
+<form n="39"><ph>Марка</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Марке</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Марком</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Марку</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="7"><ph>Маркарян</ph><tag>Npmasn</tag></form>
+<form n="1"><ph>Маркаряна</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Маркаряне</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Маркаряном</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Маркаряну</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="12"><ph>Мохамед</ph><tag>Npmasn</tag></form>
+<form n="2"><ph>Мохамеда</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Мохамеде</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Мохамедом</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Мохамеду</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="69"><ph>Мохаммад</ph><tag>Npmasn</tag></form>
+<form n="22"><ph>Мохаммада</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="1"><ph>Мохаммаде</ph><tag>Npmasl</tag></form>
+<form n="23"><ph>Мохаммадом</ph><tag>Npmasi</tag></form>
+<form n="3"><ph>Мохаммаду</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="93"><ph>Петр</ph><tag>Npmasn</tag></form>
+<form n="72"><ph>Петра</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="1"><ph>Петре</ph><tag>Npmasl</tag></form>
+<form n="11"><ph>Петром</ph><tag>Npmasi</tag></form>
+<form n="13"><ph>Петру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="53"><ph>Питер</ph><tag>Npmasn</tag></form>
+<form n="18"><ph>Питера</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Питере</ph><tag>Npmasl</tag></form>
+<form n="3"><ph>Питером</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Питеру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="4"><ph>Питт</ph><tag>Npmasn</tag></form>
+<form n="2"><ph>Питта</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Питте</ph><tag>Npmasl</tag></form>
+<form n="1"><ph>Питтом</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Питту</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="72"><ph>Руслан</ph><tag>Npmasn</tag></form>
+<form n="71"><ph>Руслана</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Руслане</ph><tag>Npmasl</tag></form>
+<form n="13"><ph>Русланом</ph><tag>Npmasi</tag></form>
+<form n="2"><ph>Руслану</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="76"><ph>Станислав</ph><tag>Npmasn</tag></form>
+<form n="15"><ph>Станислава</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Станиславе</ph><tag>Npmasl</tag></form>
+<form n="3"><ph>Станиславом</ph><tag>Npmasi</tag></form>
+<form n="2"><ph>Станиславу</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="59"><ph>Тарик</ph><tag>Npmasn</tag></form>
+<form n="12"><ph>Тарика</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Тарике</ph><tag>Npmasl</tag></form>
+<form n="2"><ph>Тариком</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Тарику</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="12"><ph>Тимур</ph><tag>Npmasn</tag></form>
+<form n="6"><ph>Тимура</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="1"><ph>Тимуре</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Тимуром</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Тимуру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="8"><ph>Титомир</ph><tag>Npmasn</tag></form>
+<form n="5"><ph>Титомира</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Титомире</ph><tag>Npmasl</tag></form>
+<form n="0"><ph>Титомиром</ph><tag>Npmasi</tag></form>
+<form n="1"><ph>Титомиру</ph><tag>Npmasd</tag></form>
+</name>
+<name>
+<cat>PerFirst</cat>
+<form n="51"><ph>Хасан</ph><tag>Npmasn</tag></form>
+<form n="11"><ph>Хасана</ph><tag>Npmasg</tag><tag>Npmasa</tag></form>
+<form n="0"><ph>Хасане</ph><tag>Npmasl</tag></form>
+<form n="6"><ph>Хасаном</ph><tag>Npmasi</tag></form>
+<form n="0"><ph>Хасану</ph><tag>Npmasd</tag></form>
+</name>
+</rusnames>

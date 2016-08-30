@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+<com.izforge.izpack.panels.HTMLInfoPanel id="UNKNOWN (com.izforge.izpack.panels.HTMLInfoPanel)"/>
+<com.izforge.izpack.panels.HTMLLicencePanel id="UNKNOWN (com.izforge.izpack.panels.HTMLLicencePanel)"/>
+<com.izforge.izpack.panels.TargetPanel id="UNKNOWN (com.izforge.izpack.panels.TargetPanel)">
+<installpath>/home/synerzip/GATE_Developer_8.1</installpath>
+</com.izforge.izpack.panels.TargetPanel>
+<com.izforge.izpack.panels.PacksPanel id="UNKNOWN (com.izforge.izpack.panels.PacksPanel)">
+<pack index="0" name="Core" selected="true"/>
+<pack index="1" name="Plugins" selected="true"/>
+<pack index="2" name="User guide" selected="true"/>
+<pack index="3" name="Developer documentation" selected="true"/>
+<pack index="4" name="Source code" selected="true"/>
+</com.izforge.izpack.panels.PacksPanel>
+<com.izforge.izpack.panels.InstallPanel id="UNKNOWN (com.izforge.izpack.panels.InstallPanel)"/>
+<com.izforge.izpack.panels.ShortcutPanel id="UNKNOWN (com.izforge.izpack.panels.ShortcutPanel)">
+<programGroup name="GATE Developer 8.1"/>
+<shortcut KdeSubstUID="false" categories="" commandLine="" createForAll="false" description="Starts GATE Developer 8.1" encoding="UTF-8" group="true" icon="/home/synerzip/GATE_Developer_8.1/icons/gate-icon.png" iconIndex="0" initialState="1" mimetype="" name="GATE Developer 8.1" startupWmClass="GATE Developer 8.1" target="/home/synerzip/GATE_Developer_8.1/bin/gate.sh" terminal="" terminalOptions="" tryexec="" type="Application" url="" usertype="0" workingDirectory="/home/synerzip/GATE_Developer_8.1"/>
+<shortcut KdeSubstUID="false" categories="" commandLine="/home/synerzip/GATE_Developer_8.1/tao.pdf" createForAll="false" description="The GATE User Guide" encoding="UTF-8" group="true" icon="/home/synerzip/GATE_Developer_8.1/icons/mime-application-pdf.png" iconIndex="0" initialState="1" mimetype="" name="GATE 8.1 User Guide" startupWmClass="" target="xdg-open" terminal="" terminalOptions="" tryexec="" type="Application" url="/home/synerzip/GATE_Developer_8.1/tao.pdf" usertype="0" workingDirectory="/home/synerzip/GATE_Developer_8.1"/>
+<shortcut KdeSubstUID="false" categories="" commandLine="&quot;-jar&quot; &quot;/home/synerzip/GATE_Developer_8.1/uninstaller/gate-uninstaller.jar&quot;" createForAll="false" description="Remove GATE Developer 8.1 from your computer" encoding="UTF-8" group="true" icon="" iconIndex="0" initialState="1" mimetype="" name="Uninstall GATE Developer 8.1" startupWmClass="" target="&quot;/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java&quot;" terminal="" terminalOptions="" tryexec="" type="Application" url="" usertype="0" workingDirectory="/home/synerzip"/>
+</com.izforge.izpack.panels.ShortcutPanel>
+<com.izforge.izpack.panels.FinishPanel id="UNKNOWN (com.izforge.izpack.panels.FinishPanel)"/>
+</AutomatedInstallation>

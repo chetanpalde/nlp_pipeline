@@ -1,0 +1,342 @@
+// date1.jape
+// Brianm, 28/Sep/98
+
+Phase:	DateRulesOk
+Options: control = appelt
+
+////////////////////////////////////////
+
+Macro:  SAINT_MACRO
+ (
+ ( ({Token.lowerString == "st"} | {Token.lowerString == "saint"}) {Token.lowerString == "."})
+ |
+ ({Token.lowerString == "st"} | {Token.lowerString == "saint"})
+ )
+
+////////////////////////////////////////
+
+Macro: MONTH_MACRO
+
+  {Token, Lookup.minorType == "MONTH"}
+
+////////////////////////////////////////
+
+Macro: SLASH
+
+  ({Token.string == "/"} | {Token, Token.symbol == "rslash"})
+
+////////////////////////////////////////
+  
+Macro: DASH
+
+  {Token.string == "-"}
+
+
+////////////////////////////////////////
+
+Macro: OF
+
+  {Token.lowerString == "of"}
+  
+////////////////////////////////////////
+
+Macro:	ONE_OR_TWO_DIGITS
+
+    ({Token.kind == "num", Token.length == 1}
+    |
+    {Token.format == "twoDigitNum"})
+
+////////////////////////////////////////
+
+Macro:	ONE_OR_TWO_NEGATIVE_DIGITS
+
+    ({Token.sign == "-", Token.length == 2}
+    |
+    {Token.sign == "-", Token.format == "twoDigitNum"})
+// the Token length is "2" for a 1 digit number because it includes the "-" sign
+
+////////////////////////////////////////
+
+Macro:	TWO_OR_FOUR_DIGITS
+
+        ({Token.format == "fourDigitNum"}
+        |
+	{Token.format == "twoDigitNum"})
+
+////////////////////////////////////////
+
+Macro:	TWO_OR_FOUR_NEGATIVE_DIGITS
+
+        ({Token.sign == "-", Token.format == "fourDigitNum"}
+        |
+	{Token.sign == "-", Token.format == "twoDigitNum"})
+
+////////////////////////////////////////
+
+Macro: AD_BC_MACRO
+	(  {Token.lowerString == "ad"}
+	|
+	  ({Token.lowerString == "a"} {Token.lowerString == "."}
+	   {Token.lowerString == "d"} {Token.lowerString == "."})
+	|
+	  {Token.lowerString == "bc"}
+	|
+	  ({Token.lowerString == "b"} {Token.lowerString == "."}
+	   {Token.lowerString == "c"} {Token.lowerString == "."})
+	)
+
+////////////////////////////////////////
+
+Macro: YEAR_MACRO
+	(TWO_OR_FOUR_NEGATIVE_DIGITS | TWO_OR_FOUR_DIGITS)
+
+////////////////////////////////////////
+
+Macro: YEAR_AD_BC_MACRO
+
+     ({Token.kind == "num"} AD_BC_MACRO)
+
+////////////////////////////////////////
+
+Macro: ORDINAL
+
+  (
+  {Token, Token.kind == "num"}
+  ({Token.lowerString == "th"}|
+   {Token.lowerString == "rd"}|
+   {Token.lowerString == "nd"}|
+   {Token.lowerString == "st"})
+  ):ordinalPart
+
+////////////////////////////////////////
+
+Macro: NUM_OR_ORDINAL
+
+  (ORDINAL | ONE_OR_TWO_NEGATIVE_DIGITS | ONE_OR_TWO_DIGITS)
+
+////////////////////////////////////////
+
+Rule:	NumberAndSlashesAndLookup
+	(
+         ( NUM_OR_ORDINAL SLASH MONTH_MACRO SLASH YEAR_MACRO )   // UK
+         |
+         ( MONTH_MACRO SLASH NUM_OR_ORDINAL SLASH YEAR_MACRO )   // US
+         |
+         ( YEAR_MACRO SLASH MONTH_MACRO SLASH NUM_OR_ORDINAL)    // Asian
+         |
+         ( NUM_OR_ORDINAL SLASH MONTH_MACRO )   // UK
+         |
+         ( MONTH_MACRO SLASH NUM_OR_ORDINAL )   // US
+         |
+         ( MONTH_MACRO SLASH YEAR_MACRO )
+        ):dateName
+  -->
+
+  :dateName.Name = {kind = "date", rule = "NumberAndSlashesAndLookup"}
+
+////////////////////////////////////////
+
+Rule:	NumberAndDashesAndLookup
+
+// due to the MACROS including negative numbers, there is no need to explicitly
+// list out all the combinations since they are covered by
+// NumsHypens, NumsSlashes and NumbersAndLookup
+
+	(
+         ( NUM_OR_ORDINAL DASH MONTH_MACRO YEAR_MACRO )
+         |
+         ( YEAR_MACRO NUM_OR_ORDINAL DASH MONTH_MACRO)
+         |
+         ( YEAR_MACRO DASH MONTH_MACRO NUM_OR_ORDINAL)
+         |
+         ( NUM_OR_ORDINAL DASH MONTH_MACRO )
+        ):dateName
+  -->
+
+  :dateName.Name = {kind = "date", rule = "NumberAndDashesAndLookup"}
+
+////////////////////////////////////////
+
+Rule:	NumberAndLookup
+	(
+         ( NUM_OR_ORDINAL MONTH_MACRO YEAR_MACRO )
+         |
+         ( NUM_OR_ORDINAL OF MONTH_MACRO YEAR_MACRO )
+         |
+         ( MONTH_MACRO NUM_OR_ORDINAL YEAR_MACRO )
+         |
+         ( NUM_OR_ORDINAL MONTH_MACRO )
+         |
+         ( NUM_OR_ORDINAL OF MONTH_MACRO )
+         |
+         ( MONTH_MACRO NUM_OR_ORDINAL )
+         |
+         ( MONTH_MACRO YEAR_MACRO )
+        ):dateName
+  -->
+
+  :dateName.Name = {kind = "date", rule = "NumberAndLookup"}
+
+////////////////////////////////////////
+
+Rule:	NumsHyphens
+    (
+      ( ONE_OR_TWO_DIGITS
+        ONE_OR_TWO_NEGATIVE_DIGITS
+        TWO_OR_FOUR_NEGATIVE_DIGITS
+      )
+      |
+      ( TWO_OR_FOUR_DIGITS
+        ONE_OR_TWO_NEGATIVE_DIGITS
+        ONE_OR_TWO_NEGATIVE_DIGITS
+      )
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "NumsHypens"}
+
+////////////////////////////////////////
+
+Rule:	NumsSlashes
+    (
+      ( ONE_OR_TWO_DIGITS
+        SLASH
+        ONE_OR_TWO_DIGITS
+        SLASH
+        TWO_OR_FOUR_DIGITS
+      )
+      |
+      ( TWO_OR_FOUR_DIGITS
+        SLASH
+        ONE_OR_TWO_DIGITS
+        SLASH
+        ONE_OR_TWO_DIGITS
+      )
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "NumsSlashes"}
+
+////////////////////////////////////////
+
+Rule:	InitCapsDay
+    (
+     {Token.orth == "initCap"}
+     {Token.lowerString == "day"}
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "InitCapsDay"}
+
+////////////////////////////////////////
+
+Rule:	AllCapsDay
+    (
+     {Token.orth == "allCaps"}
+     {Token.lowerString == "day"}
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "AllCapsDay"}
+
+////////////////////////////////////////
+
+Rule:	SaintsDay
+    (
+     SAINT_MACRO
+     ({Token.orth == "initCap"} | {Token.orth == "allCaps"})
+     {Token.lowerString == "day"}
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "SaintsDay"}
+
+////////////////////////////////////////
+
+Rule:	SaintsDayApostrophe
+    (
+     SAINT_MACRO
+     ({Token.orth == "initCap"} | {Token.orth == "allCaps"})
+     ({Token.symbol == "lquote"} | {Token.symbol == "rquote"})
+     {Token.lowerString == "s"}
+     {Token.lowerString == "day"}
+    ):dateName
+
+  -->
+
+  :dateName.Name = {kind = "date", rule = "SaintsDayApostrophe"}
+
+////////////////////////////////////////
+Rule:	Year
+// this rule may fire but not add an annotation
+
+	(YEAR_MACRO):dateName
+  -->
+
+  :dateName{  // let's do some Java!
+
+  int yearValue = -1;
+/*
+  try {
+    yearValue = Integer.parseInt(
+                  doc.spanStrings(dateNameAnnots.nth(0)) );
+  } catch (NumberFormatException e){
+    // the default value of -1 will do
+  }
+*/
+  // if the value looks like a valid year, then add an annotation
+  if ( (yearValue < 2100) && (yearValue > 900) ) {
+/*
+  try {
+          JdmSpanSequence spans = new JdmSpanSequence();
+          spans.append( new JdmSpan(dateNameAnnots.getLeftmostStart(),
+                              dateNameAnnots.getRightmostEnd() ) );
+
+    JdmAttribute kind = new JdmAttribute("kind", "date");
+    JdmAttribute rule = new JdmAttribute("rule", "Year");
+
+
+    JdmAttributeSequence  allAttribs = new JdmAttributeSequence();
+    allAttribs.append(kind);
+    allAttribs.append(rule);
+
+    doc.addAnnotation(new JdmAnnotation("Name", spans, allAttribs) );
+  } catch (JdmException ex) {
+    //do nothing for now
+  }
+*/
+
+  } // if
+
+  } // dateName javacode
+
+////////////////////////////////////////
+
+Rule:	Year_AD_BC
+
+	(YEAR_AD_BC_MACRO):dateName
+  -->
+
+  :dateName.Name = {kind = "date", rule = "Year_AD_BC"}
+
+////////////////////////////////////////
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:22  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:30  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:07  hamish
+// added logs
+//

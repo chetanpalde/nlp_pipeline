@@ -1,0 +1,57 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+Macro: TEST_MACRO_B_X
+(
+  {B}|({X})
+)
+
+Macro: TEST_MACRO_X_Y
+(
+  {X}|({Y})
+)
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	ThreeA
+  ({A})[3]:abc
+  -->
+	:abc.Result = {rule="ThreeA"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	OneToTwoB
+  (
+  	{F}
+  	({B})[1,2]
+  	{G}
+  )+:abc
+  -->
+	:abc.Result = {rule="OneToTwoB"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	ThreeToFourB
+  (
+  	{F}
+  	({B}|TEST_MACRO_X_Y)[3,4]
+  	{G}
+  ):abc
+  -->
+	:abc.Result = {rule="ThreeToFourB"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	ZeroToThreeC
+  (
+  	{D}
+  	({C})[0,3]
+  	{E}
+  ):abc
+  -->
+	:abc.Result = {rule="ZeroToThreeC"}
+

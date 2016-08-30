@@ -1,0 +1,7 @@
+New log file opened at Mon Aug 29 16:58:29 IST 2016 by 4605@IDTP331
+Taking next connection to: 53781
+New client attempting to connect on port: 39917-53781
+  Address = /172.25.27.21:53781
+This client on port 39917 has uuid 5b5c978d-2f7d-48e8-8253-eaedf57746df configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-5b5c978d-2f7d-48e8-8253-eaedf57746df
+Taking next connection to: 53781

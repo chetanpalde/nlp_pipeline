@@ -1,0 +1,85 @@
+/*
+ * ssrb.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original version developed by Mark A. Greenwood as part of his PhD thesis.
+ */
+
+Phase: Redundant
+Input: Sentence
+Options: control = appelt
+
+Rule: SSRB
+(
+	{Sentence}
+):ssrb
+-->
+{
+	// Get the tokens we used to spot this possible gerund cluase
+	AnnotationSet ssrb = bindings.get("ssrb");
+	
+	
+	// get the start and end of this section
+	Node start = ssrb.firstNode();
+	Node end = ssrb.lastNode();
+	
+	//try
+	//{
+	//	System.out.println();
+	//	System.out.println(doc.getContent().getContent(start.getOffset(),end.getOffset()).toString());
+	//}
+	//catch (Exception e) {}
+	
+	// Get all the tokens in the sentence	
+	AnnotationSet ts = inputAS.get("Token",start.getOffset(),end.getOffset());
+
+	// Put these tokens in a list and sort them into the correct order
+	List tokens = new ArrayList();
+	tokens.addAll(ts);
+	Collections.sort(tokens);
+
+	int i = 0;
+
+	boolean found = false;
+	Annotation t = null;
+	String cat = "";
+
+	while (i < tokens.size() && !found)
+	{
+		t = (gate.Annotation)tokens.get(i);
+		cat = (String)t.getFeatures().get("category");
+
+		//System.out.println((String)t.getFeatures().get("string"));
+
+		found = Character.isLetter(cat.charAt(0));
+
+		++i;
+	}
+
+	String string = ((String)t.getFeatures().get("string")).toLowerCase();
+
+	//System.out.println(string+","+cat+","+found +","+ cat.startsWith("RB")+","+string.equals("and")+","+string.equals("but"));
+
+	if (found && (cat.startsWith("RB") || string.equals("and") || string.equals("but")))
+	{	
+		//System.out.println("SSRB: " + string);
+		
+		FeatureMap params = Factory.newFeatureMap();
+		params.put("rule","SSRB");
+		outputAS.add(start,t.getEndNode(),"Redundant",params);
+		//try
+		//{
+		//	System.out.println(doc.getContent().getContent(start.getOffset(),t.getEndNode().getOffset()).toString());
+		//}
+		//catch(Exception e) {}
+	}
+
+	
+}
+

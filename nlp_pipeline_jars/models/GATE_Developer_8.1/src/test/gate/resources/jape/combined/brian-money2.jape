@@ -1,0 +1,34 @@
+// money2.jape
+// Brianm, 24/Sep/98
+
+Phase:	Money2
+Options: control = appelt
+
+Rule:	MoneyCountryPostfixed
+//Priority:	10
+// $30 US
+  (
+      {Token.kind == "money"} 
+      {Token,
+       Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "PRE_AMOUNT"}
+  ) :amount
+
+  -->
+  :amount.Name = {kind = "money", rule = "MoneyCountryPostfixed"}
+
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:24  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:32  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:10  hamish
+// added logs
+//

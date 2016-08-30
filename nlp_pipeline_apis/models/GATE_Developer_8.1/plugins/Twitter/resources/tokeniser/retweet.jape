@@ -1,0 +1,37 @@
+Phase: Retweets
+Input: Token SpaceToken UserID
+Options: control = appelt
+
+
+Rule: Retweet
+(
+
+// contains: RT @
+//  {Token.string == "RT"}
+    ( {Token.string == "RT"} {SpaceToken.kind == "space"} {Token.string == "@"} )
+// contains: ".+" by @
+// contains: ".+" via @
+    |
+    ( {Token.string == "\""} {SpaceToken.kind == "space"} ({Token.string == "by"} | {Token.string == "via"}) {SpaceToken.kind == "space"} {Token.string == "@"} )
+// contains: MT @
+// contains: MT "
+    |
+    ( {Token.string == "MT"} {SpaceToken.kind == "space"} ({Token.string == "@"} | { Token.string == "\""}) )
+// contains: "@ .+ "
+    |
+   ( {Token.string == "\""} {SpaceToken.kind == "space"} {UserID.kind == "userid"} )
+// contains: " RT @
+    |
+    ( {Token.string == "\""} {SpaceToken.kind == "space"} {Token.string == "RT"} {SpaceToken.kind == "space"} {UserID.kind == "userid"} )
+): match
+-->
+:match.RetweetDetected = {source = "detected"},
+{
+   Annotation tweet = (Annotation) inputAS.get("Tweet").iterator().next();
+   tweet.getFeatures().put("retweet", "true");
+
+}
+
+
+
+

@@ -1,0 +1,346 @@
+// Country.jape
+// Valy, 14/Apr/00
+
+Phase:	first
+Options: control = appelt
+
+
+Rule: EmailAddress
+(	(
+	({Token.kind == number})+	|
+	{Token.orth == upperInitial}	|
+	{Token.orth == lowercase}	|
+	{Token.orth == allCaps}		|
+	{Token.orth == mixedCaps}	|
+	{Token.kind == symbol}		|
+	{Token.kind == punctuation}
+	)+
+	{Token.string == "@"}		
+	(
+	{Token.orth == upperInitial}	|
+	{Token.orth == lowercase}	|
+	{Token.orth == allCaps}		|
+	{Token.orth == mixedCaps}	|
+	{Token.kind == symbol}		|
+	({Token.kind == number})+	|
+	{Token.kind == punctuation}
+	)+
+	(
+		{Token.string == "."}		
+		(
+		{Token.orth == upperInitial}	|
+		{Token.orth == lowercase}	|
+		{Token.orth == allCaps}		|
+		{Token.orth == mixedCaps}	|
+		{Token.kind == symbol}		|
+		({Token.kind == number})+	|
+		{Token.kind == punctuation}
+		)+
+	)+
+):emailaddress -->
+:emailaddress.Email = {Type = "emailaddress"}
+
+Rule: IPAddress
+(	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.string == "."}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.string == "."}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.string == "."}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+):ipaddress -->
+:ipaddress.IP = {Type = "ipaddress"}
+
+Rule: Postcode
+(	(
+		{Token.orth == allCaps}	|
+		{Token.orth == upperInitial}
+	)	
+		{Token.kind == number,Token.length == single}
+		{Token.kind == number, Token.length == single}
+		{SpaceToken}
+		{Token.kind == number,Token.length == single}	
+	(	
+		{Token.orth == allCaps}	|
+		{Token.orth == upperInitial}
+	)	
+):postcode -->
+:postcode.PostCode = {Type = "postcode"}
+
+Rule: InternetAddress
+(	({Token.string == "http"}	|
+	{Token.string == "ftp"})
+	{Token.string == "://"}
+	({Token.orth == lowercase}	|
+        {Token.orth == upperInitial}	|
+        ({Token.kind == number})+	|
+        {Token.kind == punctuation}	|
+        {Token.kind == symbol}		|
+	{Token.string == "."})+ 
+	
+	({Token.orth == lowercase}	|
+        {Token.orth == upperInitial}	|
+        ({Token.orth == number})+	|
+        {Token.kind == punctuation}	|
+        {Token.kind == symbol}		|
+	{Token.string == "/"}		|
+        {Token.string == "."})*
+):internetaddress -->
+:internetaddress.Internet = {Type = "internetaddress"}
+
+Rule:Date
+(	
+	({Token.string == "0"}		|
+	{Token.string == "1"}		|
+	{Token.string == "2"}		|
+	{Token.string == "3"})
+	{Token.kind == number}
+	
+	({Token.string == "."}		|
+	{Token.string == "/"})
+
+	({Token.string == "0"}		|
+	{Token.string == "1"})
+	{Token.kind == number}
+
+	({Token.string == "."}		|
+	{Token.string == "/"})
+
+	{Token.kind == number}
+	{Token.kind == number}
+):date -->
+:date.Date = {Type = "date"}
+
+Rule:TwoDigitNum
+(	
+	{Token.kind == number}
+	{Token.kind == number}
+	
+): twoDigitNum -->
+:twoDigitNum.TwoDigitNum = {Type = "twoDigitNum"}
+
+Rule:FourDigitNum
+(	
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+
+): fourDigitNum -->
+:fourDigitNum.FourDigitNum = {Type = "fourDigitNum"}
+
+Rule:NumberPhone1
+(	{SpaceToken}
+
+	({Token.string == "("})?
+	({Token.kind == number}	
+	{Token.kind == number}
+	({Token.string == "/"}		|
+	{Token.string == "-"})?
+	{Token.kind == number}
+	{Token.kind == number}
+	({Token.kind == number})?)		
+	({Token.string == ")"})?
+
+	(({Token.string == "/"}		|
+	{Token.string == "-"}		|
+	{SpaceToken}			|
+	{Token.string == "("}		|
+	{Token.string == ")"})+)?
+
+	{Token.kind == number}
+	({Token.kind == number})		
+	({Token.kind == number})
+
+
+	(({SpaceToken}			|
+	{Token.string == "-"}		|
+	{Token.string == "("}		|
+	{Token.string == ")"}		|
+	{Token.string == "/"})+)?
+	
+	({Token.kind == number}		|
+	{Token.string == "x"})
+	({Token.kind == number}		|
+	{Token.string == "x"})
+	({Token.kind == number}		|
+	{Token.string == "x"})
+	({Token.kind == number}		|
+	{Token.string == "x"})?
+
+):numberphone1 -->
+:numberphone1.Phone = {Type = "numberphone1"}
+
+Rule:NumberPhone2
+(
+	{SpaceToken}
+	
+	{Token.string == "+"}
+	{Token.kind == number}	
+	{Token.kind == number}
+	
+	(({Token.string == "/"}		|
+	{Token.string == "-"}		|
+	{SpaceToken}			|
+	{Token.string == "("}		|
+	{Token.string == ")"})+)?
+
+	{Token.kind == number}
+	({Token.kind == number})?		
+	({Token.kind == number})?
+
+
+	(({SpaceToken}			|
+	{Token.string == "-"}		|
+	{Token.string == "("}		|
+	{Token.string == ")"}		|
+	{Token.string == "/"})+)?
+
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	({Token.kind == number})?
+	
+	(({SpaceToken}			|
+	{Token.string == "-"}		|
+	{Token.string == "("}		|
+	{Token.string == ")"}		|
+	{Token.string == "/"})+)?
+
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	({Token.kind == number})?
+	
+):numberphone2 -->
+:numberphone2.Phone = {Type = "numberphone2"}
+
+Rule:NumberPhone3
+(
+	{SpaceToken}
+	({Token.string == "x"}		|
+	({Token.string == "x"}		
+	{Token.string == "."})		|
+	{Token.string == "ext"} 	|
+	({Token.string == "ext"}	
+	{Token.string == "."}))
+
+	({SpaceToken.kind == space})?
+	({Token.kind == number})+
+	
+):numberphone3 -->
+:numberphone3.Phone = {Type = "numberphone3"}
+
+Rule:NumberPhone4
+(
+	{SpaceToken}
+	
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	({Token.kind == number})?
+	({SpaceToken.kind == space})?
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	({Token.kind == number})?
+	
+):numberphone4 -->
+:numberphone4.Phone = {Type = "numberphone4"}
+
+Rule:NumberPhone5
+(
+	{SpaceToken}
+
+	{Token.kind == number}	
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	
+	(({Token.string == "/"}		|
+	{Token.string == "-"}		|
+	{SpaceToken})+)?
+
+	{Token.kind == number}
+	{Token.kind == number}		
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+
+
+	(({SpaceToken}			|
+	{Token.string == "-"}		|
+	{Token.string == "/"})+)?
+
+	({Token.string == "x"}		|
+	({Token.string == "x"}		
+	{Token.string == "."})		|
+	{Token.string == "ext"} 	|
+	({Token.string == "ext"}	
+	{Token.string == "."}))
+
+	({SpaceToken})?
+
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number}
+
+
+):numberphone5 -->
+:numberphone5.Phone = {Type = "numberphone5"}
+
+Rule:PersonName
+(	({Token.string == "Mr"}		|
+	({Token.string == "Mr"}
+	{Token.string == "."})		|
+	{Token.string == "Mister"}	|
+	{Token.string == "Mrs"}		|
+	({Token.string == "Mrs"}
+	{Token.string == "."})		|
+	{Token.string == "Missus"}	|
+	{Token.string == "Miss"}	|
+	({Token.string == "Miss"}
+	{Token.string == "."})		|
+	{Token.string == "Sir"}		|
+	{Token.string == "Lady"})
+
+	(({SpaceToken.kind == space})+)?
+
+	({Token.orth == upperInitial}	|
+	{Token.orth == allCaps})
+):personname -->
+:personname.Name = {Type = "personname"}
+
+
+Rule:Number
+(	
+	(({Token.string == "+"}		|
+	{Token.string == "-"})
+	({Token.kind == number})+)	|
+	
+	(({Token.string == "+"}		|
+	{Token.string == "-"})?
+	
+	{Token.kind == number}
+	({Token.kind == number})?
+	({Token.kind == number})?		
+	({Token.string == ","}
+	{Token.kind == number}
+	{Token.kind == number}
+	{Token.kind == number})+)
+
+):number -->
+:number.Number = {Type = "number"}
+
+
+

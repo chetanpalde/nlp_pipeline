@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<metadata xmlns="http://gate.ac.uk/ns/pipeline-metadata">
+  <pipeline-name>Hunpos English POS Tagger</pipeline-name>
+  <slug>hunpos-english-pos-tagger</slug>
+  <ordering>50</ordering>
+  <annotation-selectors>:Token</annotation-selectors>
+  <additional-annotations>:SpaceToken, :Sentence</additional-annotations>
+  <tags>
+    <tag>English</tag>
+    <tag>Hunpos</tag>
+    <tag>Part-of-Speech</tag>
+  </tags>
+</metadata>

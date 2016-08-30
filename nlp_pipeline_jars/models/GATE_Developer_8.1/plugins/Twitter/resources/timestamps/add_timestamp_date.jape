@@ -1,0 +1,35 @@
+/*
+ * Parse the "created_at" timestamp string from a Tweet annotation and store
+ * the equivalent Java timestamp as a Long.
+ */
+Imports: {
+  import gate.corpora.twitter.TweetUtils;
+  import org.joda.time.DateTime;
+}
+
+Phase: ParseTimestamp
+Input: Tweet
+Options: control = all
+
+Rule: TweetTimestamp
+(
+  {Tweet}
+):twt
+-->
+:twt {
+  for(Annotation twt : twtAnnots) {
+    String createdAt = (String)twt.getFeatures().get("created_at");
+    if(createdAt != null) {
+      try {
+        DateTime dt = TweetUtils.CREATED_AT_FORMAT.parseDateTime(createdAt);
+
+        // store timestamp as a Long on the annotation
+        twt.getFeatures().put("timestamp", dt.getMillis());
+
+      } catch(IllegalArgumentException e) {
+        // could not parse as a string
+        throw new NonFatalJapeException("Could not parse " + createdAt + " as a date", e);
+      }
+    }
+  }
+}

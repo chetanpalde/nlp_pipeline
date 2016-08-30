@@ -1,0 +1,14 @@
+// fsmtestgrammar.jape
+// Valy, 14/Apr/00
+
+Phase:	first
+Rule:	One
+      (({A})?:a ({B})+:b ({C})*:c)*:abc 
+  -->
+	:abc.Group = {Type = "AB&C" }
+
+Rule: Two
+			({A}):a | ({B}):b
+	-->
+	{}
+

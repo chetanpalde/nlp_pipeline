@@ -1,0 +1,42 @@
+/*
+* remove_upper.jape
+*
+*  Angel Kirilov, 18 June 2003
+* 
+*  $Id: remove_upper.jape,v 1.1 2004/01/28 16:39:41 diana Exp $
+*/
+
+Phase:	RemoveUpper
+Input: Sentence
+Options: control = appelt debug = no
+
+// this has to be run after first.jape
+
+Rule: RemoveUpper
+(
+  {Sentence}
+)	
+:sentence
+-->
+{
+gate.AnnotationSet sentenceSet = (gate.AnnotationSet)bindings.get("sentence");  
+
+gate.AnnotationSet upper = (gate.AnnotationSet)inputAS.get("Upper");  
+
+if( upper != null && upper.size() > 0 ) {
+  // get only Upper annotations in range of the sentence
+  gate.AnnotationSet upperInSent = upper.get(sentenceSet.firstNode().getOffset(), 
+      sentenceSet.lastNode().getOffset());
+  if( upperInSent != null && upperInSent.size() > 0 ) {
+    // find Upper annotation at the start of the Sentence if any
+    Iterator it = upperInSent.iterator();
+    gate.Annotation upperAnn;
+    while(it.hasNext()) {
+      upperAnn = (gate.Annotation)it.next();  
+      if(upperAnn.getStartNode().getOffset().compareTo(sentenceSet.firstNode().getOffset()) == 0 ) {
+        inputAS.remove(upperAnn);
+      } // if
+    } // while
+  } // if
+} // if
+}

@@ -1,0 +1,110 @@
+// default.jape
+// Brianm, 14/Sep/98
+
+Phase:	DefaultRules
+Options: control = appelt
+
+Rule:	GazetteerOrganization
+  (
+	({Lookup.majorType == "ORGANIZATION"}):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "GazetteerOrganization"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerLocation
+  (
+	({Lookup.majorType == "LOCATION"}):locationName
+  )
+  -->
+
+  :locationName.Name = {kind = "location", rule = "GazetteerLocation"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerPerson
+  (
+	({Lookup.majorType == "PERSON"}):personName
+  )
+  -->
+
+  :personName.Name = {kind = "person", rule = "GazetteerPerson"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerDrug
+  (
+	({Lookup.majorType == "DRUG"}):drugName
+  )
+  -->
+
+  :drugName.Name = {kind = "drug", rule = "GazetteerDrug"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerDate
+  (
+	({Lookup.majorType == "DATE"}):dateName
+  )
+  -->
+
+  :dateName.Name = {kind = "date", rule = "GazetteerDate"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerTransport
+  (
+	({Lookup.majorType == "TRANSPORT"}):transportName
+  )
+  -->
+
+  :transportName.Name = {kind = "transport_means", rule = "GazetteerTransport"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerCommunication
+  (
+	({Lookup.majorType == "COMMUNICATION"}):communicationName
+  )
+  -->
+
+  :communicationName.Name = {kind = "communication_means", rule = "GazetteerCommunication"}
+
+////////////////////////////////////////
+
+Rule:	GazetteerAmount
+  (
+	({Lookup.majorType == "AMOUNT"}):amountName
+  )
+  -->
+
+  :amountName.Name = {kind = "amount", rule = "GazetteerAmount"}
+
+////////////////////////////////////////
+
+Rule:	TokenizerMoney
+  (
+	({Token.kind == "money"}):moneyAmount
+  )
+  -->
+
+  :moneyAmount.Name = {kind = "money", rule = "TokenizerMoney"}
+
+////////////////////////////////////////
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:23  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:31  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:08  hamish
+// added logs
+//

@@ -1,0 +1,60 @@
+// loc1.jape
+// Brianm, 28/Oct/98
+
+Phase:	Locations1
+Options: control = appelt
+
+////////////////////////////////////////
+
+Rule:	LookupKey_InitCaps
+// Western Europe
+
+  ( {Token, Lookup.majorType == "LOC_KEY", Lookup.minorType == "PRE"}
+    ({Token.orth == "initCap"})+
+  ):locName
+
+  -->
+
+  :locName.Name = {kind = "location", rule = "LookupKey_InitCaps"}
+
+////////////////////////////////////////
+
+Rule:	LookupKey_AllCaps
+// Western Europe
+
+  ( {Token, Lookup.majorType == "LOC_KEY", Lookup.minorType == "PRE"}
+    ({Token.orth == "allCaps"})+
+  ):locName
+
+  -->
+
+  :locName.Name = {kind = "location", rule = "LookupKey_AllCaps"}
+
+////////////////////////////////////////
+
+Rule:	InitCaps_LookupKey
+// South China sea
+
+  ( ({Token.orth == "initCap"})+
+   {Token, Lookup.majorType == "LOC_KEY", Lookup.minorType == "POST"}
+  ):locName
+
+  -->
+
+  :locName.Name = {kind = "location", rule = "InitCaps_LookupKey"}
+
+////////////////////////////////////////
+
+Rule:	AllCaps_LookupKey
+// South China sea
+
+  ( ({Token.orth == "allCaps"})+
+   {Token, Lookup.majorType == "LOC_KEY", Lookup.minorType == "POST"}
+  ):locName
+
+  -->
+
+  :locName.Name = {kind = "location", rule = "AllCaps_LookupKey"}
+
+////////////////////////////////////////
+

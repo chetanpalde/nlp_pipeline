@@ -1,0 +1,34 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	PlusA
+  ({A})+:abc
+  -->
+	:abc.Result = {rule="PlusA"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	OptionalB
+  (
+  	{C}({B})?{C}
+  ):abc
+  -->
+	:abc.Result = {rule="OptionalB"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	StarC
+  (
+  	{D}
+  	({C})*
+  	{E}
+  ):abc
+  -->
+	:abc.Result = {rule="StarC"}
+

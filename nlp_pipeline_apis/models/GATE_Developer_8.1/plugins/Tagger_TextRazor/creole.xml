@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CREOLE-DIRECTORY>
+      <JAR scan="true">TextRazorTagger.jar</JAR>
+      <JAR>lib/textrazor-1.0.0.jar</JAR>
+</CREOLE-DIRECTORY>

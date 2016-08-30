@@ -1,0 +1,13 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+Rule: BadCompareOperator
+({A.f1<=3}):abc
+-->
+  :abc.Result = {rule="BadCompareOperator"}
+
+

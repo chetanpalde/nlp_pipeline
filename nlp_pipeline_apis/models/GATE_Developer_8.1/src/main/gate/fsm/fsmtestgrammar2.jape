@@ -1,0 +1,154 @@
+//Phase that generates the person pattern only (patternp) not the name annot yet
+
+Phase: Person
+Options: control = appelt
+
+
+Macro: PersonDe
+(
+ 
+  {Token.string == "von"} 
+  |
+  {Token.string == "Von"} 
+  |
+  {Token.string == "van"} 
+  |
+  {Token.string == "Van"}   
+  |
+  ({Token.string == "de"} {Token.string == "la"})
+  |
+  ({Token.string == "De"} {Token.string == "La"})
+  |
+  {Token.string == "de"}   
+  |
+  {Token.string == "De"}  
+  |
+  {Token.string == "di"}  
+  |
+  {Token.string == "Di"}  
+)
+
+Macro: PersonSpecial
+(
+  {Token , Lookup.majorType == "PERSON_FIRST"}
+  |
+  {Token, Lookup.minorType == "PERSON_FULL"}
+)
+
+Rule: PersonName1
+// e.g Aaaa John
+
+(
+  (
+    {Token.orth == "initCap" }
+    |
+    {Token.orth == "allCaps"}
+  )+
+   {Token , Lookup.majorType == "PERSON_FIRST"}
+):personName
+-->
+{}
+
+Rule: PersonName1a
+// e.g John Aaaa
+
+(
+   {Lookup.majorType == "PERSON_FIRST"}
+   (
+     {Token, Token.orth == "initCap"}
+     |
+     {Token, Token.orth == "allCaps"}
+   )+
+) :personName
+-->
+{}
+
+
+
+/// Van Fontaine
+
+Rule: PersonNameDe
+(
+  PersonDe
+    (
+       {Token.orth == "initCap"}
+       |
+       {Token.orth == "allCaps"}
+    )+
+):personName
+
+
+-->
+{}
+
+
+
+Rule: PersonName5
+// 
+
+(
+   PersonSpecial
+)  :personName
+-->
+{}
+
+
+// Rules with Titles
+Rule: PersonNameTitle1
+// 
+(
+ 
+     {Token, TitlFin.kind == "title"}
+    ( 
+     {Token, Token.orth == "initCap"}
+     |
+     {Token, Token.orth == "allCaps"}
+   )+
+
+):personName
+-->
+{}
+
+
+Rule: PersonNameTitle2
+// 
+(
+ 
+     {Token, TitlPatt.kind == "title"}
+    ( 
+     {Token, Token.orth == "initCap"}
+     |
+     {Token, Token.orth == "allCaps"}
+   )+
+
+):personName
+-->
+{}
+
+
+//Rules with initials
+
+
+Rule: PersonInitPattern2
+(
+  (
+      (
+	{Token, InitPatt.kind == "initial"}
+	|
+	{Token, InitFin.kind == "initial"}
+	|
+	{Token, InitialEnd.kind == "initial"}
+      )
+  ):first
+
+  (
+	(
+     {Token, Token.orth == "initCap"} 
+     |
+     {Token, Token.orth == "allCaps"}
+	)+
+	) : second
+):personName
+
+-->
+{}

@@ -1,0 +1,78 @@
+<p><strong>TwitIE</strong> is a named entity recognition pipeline specially tuned for use with Twitter data.  It performs</p>
+<ul>
+  <li>tokenisation, sentence splitting and part-of-speech tagging using a model
+    trained specifically for Tweets</li>
+  <li>normalisation of abbreviations and shortened word forms frequently found
+    in Tweets ("brb", "ttyl", "gr8", "2day", etc.)</li>
+  <li>tagging of Twitter-specific entities such as <em>hashtags</em> and
+    <em>@mentions</em>, as well as URLs and emoticons</li>
+  <li>general named-entity recognition, to identify basic entity types such as
+    <em>Person</em>, <em>Location</em>, <em>Organization</em>, <em>Money</em>
+    amounts, <em>Time</em> and <em>Date</em> expressions.</li>
+</ul>
+
+<p><button class="btn btn-info" data-toggle="collapse" data-target="#ldAnnotationDetails"><i class="icon-info-sign icon-white"></i> Annotation details</button></p>
+
+<div class="collapse clearfix" id="ldAnnotationDetails">
+<table>
+  <tr>
+    <td colspan="2"><b>Default annotations</b></td>
+  </tr>
+  <tr>
+    <td><tt>:Person</tt></td>
+    <td rowspan="4">Standard named entity types</td>
+  </tr>
+  <tr>
+    <td><tt>:Location</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:Organization</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:Date</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:Address</tt></td>
+    <td>Includes email and IP addresses as well as street addresses</td>
+  </tr>
+  <tr>
+    <td><tt>:Token</tt></td>
+    <td>The individual tokens of the text, with "category" feature for POS</td>
+  </tr>
+  <tr>
+    <td><tt>:Emoticon</tt></td>
+    <td>Emoticons such as <tt>:-)</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:Hashtag</tt></td>
+    <td>Hashtags, including the leading # character</td>
+  </tr>
+  <tr>
+    <td><tt>:URL</tt></td>
+    <td>URL mentions</td>
+  </tr>
+  <tr>
+    <td><tt>:UserID</tt></td>
+    <td>The username part of @user mentions, <em>not</em> including the leading @ sign</td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Additional annotations available if selected</b></td>
+  </tr>
+  <tr>
+    <td><tt>:Money</tt></td>
+    <td>Monetary amounts</td>
+  </tr>
+  <tr>
+    <td><tt>:Percent</tt></td>
+    <td>Expressions representing percentages</td>
+  </tr>
+  <tr>
+    <td><tt>:SpaceToken</tt></td>
+    <td>The spaces between tokens</td>
+  </tr>
+  <tr>
+    <td><tt>:Sentence</tt></td>
+    <td>Sentences detected by the sentence splitter</td>
+  </tr>
+</table>
+</div>

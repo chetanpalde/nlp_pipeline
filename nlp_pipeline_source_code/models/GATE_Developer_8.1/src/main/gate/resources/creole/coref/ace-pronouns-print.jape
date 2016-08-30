@@ -1,0 +1,103 @@
+/*
+*  ace-pronouns-print.jape
+*
+* Copyright (c) 1998-2004, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Marin DImitrov, 19/Dec/2001
+* 
+*  $Id: ace-pronouns-print.jape 5922 2004-07-21 17:10:11Z akshay $
+*/
+
+Phase:	PrintStats
+Input: BODY TEXT
+Options: control = appelt
+
+/**
+* Run on Original markups. There is only 1 BODY/TEXT annotation in each doc, so 
+* I'm using it as a way of having a rul called once per document so I can 
+* print out the stats
+*/
+
+
+
+Rule:printStats1
+Priority:5
+(
+  ({BODY} | {TEXT})
+)
+-->
+{      
+  //Print the overall coref stats
+    try{
+        String prefix = "_03";
+        String fileName = "d:/prj/coref/results/results" + prefix +".csv";
+    
+        Writer out = new FileWriter(fileName, true);
+        BufferedWriter buff = new BufferedWriter(out);
+        PrintWriter pwr = new PrintWriter(buff);
+    
+        pwr.print(doc.getName() + ",");
+  
+        List types = new ArrayList();
+        types.add("WORDS");        
+        types.add("i");
+        types.add("me");
+        types.add("you");
+        types.add("him");
+        types.add("he");
+        types.add("she");
+        types.add("her");
+        types.add("it");
+        types.add("we");
+        types.add("us");
+        types.add("they");
+        types.add("them");
+        types.add("my");
+        types.add("mine");
+        types.add("your");
+        types.add("yours");
+        types.add("his");
+        types.add("hers");
+        types.add("its");
+        types.add("our");
+        types.add("ours");
+        types.add("their");
+        types.add("theirs");
+        types.add("myself");
+        types.add("yourself");
+        types.add("himself");
+        types.add("herself");
+        types.add("itself");
+        types.add("oneself");
+        types.add("ourselves");
+        types.add("yourselves");
+        types.add("themselves");    
+
+        
+        for(int i = 0; i< types.size(); i++) {    
+
+            Integer cnt = (Integer)doc.getFeatures().get(types.get(i));                
+        
+            if (cnt == null) {
+                cnt = new Integer(0);
+            }
+        
+            pwr.print(types.get(i) +","+ cnt.toString() + ",");            
+        }
+    
+        pwr.println();
+        pwr.close();
+        buff.close();
+        out.close();
+    }     
+    catch (Exception ex) {
+        Out.prln("Error: " + ex.getMessage());
+    }      
+}
+
+

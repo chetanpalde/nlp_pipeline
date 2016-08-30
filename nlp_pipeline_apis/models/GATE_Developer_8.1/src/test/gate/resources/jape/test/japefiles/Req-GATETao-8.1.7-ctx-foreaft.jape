@@ -1,0 +1,17 @@
+Phase: EPhase
+Rule: Emailaddress1
+
+({Token.string == "<"})
+(
+({Annotation.type == "elmail"})
+)
+:email
+({Token.string == ">"})
+-->
+:email.Address= {kind = "email", rule = "Emailaddress1"}
+
+Rule: ShouldBeEaten
+({Token.string == ">"}):eaten
+-->
+:eaten.Eaten={rule="ShouldBeEaten"}
+

@@ -1,0 +1,84 @@
+// orgs1.jape
+// Brianm, 1/Sep/98
+
+Phase:	Orgs1
+Options: control = appelt
+
+Macro:  CDG_MACRO
+ (
+ ( {Token, Lookup.majorType == "CDG"} )
+ |
+ ( {Token.lowerString == ","} {Token, Lookup.majorType == "CDG"} )
+ )
+
+////////////////////////////////////////
+
+/*
+Rule:	RawGazetteerEntry
+  (
+	(({Lookup.majorType == "ORGANISATION"}|{Lookup.majorType == "ORGANIZATION"})):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "RawGazetteerEntry"}
+*/
+
+////////////////////////////////////////
+
+Rule:	CapsAmpersandCaps
+  (
+	(
+	 ({Token.orth == "initCap"})+
+	  {Token.symbol == "ampersand"}
+	 ({Token, Token.orth == "initCap"})+
+	(CDG_MACRO)?
+	):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "CapsAmpersandCaps"}
+
+////////////////////////////////////////
+
+Rule:	OrgKeyInitCaps
+  (
+	(
+	 {Lookup.majorType == "ORG_KEY"}
+	 ({Token.orth == "initCap"})+
+	):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "OrgKeyInitCaps"}
+
+////////////////////////////////////////
+
+Rule:	OrgBaseInitCaps
+  (
+	(
+	 {Lookup.majorType == "ORG_BASE"}
+	 ({Token.orth == "initCap"})+
+	):orgName
+  )
+  -->
+
+  :orgName.Name = {kind = "organization", rule = "OrgBaseInitCaps"}
+
+////////////////////////////////////////
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:25  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:33  hamish
+// updates from unix
+//
+// Revision 1.6  1998/11/04 20:54:45  brianm
+// Final checkin for 5/11/98 delivery
+//
+// Revision 1.2  1998/10/08 12:55:11  hamish
+// added logs
+//

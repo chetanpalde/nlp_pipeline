@@ -1,0 +1,95 @@
+// brian-transport1.jape
+// Brianm, 30/Oct/98
+
+Phase:	TransportMeans1
+Options: control = appelt
+
+// This grammar needs a lower priority than the organisational grammars
+
+////////////////////////////////////////
+
+Macro:	TR_MEANS
+  {Token, Lookup.majorType == "MANUFACTURER"}
+  // in theory we should also test Lookup.minorType = CAR | BOAT | AIRCRAFT
+
+////////////////////////////////////////
+
+Macro:	TR_PREFIX_ADJ
+  ( ( {Token.orth == "lowerCase"} {Token.orth == "lowerCase"} ) | {Token.orth == "lowerCase"} )
+
+////////////////////////////////////////
+
+Macro:	TR_PREFIX_DETERMINER
+  ( {Token.lowerString == "a"} | {Token.lowerString == "an"} | {Token.lowerString == "the"} )
+
+////////////////////////////////////////
+
+Macro:	TR_PREFIX
+  ( ( TR_PREFIX_DETERMINER TR_PREFIX_ADJ ) | TR_PREFIX_DETERMINER )
+
+////////////////////////////////////////
+
+Macro:	TR_MODEL
+
+  (
+
+  ( {Token.kind == "num"} {Token.orth == "initCap"}	// (BMW) 3 Series
+  )
+  | {Token.kind == "num"}				// (Peugeot) 206
+
+  | ( {Token.orth == "initCap"}
+     ( {Token.orth == "initCap"}			// (Lotus) Turbo Esprit
+     | {Token.kind == "num"}				// (BMW) Series 3
+     | {Token.orth == "allCaps"}			//
+     | {Token.kind == "containsDigitAndAlpha"}		// (Ford) Escort XR3i
+     | {Token.kind == "containsDigitAndAlphaAndDashes"}	//
+     | {Token.kind == "containsDigitAndDashes"}		//
+     | {Token.kind == "containsDigitAndSlashes"} )	//
+    )
+  | {Token.orth == "initCap"}				// (Ford) Mondeo
+
+  | ( {Token.orth == "allCaps"}
+     ( {Token.orth == "initCap"}			// (Jaguar) XJR Special
+     | {Token.kind == "num"}				// (Jaguar) XJR 12
+     | {Token.orth == "allCaps"}			//
+     | {Token.kind == "containsDigitAndAlpha"}		// (Jaguar) XJR12
+     | {Token.kind == "containsDigitAndAlphaAndDashes"}	//
+     | {Token.kind == "containsDigitAndDashes"}		//
+     | {Token.kind == "containsDigitAndSlashes"} )	//
+    )
+  | {Token.orth == "allCaps"}				// (Jaguar) XJR
+
+  | {Token.kind == "containsDigitAndAlpha"}		// (BMW) 323i
+  | {Token.kind == "containsDigitAndAlphaAndDashes"}	//
+  | {Token.kind == "containsDigitAndDashes"}		//
+  | {Token.kind == "containsDigitAndSlashes"}		//
+
+  )
+
+////////////////////////////////////////
+
+Rule: BasicManufacturer
+
+  (TR_PREFIX TR_MEANS):transportName
+
+  -->
+
+  :transportName.Name = {kind = "transport_means", rule = "BasicManufacturer"}
+
+////////////////////////////////////////
+
+Rule: ManufacturerModel
+
+  (TR_PREFIX TR_MEANS TR_MODEL):transportName
+
+  -->
+
+  :transportName.Name = {kind = "transport_means", rule = "ManufacturerModel"}
+
+////////////////////////////////////////
+
+/*
+( (a | the | colour) means ) | (means ((initCap | allCaps)+ | contains digits, alpha, dashes) )
+
+colour = (dark | light | medium | metallic) colour_list
+*/

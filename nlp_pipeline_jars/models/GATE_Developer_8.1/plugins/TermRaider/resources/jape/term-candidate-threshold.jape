@@ -1,0 +1,31 @@
+Phase: TermCandidate
+Input: SingleWord MultiWord
+Options: control = all
+
+Rule: TermCandidate
+({SingleWord}|{MultiWord}):match
+-->
+:match {
+   Annotation ann = gate.Utils.getOnlyAnn(matchAnnots);
+   FeatureMap oldf = ann.getFeatures();
+   double threshold = 50.0; // fallback
+   if (ctx.getPRFeatures().containsKey("threshold")) {
+      threshold = Double.parseDouble(ctx.getPRFeatures().get("threshold").toString());
+   }
+
+   // Note that this reads a feature called 'threshold' on the PR itself.
+   // To edit the feature in the GATE GUI, show the termCandidateThreshold PR
+   // & look in the lower left corner.  If the feature is missing,
+   // the fallback given above is used.
+
+   if (oldf.containsKey("tfIdfAug") &&
+       (((Double) oldf.get("tfIdfAug")) > threshold) )   {
+     Long start = ann.getStartNode().getOffset();
+     Long end   = ann.getEndNode().getOffset();
+
+     FeatureMap newf = Factory.newFeatureMap();
+     newf.putAll(oldf);   
+
+     gate.Utils.addAnn(outputAS, ann, "Term", newf);
+   }
+}

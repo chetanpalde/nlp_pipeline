@@ -1,0 +1,4 @@
+<!-- creole.xml for the Linguistic Simplifier -->
+<CREOLE-DIRECTORY>
+  <JAR SCAN="true">LinguisticSimplifier.jar</JAR>
+</CREOLE-DIRECTORY>

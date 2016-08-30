@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<metadata xmlns="http://gate.ac.uk/ns/pipeline-metadata">
+  <pipeline-name>TwitIE Named Entity Recognizer for Tweets</pipeline-name>
+  <slug>twitie-named-entity-recognizer-for-tweets</slug>
+  <ordering>30</ordering>
+  <annotation-selectors>:Token, :Emoticon, :Hashtag, :URL, :UserID, :Address, :Date, :Location, :Organization, :Person</annotation-selectors>
+  <additional-annotations>:Money, :Percent, :SpaceToken, :Sentence</additional-annotations>
+  <tags>
+    <tag>English</tag>
+    <tag>Named Entity</tag>
+    <tag>Twitter</tag>
+  </tags>
+</metadata>

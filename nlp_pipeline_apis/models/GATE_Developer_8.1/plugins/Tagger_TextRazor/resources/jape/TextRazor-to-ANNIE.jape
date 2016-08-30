@@ -1,0 +1,50 @@
+Imports: {
+  import static gate.Utils.*;
+}
+
+Phase: TextRazorToANNIE
+Options: control = all
+Input: TREntity
+
+/*
+ * Basic heuristic rules to convert specific types of TextRazor entities into
+ * the equivalent ANNIE-style annotation types.  So far we simply turn
+ *
+ * - DBpedia Person into ANNIE Person
+ * - DBPedia Place into ANNIE Location
+ * - DBPedia Company and FreeBase organization into ANNIE Organization
+ */
+Rule: EntityToANNIE
+(
+  {TREntity}
+):tr
+-->
+:tr {
+  Annotation ent = getOnlyAnn(trAnnots);
+  List<String> types = (List<String>)ent.getFeatures().get("type");
+  if(types == null) { types = Collections.emptyList(); }
+  List<String> freebaseTypes = (List<String>)ent.getFeatures().get("freebaseTypes");
+  if(freebaseTypes == null) { freebaseTypes = Collections.emptyList(); }
+  String ent_id = (String)ent.getFeatures().get("ent_id");
+  String link = (String)ent.getFeatures().get("link");
+
+  if(types.contains("Place")) {
+    addAnn(outputAS, ent, "Location", featureMap(
+      "ent_id", ent_id,
+      "link", link));
+  }
+
+  if(types.contains("Person")) {
+    addAnn(outputAS, ent, "Person", featureMap(
+      "ent_id", ent_id,
+      "link", link));
+  }
+
+  if(types.contains("Company") ||
+      freebaseTypes.contains("/organization/organization")) {
+    addAnn(outputAS, ent, "Organization", featureMap(
+      "ent_id", ent_id,
+      "link", link));
+  }
+
+}

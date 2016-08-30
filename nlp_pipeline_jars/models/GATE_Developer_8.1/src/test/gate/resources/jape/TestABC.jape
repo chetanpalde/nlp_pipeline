@@ -1,0 +1,10 @@
+// fsmtestgrammar.jape
+// Valy, 14/Apr/00
+
+Phase:	first
+Options: control = brill
+
+Rule:	One
+      (({A})?:a ({B})+ :b ({C})*:c)*:abc 
+  -->
+	:abc.Group = {Type = "AB&C", rule="One" }

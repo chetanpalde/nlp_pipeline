@@ -1,0 +1,80 @@
+/*
+ * xiny.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original version developed by Mark A. Greenwood as part of his PhD thesis.
+ *
+ * In the examples redundant is <RT></RT> while replace is <RP WITH></RP>
+ */
+
+Imports: {
+	import gate.creole.summarization.linguistic.Simplifier;
+}
+
+Phase: XinY
+Input: Token
+Options: control = appelt
+
+//Examples are:
+// The tub of ice-cream was unusually large<RT> in size</RT>.
+Rule:XinY1
+(
+	({Token.orth == "lowercase"}):X
+	({Token.string == "in"}
+	({Token.orth == "lowercase"}):Y):remove
+)
+-->
+{
+	Annotation X = bindings.get("X").iterator().next();
+	Annotation Y = bindings.get("Y").iterator().next();
+
+	Simplifier simplifier = (Simplifier)getActionContext().getPRFeatures().get("simplifier");
+	
+	if (simplifier.typeof(X,Y))
+	{
+		AnnotationSet redundant = bindings.get("remove");	
+					
+		Node start = X.getEndNode();
+		Node end = redundant.lastNode();
+
+		FeatureMap params = Factory.newFeatureMap();
+		params.put("rule","XinY1");
+		
+		outputAS.add(start,end,"Redundant",params);
+	}
+		
+}
+
+//Examples are:
+// For some reason people will actually buy a pink<RT> colored</RT> car.
+// She was wearing long dress made from a red<RT> color</RT> silk.
+Rule:XinY2
+(
+	{Token.string == "a"}
+	({Token.orth == "lowercase"}):X
+	(({Token.orth == "lowercase"}):Y):remove
+)
+-->
+{
+	Annotation X = bindings.get("X").iterator().next();
+	Annotation Y = bindings.get("Y").iterator().next();
+
+	Simplifier simplifier = (Simplifier)getActionContext().getPRFeatures().get("simplifier");
+	
+	if (simplifier.typeof(X,Y))
+	{
+		AnnotationSet redundant = bindings.get("remove");
+		Node start = X.getEndNode();
+		Node end = redundant.lastNode();
+
+		FeatureMap params = Factory.newFeatureMap();
+		params.put("rule","XinY2");
+		outputAS.add(start,end,"Redundant",params);
+	}	
+}

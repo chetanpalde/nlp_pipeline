@@ -1,0 +1,139 @@
+//////Phase that uses the Patternp annot. and generates the final name annot.
+
+Phase: PersonFinal
+Options: control = appelt
+
+// Generate the Name annotation
+
+Rule: PersonBasic
+(
+  {Token, Patternp.kind == "person"}
+
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonBasic"}
+
+//4
+Rule: PersonNameFirst
+(
+  {Token, Lookup.majorType == PERSON_FIRST}
+  {Token, Patternp.kind == "person"}
+
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonNameFirst"}
+
+
+//5
+Rule: PersonNameFirstd
+(
+  {Token, Lookup.majorType == PERSON_FIRST}
+  {Token, Token.symbol == "dash"}
+  {Token, Patternp.kind == "person"}
+
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonNameFirstd"}
+
+
+Rule: PersonName7
+(
+  {Token, Patternp.kind == "person"}
+   PersonEnding
+  
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonName7"}
+
+//Rules with 'de', e.g: Jean de Fontaine
+
+//4: strong?
+Rule: PersonName8
+(
+  {Token, Patternp.kind == "person"}
+  {Token, Patternp.kind == "person"}
+
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonName8"}
+
+
+//Rules with Titles
+
+Rule: PersonNameTitleFinal1
+// 
+(
+ 
+ {Token, TitlFin.kind == "title"}
+ {Token, Patternp.kind == "person"}
+
+ ) :personName
+-->
+:personName.Name = {kind = "person", rule = "PersonNameTitleFinal1"}
+
+
+Rule: PersonNameTitleFinal2
+// 
+(
+ 
+ {Token, TitlPatt.kind == "title"}
+ {Token, Patternp.kind == "person"}
+
+ ) :personName
+-->
+:personName.Name = {kind = "person", rule = "PersonNameTitleFinal2"}
+
+///Rules with Initials
+
+Rule: PersonNameInit1
+
+(
+  (
+        {Token, InitPatt.kind == "initial"}
+	|
+	{Token, InitFin.kind == "initial"}
+	|
+	{Token, InitialEnd.kind == "initial"}
+  )
+  {Token, Patternp.kind == "person"}
+
+):personName
+-->
+:personName.Name = {kind = "person", rule = "PersonNameInit1"}
+ 
+
+
+
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:26  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:15  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:11:02  hamish
+// updates from unix
+//
+// Revision 1.8  1998/11/04 11:09:20  saliha
+// *** empty log message ***
+//
+// Revision 1.7  1998/11/02 17:02:30  saliha
+// *** empty log message ***
+//
+// Revision 1.6  1998/10/28 16:25:19  saliha
+// *** empty log message ***
+//
+// Revision 1.5  1998/10/16 16:36:59  saliha
+// *** empty log message ***
+//
+// Revision 1.4  1998/10/15 11:26:28  saliha
+// *** empty log message ***
+//
+// Revision 1.3  1998/10/09 12:34:23  saliha
+// *** empty log message ***
+//
+// Revision 1.2  1998/10/08 12:55:16  hamish
+// added logs
+//

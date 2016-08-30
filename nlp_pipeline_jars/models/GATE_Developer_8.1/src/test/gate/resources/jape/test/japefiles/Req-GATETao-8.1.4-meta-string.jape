@@ -1,0 +1,9 @@
+Phase: Test
+Options: control = appelt
+
+Rule:MetaString
+(
+	{Span@string == "     and when    the   lamb opened  the     seventh     seal"}
+):bind 
+--> 
+:bind.SomeAnnotation = {rule="MetaString"}

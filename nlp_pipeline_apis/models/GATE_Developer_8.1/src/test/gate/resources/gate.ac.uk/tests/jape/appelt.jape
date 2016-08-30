@@ -1,0 +1,40 @@
+/*
+*  appelt.jape
+*
+* Copyright (c) 1998-2008, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Valentin Tablan, 20 May 2008
+* 
+*/
+
+Phase: AppeltTest
+Input: A B C D E
+options: control = appelt
+
+
+Rule:  appelt1
+({A}{B}):match
+-->
+:match.X={rule="appelt1"}
+
+Rule:  appelt2
+Priority: 10
+({A}{C}):match
+-->
+:match.Y={rule="appelt2"}
+
+Rule:  appelt3
+Priority: 20
+({A}{D}):match
+-->
+:match.X={rule="appelt3"}
+
+Rule:  appelt4
+({A}{E}):match
+-->
+:match.Y={rule="appelt4"}

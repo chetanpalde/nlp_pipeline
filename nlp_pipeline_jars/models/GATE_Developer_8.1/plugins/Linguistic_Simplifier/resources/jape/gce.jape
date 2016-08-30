@@ -1,0 +1,131 @@
+/*
+ * gce.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original versaion developed by Mark A. Greenwood as part of his PhD thesis.
+ *
+ * This grammar will tag gerund clauses in free text. The algorithm used is
+ * based on that presented in D. M. Dunlavy et al. Performance of a
+ * Three-Stage System for Multi-Document Summarization. DUC 2003.
+ *
+ * In the examples redundant is <RT></RT> while replace is <RP WITH></RP>
+ */
+
+Phase: GCE
+Input: Token
+Options: control = appelt
+
+//Example sentences clauses are marked with <GC></GC> tags:
+//   <RT>While carrying passengers from the Estonian capital Tallinn to Stockholm, </RT>more than 800 lives were lost when the 21,794 tonne ferry sank within minutes early yesterday morning in the Baltic Sea 40 km south west of the Finnish island of Uto.
+//   More than 800 lives were lost when the 21,794 tonne ferry<RT>, carrying passengers from the Estonian capital Tallinn to Stockholm,</RT> sank within minutes earyl yesterday morning in the Baltic Sea 40 km south west of the Finnish island of Uto.
+//   More than 800 lives were lost when the 21,794 tonne ferry sank within minutes earyl yesterday morning in the Baltic Sea 40 km south west of the Finnish island of Uto<RT>, while carrying passengers from the Estonian capital Tallinn to Stockholm</RT>.
+Rule: GCE1
+(
+	({Token.category == ","})?
+	({Token.category == "IN"}|{Token.string == "while"}|{Token.string == "While"}|{Token.string == "during"}|{Token.string == "During"})?
+	{Token.category == "VBG"}
+):gcs
+-->
+{
+	// Get the tokens we used to spot this possible gerund cluase
+	AnnotationSet gc = bindings.get("gcs");
+	
+	// get the start and end of this section
+	Node start = gc.firstNode();
+	Node end = gc.lastNode();
+	
+	// Get any overlapping sentences
+	AnnotationSet sentences = inputAS.get("Sentence",start.getOffset(),end.getOffset());
+	
+	// if there aren't any sentences or more than 1 do nothing
+	if (sentences == null || sentences.size() != 1) return;
+
+	// Get the single overlapping sentence
+	Annotation sentence = (gate.Annotation)sentences.iterator().next();
+
+	// Get all the tokens in the bit we selected and sort them into the
+	// correct order
+	List tokens = new ArrayList();
+	tokens.addAll(gc);
+	Collections.sort(tokens);
+	
+	// Get the first token we matched against
+	Annotation token = (gate.Annotation)tokens.get(0);
+	
+	// If the first token is not a , and isn't at the beginning of the
+	// sentence then this isn't a gerund clause so do nothing
+	if (!token.getFeatures().get("category").equals(",") && !start.getOffset().equals(sentence.getStartNode().getOffset())) return;
+	
+	// Get all the tokens in the sentence that appear after the tokens we matched	
+	AnnotationSet ts = inputAS.get("Token",end.getOffset(),sentences.lastNode().getOffset());
+	
+	// Put these tokens in a list and sort them into the correct order
+	tokens = new ArrayList();
+	tokens.addAll(ts);
+	Collections.sort(tokens);
+	
+	// A flag se we know when we have finished
+	boolean finished = false;
+	
+	// A pointer to the previous token (used when the clause
+	// is a the end of the sentence)
+	Annotation pt = null;
+	
+	// A holder for the category of the current token
+	String cat = null;
+	
+	// Loop through the tokens until either we find the
+	// end of the clause or there are no more tokens
+	Iterator it = tokens.iterator();
+	while (it.hasNext() && !finished)
+	{
+		// Store the previous token
+		pt = token;
+		
+		// get the current token
+		token = (gate.Annotation)it.next();
+		
+		// get the category of the current token
+		cat = (String)token.getFeatures().get("category");
+		
+		// We have found the end if the category is
+		// either a comma or a period
+		finished = cat.equals(",") || cat.equals(".");
+	}
+	
+	if (finished)
+	{
+		// If we found the end of the clause then...
+		
+		// get the end node from the terminating token
+		end = token.getEndNode();
+		
+		// if the last token is a period then we don't won't
+		// to include this as part of the clause so get the
+		// end of the previous token
+		if (cat.equals(".")) end = pt.getEndNode();
+		
+		int total = inputAS.get("Token",sentence.getStartNode().getOffset(),sentence.getEndNode().getOffset()).size();
+		int within = inputAS.get("Token",start.getOffset(),end.getOffset()).size();
+			
+		int remaining = total -within;
+			
+		if (within < remaining)
+		{
+			// Create a feature map and store the rule name
+			// within it
+			FeatureMap params = Factory.newFeatureMap();
+			params.put("rule","GCE1");
+
+			// Create and add the annotation in the right place
+			// with the right features.
+			outputAS.add(start,end,"Redundant",params);
+		}
+	}
+}

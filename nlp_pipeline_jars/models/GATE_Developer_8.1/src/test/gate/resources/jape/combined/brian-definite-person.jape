@@ -1,0 +1,17 @@
+// brian-definite-person.jape
+// Brianm, 28/Oct/98
+
+Phase:	DefPerson1
+Options: control = brill
+
+Rule:	PolicePerson
+  (
+	 (
+	 {Lookup.minorType == "POLICE", Lookup.majorType == "TITLE"}
+	 ( ({Token.orth == "initCap"}) | ({Token.orth == "initCap"}) )+
+	 ):personName
+  )
+  -->
+
+  :personName.Name = {kind = "person", rule = "PolicePerson"}
+

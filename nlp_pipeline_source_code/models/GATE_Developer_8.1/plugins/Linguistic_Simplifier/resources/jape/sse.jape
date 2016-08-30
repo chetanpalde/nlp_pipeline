@@ -1,0 +1,112 @@
+/*
+ * sse.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original version developed by Mark A. Greenwood as part of his PhD thesis.
+ *
+ * This grammar implements some of the ideas found in:
+ * http://owl.english.purdue.edu/owl/resource/572/1/
+ *
+ * In the examples redundant is <RT></RT> while replace is <RP WITH></RP>
+ */
+
+Phase: Redundant
+Input: Token NounChunk
+Options: control = appelt
+
+//Tries to implement 4. Avoid Overusing Expletives at the Beginning of Sentences
+//Examlpe sentences include
+//   <RT>It is</RT> the governor <RT>who</RT> signs or vetoes bills.
+//   <RT>There are</RT> four rules <RT>that</RT> should be observed.
+//   <RT>There was</RT> a big explosion<RT>, which</RTE> shook the windows, and people ran into the street. 
+Rule: SSE1
+(
+	(({Token.string == "It"}|{Token.string == "There"})
+	{Token.root == "be"}):r1
+	(({Token})?
+	({Token})?
+	({Token})?
+	({Token})?
+	({Token})?
+	({Token})?):nouns
+	(({Token.string == ","})?
+	({Token.string == "that"}|{Token.string == "which"}|{Token.string == "who"})):r2
+):sse
+-->
+{
+	// Get the tokens we used to spot this possible gerund cluase
+	AnnotationSet sse = bindings.get("sse");
+	
+	AnnotationSet nt = bindings.get("nouns");
+	AnnotationSet nouns = inputAS.get(nt.firstNode().getOffset(),nt.lastNode().getOffset());
+	
+	if (!nouns.getAllTypes().contains("NounChunk")) return;
+	
+	Iterator nit = nouns.iterator();
+	while (nit.hasNext())
+	{
+		gate.Annotation na = (gate.Annotation)nit.next();
+		
+		if (na.getType().equals("Token"))
+		{
+			String cna = (String)na.getFeatures().get("category");
+			
+			if (cna.startsWith("W") || cna.startsWith("V")) return;
+		}
+	}
+	
+	AnnotationSet r1 = bindings.get("r1");
+	AnnotationSet r2 = bindings.get("r2");
+	
+	
+	// get the start and end of this section
+	Node start = sse.firstNode();
+	Node end = sse.lastNode();
+	
+	// Get any overlapping sentences
+	AnnotationSet sentences = inputAS.get("Sentence",start.getOffset(),end.getOffset());
+	
+	// if there aren't any sentences or more than 1 do nothing
+	if (sentences == null || sentences.size() != 1) return;
+
+	// Get the single overlapping sentence
+	Annotation sentence = sentences.iterator().next();
+
+	// Get all the tokens in the sentence that appear after the tokens we matched	
+	AnnotationSet ts = inputAS.get("Token",end.getOffset(),sentences.lastNode().getOffset());
+
+	// Put these tokens in a list and sort them into the correct order
+	List tokens = new ArrayList();
+	tokens.addAll(ts);
+	Collections.sort(tokens);
+
+	// Get the first token we matched against
+	Annotation token = (Annotation)tokens.get(0);
+	
+	// If the first token is at the beginning of the
+	// sentence then this something we want to change
+	if (!start.getOffset().equals(sentence.getStartNode().getOffset())) return;
+
+	String matchID = Gate.genSym();
+
+	// Create a feature map and store the rule name
+	// within it
+	FeatureMap params = Factory.newFeatureMap();
+	params.put("rule","SSE1");
+	params.put("part","be-verb");
+	params.put("matchID",matchID);
+	
+	outputAS.add(r1.firstNode(),r1.lastNode(),"Redundant",params);
+
+	params = Factory.newFeatureMap();
+	params.put("rule","SSE1");
+	params.put("part","pronoun");
+	params.put("matchID",matchID);
+	outputAS.add(r2.firstNode(),r2.lastNode(),"Redundant",params);
+}

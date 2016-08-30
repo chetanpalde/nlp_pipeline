@@ -1,0 +1,5 @@
+token.ix86_darwin
+token.ix86_linux
+token.ppc_darwin
+token.sun4_sunos
+token.x86_64_linux

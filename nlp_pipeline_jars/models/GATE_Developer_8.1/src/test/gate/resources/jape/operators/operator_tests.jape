@@ -1,0 +1,69 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+Macro: RegExDe
+(
+
+  {Token.string ==~ "[v|V][a|o]n"}
+  |
+  ({Token.string == "[d|D[e|i]([L|l]a)?"})
+)
+
+  Rule:	AndEqual
+  ({A.f1=="atext",B.f1=="btext"}):abc
+  -->
+	:abc.Result = {rule="AndEqual"}
+
+  Rule: RegExMatch
+  ({B.f1==~".text"}):abc
+  -->
+    :abc.Result = {rule="RegExMatch"}
+
+  Rule: DoNotMatch
+  ({B,!C}):abc
+  -->
+    :abc.Result = {rule="DoNotMatch"}
+
+  Rule: NotEqualandGreaterEqual
+  ({B.f1!="btext",C.f2>=2,C.f3>2}):abc
+  -->
+    :abc.Result = {rule="NotEqualandGreaterEqual"}
+
+  Rule: NotEqual
+  ({!D}):abc
+  -->
+    :abc.Result = {rule="NotEqual"}
+
+  Rule: EqualAndNotEqualRegEx
+  ({D,D.f1 !=~ "..text",D.f3 == 3}):abc
+  -->
+    :abc.Result = {rule="EqualAndNotEqualRegEx"}
+
+  Rule: DoNotMatch2
+  // Written this way, a C must exist at the spot
+  ({D,D.f2 == 2,C.f1 !=~ ".*"}):abc
+  -->
+    :abc.Result = {rule="DoNotMatch2"}
+
+  Rule: EqualAndNotExistance
+  // Written this way, a C does not have to exist
+  ({D,D.f2 == 2,!C.f1 ==~ ".*"}):abc
+  -->
+    :abc.Result = {rule="EqualAndNotExistance"}
+
+  Rule: OntoTest
+  ({D.class=="Businessman"}):abc
+  -->
+    :abc.Result = {rule="OntoTest"}
+
+  Rule: OntoTest2
+  ({D.class=="Location"}):abc
+  -->
+    :abc.Result = {rule="OntoTest2"}
+
+      // $Log$
+

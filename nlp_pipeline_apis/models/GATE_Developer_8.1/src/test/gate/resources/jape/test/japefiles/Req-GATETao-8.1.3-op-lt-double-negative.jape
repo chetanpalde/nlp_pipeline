@@ -1,0 +1,9 @@
+Phase: Test
+Options: control = appelt
+
+Rule:OpEquals
+(
+ 	{Token.int < -8.1} | {Token.double < -8.1}
+):bind 
+--> 
+:bind.SomeAnnotation = {rule="OpLessThan"}

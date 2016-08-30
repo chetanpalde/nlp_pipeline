@@ -1,0 +1,334 @@
+// soc-loc1.jape
+// Brianm, 28/Oct/98
+
+Phase:	SocialLocations1
+Options: control = appelt
+
+////////////////////////////////////////
+
+Rule: SocLoc1
+// XXX Rrr Hotel
+
+  (
+    ({Token.orth == "initCap" } | {Token.orth == "allCaps"} )+
+     {Token, Lookup.majorType == "SOC_LOC_KEY"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocLoc1"}
+
+////////////////////////////////////////
+
+Rule: SocialLoc2
+// XXX Rrr Hotel
+
+  (
+     {Token, Lookup.majorType == "SOC_LOC_KEY"}
+     {Token.lowerString == "of"}
+    ({Token.orth == "initCap" } | {Token.orth == "allCaps"})+
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocLoc2"}
+
+////////////////////////////////////////
+
+Rule: SocialLocNearX
+// Hotel near X
+
+  ({Token, Lookup.majorType == "SOC_LOC_KEY"}):socLocName
+
+    {Token.lowerString == "near"}
+    {Token.orth == "initCap" } | {Token.orth == "allCaps"}
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialLocNearX"}
+
+////////////////////////////////////////
+
+/*
+38 West St Sheffield 
+38 West St, Sheffield
+38, West St, Sheffield
+*/
+
+////////////////////////////////////////
+
+Rule: SocialAddress1
+// 38 Caps SOC_LOC_KEY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress1"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress2
+// 38 Caps Caps SOC_LOC_KEY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    (({Token.orth == "initCap"} {Token.orth == "initCap"}) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress2"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress3
+// 38 Caps SOC_LOC_KEY CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress3"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress4
+// 38 Caps Caps SOC_LOC_KEY CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    (({Token.orth == "initCap" } {Token.orth == "initCap" }) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress4"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress5
+// 38, Caps SOC_LOC_KEY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress5"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress6
+// 38, Caps Caps SOC_LOC_KEY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    (({Token.orth == "initCap"} {Token.orth == "initCap"}) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress6"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress7
+// 38 Caps SOC_LOC_KEY, CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress7"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress8
+// 38 Caps Caps SOC_LOC_KEY, CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    (({Token.orth == "initCap" } {Token.orth == "initCap" }) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress8"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress9
+// 38, Caps SOC_LOC_KEY, CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress9"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress10
+// 38, Caps Caps SOC_LOC_KEY, CITY
+
+  (
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    (({Token.orth == "initCap" } {Token.orth == "initCap" }) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress10"}
+
+////////////////////////////////////////
+
+/*
+West St 38 Sheffield
+West St 38, Sheffield
+*/
+////////////////////////////////////////
+
+Rule: SocialAddress11
+// Caps SOC_LOC_KEY 38
+
+  (
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress11"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress12
+// Caps Caps SOC_LOC_KEY 38
+
+  (
+    (({Token.orth == "initCap"} {Token.orth == "initCap"}) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress12"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress13
+// Caps SOC_LOC_KEY 38 CITY
+
+  (
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress13"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress14
+// Caps Caps SOC_LOC_KEY 38 CITY
+
+  (
+    (({Token.orth == "initCap" } {Token.orth == "initCap" }) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress14"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress15
+// Caps SOC_LOC_KEY 38, CITY
+
+  (
+    ( {Token.orth == "initCap" } | {Token.orth == "allCaps"} )
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress15"}
+
+////////////////////////////////////////
+
+Rule: SocialAddress16
+// Caps Caps SOC_LOC_KEY 38, CITY
+
+  (
+    (({Token.orth == "initCap" } {Token.orth == "initCap" }) |
+     ({Token.orth == "allCaps"} {Token.orth == "allCaps"}))
+    {Token, Lookup.majorType == "SOC_LOC_KEY"}
+    {Token.sign == "u"} // an unsigned number
+    {Token.lowerString == ","}
+    {Token, Lookup.majorType == "LOCATION"}
+  ):socLocName
+
+  -->
+
+  :socLocName.Name = {kind = "location", subkind = "social", rule = "SocialAddress16"}
+
+////////////////////////////////////////
+
+

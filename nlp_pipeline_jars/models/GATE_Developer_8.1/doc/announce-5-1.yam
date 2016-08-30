@@ -1,0 +1,30 @@
+GATE Version 5.1 release (December 2009)
+
+Version 5.1 is a major increment with lots of new features and integration of
+a number of important systems from 3rd parties (e.g. LingPipe, OpenNLP,
+OpenCalais, a revised UIMA connector). We've stuck with the 5 series (instead
+of jumping to 6.0) because the core remains stable and backwards compatible.
+
+Other highlights include:
+
+- an entirely new %(http://gate.ac.uk/userguide/chap:ontologies, ontology API)
+  from Johann Petrak of OFAI (the old one is still available but as a plugin)
+- new %(http://gate.ac.uk/userguide/chap:profiling, benchmarking facilities)
+  for JAPE from Andrew Borthwick and colleagues at Intelius
+- new %(http://gate.ac.uk/userguide/sec:eval:corpusqualityassurance, quality
+  assurance tools) from Thomas Heitz and colleagues at Ontotext and Sheffield 
+- a %(http://gate.ac.uk/userguide/sec:parsers:taggerframework, generic tagger
+  integration framework) from René Witte of Concordia University
+- several new code contributions from Ontotext, including a
+  %(http://gate.ac.uk/userguide/sec:gazetteers:lkb-gazetteer, large
+  knowledge base gazetteer) and various plugin wrappers from Marin Nozchev,
+  Georgi Georgiev and colleagues
+- a revised and reordered %(http://gate.ac.uk/userguide, user guide),
+  amalgamated with the programmers' guide and other materials
+- %(http://gate.ac.uk/userguide/sec:api:groovy, Groovy support), application
+  composition, %(http://gate.ac.uk/userguide/sec:alignment:segment-processing,
+  section-by-section processing) and lots of other bits and pieces
+
+For full details, see the %(http://gate.ac.uk/userguide/sec:changes:5.1, change
+log in the user guide).  GATE is available to download from
+%(http://gate.ac.uk/download/).

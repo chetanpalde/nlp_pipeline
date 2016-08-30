@@ -1,0 +1,11 @@
+Phase: NounsForPMI
+Input: Token
+Options: control = appelt
+
+
+Rule: Nouns
+Priority: 30
+({Token.kind == "word", Token.category ==~ "N.*", Token.length > 2}):token
+-->
+:token.Noun = { rule = "Nouns", lemma = :token.Token.root }
+

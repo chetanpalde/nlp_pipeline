@@ -1,0 +1,1937 @@
+/* ParseCpsl.jj - parser for CPSL grammars
+   Hamish, 8/7/98
+   $Id: ParseCpsl.jj 18590 2015-03-02 15:37:33Z ian_roberts $
+ */
+
+options {
+  CACHE_TOKENS = true;
+  IGNORE_CASE = false;
+  DEBUG_PARSER = false;
+  DEBUG_TOKEN_MANAGER = false;
+  LOOKAHEAD = 1;
+  FORCE_LA_CHECK = false;
+  CHOICE_AMBIGUITY_CHECK = 2;
+  OTHER_AMBIGUITY_CHECK = 1;
+  STATIC = false;
+  DEBUG_LOOKAHEAD = false;
+  ERROR_REPORTING = true;
+  JAVA_UNICODE_ESCAPE = false;
+  UNICODE_INPUT = true;
+  USER_TOKEN_MANAGER = false;
+  USER_CHAR_STREAM = false;
+  BUILD_PARSER = true;
+  BUILD_TOKEN_MANAGER = true;
+  SANITY_CHECK = true;
+}
+
+PARSER_BEGIN(ParseCpsl)
+
+package gate.jape.parser;
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.regex.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+import gate.Factory;
+import gate.util.*;
+import gate.jape.*;
+import gate.jape.constraint.*;
+import gate.event.*;
+
+import org.apache.log4j.Logger;
+
+
+/**
+  * A parser for the CPSL language. Generated using JavaCC.
+  * @author Hamish Cunningham
+  */
+public class ParseCpsl implements JapeConstants {
+
+  private static final long serialVersionUID = -2754817550046808372L;
+
+  private static final Logger log = Logger.getLogger(ParseCpsl.class);
+
+  /** Construct from a URL and an encoding
+    */
+  public ParseCpsl(URL url, String encoding) throws IOException {
+    this(url, encoding, new HashMap<String,Object>());
+  }
+
+  /** Construct from a URL and an encoding
+    */
+  public ParseCpsl(URL url, String encoding, Map<String,Object> existingMacros) throws IOException {
+    this(url, encoding, existingMacros, new HashMap<String,Pair>());
+  }
+
+  public ParseCpsl(URL url, String encoding, Map<String,Object> existingMacros, Map<String,Pair> existingTemplates) throws IOException {
+    this(new BomStrippingInputStreamReader(url.openStream(), encoding), 
+         existingMacros, existingTemplates);
+    baseURL = url;
+    this.encoding = encoding;
+  }
+
+  public ParseCpsl(java.io.Reader stream, Map<String,Object> existingMacros) {
+    this(stream, existingMacros, new HashMap<String,Pair>());
+  }
+  
+  public ParseCpsl(java.io.Reader stream, Map<String,Object> existingMacros, Map<String,Pair> existingTemplates) {
+    this(stream);
+    macrosMap = existingMacros;
+    templatesMap = existingTemplates;
+  }
+
+  //StatusReporter Implementation
+  public void addStatusListener(StatusListener listener){
+    myStatusListeners.add(listener);
+  }
+  public void removeStatusListener(StatusListener listener){
+    myStatusListeners.remove(listener);
+  }
+  protected void fireStatusChangedEvent(String text){
+    Iterator<StatusListener> listenersIter = myStatusListeners.iterator();
+    while(listenersIter.hasNext())
+      listenersIter.next().statusChanged(text);
+  }
+
+  protected SinglePhaseTransducer createSinglePhaseTransducer(String name){
+    try {
+      Constructor<? extends SinglePhaseTransducer> c = sptClass.getConstructor
+          (String.class);
+      return c.newInstance(name);
+    } catch (NoSuchMethodException e) { // Shouldn't happen
+      throw new RuntimeException(e);
+    } catch (IllegalArgumentException e) { // Shouldn't happen
+      throw new RuntimeException(e);
+    } catch (InstantiationException e) { // Shouldn't happen
+      throw new RuntimeException(e);
+    } catch (IllegalAccessException e) { // Shouldn't happen
+      throw new RuntimeException(e);
+    } catch (InvocationTargetException e) { // Happens if the constructor throws an exception
+      throw new RuntimeException(e);
+    }
+  }
+
+  protected ParseCpsl spawn(URL sptURL) throws IOException{
+    ParseCpsl newParser = new ParseCpsl(sptURL, encoding, macrosMap, templatesMap);
+    newParser.setSptClass(this.sptClass);
+    return newParser;
+  }
+
+  protected void finishSPT(SinglePhaseTransducer t) throws ParseException {
+    if(ruleNumber == 0)
+      throw(new ParseException("no rules defined in transducer " + t.getName()));
+    t.setBaseURL(baseURL);
+  }
+
+  protected void finishBPE(BasicPatternElement bpe) {
+  }
+
+  /**
+   * Attempt to parse a multi phase transducer from the current file.  This
+   * method ensures that the JAPE file reader is properly closed when the
+   * method completes, whether it completes successfully or throws an
+   * exception.
+   */
+  public MultiPhaseTransducer MultiPhaseTransducer() throws ParseException {
+    try {
+      return _MultiPhaseTransducer();
+    }
+    finally {
+      // this is a bit nasty but I couldn't find a better way to get at the
+      // underlying Reader
+      if(jj_input_stream.inputStream != null) {
+        try {
+          jj_input_stream.inputStream.close();
+        }
+        catch(IOException e) {
+          log.warn("Couldn't close input stream while parsing " + baseURL, e);
+        }
+      }
+    }
+  }
+  
+  protected String toJavaIdentifier(String japeIdentifier) {
+    return japeIdentifier.replace("-", "_");
+  }
+
+  /**
+   * Append the given string to the end of the given buffer as a Java string
+   * literal.  If <code>str</code> is <code>null</code>, we append the four
+   * characters n, u, l, l.  Otherwise, we append the contents of str surrounded
+   * by double quotes, except that characters in str are escaped as necessary
+   * to be a legal Java string literal: backspace, formfeed, tab, newline and
+   * return are replaced by their escape sequences \b, \f, etc.; single and double
+   * quote and backslash are preceded by an extra backslash; other non-ASCII
+   * and non-printing characters are rendered as Unicode escapes (backslash-u
+   * followed by four hex digits).
+   */
+  protected void appendJavaStringLiteral(StringBuffer buf, String str) {
+  	if(str == null) {
+  	  buf.append("null");
+  	}
+  	else {
+  	  Formatter formatter = null;
+  	  buf.append("\"");
+  	  for(int i = 0; i < str.length(); i++) {
+  	    char c = str.charAt(i);
+  	    switch(c) {
+  	      case '\b':
+  	        buf.append("\\b");
+  	        break;
+  	      case '\f':
+  	        buf.append("\\f");
+  	        break;
+  	      case '\n':
+  	        buf.append("\\n");
+  	        break;
+  	      case '\r':
+  	        buf.append("\\r");
+  	        break;
+  	      case '\t':
+  	        buf.append("\\t");
+  	        break;
+  	      case '\"':
+  	        buf.append("\\\"");
+  	        break;
+  	      case '\'':
+  	        buf.append("\\\'");
+  	        break;
+  	      case '\\':
+  	        buf.append("\\\\");
+  	        break;
+
+  	      default:
+  	        if(c < 32 || c > 127) {
+  	          if(formatter == null) formatter = new Formatter(buf);
+  	          formatter.format("\\u%04X", Integer.valueOf(c));
+  	        }
+  	        else {
+  	          buf.append(c);
+  	        }
+  	        break;
+  	    }
+  	  }
+  	  buf.append("\"");
+  	}
+  }
+
+  protected void appendAnnotationAdd(StringBuffer blockBuffer, String newAnnotType, String annotSetName)
+  {
+      String nl = Strings.getNl();
+      blockBuffer.append("      if(outputAS == inputAS) { // use nodes directly" + nl);
+      blockBuffer.append("        outputAS.add(" + nl);
+      blockBuffer.append("          " + annotSetName + ".firstNode(), ");
+      blockBuffer.append(annotSetName + ".lastNode(), " + nl);
+      blockBuffer.append("          ");
+      appendJavaStringLiteral(blockBuffer, newAnnotType);
+      blockBuffer.append(", features" + nl);
+      blockBuffer.append("        );" + nl);
+      blockBuffer.append("      }" + nl);
+      blockBuffer.append("      else { // use offsets" + nl);
+      blockBuffer.append("        try {" + nl);
+      blockBuffer.append("          outputAS.add(" + nl);
+      blockBuffer.append("            " + annotSetName + ".firstNode().getOffset(), ");
+      blockBuffer.append(annotSetName + ".lastNode().getOffset(), " + nl);
+      blockBuffer.append("            ");
+      appendJavaStringLiteral(blockBuffer, newAnnotType);
+      blockBuffer.append(", features" + nl);
+      blockBuffer.append("          );" + nl);
+      blockBuffer.append("        }" + nl);
+      blockBuffer.append("        catch(gate.util.InvalidOffsetException ioe) {" + nl);
+      blockBuffer.append("          throw new gate.util.LuckyException(\"Invalid offset exception generated \" +" + nl);
+      blockBuffer.append("               \"from offsets taken from same document!\");" + nl);
+      blockBuffer.append("        }" + nl);
+      blockBuffer.append("      }" + nl);
+      blockBuffer.append("      // end of RHS assignment block");
+  }
+  
+  /**
+   * Takes a string containing ${key} placeholders and substitutes
+   * in the corresponding values from the given map.  If there is
+   * no value in the map for a particular placeholder it is left
+   * un-resolved, i.e. given a template of "${key1}/${key2}" and
+   * a values map of just [key1: "hello"], this method would return
+   * "hello/${key2}".
+   */
+  protected Pair substituteTemplate(Token templateNameTok,
+          Map<String, Object> values) throws ParseException {
+    Pair template = templatesMap.get(templateNameTok.image);
+    if(template == null) {
+      throw new ParseException(errorMsgPrefix(templateNameTok) +
+              "unknown template name " + templateNameTok.image);
+    }
+    Pair returnVal = null;
+    Set<String> unusedParams = new HashSet<String>(values.keySet());
+    if(((Integer)template.first).intValue() == string) {
+      log.debug("Substituting template " + templateNameTok.image + " with map "
+              + values + ". Template is " + template);
+      StringBuffer buf = new StringBuffer();
+      Matcher mat = Pattern.compile("\\$\\{([^\\}]+)\\}")
+              .matcher((String)template.second);
+      while(mat.find()) {
+        String key = mat.group(1);
+        if(values.containsKey(key)) {
+          mat.appendReplacement(buf,
+                  Matcher.quoteReplacement(String.valueOf(values.get(key))));
+          unusedParams.remove(key);
+        }
+        else {
+          mat.appendReplacement(buf, "\\${");
+          buf.append(key);
+          buf.append("}");
+        }
+      }
+      mat.appendTail(buf);
+      
+      returnVal = new Pair();
+      returnVal.first = Integer.valueOf(string);
+      returnVal.second = buf.toString();
+      log.debug("Template substitution produced " + returnVal.second);
+    }
+    else {
+      returnVal = template;
+    }
+
+    // check that there were no invalid parameters
+    if(!unusedParams.isEmpty()) {
+      throw new ParseException(errorMsgPrefix(templateNameTok) +
+              "invalid parameters " + unusedParams +
+              " for template " + templateNameTok.image);
+    }
+    else {
+      return returnVal;
+    }
+  }
+
+  public void setBaseURL (URL newURL) {
+    baseURL = newURL;
+  }
+
+  public void setEncoding (String newEncoding) {
+    encoding = newEncoding;
+  }
+  
+  public void setSptClass(Class<? extends SinglePhaseTransducer> sptClass) {
+    this.sptClass = sptClass;
+  }
+
+  private String errorMsgPrefix(Token t) {
+    return ((baseURL != null) ? baseURL.toExternalForm() : "(No URL)")+
+      ( (t == null) ? " " :
+          ":"+t.beginLine+":"+t.beginColumn+": ");
+   }
+
+  private transient List<StatusListener> myStatusListeners = new LinkedList<StatusListener>();
+
+  /** Position of the current rule */
+  private int ruleNumber;
+
+  /** A list of all the bindings we made this time, for checking
+    * the RHS during parsing.
+    */
+  private Set<String> bindingNameSet = null;
+
+  /** A table of macro definitions. */
+  protected Map<String,Object> macrosMap;
+  
+  /**
+   * A table of template definitions. Keys are template names,
+   * values are Pairs of token kind and value, as returned by
+   * AttrVal.
+   */
+  protected Map<String,Pair> templatesMap;
+
+  protected URL baseURL;
+  protected String encoding;
+  
+  protected Class<? extends SinglePhaseTransducer> sptClass =
+      SinglePhaseTransducer.class;
+
+  protected SinglePhaseTransducer curSPT;
+} // class ParseCpsl
+
+PARSER_END(ParseCpsl)
+
+
+///////////////////
+// lexical analysis
+///////////////////
+
+////////////////
+// utility stuff
+
+<DEFAULT> TOKEN: {
+  <#space: ("\n" | "\r" | "\t" | "\f" | " ")>
+}
+<DEFAULT> TOKEN: { <#spaces: ("\n" | "\r" | "\t" | "\f" | " ")+> }
+<DEFAULT> TOKEN: { <#newline: ("\n" | "\r" | "\n\r" | "\r\n")> }
+<DEFAULT> TOKEN: { <#digits: (["0"-"9"])+> }
+<DEFAULT> TOKEN: { <#letter: ["A"-"Z", "a"-"z"]> }
+<DEFAULT> TOKEN: { <#letterOrUnderscore: ["A"-"Z", "a"-"z", "_"]> }
+<DEFAULT> TOKEN: { <#letters: (["A"-"Z", "a"-"z"])+> }
+<DEFAULT> TOKEN: { <#lettersAndDigits: (["A"-"Z", "a"-"z", "0"-"9"])+> }
+<DEFAULT> TOKEN: {
+  <#letterOrDigitOrDash: ["A"-"Z", "a"-"z", "0"-"9", "-", "_"]>
+}
+<DEFAULT> TOKEN: {
+  <#lettersAndDigitsAndDashes: (["A"-"Z", "a"-"z", "0"-"9", "-", "_"])+>
+}
+
+////////////////
+// parsed tokens
+
+<DEFAULT> TOKEN [IGNORE_CASE]: { <multiphase:   "Multiphase:"> }
+
+// phases has its own lexical state so we can deal with relative paths
+// pointing to grammar files
+<DEFAULT> TOKEN [IGNORE_CASE]: { <phases:        "Phases:"> :IN_PHASES }
+<IN_PHASES> TOKEN: {
+  <path: (["A"-"Z", "a"-"z", "0"-"9", "-", "_", "/", "\\", "."])+ >
+}
+<IN_PHASES> SPECIAL_TOKEN: { // ignore whitespace
+  <phasesWhiteSpace: (<space>)+>
+}
+<IN_PHASES> SPECIAL_TOKEN: { // single-line C++/Java style comments
+  <phasesSingleLineCStyleComment: "//" (~["\n", "\r"])* <newline> >
+}
+<IN_PHASES> SPECIAL_TOKEN: { // single-line comments CPSL style
+  <phasesSingleLineCpslStyleComment: ";;" (~["\n", "\r"])* <newline> >
+}
+<IN_PHASES> SPECIAL_TOKEN: {
+  <phasesCommentStart: ("/*" | "#|")> : PHASES_WITHIN_COMMENT
+}
+<PHASES_WITHIN_COMMENT> MORE: { <phasesCommentChars: ~[]> }
+<PHASES_WITHIN_COMMENT> SPECIAL_TOKEN: {
+  <phasesCommentEnd: ("*/" | "|#")> : IN_PHASES
+}
+
+<DEFAULT> TOKEN [IGNORE_CASE]: { <javaimport:   "Imports:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <controllerstarted:     "ControllerStarted:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <controllerfinished:    "ControllerFinished:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <controlleraborted:     "ControllerAborted:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <phase:        "Phase:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <input:        "Input:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <option:       "Options:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <rule:         "Rule:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <macro:        "Macro:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <template:     "Template:"> }
+<DEFAULT> TOKEN [IGNORE_CASE]: { <priority:     "Priority:"> }
+<DEFAULT> TOKEN: { <pling: "!"> }
+<DEFAULT> TOKEN: { <kleeneOp: "*" | "+" | "?"> }
+<DEFAULT> TOKEN: { <attrOp: "==" | "!=" | ">" | "<" | ">=" | "<=" | "=~" | "!~" | "==~" | "!=~"> }
+<DEFAULT> TOKEN: { <metaPropOp: "@"> }
+<DEFAULT> TOKEN: { <integer: (["+","-"])? ( ["0"-"9"] )+ > }
+
+
+//starts a string
+   MORE:
+   {
+      "\"" : IN_STRING
+   }
+
+//reads the contents of the string
+   <IN_STRING> MORE :
+   {
+      "\\n"  { image.setLength(image.length() - 2); image.append("\n"); }
+    |
+      "\\r"  { image.setLength(image.length() - 2); image.append("\r"); }
+    |
+      "\\t"  { image.setLength(image.length() - 2); image.append("\t"); }
+    |
+      "\\b"  { image.setLength(image.length() - 2); image.append("\b"); }
+    |
+      "\\f"  { image.setLength(image.length() - 2); image.append("\f"); }
+    |
+      "\\\""  { image.setLength(image.length() - 2); image.append("\""); }
+    |
+      "\\\'"  { image.setLength(image.length() - 2); image.append("\'"); }
+    |
+      "\\\\"  { image.setLength(image.length() - 2); image.append("\\"); }
+    |
+      <"\\u" (["0"-"9","A"-"F","a"-"f"]) (["0"-"9","A"-"F","a"-"f"])
+             (["0"-"9","A"-"F","a"-"f"]) (["0"-"9","A"-"F","a"-"f"])>
+             {
+               String digits = image.substring(image.length() - 4, image.length());
+               image.setLength(image.length() - 6);
+               image.append((char)Integer.parseInt(digits, 16));
+             }
+    |
+      < ~["\"", "\\"] >  // Disallow backslashes that weren't caught by previous rules
+                         // Note that here you don't need any action.
+   }
+
+//finishes the string
+   <IN_STRING> TOKEN :
+   {
+      <string : "\"" >
+      {
+        // image.setLength(image.length() - 1);
+         matchedToken.image = image.toString();
+      } : DEFAULT
+   }
+
+<DEFAULT> TOKEN: { <bool: "true" | "false" > }
+<DEFAULT> TOKEN: { <ident: <letterOrUnderscore> (<letterOrDigitOrDash>)* > }
+<DEFAULT> TOKEN: {
+  <floatingPoint:
+      (["+","-"])? 
+   (  (["0"-"9"])+ "." (["0"-"9"])* (<exponent>)? (["f","F","d","D"])?
+    | "." (["0"-"9"])+ (<exponent>)? (["f","F","d","D"])?
+    | (["0"-"9"])+ <exponent> (["f","F","d","D"])?
+    | (["0"-"9"])+ (<exponent>)? ["f","F","d","D"]
+   )
+  >
+}
+<DEFAULT> TOKEN: { <#exponent: ["e","E"] (["+","-"])? (["0"-"9"])+ > }
+<DEFAULT> TOKEN: { <colon: ":"> }
+<DEFAULT> TOKEN: { <semicolon: ";"> }
+<DEFAULT> TOKEN: { <period: "."> }
+<DEFAULT> TOKEN: { <bar: "|"> }
+<DEFAULT> TOKEN: { <comma: ","> }
+<DEFAULT> TOKEN: { <leftBrace: "{"> }
+<DEFAULT> TOKEN: { <rightBrace: "}"> }
+<DEFAULT> TOKEN: { <leftBracket: "("> }
+<DEFAULT> TOKEN: { <rightBracket: ")"> }
+<DEFAULT> TOKEN: { <leftSquare: "["> }
+<DEFAULT> TOKEN: { <rightSquare: "]"> }
+<DEFAULT> TOKEN: { <assign: "="> }
+<DEFAULT> TOKEN: { <colonplus: ":+"> }
+// <DEFAULT> TOKEN: { <periodOrMetaPropOp: <metaPropOp> | <period>  > }
+//<DEFAULT> TOKEN: { <periodOrMeta: "^"  > }
+/*<DEFAULT> SPECIAL_TOKEN: { // catch all for Java block processing
+  <other: (~[])>
+}*/
+
+////////////////////
+// non-parsed tokens
+
+// we make comments and spaces special tokens to support an editor
+<DEFAULT> SPECIAL_TOKEN: { // ignore whitespace
+  <whiteSpace: (<space>)+>
+}
+<DEFAULT> SPECIAL_TOKEN: { // single-line C++/Java style comments
+  <singleLineCStyleComment: "//" (~["\n", "\r"])* <newline> >
+}
+<DEFAULT> SPECIAL_TOKEN: { // single-line comments CPSL style
+  <singleLineCpslStyleComment: ";;" (~["\n", "\r"])* <newline> >
+}
+<DEFAULT> SPECIAL_TOKEN: { <commentStart: ("/*" | "#|")> : WITHIN_COMMENT }
+<WITHIN_COMMENT> MORE: { <commentChars: ~[]> }
+<WITHIN_COMMENT> SPECIAL_TOKEN: { <commentEnd: ("*/" | "|#")> : DEFAULT }
+
+<DEFAULT> TOKEN: { // catch all for Java block processing
+  <other: (~[])>
+}
+
+
+//////////////
+// the grammar
+//////////////
+
+MultiPhaseTransducer _MultiPhaseTransducer() :
+{
+  // macrosMap = new HashMap();
+  SinglePhaseTransducer s = null;
+  MultiPhaseTransducer m = new MultiPhaseTransducer();
+  m.setBaseURL(baseURL);
+  Token mptNameTok = null;
+  Token phaseNameTok = null;
+  String javaimportblock = null;
+  String controllerstartedblock = null;
+  String controllerfinishedblock = null;
+  String controllerabortedblock = null;
+  boolean haveControllerStartedBlock = false;
+  boolean haveControllerFinishedBlock = false;
+  boolean haveControllerAbortedBlock = false;
+}
+{
+  // transducer name
+  (
+    <multiphase> mptNameTok=<ident>
+    { m.setName(mptNameTok.image); }
+  )?
+
+  // spts
+  (
+    // sptrannies in this file
+    (
+      (javaimportblock=JavaImportBlock())
+      (
+        (  controllerstartedblock=ControllerStartedBlock()
+           { if(haveControllerStartedBlock)
+               throw new ParseException("Only one ControllerStarted block allowed");
+             else
+               haveControllerStartedBlock = true;
+           }
+        ) |
+        (controllerfinishedblock=ControllerFinishedBlock()
+           { if(haveControllerFinishedBlock)
+               throw new ParseException("Only one ControllerFinished block allowed");
+             else
+               haveControllerFinishedBlock = true;
+           }
+        ) |
+        (controllerabortedblock=ControllerAbortedBlock()
+           { if(haveControllerAbortedBlock)
+               throw new ParseException("Only one ControllerAborted block allowed");
+             else
+               haveControllerAbortedBlock = true;
+           }
+        )
+      )*
+      (
+        
+        try {
+            s=SinglePhaseTransducer(javaimportblock) {
+                m.addPhase(s.getName(), s);
+                s.setBaseURL(baseURL);
+                s.setControllerEventBlocks(controllerstartedblock,
+                  controllerfinishedblock,controllerabortedblock,javaimportblock);
+              // only the first SPT in a MPT file should define/execute the blocks
+              controllerstartedblock = null;
+              controllerfinishedblock = null;
+              controllerabortedblock = null;
+            }
+        } catch (Throwable e) {
+            // try to wrap the exception with info about what file/resource
+            // it occurred in.
+            throw(
+              new ParseException("Cannot parse a phase in " +
+                  baseURL + ": " + e.getMessage()
+              ));
+          }
+      )+
+    )
+    |
+    // sptrannies in external files
+    (
+      <phases>
+      (
+        phaseNameTok=<path>
+        {
+          ParseCpsl parser = null;
+
+            // check file exists
+            String sptPath = phaseNameTok.image + ".jape";
+            URL sptURL = null;
+            try{
+              sptURL = new URL(baseURL, sptPath);
+            }catch(MalformedURLException mue){
+              throw(new ParseException(errorMsgPrefix(phaseNameTok)+
+                "Read error " + mue.toString()));
+            }
+
+            // sptURL can never be null at this point because the only way that could
+            // happen would be if an exception occurred above, but that would trigger
+            // the ParserException above
+            if(sptURL == null){
+              throw(new ParseException(errorMsgPrefix(phaseNameTok)+
+                "Resource not found: base = " + baseURL.toString() +
+                " path = " + sptPath
+              ));
+            }
+
+            // construct a parser and parse it
+            fireStatusChangedEvent("Reading " + phaseNameTok.image + "...");
+            try {
+              parser = spawn(sptURL);
+            } catch (IOException e) {
+              throw(
+                new ParseException(errorMsgPrefix(phaseNameTok)+
+                  "Cannot open URL " + sptURL.toExternalForm()
+                )
+              );
+            } 
+
+          // adding the resultant spt to m
+          if(parser != null) {
+          	List<Transducer> phases = parser.MultiPhaseTransducer().getPhases();
+
+            //s = parser.SinglePhaseTransducer();
+            //if(s != null)
+            //  m.addPhase(s.getName(), s);
+
+            if(phases != null) {
+              for(int i=0; i < phases.size(); i++) {
+                m.addPhase(
+                  phases.get(i).getName(),
+                  phases.get(i)
+                  );
+              }
+            }
+          }
+        } // an SPT in an external file
+      )+  // external file phase identifiers
+    )     // external file phases declaration
+  )          // SPTs
+  <EOF>
+  {
+//move this out of here so the input file gets closed properly
+//    m.finish(); // swap the various JGL types for Java arrays
+    return m;
+  }
+
+} // _MultiPhaseTransducer
+
+
+SinglePhaseTransducer SinglePhaseTransducer(String javaimportblock) :
+{
+  ruleNumber = 0;
+  Token phaseNameTok = null;
+  String phaseName = null;
+  Token inputTok = null;
+  SinglePhaseTransducer t = null;
+  Rule newRule = null;
+  bindingNameSet = new HashSet<String>();
+  Token optionNameTok = null;
+  Token optionValueTok = null;
+}
+{
+  
+  <phase> phaseNameTok=<ident>
+  { phaseName = toJavaIdentifier(phaseNameTok.image);
+    t = createSinglePhaseTransducer(phaseName); curSPT = t; }
+
+  (
+    (
+      <input>
+      (inputTok = <ident> {t.addInput(inputTok.image);})*
+    )
+    |
+    (
+      <option>
+      (
+        optionNameTok=<ident> <assign> (optionValueTok=<ident> |
+                                        optionValueTok=<bool>)
+        {
+          t.setOption(optionNameTok.image, optionValueTok.image);
+
+          // control
+          if(optionNameTok.image.equalsIgnoreCase("control")) {
+            if(optionValueTok.image.equalsIgnoreCase("appelt"))
+              t.setRuleApplicationStyle(APPELT_STYLE);
+            else if(optionValueTok.image.equalsIgnoreCase("first"))
+              t.setRuleApplicationStyle(FIRST_STYLE);
+            else if(optionValueTok.image.equalsIgnoreCase("brill"))
+              t.setRuleApplicationStyle(BRILL_STYLE);
+            else if(optionValueTok.image.equalsIgnoreCase("once"))
+              t.setRuleApplicationStyle(ONCE_STYLE);
+            else if(optionValueTok.image.equalsIgnoreCase("all"))
+              t.setRuleApplicationStyle(ALL_STYLE);
+            else
+              System.err.println(errorMsgPrefix(optionValueTok)+
+                "ignoring unknown control strategy " + option +
+                " (should be brill, appelt, first, once or all)"
+              );
+          } // control
+          else if(optionNameTok.image.equalsIgnoreCase("debug")) {
+            if(optionValueTok.image.equalsIgnoreCase("true") ||
+               optionValueTok.image.equalsIgnoreCase("yes") ||
+               optionValueTok.image.equalsIgnoreCase("y"))
+              t.setDebugMode(true);
+            else t.setDebugMode(false);
+          }
+          else if(optionNameTok.image.equalsIgnoreCase("matchGroup")) {
+            if(optionValueTok.image.equalsIgnoreCase("true") ||
+               optionValueTok.image.equalsIgnoreCase("yes") ||
+               optionValueTok.image.equalsIgnoreCase("y"))
+              t.setMatchGroupMode(true);
+            else t.setMatchGroupMode(false);
+          }
+          else if(optionNameTok.image.equalsIgnoreCase("negationGrouping")) {
+            if(optionValueTok.image.equalsIgnoreCase("false") ||
+               optionValueTok.image.equalsIgnoreCase("no") ||
+               optionValueTok.image.equalsIgnoreCase("n"))
+              t.setNegationCompatMode(true);
+            else t.setNegationCompatMode(false);
+          }
+        }
+      )*
+    )
+  )*
+
+  (
+    ( newRule=Rule(phaseName,javaimportblock) { t.addRule(newRule); } )
+    |
+    MacroDef()
+    |
+    TemplateDef()
+  )*
+  {
+    finishSPT(t);
+    return t;
+  }
+
+} // SinglePhaseTransducer
+
+// if there is a block, set the javaimports to the java block specified,
+// otherwise set it to the default block
+String JavaImportBlock() :
+{
+  // default java imports
+  String defaultimportblock =
+      "import gate.*;\n" +
+      "import java.io.*;\n" +
+      "import java.util.*;\n" +
+      "import gate.util.*;\n" +
+      "import gate.jape.*;\n" +
+      "import gate.creole.ontology.*;\n";
+  String importblock = null;
+}
+{
+  ( <javaimport> <leftBrace> importblock=ConsumeBlock()
+  )?
+  {
+    if(importblock != null) {
+      return defaultimportblock+importblock;
+    } else  {
+      return defaultimportblock;
+    }
+  }
+}
+
+String ControllerStartedBlock() : { String block = null; }
+{
+  ( <controllerstarted> <leftBrace> block=ConsumeBlock() )
+  { return block; }
+}
+String ControllerFinishedBlock() : { String block = null; }
+{
+  ( <controllerfinished> <leftBrace> block=ConsumeBlock() )
+  { return block; }
+}
+String ControllerAbortedBlock() : { String block = null; }
+{
+  ( <controlleraborted> <leftBrace> block=ConsumeBlock() )
+  { return block; }
+}
+
+Rule Rule(String phaseName, String currentImports) :
+{
+  Token ruleNameTok = null;
+  String ruleName = null;
+  Token priorityTok = null;
+  int rulePriority = 0;
+  LeftHandSide lhs = null;
+  RightHandSide rhs = null;
+  Rule newRule = null;
+  // forget the labels we saw in the previous rule
+  bindingNameSet.clear();
+}
+{
+  <rule> ruleNameTok=<ident> { ruleName=toJavaIdentifier(ruleNameTok.image); }
+  (
+    <priority> priorityTok=<integer>
+    {
+      try { rulePriority=Integer.parseInt(priorityTok.image); }
+      catch(NumberFormatException e) {
+        System.err.println(errorMsgPrefix(priorityTok)+
+          "bad priority spec(" + priorityTok.image +
+          "), rule(" + ruleName + ") - treating as 0");
+        rulePriority=0;
+      }
+    }
+  )?
+
+  lhs=LeftHandSide() "-->" rhs=RightHandSide(phaseName, ruleName, lhs, currentImports)
+  {
+    try {
+      rhs.createActionClass();
+    } catch(JapeException e) {
+      /*Debug.pr(
+        this, "ParseCpsl.Rule, FAILED rhs: " + rhs.getActionClassString()
+      );*/
+      throw new ParseException(errorMsgPrefix(null)+
+        "couldn't create rule RHS: " + e.toString());
+    }
+    /*Debug.pr(this, "ParseCpsl.Rule, done rhs: " + rhs.getActionClassString());*/
+    newRule = new Rule(ruleName, ruleNumber, rulePriority, lhs, rhs);
+	// if there were "Input:" annotation types specified ...
+  	if(curSPT.isInputRestricted()) {
+      // find all the different annotation types used in the
+      // LHS of the rule
+      HashSet<String> set = new HashSet<String>();
+  	  lhs.getConstraintGroup().getContainedAnnotationTypes(set);
+  	  // and check if each of them is mentioned in the list
+  	  for (String type : set) {
+  	  	if(!curSPT.hasInput(type)) {
+  	  	  System.err.println(errorMsgPrefix(null)+
+  	  	    "Rule "+ruleNameTok.image+" contains unlisted annotation type " + type);
+  	  	}
+  	  }
+  	}
+    ruleNumber++;
+    return newRule;
+  }
+} // Rule
+
+
+void MacroDef() :
+{
+  Token macroNameTok = null;
+  Object body = null;
+}
+{
+  <macro> macroNameTok=<ident>
+  (
+    LOOKAHEAD(2) // both blocks and PEs may start with "{"
+    body=PatternElement()
+    |
+    body=Action(false)
+  )
+  {
+    macrosMap.put(macroNameTok.image, body);
+  }
+} // MacroDef
+
+void TemplateDef() :
+{
+  Token templateNameTok = null;
+  Pair value = null;
+}
+{
+  <template> templateNameTok=<ident>
+  <assign>
+  value=AttrVal()
+  {
+    templatesMap.put(templateNameTok.image, value);
+  }
+} // TemplateDef
+
+
+LeftHandSide LeftHandSide() :
+{
+  ConstraintGroup cg = new ConstraintGroup();
+}
+{
+  ConstraintGroup(cg)
+  {
+    LeftHandSide lhs = new LeftHandSide(cg);
+    // pull out all bindings (including nested ones) and add them to the LHS
+    Iterator<ComplexPatternElement> boundCPEs = cg.getCPEs();
+    while(boundCPEs.hasNext()) {
+      ComplexPatternElement cpe = boundCPEs.next();
+      String bindingName = cpe.getBindingName();
+      if(bindingName != null) {
+        try {
+          lhs.addBinding(bindingName, cpe, bindingNameSet);
+        } catch(JapeException e) {
+          System.err.println(errorMsgPrefix(null)+
+            "duplicate binding name " + bindingName +
+            " - ignoring this binding! exception was: " + e.toString()
+          );
+        }
+
+      }
+    }
+    return lhs;
+  }
+
+} // LeftHandSide
+
+
+// we pass the lhs down so we can add bindings in CPEs, and the cg
+// so we can add PEs and create disjunctions here
+void ConstraintGroup(ConstraintGroup cg) :
+{
+  PatternElement pat = null;
+}
+{
+  ( pat=PatternElement() { cg.addPatternElement(pat); } )+
+  (
+    <bar> { cg.createDisjunction(); }
+    ( pat=PatternElement() { cg.addPatternElement(pat); } )+
+  )*
+
+} // ConstraintGroup
+
+
+PatternElement PatternElement() :
+{
+  PatternElement pat = null;
+  Token macroRefTok = null;
+}
+{
+  (
+    macroRefTok=<ident> // macro reference
+    {
+      Object macro = macrosMap.get(macroRefTok.image);
+      if(macro == null)
+        throw(new ParseException(errorMsgPrefix(macroRefTok)+
+          "unknown macro name " + macroRefTok.image));
+      else if(macro instanceof String[])
+        throw(
+          new ParseException(errorMsgPrefix(macroRefTok)+
+            "macro " + macroRefTok.image +
+            " references an Action, not a PatternElement"
+          )
+        );
+      else if(! (macro instanceof PatternElement)) // this should never happen
+        throw(
+          new ParseException(errorMsgPrefix(macroRefTok)+
+            "macro " + macroRefTok.image +
+            " doesn't reference a PatternElement!"
+          )
+        );
+      else { // macro is a pattern element
+        pat = (PatternElement) ((PatternElement) macro).clone();
+      }
+    }
+    |
+    pat=BasicPatternElement()
+    |
+    pat=ComplexPatternElement()
+    // |
+    // pat=FunctionCallPatternElement()
+  )
+  { return pat; }
+
+} // PatternElement
+
+
+BasicPatternElement BasicPatternElement() :
+{
+  Token shortTok = null; // string shorthand token
+  Constraint c = null;
+  BasicPatternElement bpe = new BasicPatternElement(curSPT);
+}
+{
+  (
+    (
+      // conventional syntax
+      <leftBrace> c=Constraint() { bpe.addConstraint(c); }
+      (
+        <comma> c=Constraint() { bpe.addConstraint(c); }
+      )* <rightBrace>
+    )
+    |
+    (
+      // string shorthand
+      shortTok=<string>
+    )
+    {
+      System.err.println(errorMsgPrefix(shortTok)+
+        "string shorthand not supported yet, ignoring: " + shortTok.image
+      );
+    }
+  )
+  {
+    finishBPE(bpe);
+    return bpe;
+  }
+
+} // BasicPatternElement
+
+
+ComplexPatternElement ComplexPatternElement() :
+{
+  KleeneOperator kleeneOperator = null;
+  Token bindingNameTok = null;
+  ConstraintGroup cg = new ConstraintGroup();
+}
+{
+  <leftBracket> ConstraintGroup(cg) <rightBracket>
+  (kleeneOperator=KleeneOperator())?
+  ( <colon> ( bindingNameTok=<ident> | bindingNameTok=<integer> ) )?
+  {
+    String bindingName = null;
+    if(bindingNameTok != null)
+      bindingName = bindingNameTok.image;
+    return new ComplexPatternElement(cg, kleeneOperator, bindingName);
+  }
+
+} // ComplexPatternElement
+
+KleeneOperator KleeneOperator() :
+{
+  Token kleeneOpTok = null;
+  Token minTok = null;
+  Token maxTok = null;
+  Integer min = null;
+  Integer max = null;
+}
+{
+    (
+      kleeneOpTok = <kleeneOp>
+      {
+        if (kleeneOpTok == null) {
+          return new KleeneOperator(KleeneOperator.Type.SINGLE);
+        }
+
+        KleeneOperator.Type type = KleeneOperator.Type.getFromSymbol(kleeneOpTok.image);
+        if (type != null)
+            return new KleeneOperator(type);
+        else {
+          System.err.println(errorMsgPrefix(kleeneOpTok)+
+              "ignoring uninterpretable Kleene op " + kleeneOpTok.image);
+          return new KleeneOperator(KleeneOperator.Type.SINGLE);
+        }
+      }
+    )
+    |
+    (
+      <leftSquare>
+          (minTok=<integer> (<comma> maxTok=<integer>)?)
+      <rightSquare>
+      {
+          if (minTok != null)
+              min = new Integer(minTok.image);
+          if (maxTok != null)
+              max = new Integer(maxTok.image);
+          else
+              max = min;
+          return new KleeneOperator(min, max);
+      }
+    )
+} // KleeneOperator
+
+Constraint Constraint() :
+{
+  Token annotTypeTok = null;
+  Token metaPropertyTok = null;
+  AnnotationAccessor accessor = null;
+  Token opTok = null;
+  Pair attrValPair = null;
+  boolean negate = false;
+  Constraint c = null;
+  Constraint embeddedConstraint = null;
+  String opString = null;
+}
+{
+  // negation
+  (<pling> { negate = true; } )?
+
+  // the annotation type
+  annotTypeTok=<ident>
+  {
+    c = Factory.getConstraintFactory().createConstraint(annotTypeTok.image);
+    if(negate) c.negate();
+  }
+
+  //optional additions
+  (
+    // feature attribute value with comparison operator
+    (
+      accessor=FeatureAccessor() opTok=<attrOp> attrValPair=AttrVal()
+      {
+        opString = opTok.image;
+        c.addAttribute(Factory.getConstraintFactory().createPredicate(opString, accessor, attrValPair.second));
+      }
+    )
+    |
+    (
+      // meta-property name with comparison operator
+      <metaPropOp> metaPropertyTok=<ident> opTok=<attrOp> attrValPair=AttrVal()
+      {
+        accessor = Factory.getConstraintFactory().createMetaPropertyAccessor(metaPropertyTok.image);
+        opString = opTok.image;
+        c.addAttribute(Factory.getConstraintFactory().createPredicate(opString, accessor, attrValPair.second));
+      }
+    )
+    |
+    (
+      // custom string operator name with value
+      opTok=<ident>
+      (
+        //optional braces.  Which way of writing depends on the exact rule
+        (<leftBrace> embeddedConstraint=Constraint() <rightBrace>)
+        |
+        (embeddedConstraint=Constraint())
+      )
+      {
+        opString = opTok.image;
+        accessor = new SimpleAnnotationAccessor();
+        c.addAttribute(Factory.getConstraintFactory().createPredicate(opString, accessor, embeddedConstraint));
+      }
+    )
+  )?
+
+  // return value
+  {
+    return c;
+  }
+} // Constraint
+
+//attribute values: strings, identifers (=strings), integers, floats,
+//booleans
+AnnotationAccessor FeatureAccessor() :
+{
+Token attrNameTok = null;
+AnnotationAccessor accessor = null;
+}
+{
+  (
+    <period> attrNameTok=<ident>
+  )
+  {
+    accessor = Factory.getConstraintFactory().createDefaultAccessor(attrNameTok.image);
+    return accessor;
+  }
+}
+
+// attribute values: strings, identifers (=strings), integers, floats,
+//                   booleans
+Pair AttrVal() :
+{
+  Token attrValTok = null;
+  Pair val = new Pair();
+}
+{
+  (
+    (
+      attrValTok=<string> | attrValTok=<ident> |
+      attrValTok=<integer> | attrValTok=<floatingPoint> |
+      attrValTok=<bool>
+    )
+    {
+      val.first = new Integer(attrValTok.kind);
+
+      switch(attrValTok.kind) {
+        case string:
+          // strip the quotes
+          val.second
+            = attrValTok.image.substring(1, attrValTok.image.length() - 1);
+          break;
+        case integer:
+          try {
+            val.second = Long.valueOf(attrValTok.image);
+          } catch(NumberFormatException e) {
+            System.err.println(errorMsgPrefix(attrValTok)+
+              "couldn't parse integer " +
+              attrValTok.image + " - treating as 0");
+            val.second = new Long(0);
+          }
+          break;
+        case ident:
+          val.second = new String(attrValTok.image);
+          break;
+        case bool:
+          val.second = Boolean.valueOf(attrValTok.image);
+          break;
+        case floatingPoint:
+          try {
+            val.second = Double.valueOf(attrValTok.image);
+          } catch(NumberFormatException e) {
+            System.err.println(errorMsgPrefix(attrValTok)+
+              "couldn't parse float " +
+              attrValTok.image + " - treating as 0.0");
+            val.second = new Double(0.0);
+          }
+          break;
+        default:
+          System.err.println(errorMsgPrefix(attrValTok)+
+            "didn't understand type of " + attrValTok.image + ": ignoring"
+          );
+          val.second = new String("");
+          break;
+      } // switch
+
+      return val;
+    }
+  )
+  |
+  (
+    val=TemplateCall() {
+      return val;
+    }
+  )
+}
+
+Pair TemplateCall() :
+{
+  Token templateNameTok = null;
+  Token attrNameTok = null;
+  Pair attrVal = null;
+  Map<String, Object> placeholders = new HashMap<String, Object>();
+}
+{
+  <leftSquare> templateNameTok=<ident>
+  (
+    attrNameTok=<ident> <assign> attrVal=AttrVal() {
+      placeholders.put(attrNameTok.image, attrVal.second);
+    }
+    (<comma>)? // yes, I've allowed redundant trailing commas on this one
+  )*
+  <rightSquare> {
+    return substituteTemplate(templateNameTok, placeholders);
+  }
+}
+
+
+RightHandSide RightHandSide(
+  String phaseName, String ruleName, LeftHandSide lhs, String imports
+) :
+{
+  String[] block = new String[2];
+  RightHandSide rhs = new RightHandSide(phaseName, ruleName, lhs, imports);
+}
+{
+  block=Action(true) {
+    rhs.addBlock(block[0], block[1]);
+  }
+  (
+    <comma> block=Action(true) {
+      rhs.addBlock(block[0], block[1]);
+    }
+  )*
+  {
+    return rhs; /* action class not created yet */
+  }
+
+} // RightHandSide
+
+
+// actions return 2 strings, one for the name of the block, and
+// one for the block itself. if the name is null, it is an anonymous block.
+// The checkLabel parameter indicates whether named blocks should check
+// at parse time that the label they refer to is bound.  Actions in
+// a MacroDef can't make this check at parse time, but instead the
+// check is done when the macro is referenced.
+String[] Action(boolean checkLabel) :
+{
+  String[] block = new String[2];
+  Token macroRefTok = null;
+}
+{
+  (
+    // both named blocks and assignments start with ":"<ident>, so:
+    LOOKAHEAD(3)
+
+      block=NamedJavaBlock(checkLabel)
+    | block=AnonymousJavaBlock()
+    | block=AssignmentExpression(checkLabel)
+    | macroRefTok=<ident> // macro reference
+    {
+      Object macro = macrosMap.get(macroRefTok.image);
+      if(macro == null)
+        throw(new ParseException(errorMsgPrefix(macroRefTok)+
+          "unknown macro name " + macroRefTok.image));
+      else if(macro instanceof PatternElement)
+        throw(
+          new ParseException(errorMsgPrefix(macroRefTok)+
+            "macro " + macroRefTok.image +
+            " references a PatternElement, not an Action"
+          )
+        );
+      else if(! (macro instanceof String[])) // this should never happen
+        throw(
+          new ParseException(errorMsgPrefix(macroRefTok)+
+            "macro " + macroRefTok.image + " doesn't reference an Action!"
+          )
+        );
+      else { // macro is an action
+        block = (String[]) macro;
+        // if the macro is a named block or assignment, check that
+        // the label is valid
+        if(block[0] != null && !bindingNameSet.contains(block[0])) {
+          throw(new ParseException(errorMsgPrefix(macroRefTok)+
+            "RHS macro reference " + macroRefTok.image +
+            " refers to unknown label: " + block[0]));
+        }
+      }
+    } // macro reference
+  )
+  {
+    return block;
+  }
+
+} // Action
+
+
+// A :bind { ... } code block.  The checkLabel parameter
+// indicates whether or not we should check *at parse time* that the
+// :bind label is valid.  Assignments that are the body of a MacroDef
+// can't check this at parse time but will be checked at reference time
+String[] NamedJavaBlock(boolean checkLabel) :
+{
+  String[] block = new String[2];
+  Token nameTok = null;
+}
+{
+  <colon> nameTok=<ident> {
+    block[0] = nameTok.image;
+    // did we get a non-existent block name?
+    if(checkLabel && block[0] != null)
+      if(! bindingNameSet.contains(block[0])) {
+        throw(new ParseException(errorMsgPrefix(nameTok)+
+          "unknown label in RHS action: " + block[0]));
+      }
+  }
+  <leftBrace> block[1]=ConsumeBlock()
+  { return block; }
+
+} // NamedJavaBlock
+
+
+String[] AnonymousJavaBlock() :
+{
+  String[] block = new String[2];
+  block[0] = null; // no name
+}
+{
+  <leftBrace> block[1]=ConsumeBlock()
+  { return block; }
+
+} // AnonymousJavaBlock
+
+
+// A :bind.Type = {features} assignment.  The checkLabel parameter
+// indicates whether or not we should check *at parse time* that the
+// :bind label is valid.  Assignments that are the body of a MacroDef
+// can't check this at parse time but will be checked at reference time
+String[] AssignmentExpression(boolean checkLabel) :
+{
+  String[] block = new String[2];
+  StringBuffer blockBuffer = new StringBuffer();
+  Token nameTok = null;
+  Token opTok = null;
+  String newAnnotType = null;
+  String newAttrName = null;
+  String nl = Strings.getNl();
+  String annotSetName = null;
+  Pair attrVal = null;
+  String existingAnnotSetName = null;
+  String existingAnnotType = null;
+  String existingAttrName = null;
+  String opName = null;
+
+  blockBuffer.append("// RHS assignment block" + nl);
+  blockBuffer.append(
+    "      gate.FeatureMap features = gate.Factory.newFeatureMap();" + nl
+  );
+}
+{
+  // the simple/composite span spec
+  (
+    <colon>
+  |
+    // we no longer support multi-span, as there is no such thing as a
+    // multi-span annotation any more...
+    <colonplus> {
+      throw new
+        ParseException(":+ not a legal operator (no multi-span annots)");
+    }
+  )
+
+  // the name of the bound annotation set we're referencing
+  nameTok=<ident> {
+    block[0] = nameTok.image;
+    // did we get a non-existent block name?
+    if(checkLabel && block[0] != null)
+      if(! bindingNameSet.contains(block[0])) {
+        throw(new ParseException(errorMsgPrefix(nameTok)+
+          "unknown label in RHS action: " + block[0]));
+      }
+
+    annotSetName = block[0] + "Annots";
+  }
+
+  // the type of the new annotation we want to create
+  <period> nameTok=<ident>
+  {
+    newAnnotType = nameTok.image;
+
+    // start of the attribute stuff
+    blockBuffer.append("      java.lang.Object val = null;" + nl);
+  }
+
+  // equals sign, and the opening brace of the assignments list
+  <assign> <leftBrace>
+
+  // a list of attribute assignments
+  (
+
+    // the name of the attribute, and equals sign
+    nameTok=<ident> <assign> { newAttrName = nameTok.image; }
+
+    // the value to assign
+    (
+      // a static attribute value
+      attrVal=AttrVal()
+      {
+        switch(((Integer) attrVal.first).intValue()) {
+          case string:
+            blockBuffer.append(
+              "      val = ");
+            appendJavaStringLiteral(blockBuffer, attrVal.second.toString());
+            blockBuffer.append(";" + nl);
+            break;
+          case integer:
+            blockBuffer.append("      try { " +
+              "val = java.lang.Long.valueOf(");
+            appendJavaStringLiteral(blockBuffer, attrVal.second.toString());
+            blockBuffer.append("); }" +
+              nl + "      catch(java.lang.NumberFormatException e) { }" + nl
+            );
+            break;
+          case ident:
+            blockBuffer.append(
+              "      val = ");
+            appendJavaStringLiteral(blockBuffer, attrVal.second.toString());
+            blockBuffer.append(";" + nl);
+            break;
+          case bool:
+            blockBuffer.append(
+              "      val = java.lang.Boolean.valueOf(");
+            appendJavaStringLiteral(blockBuffer, attrVal.second.toString());
+            blockBuffer.append(");" + nl);
+            break;
+          case floatingPoint:
+            blockBuffer.append("      try { " +
+              "val = java.lang.Double.valueOf(");
+            appendJavaStringLiteral(blockBuffer, attrVal.second.toString());
+            blockBuffer.append("); }" +
+              nl + "      catch(java.lang.NumberFormatException e) { }" + nl
+            );
+            break;
+          default:
+            blockBuffer.append(
+              "      val = \"\";" + nl
+            );
+            break;
+        } // switch
+
+        blockBuffer.append("      features.put(");
+        appendJavaStringLiteral(blockBuffer, newAttrName);
+        blockBuffer.append(", val);");
+        blockBuffer.append(nl);
+      } // a static attribute value
+
+    |
+
+      // reference to existing annotation(s)
+      (
+        <colon> nameTok=<ident> {
+          existingAnnotSetName = nameTok.image + "ExistingAnnots";
+          if(checkLabel && ! bindingNameSet.contains(nameTok.image))
+            throw(
+              new ParseException(errorMsgPrefix(nameTok)+
+                "unknown label in RHS action(2): " + nameTok.image
+              )
+            );
+
+          blockBuffer.append(
+            "      { // need a block for the existing annot set" + nl +
+            "        gate.AnnotationSet " + existingAnnotSetName +
+            " = (gate.AnnotationSet)bindings.get(");
+          appendJavaStringLiteral(blockBuffer, nameTok.image);
+          blockBuffer.append("); " + nl +
+            "        java.lang.Object existingFeatureValue;" + nl);
+
+        }
+        (
+          (
+            // WORKING
+            <period> nameTok=<ident> { existingAnnotType = nameTok.image; }
+            (opTok=<period> | opTok=<metaPropOp>) nameTok=<ident>
+              { opName = opTok.image; existingAttrName = nameTok.image; }
+    
+            // for each existingAnnotType annotation in existingAnnotSetAnnots
+            //   if there is an attribute with existingAttrName
+            //   add a new attribute copied from that one
+            {
+              blockBuffer.append(
+    "        if (" + existingAnnotSetName + " != null) {" + nl +
+    "          gate.AnnotationSet existingAnnots = " + nl +
+    "          " + existingAnnotSetName + ".get(");
+              appendJavaStringLiteral(blockBuffer, existingAnnotType);
+              blockBuffer.append(");" + nl +
+    "          if (existingAnnots != null) {" + nl +
+    "            java.util.Iterator iter = existingAnnots.iterator();" + nl +
+    "            while(iter.hasNext()) {" + nl +
+    "              gate.Annotation existingA = (gate.Annotation) iter.next();" + nl);
+
+              // handle :bind.Type@string, :bind.Type@cleanString and :bind.Type@length
+              if(opName.equals("@") && ( existingAttrName.equals("string") || existingAttrName.equals("cleanString") || existingAttrName.equals("length") ) ) {
+                blockBuffer.append(
+    "              int from = existingA.getStartNode().getOffset().intValue();" + nl +
+    "              int to   = existingA.getEndNode().getOffset().intValue();" + nl +
+    "              existingFeatureValue = doc.getContent().toString().substring(from,to);" + nl
+                );
+                if ( existingAttrName.equals("cleanString") ) {
+                  blockBuffer.append(
+    "                 existingFeatureValue = gate.Utils.cleanString((String)existingFeatureValue);" + nl                          
+                  );
+                }
+                if ( existingAttrName.equals("length") ) {
+                  blockBuffer.append(
+    "                 existingFeatureValue = (long)to - (long)from;" + nl
+                  );
+                }
+              } else {
+                blockBuffer.append("existingFeatureValue = existingA.getFeatures().get(");
+                appendJavaStringLiteral(blockBuffer, existingAttrName);
+                blockBuffer.append(");" + nl);
+              }
+    
+              blockBuffer.append(
+    "              if(existingFeatureValue != null) {" + nl +
+    "                features.put(");
+              appendJavaStringLiteral(blockBuffer, newAttrName);
+              blockBuffer.append(", existingFeatureValue);" + nl +
+    "                break;" + nl +
+    "              }" + nl +
+    "            } // while" + nl +
+    "          } // if not null" + nl +
+    "        } // if not null" + nl);
+            }
+          )
+          |
+          (
+            opTok=<metaPropOp> nameTok=<ident>
+            { opName = opTok.image; existingAttrName = nameTok.image; }
+            
+            // handle :bind@string, :bind@cleanString and :bind@length
+            {
+              if(opName.equals("@") && ( existingAttrName.equals("string") || existingAttrName.equals("cleanString") || existingAttrName.equals("length") ) ) {
+                blockBuffer.append(
+    "        if (" + existingAnnotSetName + " != null) {" + nl +
+    "          int from = " + existingAnnotSetName +".firstNode().getOffset().intValue();" + nl +
+    "          int to   = " + existingAnnotSetName +".lastNode().getOffset().intValue();" + nl +
+    "          existingFeatureValue = doc.getContent().toString().substring(from,to);" + nl
+                );
+                if ( existingAttrName.equals("cleanString") ) {
+                  blockBuffer.append(
+    "                 existingFeatureValue = ((String)existingFeatureValue).replaceAll(\"\\\\s+\", \" \").trim();" + nl
+                  );
+                }
+                if ( existingAttrName.equals("length") ) {
+                  blockBuffer.append(
+    "                 existingFeatureValue = (long)to - (long)from;" + nl
+                  );
+                }
+                blockBuffer.append(
+    "          if(existingFeatureValue != null) {" + nl +
+    "            features.put(");
+                appendJavaStringLiteral(blockBuffer, newAttrName);
+                blockBuffer.append(", existingFeatureValue);" + nl +
+    "          }" + nl +
+    "        } // if not null" + nl);
+              }
+              else {
+                throw new ParseException(errorMsgPrefix(nameTok) +
+                        "Unsupported RHS meta-property " + nameTok.image);
+              }
+            }
+          )
+        )
+        {
+          blockBuffer.append(
+  "      } // block for existing annots" + nl
+          );
+        }
+      ) // end of reference to existing annotation(s)
+
+    ) // end of the value to assign
+
+    (<comma>)? // yes, I've allowed redundant trailing commas on this one
+
+  )* // attr assignments list
+
+  // the closing brace
+  <rightBrace>
+
+  // all done
+  {
+    appendAnnotationAdd(blockBuffer, newAnnotType, annotSetName);
+    block[1] = blockBuffer.toString();
+    return block;
+  }
+
+} // AssignmentExpression
+
+
+JAVACODE
+void appendSpecials(Token tok, StringBuffer block) {
+  if(tok != null) {
+    // each specialToken points to its *preceding* one, so we must recursively
+    // append the previous special (which will recursively append its
+    // predecessor, etc.) before appending the current one.
+    appendSpecials(tok.specialToken, block);
+    block.append(tok.image);
+  }
+} // appendSpecials
+
+
+JAVACODE
+String ConsumeBlock() throws ParseException {
+  StringBuffer block = new StringBuffer(); // to collect the block in
+  int nesting = 1; // the first "{" was consumed before we were called
+
+  // this is the first 'proper' token in the block
+  Token nextTok = getNextToken();
+  if(nextTok.kind == EOF) {
+    throw new ParseException(errorMsgPrefix(nextTok)
+            + "Unexpected EOF in Java block");
+  }
+  
+  // for line numbers in the original Jape we want the first
+  // token, normal or special (i.e. comments) so look back from
+  // the first 'proper' token until we get back to the token
+  // after the opening brace 
+  Token blockStart = nextTok;
+  while (blockStart.specialToken != null) {
+    blockStart = blockStart.specialToken;
+  }
+  
+  // append the info about the source Jape to the beginning
+  // of the loaded source Java block
+  block.append("  // JAPE Source: " + baseURL+":" + blockStart.beginLine + "\n");
+
+  // step through the code until the final brace
+  while(nesting != 0) {
+    
+    // add in any preceding spaces and comments
+    appendSpecials(nextTok.specialToken, block);
+
+    // adjust nesting
+    if(nextTok.image.equals("{")) {
+      nesting++;
+      /*Debug.pr(this, "ParseCpsl.ConsumeBlock: nesting = " + nesting);*/
+    } else if(nextTok.image.equals("}")) {
+      nesting--;
+      /*Debug.pr(this, "ParseCpsl.ConsumeBlock: nesting = " + nesting);*/
+    }
+
+    // add the image to the block string (but not the final "}")
+    if(nesting > 0) {
+      if(nextTok.kind == string) {
+        // deal with escapes in string literals
+        appendJavaStringLiteral(block,
+            nextTok.image.substring(1, nextTok.image.length() - 1));
+      }
+      else {
+        block.append(nextTok.image);
+      }
+    }
+    /*Debug.pr(this, "ParseCpsl.ConsumeBlock: nextTok.image = ^" +
+             nextTok.image + "^");*/
+             
+	// if we haven't worked all the way out of the nesting
+	// then get the next token
+	if (nesting != 0) {
+	  nextTok = getNextToken();
+	  if(nextTok.kind == EOF) {
+	    throw new ParseException(errorMsgPrefix(nextTok)
+	            + "Unexpected EOF in Java block");
+	  }
+	}
+
+  } // while
+
+  /*Debug.pr(this, "ParseCpsl.ConsumeBlock: block = " + block.toString());*/
+  
+  return block.toString();
+} // ConsumeBlock
+
+
+// $Log$
+// Revision 1.34  2006/01/26 09:26:30  valyt
+// Fixed syntax error
+//
+// Revision 1.33  2006/01/26 09:15:33  valyt
+// NPE Guards for shortcut :bindingSet.AnnotationType.featureName used to set feature values.
+//
+// Revision 1.32  2006/01/09 14:06:35  ian_roberts
+// Fixed feature value copying (bug #1398837).
+//
+// Rule: rule
+// ( {OldAnnot.feat = "something"} ):binding
+// -->
+// :binding.NewAnnot = { myFeature = :binding.OldAnnot.feat }
+//
+// now correctly creates a NewAnnot with myFeature="something" instead of the
+// previous behavior of feat="something".
+//
+// Revision 1.31  2005/12/14 15:58:23  ian_roberts
+// Fixes for JAPE grammars that contain non-Latin1 characters.
+//
+// Revision 1.30  2005/06/20 10:34:20  valyt
+// Ken Williams's patch for ParseCpsl.jj
+//
+// Revision 1.29  2005/06/08 16:32:25  valyt
+// Support for ALL matching style
+//
+// Revision 1.28  2004/03/23 15:16:40  nasso
+// [angel]
+// Add new matchGroup mode.
+//
+// Revision 1.27  2003/10/31 15:54:19  valyt
+//
+// better error hadling (moved compile error handling out of ParseCpsl.jj)
+//
+// Revision 1.26  2002/04/22 11:45:58  valyt
+//
+// ONCE mode added to Jape
+//
+// Revision 1.25  2002/02/26 13:27:13  valyt
+//
+// Error messages from the compiler
+//
+// Revision 1.24  2001/11/01 15:49:10  valyt
+//
+// DEBUG mode for Japes
+//
+// Revision 1.23  2001/09/25 12:26:10  kalina
+// Removed the final places that used jgl.objectspace
+//
+// Revision 1.22  2001/09/25 12:04:04  kalina
+// I commented out temporarily the no events in batch mode code as it was
+// not working completely correctly, so I want to reinstate it only after
+// it's fully functional. All tests seems OK on a clean version (well, same
+// mistakes as today due to the feature comparison stuff).
+//
+// Revision 1.21  2001/09/12 15:24:45  kalina
+// Made the batchMode flag in Main public. This is now checked before
+// events are fired and listeners created. No bugs in tests or anywhere else
+// yet. To disable events, set batchMode to true in your batch code. By default
+// it is false, because some batch code e.g., MUSE, use events for progress
+// indication. Not having events does give some small performance gains, but
+// not much.
+//
+// Revision 1.20  2001/09/12 11:59:34  kalina
+// Changed the old JAPE stuff to use the new Collections API,
+// instead of com.objectspace stuff. Will eliminate that library
+// completely very soon! Just one class left to re-implement,
+//
+// ParseCPSL.jj changed accordingly. All tested and no smoke.
+//
+// Revision 1.19  2001/05/18 16:30:00  hamish
+// now supports paths in phase names
+//
+// Revision 1.18  2001/05/17 16:02:42  valyt
+//
+// Jape grammars now can match using the "first" style
+//
+// Tokeniser only matches one character per (Space)Tokens in case of whitespace or control characters
+//
+// Revision 1.17  2001/05/17 11:50:42  valyt
+//
+// 	Factory now handles Runtime parameters as well as inittime ones.
+//
+// 	There is a new rule application style Appelt-shortest
+//
+// Revision 1.16  2001/04/30 13:23:53  hamish
+// format
+//
+// Revision 1.15  2001/04/06 17:09:50  hamish
+// save of session state via serialisation prototyped
+//
+// Revision 1.14  2001/04/05 12:59:24  valyt
+//
+// fixed an older bug from Jape (it was ignoring the annotations sets)
+//
+// Revision 1.13  2001/03/08 14:33:28  valyt
+//
+// Rebuilt jape conform to the new event model
+//
+// Revision 1.12  2001/02/08 13:46:07  valyt
+// Added full Unicode support for the gazetteer and Jape
+// converted the gazetteer files to UTF-8
+//
+// Revision 1.11  2001/01/11 15:36:58  valyt
+// -Added support for escape sequences in Jape grammars
+//
+// -changed the generated Jape code to use gate.Factory instead  of gate.Transients
+//
+// Revision 1.10  2000/09/10 18:30:26  valyt
+// Added support for:
+// 	rules priority
+// 	input specification
+// in Jape
+//
+// Revision 1.9  2000/07/12 17:55:45  valyt
+// *** empty log message ***
+//
+// Revision 1.7  2000/06/09 16:54:34  hamish
+// support for grammars coming from resources
+//
+// Revision 1.6  2000/05/05 12:51:12  valyt
+// Got rid of deprecation warnings
+//
+// Revision 1.5  2000/05/05 11:16:51  hamish
+// added stream constructor to the parser
+//
+// Revision 1.4  2000/05/02 16:56:10  hamish
+// porting to new annotation API
+//
+// Revision 1.3  2000/03/27 13:28:11  hamish
+// fixed jdmexception bug in .jj
+//
+// Revision 1.2  2000/02/24 17:28:48  hamish
+// more porting to new API
+//
+// Revision 1.1  2000/02/23 13:46:16  hamish
+// added
+//
+// Revision 1.1.1.1  1999/02/03 16:23:06  hamish
+// added gate2
+//
+// Revision 1.23  1998/11/02 15:28:50  hamish
+// change in support of jdk 1.2
+//
+// Revision 1.22  1998/11/01 21:21:46  hamish
+// use Java arrays in transduction where possible
+//
+// Revision 1.21  1998/10/29 11:59:59  hamish
+// debug code out
+//
+// Revision 1.20  1998/10/08 12:14:01  hamish
+// preserve macros accross transducers
+//
+// Revision 1.19  1998/10/01 14:02:29  hamish
+// changed default rule to catch e.g. && during ConsumeBlock
+//
+// Revision 1.18  1998/09/27 13:30:07  hamish
+// allow simple annotation type constraints
+//
+// Revision 1.17  1998/09/26 09:19:26  hamish
+// added cloning of PE macros
+//
+// Revision 1.16  1998/09/23 12:48:09  hamish
+// negation added; noncontiguous BPEs disallowed
+//
+// Revision 1.15  1998/09/18 12:15:44  hamish
+// bugs fixed: anon block null ptr; no error for some non-existant labelled blocks
+//
+// Revision 1.14  1998/09/17 17:30:26  hamish
+// added RHS macro references
+//
+// Revision 1.13  1998/09/17 16:48:38  hamish
+// added macro defs and macro refs on LHS
+//
+// Revision 1.12  1998/09/17 12:53:34  hamish
+// added Multiphase
+//
+// Revision 1.11  1998/09/17 10:24:08  hamish
+// added options support, and Appelt-style rule application
+//
+// Revision 1.10  1998/08/19 20:21:51  hamish
+// new RHS assignment expression stuff added
+//
+// Revision 1.8  1998/08/17 10:25:48  hamish
+// not much
+//
+// Revision 1.7  1998/08/12 19:05:54  hamish
+// fixed multi-part CG bug; set reset to real reset and fixed multi-doc bug
+//
+// Revision 1.6  1998/08/12 15:39:07  hamish
+// fixed doc gen - using 0.7.1
+//
+// Revision 1.5  1998/08/10 14:16:46  hamish
+// fixed consumeblock bug and added batch.java
+//
+// Revision 1.4  1998/08/07 16:18:52  hamish
+// parser pretty complete, with backend link done
+//
+// Revision 1.2  1998/08/06 12:35:53  hamish
+// to hell with jjtree
+//
+// Revision 1.1  1998/08/03 21:32:57  hamish
+// moved from gate.jape
+//
+// Revision 1.1.1.1  1998/07/28 16:37:46  hamish
+// gate2 lives

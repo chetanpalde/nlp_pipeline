@@ -1,0 +1,12 @@
+// testloc.jape
+// DON'T change the previous line! (It's used by gate.util.TestFiles)
+// $Id: testloc.jape 327 2000-06-09 15:36:50Z hamish $
+
+MultiPhase:	TestLocationGrammars
+Phases:
+  brian-default
+  brian-loc-region1
+  brian-loc1
+  brian-soc-loc1
+  brian-loc-final
+

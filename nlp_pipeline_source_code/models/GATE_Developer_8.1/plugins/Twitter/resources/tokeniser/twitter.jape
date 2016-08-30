@@ -1,0 +1,290 @@
+Phase: TwitterTokens
+Input: Token SpaceToken Lookup
+Options: control = appelt
+
+
+Macro: URL_START
+(
+ // TODO: add more URL shortening services
+ ( ( {Token.string == "http"} | {Token.string == "https"} | {Token.string == "ftp"} )
+   {Token.string == ":"} {Token.string == "/"} {Token.string == "/"} )
+ |
+ ({Token.kind == "word"} {Token.string == "."}{Token.kind == "word"}{Token.string == "/"})
+)
+
+
+// TODO: 
+// flag RT/MT/via @/by @ & via specially? (probably better to handle later)
+
+
+// Syntax of usernames
+// http://sentiment.christopherpotts.net/tokenizing.html#twitter
+// @+[\w_]+
+
+// and hashtags according to
+// https://support.twitter.com/articles/370610-my-hashtags-or-replies-aren-t-working
+// can include numbers but can't be just a number
+// punctuation breaks the tag; apart from underscores appear to be allowed
+
+Rule: Hashtag
+( {Token.string == "#"}
+  ({Token.kind == "number"})?
+  ({Token.kind=="word"}|{Token.string == "_"})
+  ({Token.kind=="word"}|{Token.kind=="number"}|{Token.string == "_"})[0,10]
+): match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   // add spanning annotation
+   FeatureMap htag = Factory.newFeatureMap();
+   htag.put("rule", "Hashtag");
+   htag.put("kind", "Hashtag");
+   htag.put("length", (int) end - start);
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   htag.put("string", string);
+
+   try {
+    outputAS.add(start, end, "Hashtag", htag);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+
+}
+
+
+// combine non-space-separated lowercase words and numbers (e.g. |gr|8| -> |gr8|, |2|day| -> |2day|) - in preparation for norm
+Rule: Recombine
+( ({Token.kind == "word", Token.orth == "lowercase"} {Token.kind == "number"}) |
+  ({Token.kind == "number"} {Token.kind == "word", Token.orth == "lowercase"})
+):match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   FeatureMap tok = Factory.newFeatureMap();
+   tok.put("rule", "Recombine");
+   tok.put("kind", "word");
+   tok.put("length", (int) end - start);
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   tok.put("string", string);
+   tok.put("orth", "mixed");
+
+   // remove prior annotations
+   AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+   tok.put("replaced", tokens.size());
+   inputAS.removeAll(tokens);
+
+   // add spanning annotation
+   try {
+    outputAS.add(start, end, "Token", tok);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+}
+
+/*
+//Replaced by RecombineEmoticon as this doesn't work very well because
+//  a) it misses emoticons that start with a non-punctuation character
+//  b) it combines punctuation that isn't an emoticon (i.e. ...) 
+Rule: RecombineSmiley
+(
+  ({Token.kind == "punctuation"})+
+  ({Token.string =~"[DdPp]"})?
+):match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   FeatureMap tok = Factory.newFeatureMap();
+   tok.put("rule", "RecombineSmiley");
+   tok.put("kind", "punctuation");
+   tok.put("category", "UH");
+   tok.put("length", (int) end - start);
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   tok.put("string", string);
+   tok.put("orth", "mixed");
+
+   // remove prior annotations
+   AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+   tok.put("replaced", tokens.size());
+   inputAS.removeAll(tokens);
+
+   // add spanning annotation
+   try {
+    outputAS.add(start, end, "Token", tok);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+}
+*/
+
+Rule: RecombineEmoticon
+(
+	{Lookup.majorType=="emoticon"}
+):match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   FeatureMap tok = Factory.newFeatureMap();
+   tok.put("rule", "RecombineEmoticon");
+   tok.put("kind", "punctuation");
+   tok.put("category", "UH");
+   tok.put("length", (int) end - start);
+   tok.put("origString", gate.Utils.cleanStringFor(doc, matchAnnots));
+   tok.put("string", matchAnnots.iterator().next().getFeatures().get("normalized"));
+   tok.put("orth", "mixed");
+
+   // remove prior annotations
+   AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+   tok.put("replaced", tokens.size());
+   inputAS.removeAll(tokens);
+
+   // add spanning annotation
+   try {
+    outputAS.add(start, end, "Token", tok);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+   
+   FeatureMap params = Factory.newFeatureMap();
+   params.put("normalized", matchAnnots.iterator().next().getFeatures().get("normalized"));
+   try {
+    outputAS.add(start, end, "Emoticon", params);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+}
+
+Rule: UserID
+( ({Token.string == "@"})
+  ({Token.kind=="word"} | {Token.kind=="number"} | {Token.string=="_"})[1,5]
+): match
+-->
+:match {
+   // get boundaries of @userid
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   // build new userid annotation
+   FeatureMap userid = Factory.newFeatureMap();
+   userid.put("rule", "UserID");
+   userid.put("kind", "UserID");
+   userid.put("length", (int) end - (start+1));
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   userid.put("string", string);
+   userid.put("user", string.substring(1)); // skip the leading "@" from the string
+
+   // add spanning userid annotation
+   try {
+    outputAS.add(start+1, end, "UserID", userid);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }
+
+   // remove first elem from matchAnnots so the extras can be removed, and set up the userid start offset
+   Annotation first = matchAnnots.get(start).iterator().next();
+   matchAnnots.remove(first);
+   
+   // replace username (excl. @) with one Token annotation
+   AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+   userid.put("replaced", tokens.size());
+   inputAS.removeAll(tokens);
+   
+   // add new token for user id string
+   FeatureMap newtok = Factory.newFeatureMap();
+   newtok.put("rule", "UserID");
+   newtok.put("category", "USR");
+   newtok.put("kind", "word");
+   newtok.put("length", (int) end - start);
+   string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   newtok.put("string", string.substring(1));
+
+   try {
+    outputAS.add(start, end, "Token", newtok);
+   }
+   catch (InvalidOffsetException e) {
+    e.printStackTrace();
+   }   
+
+}
+
+
+// TODO: restrict to syntactically valid URLs?
+
+Rule: URL
+((URL_START)
+ ({Token.string !=~ "[\"”\']"})[1,20]
+): match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   FeatureMap newf = Factory.newFeatureMap();
+   newf.put("rule", "URL");
+   newf.put("temp_category", "NN");
+   newf.put("kind", "URL");
+   newf.put("length", (int) end - start);
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   newf.put("string", string);
+
+   {
+     AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+     newf.put("replaced", tokens.size());
+     inputAS.removeAll(tokens);
+   }
+  
+   try {
+     outputAS.add(start, end, "Token", newf);
+     outputAS.add(start, end, "URL", newf);
+   }
+   catch (InvalidOffsetException e) {
+     e.printStackTrace();
+   }
+}
+
+
+Rule: Separator
+( ( ({Token.string=="<"})[2,9] )
+  |
+  ( ({Token.string==">"})[2,9] )
+): match
+-->
+:match {
+   long start = matchAnnots.firstNode().getOffset();
+   long end = matchAnnots.lastNode().getOffset();
+
+   FeatureMap newf = Factory.newFeatureMap();
+   newf.put("rule", "Separator");
+   newf.put("temp_category", "SYM");
+   newf.put("kind", "separator");
+   newf.put("length", (int) end - start);
+   String string = gate.Utils.cleanStringFor(doc, matchAnnots);
+   newf.put("string", string);
+
+   {
+     AnnotationSet tokens = gate.Utils.getContainedAnnotations(inputAS, matchAnnots, "Token");
+     newf.put("replaced", tokens.size());
+     inputAS.removeAll(tokens);
+   }
+  
+   try {
+     outputAS.add(start, end, "Token", newf);
+   }
+   catch (InvalidOffsetException e) {
+     e.printStackTrace();
+   }
+}
+

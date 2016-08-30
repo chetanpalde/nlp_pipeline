@@ -1,0 +1,9 @@
+Phase: Test
+Options: control = appelt
+
+Rule:OpGreaterThan
+(
+	{Token.string > "attic"}
+):bind 
+--> 
+:bind.SomeAnnotation = {rule="OpGreaterThan"}

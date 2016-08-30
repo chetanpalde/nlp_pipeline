@@ -1,0 +1,11 @@
+// Country.jape
+// Valy, 14/Apr/00
+
+Phase:	first
+Options: control = brill
+
+Rule:	One 
+(	{Token.string=="Germany"}	|	
+	{Token.string=="England"}	|	
+	{Token.string=="France"}): country --> 
+:country.Loc = {Type = "Country" }

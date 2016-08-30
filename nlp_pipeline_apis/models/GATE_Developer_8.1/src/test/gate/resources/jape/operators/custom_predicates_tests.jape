@@ -1,0 +1,36 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+/////////////////////////////////////////////////////////////////
+  Rule:	Contains
+  ({A contains B}):abc
+  -->
+	:abc.Result = {rule="Contains"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	ContainsWithConstraints
+  ({C.f1 == "foo", C contains {B.f2 == "bar"}}):abc
+  -->
+	:abc.Result = {rule="ContainsWithConstraints"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	ContainsWithMetaProperty
+  ({C.f1 == "foo", C contains {B@length >= 4}}):abc
+  -->
+	:abc.Result = {rule="ContainsWithMetaProperty"}
+
+/////////////////////////////////////////////////////////////////
+
+  Rule:	IsContained
+  ({E within F}):abc
+  -->
+	:abc.Result = {rule="IsContained"}
+
+      // $Log$
+

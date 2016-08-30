@@ -1,0 +1,43 @@
+/*
+ * twclauses.jape
+ *
+ * Copyright (c) 2004-2013, The University of Sheffield.
+ * 
+ * This file is part of GATE (see http://gate.ac.uk/), and is free software,
+ * Licensed under the GNU Library General Public License, Version 3, June 2007
+ * (in the distribution as file licence.html, and also available at
+ * http://gate.ac.uk/gate/licence.html).
+ * 
+ * Original version developed by Mark A. Greenwood as part of his PhD thesis.
+ */
+
+Phase: TWClauses
+Input: Token
+Options: control = appelt
+
+Rule:TWC1
+(
+	(({Token.string == "that"}|{Token.string == "which"})
+	{Token.root == "be"}):removable
+	({Token.orth == "lowercase"}):after
+)
+-->
+{
+	Annotation after = bindings.get("after").iterator().next();
+
+	String cat = (String)after.getFeatures().get("category");
+	
+	if (cat.startsWith("N") || cat.startsWith("V") || cat.equals("DT"))
+	{
+		AnnotationSet remove = bindings.get("removable");		
+
+		// get the start and end of this section
+		Node start = remove.firstNode();
+		Node end = remove.lastNode();
+
+		FeatureMap params = Factory.newFeatureMap();
+		params.put("rule","TWC1");
+
+		outputAS.add(start,end,"Redundant",params);
+	}
+}

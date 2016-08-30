@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<metadata xmlns="http://gate.ac.uk/ns/pipeline-metadata">
+  <pipeline-name>Russian Named Entity Recognizer (with orthomatcher)</pipeline-name>
+  <slug>russian-ner-with-orthomatcher</slug>
+  <ordering>49</ordering>
+  <annotation-selectors>:Address, :Date, :Location, :Organization, :Person</annotation-selectors>
+  <additional-annotations>:Money, :Percent, :Token, :SpaceToken, :Sentence, :Lookup, :MSD</additional-annotations>
+  <tags>
+    <tag>Russian</tag>
+    <tag>Named Entity</tag>
+  </tags>
+</metadata>

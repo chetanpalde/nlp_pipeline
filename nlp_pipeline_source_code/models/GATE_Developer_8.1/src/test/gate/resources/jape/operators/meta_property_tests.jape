@@ -1,0 +1,24 @@
+/*
+ * $Id$
+ */
+
+Phase:	first
+Options: control = appelt
+
+  Rule:	StringAccessorEqual
+  ({A@string=="blah"}):abc
+  -->
+	:abc.Result = {rule="StringAccessorEqual"}
+
+  Rule:	LengthAccessorEqual
+  ({A@length == 3, A.f1 == "aval"}):abc
+  -->
+	:abc.Result = {rule="LengthAccessorEqual"}
+
+  Rule:	CleanStringAccessorEqual
+  ({B@cleanString=="word4 word5"}):abc
+  -->
+	:abc.Result = {rule="CleanStringAccessorEqual"}
+
+      // $Log$
+

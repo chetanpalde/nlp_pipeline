@@ -1,0 +1,56 @@
+<p>An example application demonstrating the capabilities of the
+<a href="http://www.seas.upenn.edu/~strctlrn/BioTagger/BioTagger.html">Penn
+BioTagger</a> from the University of Pennsylvania.  The application includes</p>
+<ul>
+  <li>A <em>tokeniser</em> tuned for biomedical text</li>
+  <li>A series of taggers, based on the
+    <a href="http://mallet.cs.umass.edu/">MALLET</a> machine learning library,
+    to recognise various biomedical entity types
+    <ul>
+      <li>gene</li>
+      <li>genomic variation</li>
+      <li>malignancy type</li>
+    </ul>
+  </li>
+</ul>
+
+<p><button class="btn btn-info" data-toggle="collapse" data-target="#ldAnnotationDetails"><i class="icon-info-sign icon-white"></i> Annotation details</button></p>
+
+<div class="collapse clearfix" id="ldAnnotationDetails">
+<table>
+  <tr>
+    <td colspan="2"><b>Default annotations</b></td>
+  </tr>
+  <tr>
+    <td><tt>:gene</tt></td>
+    <td>Expressions denoting genes</td>
+  </tr>
+  <tr>
+    <td><tt>:malignancy-type</tt></td>
+    <td>Expressions denoting malignancy types</td>
+  </tr>
+  <tr>
+    <td><tt>:location</tt></td>
+    <td rowspan="5">Expressions relating to genomic variation</td>
+  </tr>
+  <tr>
+    <td><tt>:state-original</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:state-altered</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:variation</tt></td>
+  </tr>
+  <tr>
+    <td><tt>:type</tt></td>
+  </tr>
+  <tr>
+    <td colspan="2"><b>Additional annotations available if selected</b></td>
+  </tr>
+  <tr>
+    <td><tt>:Token</tt></td>
+    <td>The individual tokens of the text</td>
+  </tr>
+</table>
+</div>

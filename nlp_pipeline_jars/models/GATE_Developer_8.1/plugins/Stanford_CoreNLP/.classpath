@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/ejml-0.23.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-ner-3.4.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-parser-3.4.jar"/>
+	<classpathentry kind="lib" path="lib/stanford-postagger-3.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/GATE"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

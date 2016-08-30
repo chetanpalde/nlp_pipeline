@@ -1,0 +1,86 @@
+// money1.jape
+// Brianm, 12/Aug/98
+
+Phase:	Money1
+Options: control = appelt
+
+
+Rule:	NumberCurrencyPostfixed
+// 30 dollars
+  (
+      {Token.kind == "num"} 
+      {Token,
+       Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "POST_AMOUNT"}
+  ) :amount
+
+  -->
+
+  :amount.Name = {kind = "money", rule = "NumberCurrencyPostfixed"}
+
+Rule:	NumberCurrencyCountryPostfixed
+// 30 US dollars
+  (
+      {Token.kind == "num"}
+      {Token,
+       Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "PRE_AMOUNT"}
+      {Token,
+       Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "POST_AMOUNT"}
+  ) :amount
+
+  -->
+
+  :amount.Name = {kind = "money", rule = "NumberCurrencyCountryPostfixed"}
+
+Rule:	TokenisedAmountCountryPostfixed
+//Priority:	1
+// 30 French francs
+    ( {Token.kind == "num"}
+      {Token,
+       Lookup.majorType == "COUNTRY_ADJ"}
+      {Token,
+       Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "POST_AMOUNT"}
+    ) :amount
+    
+  -->
+
+  :amount.Name = {kind = "money", rule = "TokenisedAmountCountryPostfixed"}
+
+Rule:	TokenisedAmountCountryPrefixed
+// US $30
+  (
+      {Lookup.majorType == "CURRENCY_UNIT",
+       Lookup.minorType == "PRE_AMOUNT"}
+      {Token, Token.kind == "money"} 
+  ) :amount
+
+  -->
+
+  :amount.Name = {kind = "money", rule = "TokenisedAmountCountryPrefixed"}
+
+/*  
+Rule:	RawTokenisedAmount
+    ( {Token.kind == "money"} ) :amount
+
+  -->
+
+  :amount.Name = {kind = "money", rule = "RawTokenisedAmount"}
+*/
+
+
+// $Log$
+// Revision 1.1  2000/06/09 14:45:24  valyt
+// Added the "big one" (Jape grammar, that is)
+//
+// Revision 1.1.1.1  1999/02/03 16:23:13  hamish
+// added gate2
+//
+// Revision 1.3  1998/11/25 12:10:31  hamish
+// updates from unix
+//
+// Revision 1.2  1998/10/08 12:55:09  hamish
+// added logs
+//

@@ -1,0 +1,39 @@
+// Test11.jape
+//
+// Test negation
+// Hamish, 17/9/98
+//
+// $Id: Test11.jape 375 2000-06-22 13:59:56Z valyt $
+
+
+Multiphase: Test11Multi
+
+
+Phase: One
+Options: control=brill
+
+
+Macro: NUMBER
+( {Token.kind == "num"} ):number
+Macro: KILO_PATTERN
+( NUMBER {Token.string == "Kilograms"} ):whole
+
+
+Rule:	KiloAmount
+  KILO_PATTERN
+-->
+  :whole.Name = { amount = :number.Token.string },
+  :whole.Name = { kind = "KiloAmount" }
+
+
+Macro: KILO_ACTION1
+  :whole.Name2 = { amount = :number.Token.string }
+Macro: KILO_ACTION2
+  :biggerWhole.Name2 = { amount = :number.Token.string }
+
+
+Rule:	KiloAmountOf
+  ( KILO_PATTERN { ! Token.string == "of" } ):biggerWhole
+-->
+  KILO_ACTION1,
+  KILO_ACTION2

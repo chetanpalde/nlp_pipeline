@@ -1,0 +1,42 @@
+// loc-final.jape
+// Brianm, 28/Oct/98
+
+Phase:	LocationsFinal1  // convert all previous phases to Name.kind = "location"
+Options: control = brill // because we want all possible matches
+
+////////////////////////////////////////
+
+MACRO:	CAPS_MACRO_BASE
+  ( {Token.orth == "initCap"} | {Token.orth == "allCaps"} )
+
+////////////////////////////////////////
+
+MACRO:	CAPS_MACRO
+  ( CAPS_MACRO_BASE | CAPS_MACRO_BASE CAPS_MACRO_BASE )
+  
+////////////////////////////////////////
+
+// initCaps 1 or 2 , Region
+
+Rule:	CapsCommaRegion
+  (CAPS_MACRO):locName
+  {Token.string == ","}
+  ({Region}):regionName
+
+  -->
+
+  :locName.Name = {kind = "location", subKind = "region", rule = "CapsCommaRegion"}
+
+////////////////////////////////////////
+
+Rule:	ConvertBasicRegion
+  (({Region}):regionName
+  ):locName
+
+  -->
+
+  :locName.Name = {kind = "location", subKind = "region", rule = :regionName.Region.rule,
+                   conversionRule = "ConvertBasicRegion"}
+
+////////////////////////////////////////
+

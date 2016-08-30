@@ -1,0 +1,17 @@
+GATE Developer/Embedded Version 8.0 release (May 2014)
+
+GATE Developer/Embedded 8.0 introduces
+
+- new tools for Twitter data, including the _TwitIE_ named entity annotation
+  pipeline
+- tools to support the creation of manually-annotated corpora using _crowd
+  sourcing_
+- a refreshed and updated ANNIE, with improved performance
+- new plugins wrapping various third-party annotation services, and a host of
+  improvements and bug-fixes to many existing plugins.
+
+Full details can be found in the
+%(http://gate.ac.uk/userguide/sec:changes:8.0,changelog in the user guide).
+
+The GATE Developer/Embedded package can be downloaded from
+%(http://gate.ac.uk/download/).

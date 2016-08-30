@@ -1,0 +1,9 @@
+city.lst:lexicon:city::HashtagLookup
+country.lst:lexicon:country::HashtagLookup
+province.lst:lexicon:province::HashtagLookup
+region.lst:lexicon:region::HashtagLookup
+organization.lst:lexicon:organization::HashtagLookup
+government.lst:lexicon:government::HashtagLookup
+words.lst:lexicon:word::HashtagLookup
+slang.lst:lexicon:slang::HashtagLookup
+contractions.lst:lexicon:contraction::HashtagLookup

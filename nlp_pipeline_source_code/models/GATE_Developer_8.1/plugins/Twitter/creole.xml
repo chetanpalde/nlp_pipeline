@@ -1,0 +1,6 @@
+<?xml version="1.0"?>  
+<CREOLE-DIRECTORY>  
+  <JAR SCAN="true">twitter.jar</JAR>
+  <JAR>lib/jaspell.jar</JAR>
+  <REQUIRES>../Stanford_CoreNLP</REQUIRES>
+</CREOLE-DIRECTORY> 

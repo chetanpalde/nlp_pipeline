@@ -1,0 +1,12 @@
+Phase: Test
+Options: control = brill
+
+Rule:SimpleAnnotation
+(
+	{Location} 
+	{Organization} 
+	({Date.month=="September"} | {Date.month=="October"})
+	{JobTitle} 
+):bind
+-->
+:bind.Annotation = {rule = "SimpleAnnotation"}

@@ -1,0 +1,103 @@
+/*
+*  quoted.jape
+*
+* Copyright (c) 1998-2004, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Marin Dimitrov, 14/Jan/2002
+*  
+*  Andrew Borthwick, Spock Networks, 8/26/2008:  
+*  Efficiency modfication to rule_Q1 to remove leading and trailing ( {tempQuoteMark} )*
+*  This greatly improved speed and had no impact on the module's logic.
+*
+*  $Id: quoted.jape 11880 2009-11-03 13:29:39Z markagreenwood $
+*/
+
+
+Phase:quoted
+Input: tempNonQuoteMark tempQuoteMark
+Options: control = first
+
+//adds the qouted attribute to the sentence annotations
+
+/*
+Macro: QUOTE
+(
+   {Token.kind=="punctuation",Token.string == "\""}
+)
+
+Macro: NON_QUOTE
+(
+   {Token.kind=="word"} |
+   {Token.kind=="symbol"} |
+   {Token.kind=="number"} |
+   {Token.kind=="space"} |
+   //these are for non-quote punctuation
+   {Token.kind=="punctuation",Token.string=="!"} |
+   {Token.kind=="punctuation",Token.string=="!"} |
+   {Token.kind=="punctuation",Token.string=="#"} |
+   {Token.kind=="punctuation",Token.string=="%"} |
+   {Token.kind=="punctuation",Token.string=="&"} |
+   {Token.kind=="punctuation",Token.string=="'"} |
+   {Token.kind=="punctuation",Token.string=="*"} |
+   {Token.kind=="punctuation",Token.string==","} |
+   {Token.kind=="punctuation",Token.string=="."} |
+   {Token.kind=="punctuation",Token.string=="/"} |
+   {Token.kind=="punctuation",Token.string==":"} |
+   {Token.kind=="punctuation",Token.string==";"} |
+   {Token.kind=="punctuation",Token.string=="|"} |
+   {Token.kind=="punctuation",Token.string=="?"} |
+   {Token.kind=="punctuation",Token.string=="@"} |
+   {Token.kind=="punctuation",Token.string=="-"} |
+   {Token.kind=="punctuation",Token.string=="_"} |
+   {Token.kind=="punctuation",Token.string=="("} |
+   {Token.kind=="punctuation",Token.string=="["} |
+   {Token.kind=="punctuation",Token.string=="{"} |
+   {Token.kind=="punctuation",Token.string=="<<"} |
+   {Token.kind=="punctuation",Token.string==")"} |
+   {Token.kind=="punctuation",Token.string=="]"} |
+   {Token.kind=="punctuation",Token.string=="}"} |
+   {Token.kind=="punctuation",Token.string==">>"}
+)
+*/
+/*
+Rule: rule_Q1
+Priority:99
+(
+   ((NON_QUOTE)*)
+   (QUOTE)
+   ((NON_QUOTE)+) :quoted
+   (QUOTE)
+   ((NON_QUOTE)*)
+)
+-->
+{
+   gate.AnnotationSet quoted = (gate.AnnotationSet)bindings.get("quoted");
+
+   gate.FeatureMap features = Factory.newFeatureMap();
+   features.put("firedBy","rule_Q1");
+   outputAS.add(quoted.firstNode(), quoted.lastNode(), "QuotedText", features);
+}
+*/
+
+
+Rule: rule_Q1
+Priority:99
+(
+   ( {tempQuoteMark} )
+   ( {tempNonQuoteMark} )+ :quoted
+   ( {tempQuoteMark} )
+)
+-->
+{
+   gate.AnnotationSet quoted = (gate.AnnotationSet)bindings.get("quoted");
+
+   gate.FeatureMap features = Factory.newFeatureMap();
+   features.put("firedBy","rule_Q1");
+   outputAS.add(quoted.firstNode(), quoted.lastNode(), "QuotedText", features);
+}
+

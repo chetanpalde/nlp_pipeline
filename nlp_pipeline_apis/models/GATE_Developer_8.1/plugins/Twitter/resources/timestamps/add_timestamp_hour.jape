@@ -1,0 +1,42 @@
+/*
+ * Parse the "created_at" timestamp string from a Tweet annotation and store
+ * the timestamp to the nearest hour as a document feature.  The format used is
+ * YYYYMMDDHH as a single number, to support range-based searches.
+ *
+ * Note this only makes sense when there is just one Tweet per document.
+ */
+Imports: {
+  import gate.corpora.twitter.TweetUtils;
+  import org.joda.time.DateTime;
+}
+
+Phase: ParseTimestamp
+Input: Tweet
+Options: control = once
+
+Rule: TweetTimestamp
+(
+  {Tweet}
+):twt
+-->
+:twt {
+  for(Annotation twt : twtAnnots) {
+    String createdAt = (String)twt.getFeatures().get("created_at");
+    if(createdAt != null) {
+      try {
+        DateTime dt = TweetUtils.CREATED_AT_FORMAT.parseDateTime(createdAt);
+
+        // store timestamp as a document feature YYYYMMDDHH
+        doc.getFeatures().put("hour_timestamp", Long.valueOf(
+              (long)dt.getHourOfDay()
+              + 100L * (long)dt.getDayOfMonth()
+              + 100L * 100L * (long)dt.getMonthOfYear()
+              + 100L * 100L * 100L * (long)dt.getYear()));
+
+      } catch(IllegalArgumentException e) {
+        // could not parse as a string
+        throw new NonFatalJapeException("Could not parse " + createdAt + " as a date", e);
+      }
+    }
+  }
+}

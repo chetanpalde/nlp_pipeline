@@ -1,0 +1,9 @@
+Phase: Test
+Options: control = appelt
+
+Rule:MetaCleanString
+(
+	{Span@cleanString == "and when the lamb opened the seventh seal"}
+):bind 
+--> 
+:bind.SomeAnnotation = {rule="MetaCleanString"}

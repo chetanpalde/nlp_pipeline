@@ -1,0 +1,45 @@
+/* Adapted from w3.org "home" style, by Hamish, 16/11/1 */
+/* $Id: gate.css 2931 2001-11-27 12:36:47Z hamish $ */
+
+
+/* ****************** style for page body *************** */
+html, body {
+  background: #fff;
+  color: #000;
+  font-family: sans-serif;
+/*  font-weight: bold; */
+}
+
+
+/* ****************** misc ************** */
+
+h1,h2,h3,h4,h5,p,ul,ol { font-family: sans-serif; }
+pre { font-family: monospace; }
+h3.navhead {
+  font-size: 100%;
+}
+
+
+/* ****************** style for banner ************** */
+
+div.banner {
+  border: none;
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 0.09em;
+  text-align: center;
+  font-weight: bold; 
+}
+div.banner a:link, div.banner {
+  background: #A0D0F0;
+  color: #000000;
+}
+div.banner a:active {
+  background: #000000;
+  color: #FFFFFF;
+}
+div.banner a:hover {
+  background: #000000;
+  color: #FFFFFF;
+}
+

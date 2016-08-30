@@ -1,0 +1,59 @@
+/*
+*  find_quotation_marks.jape
+*
+* Copyright (c) 1998-2004, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Marin Dimitrov, 27 Jan 2002
+*
+*  $Id: find_quotation_marks.jape 5922 2004-07-21 17:10:11Z akshay $
+*/
+
+Phase: find_quotation_marks
+Input: Token Split
+Options: control = appelt
+
+Macro:QUOTE
+(
+   {Token.kind=="punctuation",Token.string == "\""} |
+   (
+      {Token.kind=="symbol",Token.string == "`"}
+      {Token.kind=="symbol",Token.string == "`"}
+   ) |
+   (
+      {Token.kind=="punctuation",Token.string == "'"}
+      {Token.kind=="punctuation",Token.string == "'"}
+   )
+)
+
+Rule: find_quote_positive
+Priority:10
+(
+   (QUOTE)
+) :quote_mark
+-->
+:quote_mark.tempQuoteMark = {}
+
+
+Rule: find_quote_negative
+Priority:1
+(
+   {Token}
+) :non_quote_mark
+-->
+:non_quote_mark.tempNonQuoteMark = {}
+
+
+Rule: create_missing_end_quote
+Priority:10
+(
+   ({Split}) :missing_quote
+   (QUOTE)
+)
+-->
+:missing_quote.tempQuoteMark = {quote_type="artificial"}
+

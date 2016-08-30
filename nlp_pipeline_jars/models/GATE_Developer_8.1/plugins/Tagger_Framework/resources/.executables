@@ -1,0 +1,10 @@
+AbGene/run_abgene
+GENIA/geniatagger.exe
+Hunpos/runhunpos
+Stanford-Tagger/runstanfordtagger
+Stanford-Tagger/runstanfordtagger-tokenized
+TreeTagger/tagger-chunker-german-nofilter
+TreeTagger/tree-tagger-french
+TreeTagger/tree-tagger-french-gate
+TreeTagger/tree-tagger-german-gate
+TreeTagger/tree-tagger-spanish-gate

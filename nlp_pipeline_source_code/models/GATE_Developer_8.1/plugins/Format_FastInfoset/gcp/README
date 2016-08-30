@@ -1,0 +1,7 @@
+The code in this folder adds support for saving GCP output as FastInfoset XML
+files. It was compiled against version 2.4-SNAPSHOT of GCP.
+
+To recompile this code you need to specify the location of a GCP distribution
+(not an SVN checkout). For example
+
+ant -Dgcp.home=/home/mark/gcp-2.4-SNAPSHOT/

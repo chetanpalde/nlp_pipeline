@@ -1,0 +1,132 @@
+// brian-definite-orgs1.jape
+// Brianm, 28/Oct/98
+
+Phase:	DefOrgs1
+Options: control = brill // because not all rules add annotations
+
+Macro:  CDG_MACRO
+ (
+ ( {Token, Lookup.majorType == "CDG"} )
+ |
+ ( {Token.lowerString == ","} {Token, Lookup.majorType == "CDG"} )
+ )
+
+////////////////////////////////////////
+
+Macro:  ORG_KEY_MACRO_BASE
+  ({Token.orth == "initCap", ! Lookup.majorType == "ORG_KEY"})+
+
+////////////////////////////////////////
+
+Macro:  ORG_BASE_MACRO_BASE
+  ({Token.orth == "initCap", ! Lookup.majorType == "ORG_BASE"})+
+
+////////////////////////////////////////
+
+Macro:  ORG_KEY_MACRO
+  (ORG_KEY_MACRO_BASE)
+//  ({Token.lowerString == "of"})?)
+// something is stopping this from back tracking
+
+////////////////////////////////////////
+
+Macro:  ORG_BASE_MACRO
+  (ORG_BASE_MACRO_BASE)
+//  ({Token.lowerString == "of"})?)
+// something is stopping this from back tracking
+
+// when the above problem is fixed the following macro can be activated
+// and appended to various rules
+////////////////////////////////////////
+
+Macro:  POST_ORG_MACRO
+  (
+  (
+   {Token.lowerString == "for"}
+  ({Token.lowerString == "the"})?
+  ({Token.orth == "initCap"})+
+  )?
+  )
+
+
+////////////////////////////////////////
+
+
+Rule:	InitCapsOrganization1
+// may not add an annotation
+  (
+	(
+	 ORG_KEY_MACRO
+	 {Token, Lookup.majorType == "ORG_KEY"}
+	):orgName
+  )
+  -->
+
+  :orgName{  // let's java!
+
+  if (orgNameAnnots.size() < 5) {  // if there's too many words it's probably not an org
+/*
+  try {
+          JdmSpanSequence spans = new JdmSpanSequence();
+          spans.append( new JdmSpan(orgNameAnnots.getLeftmostStart(),
+                              orgNameAnnots.getRightmostEnd() ) );
+
+    JdmAttribute kind = new JdmAttribute("kind", "organization");
+    JdmAttribute rule = new JdmAttribute("rule", "InitCapsOrganization1");
+
+
+    JdmAttributeSequence  allAttribs = new JdmAttributeSequence();
+    allAttribs.append(kind);
+    allAttribs.append(rule);
+
+    doc.addAnnotation(new JdmAnnotation("Name", spans, allAttribs) );
+  } catch (JdmException ex) {
+    //do nothing for now
+  }
+*/
+
+  } // if
+
+  } // end of javacode
+
+////////////////////////////////////////
+
+Rule:	InitCapsOrganization2
+// may not add an annotation
+  (
+	(
+	 ORG_BASE_MACRO
+	 {Token, Lookup.majorType == "ORG_BASE"}
+	):orgName
+  )
+  -->
+
+  :orgName{  // let's java!
+
+  if (orgNameAnnots.size() < 5) {  // if there's too many words it's probably not an org
+/*
+  try {
+          JdmSpanSequence spans = new JdmSpanSequence();
+          spans.append( new JdmSpan(orgNameAnnots.getLeftmostStart(),
+                              orgNameAnnots.getRightmostEnd() ) );
+
+    JdmAttribute kind = new JdmAttribute("kind", "organization");
+    JdmAttribute rule = new JdmAttribute("rule", "InitCapsOrganization2");
+
+
+    JdmAttributeSequence  allAttribs = new JdmAttributeSequence();
+    allAttribs.append(kind);
+    allAttribs.append(rule);
+
+    doc.addAnnotation(new JdmAnnotation("Name", spans, allAttribs) );
+  } catch (JdmException ex) {
+    //do nothing for now
+  }
+*/
+
+  } // if
+
+  } // end of javacode
+
+////////////////////////////////////////
+

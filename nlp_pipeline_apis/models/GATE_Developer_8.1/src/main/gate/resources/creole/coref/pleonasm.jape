@@ -1,0 +1,527 @@
+/*
+*  pleonasm.jape
+*
+* Copyright (c) 1998-2004, The University of Sheffield.
+*
+*  This file is part of GATE (see http://gate.ac.uk/), and is free
+*  software, licenced under the GNU Library General Public License,
+*  Version 2, June 1991 (in the distribution as file licence.html,
+*  and also available at http://gate.ac.uk/gate/licence.html).
+*
+*  Marin DImitrov, 20/Dec/2001
+*
+*  $Id: pleonasm.jape 11880 2009-11-03 13:29:39Z markagreenwood $
+*/
+
+
+Phase:	pleonastic_it
+Input: Token
+Options: control = appelt
+
+
+Macro: IT
+(
+    {Token.category=="PRP",Token.string=="It"} |
+    {Token.category=="PRP",Token.string=="it"}
+)
+
+
+Macro: BE
+(
+    {Token.category=="VB",Token.string=="be"} |
+    {Token.category=="VBP",Token.string=="be"} |
+    {Token.category=="VBP",Token.string=="become"} |
+    {Token.category=="VBP",Token.string=="remain"} |
+    {Token.category=="VBZ",Token.string=="is"} |
+    {Token.category=="VBZ",Token.string=="Is"} |
+    {Token.category=="VBZ",Token.string=="becomes"} |
+    {Token.category=="VBZ",Token.string=="remains"} |
+    {Token.category=="VBD",Token.string=="was"} |
+    {Token.category=="VBD",Token.string=="Was"} |
+    {Token.category=="VBD",Token.string=="became"} |
+    {Token.category=="VBD",Token.string=="remained"}
+)
+
+Macro: BEEN
+(
+   {Token.category=="VBN",Token.string=="been"} |
+   {Token.category=="VBN",Token.string=="become"}
+)
+
+
+Macro: MODAL-VERB
+(
+    {Token.category=="MD"}
+    ({Token.category=="RB",Token.string=="'nt"})?
+)
+
+Macro: HAS
+(
+   {Token.category=="VBZ",Token.string=="has"} |
+   {Token.category=="VBZ",Token.string=="Has"} |
+   {Token.category=="VBZ",Token.string=="had"} |
+   {Token.category=="VBZ",Token.string=="Had"}
+)
+
+
+Macro: IT-S
+(
+    (IT)
+    {Token.category=="VBZ",Token.orth=="apostrophe",Token.string=="'s"}
+)
+
+Macro: TO
+(
+    {Token.category=="TO" , Token.string=="to"}
+)
+
+
+Macro: NOT
+(
+    {Token.category=="RB",Token.string=="not"} |
+    {Token.category=="RB",Token.string=="never"}
+)
+
+
+Macro: CONJ
+(
+    {Token.category=="IN",Token.string=="for"} |
+    {Token.category=="IN" , Token.string=="that"} |
+    {Token.category=="DT" , Token.string=="that"} |
+    {Token.category=="IN" , Token.string=="if"}    |
+    {Token.category=="IN" , Token.string=="whether"} |
+    {Token.category=="WRB" , Token.string=="when"}
+)
+
+
+
+Macro: ADVERB-01
+(
+    {Token.category=="RB", Token.string=="highly"} |
+    {Token.category=="RB", Token.string=="very"} |
+    {Token.category=="RB", Token.string=="still"} |
+    {Token.category=="RB", Token.string=="increasingly"} |
+    {Token.category=="RB", Token.string=="certainly"} |
+    {Token.category=="RB", Token.string=="absolutely"} |
+    {Token.category=="RB", Token.string=="especially"} |
+    {Token.category=="RB", Token.string=="entirely"} |
+    {Token.category=="RB", Token.string=="simply"} |
+    {Token.category=="RB", Token.string=="particularly"} |
+    {Token.category=="RB", Token.string=="quite"} |
+    {Token.category=="RB", Token.string=="also"} |
+    {Token.category=="RB", Token.string=="yet"} |
+    {Token.category=="RB", Token.string=="even"} |
+    {Token.category=="RBR", Token.string=="more"} |
+    {Token.category=="RBS", Token.string=="most"} |
+    {Token.category=="RB", Token.string=="often"} |
+    {Token.category=="RB", Token.string=="rarely"}
+)
+
+
+Macro: TIME-MODIF
+(
+    {Token.category=="RB", Token.string=="just"} |
+    {Token.category=="IN", Token.string=="about"}
+)
+
+Macro: MODALADJ
+(
+    {Token.category=="JJ" , Token.string=="advisable"} |
+    {Token.category=="JJ" , Token.string=="unadvisable"} |
+    {Token.category=="JJ" , Token.string=="inadvisable"} |
+    {Token.category=="JJ" , Token.string=="suggested"} |
+    {Token.category=="JJ" , Token.string=="recommended"} |
+    {Token.category=="JJ" , Token.string=="sensible"} |
+    {Token.category=="JJ" , Token.string=="resonalble"} |
+    {Token.category=="JJ" , Token.string=="unresonalble"} |
+    {Token.category=="JJ" , Token.string=="wise"} |
+    {Token.category=="JJ" , Token.string=="unwise"} |
+
+    {Token.category=="JJ" , Token.string=="convenient"} |
+    {Token.category=="JJ" , Token.string=="inconvenient"} |
+
+    {Token.category=="JJ" , Token.string=="desirable"} |
+    {Token.category=="JJ" , Token.string=="undesirable"} |
+    {Token.category=="JJ" , Token.string=="suitable"} |
+    {Token.category=="JJ" , Token.string=="unsuitable"} |
+    {Token.category=="JJ" , Token.string=="worthy"} |
+    {Token.category=="JJ" , Token.string=="unworthy"} |
+
+    {Token.category=="JJ" , Token.string=="difficult"} |
+    {Token.category=="JJ" , Token.string=="hard"} |
+
+    {Token.category=="JJ" , Token.string=="easy"} |
+    {Token.category=="JJ" , Token.string=="painless"} |
+
+    {Token.category=="JJ" , Token.string=="economical"} |
+    {Token.category=="JJ" , Token.string=="efficient"} |
+    {Token.category=="JJ" , Token.string=="inefficient"} |
+
+    {Token.category=="JJ" , Token.string=="certain"} |
+    {Token.category=="JJ" , Token.string=="uncertain"} |
+    {Token.category=="JJ" , Token.string=="sure"} |
+    {Token.category=="JJ" , Token.string=="unsure"} |
+
+    {Token.category=="JJ" , Token.string=="good"} |
+    {Token.category=="JJ" , Token.string=="bad"} |
+    {Token.category=="JJ" , Token.string=="acceptable"} |
+    {Token.category=="JJ" , Token.string=="unacceptable"} |
+
+    {Token.category=="JJ" , Token.string=="important"} |
+    {Token.category=="JJ" , Token.string=="unimportant"} |
+    {Token.category=="JJ" , Token.string=="useful"} |
+    {Token.category=="JJ" , Token.string=="useless"} |
+    {Token.category=="JJ" , Token.string=="practical"} |
+    {Token.category=="JJ" , Token.string=="impractical"} |
+
+    {Token.category=="JJ" , Token.string=="legal"} |
+    {Token.category=="JJ" , Token.string=="illegal"} |
+    {Token.category=="JJ" , Token.string=="valid"} |
+    {Token.category=="JJ" , Token.string=="invalid"} |
+
+    {Token.category=="JJ" , Token.string=="likely"} |
+    {Token.category=="JJ" , Token.string=="unlikely"} |
+    {Token.category=="JJ" , Token.string=="probable"} |
+    {Token.category=="JJ" , Token.string=="improbable"} |
+    {Token.category=="JJ" , Token.string=="expected"} |
+    {Token.category=="JJ" , Token.string=="unexpected"} |
+    {Token.category=="JJ" , Token.string=="plausible"} |
+    {Token.category=="JJ" , Token.string=="implausible"} |
+
+    {Token.category=="JJ" , Token.string=="necessary"} |
+    {Token.category=="JJ" , Token.string=="unnecessary"} |
+    {Token.category=="JJ" , Token.string=="essential"} |
+    {Token.category=="JJ" , Token.string=="inessential"} |
+    {Token.category=="JJ" , Token.string=="obligatory"} |
+    {Token.category=="JJ" , Token.string=="mandatory"} |
+
+    {Token.category=="JJ" , Token.string=="possible"} |
+    {Token.category=="JJ" , Token.string=="impossible"} |
+    {Token.category=="JJ" , Token.string=="feasible"} |
+
+    {Token.category=="JJ" , Token.string=="sufficient"} |
+    {Token.category=="JJ" , Token.string=="insufficient"} |
+    {Token.category=="JJ" , Token.string=="adequate"} |
+    {Token.category=="JJ" , Token.string=="inadequate"} |
+    {Token.category=="JJ" , Token.string=="enough"} |
+    {Token.category=="RB" , Token.string=="enough"} |
+
+    {Token.category=="JJ" , Token.string=="clear"} |
+    {Token.category=="JJ" , Token.string=="unclear"} |
+    {Token.category=="JJ" , Token.string=="tough"} |
+    {Token.category=="JJ" , Token.string=="typical"} |
+    {Token.category=="JJ" , Token.string=="untypical"} |
+    {Token.category=="JJ" , Token.string=="imperative"} |
+    {Token.category=="JJ" , Token.string=="appropriate"} |
+    {Token.category=="JJ" , Token.string=="inappropriate"} |
+    {Token.category=="JJ" , Token.string=="fair"} |
+    {Token.category=="JJ" , Token.string=="unfair"} |
+    {Token.category=="JJ" , Token.string=="common"} |
+    {Token.category=="JJ" , Token.string=="uncommon"} |
+    {Token.category=="JJ" , Token.string=="rare"} |
+    {Token.category=="JJ" , Token.string=="wrong"} |
+    {Token.category=="JJ" , Token.string=="safe"} |
+    {Token.category=="JJ" , Token.string=="unsafe"} |
+    {Token.category=="JJ" , Token.string=="usual"} |
+    {Token.category=="JJ" , Token.string=="unusual"} |
+    {Token.category=="JJR" , Token.string=="better"} |
+    {Token.category=="JJR" , Token.string=="great"}
+)
+
+
+
+Macro: COGV-ED
+(
+    {Token.category=="VBN" , Token.string=="anticipated"} |
+    {Token.category=="VBN" , Token.string=="expected"}	|
+    {Token.category=="VBN" , Token.string=="foreseen"}	|
+    {Token.category=="VBN" , Token.string=="predicted"} |
+    {Token.category=="VBN" , Token.string=="promised"}	|
+
+    {Token.category=="VBN" , Token.string=="assumed"}  |
+    {Token.category=="VBN" , Token.string=="accepted"}	|
+
+    {Token.category=="VBN" , Token.string=="believed"}	|
+
+    {Token.category=="VBN" , Token.string=="required"}	|
+    {Token.category=="VBN" , Token.string=="demanded"}	|
+
+    {Token.category=="VBN" , Token.string=="known"}  |
+    {Token.category=="VBN" , Token.string=="recognized"}  |
+    {Token.category=="VBN" , Token.string=="realized"}	|
+
+    {Token.category=="VBN" , Token.string=="recommended"}  |
+    {Token.category=="VBN" , Token.string=="proposed"}	|
+    {Token.category=="VBN" , Token.string=="suggested"}  |
+
+    {Token.category=="VBN" , Token.string=="thought"}  |
+    {Token.category=="VBN" , Token.string=="considered"}  |
+    {Token.category=="VBN" , Token.string=="intended"} |
+
+    {Token.category=="VBN" , Token.string=="reported"} |
+    {Token.category=="VBN" , Token.string=="estimated"} |
+    {Token.category=="VBN" , Token.string=="denied"} |
+    {Token.category=="VBN" , Token.string=="announced"} |
+    {Token.category=="VBN" , Token.string=="calculated"} |
+    {Token.category=="VBN" , Token.string=="declared"}
+)
+
+Macro: DO
+(
+    {Token.category=="VB" , Token.string=="do"} |
+    {Token.category=="VBZ" , Token.string=="does"} |
+    {Token.category=="VBD" , Token.string=="did"}
+)
+
+Macro: DO-NEG
+(
+    {Token.category=="RB" , Token.string=="n't"}
+)
+
+Macro: SEEM-VERB
+(
+    {Token.category=="VBZ" , Token.string=="seems"} |
+    {Token.category=="VB" , Token.string=="seem"} |
+    {Token.category=="VBD" , Token.string=="seemed"} |
+    {Token.category=="VBZ" , Token.string=="appears"} |
+    {Token.category=="VB" , Token.string=="appear"} |
+    {Token.category=="VBD" , Token.string=="appeared"} |
+    {Token.category=="VBZ" , Token.string=="looks"} |
+    {Token.category=="VB" , Token.string=="look"} |
+    {Token.category=="VBD" , Token.string=="looked"} |
+    {Token.category=="VBZ" , Token.string=="means"} |
+    {Token.category=="VB" , Token.string=="mean"} |
+    {Token.category=="VBD" , Token.string=="meant"} |
+    {Token.category=="VBZ" , Token.string=="happens"} |
+    {Token.category=="VB" , Token.string=="happen"} |
+    {Token.category=="VBD" , Token.string=="happened"} |
+    {Token.category=="VBZ" , Token.string=="sounds"} |
+    {Token.category=="VB" , Token.string=="sound"} |
+    {Token.category=="VBD" , Token.string=="sounded"}
+)
+
+Macro: CONJ-02
+(
+    {Token.category=="IN" , Token.string=="that"} |
+    {Token.category=="DT" , Token.string=="that"} |
+    {Token.category=="IN" , Token.string=="if"}    |
+    {Token.category=="IN" , Token.string=="as"}    |
+    {Token.category=="IN" , Token.string=="like"}
+)
+
+Macro: IT-BE
+(
+   ( (MODAL-VERB)? (IT) (MODAL-VERB)? (BE) ) |
+   ( (HAS)? (DO-NEG)? (IT) (HAS)? (DO-NEG)? (BEEN) ) |
+   ( (IT-S) (BEEN)? ) |
+   ( (BE)(IT) )
+)
+
+Macro: FIND
+(
+    {Token.category=="VBZ" , Token.string=="finds"} |
+    {Token.category=="VB" , Token.string=="find"} |
+    {Token.category=="VBD" , Token.string=="found"} |
+    {Token.category=="VBN" , Token.string=="found"} |
+    {Token.category=="VBZ" , Token.string=="makes"} |
+    {Token.category=="VB" , Token.string=="make"} |
+    {Token.category=="VBD" , Token.string=="made"} |
+    {Token.category=="VBN" , Token.string=="made"} |
+    {Token.category=="VBZ" , Token.string=="considers"} |
+    {Token.category=="VB" , Token.string=="consider"} |
+    {Token.category=="VBD" , Token.string=="considered"} |
+    {Token.category=="VBN" , Token.string=="considered"}
+)
+
+/*
+    IT_IS_ADVERB_MODADJ
+*/
+Rule:Rule_A_B
+Priority: 99
+(
+   (IT-BE)
+   (NOT)?
+   (ADVERB-01)?
+   (NOT)?
+   (MODALADJ)
+   ((CONJ) | (TO) | {Token.category == "DT",Token.string == "the"})
+) :pleonasm
+-->
+{
+	gate.AnnotationSet found_pleonasm = (gate.AnnotationSet)bindings.get("pleonasm");
+	Annotation pleonasm = (Annotation)found_pleonasm.iterator().next();
+
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("firedBy","ruleA+B");
+	outputAS.add(found_pleonasm.firstNode(), found_pleonasm.lastNode(), "PleonasticIt", features);
+
+    //try to get doc feature
+    Integer cnt = (Integer)doc.getFeatures().get("PLEONASM");
+
+    if (null == cnt) {
+	cnt = new Integer(1);
+    }
+    else {
+	cnt = new Integer(cnt.intValue() + 1);
+    }
+
+    doc.getFeatures().put("PLEONASM",cnt);
+
+}
+
+
+
+
+/*
+    IT_IS_COGV-ED_THAT
+*/
+
+Rule:Rule_C
+Priority: 77
+(
+   (
+      ( (IT)(BE) ) |
+      ( (BE)(IT) )
+   )
+   (NOT)?
+   (ADVERB-01)?
+   (COGV-ED)
+   ({Token.category=="IN" , Token.string=="that"})?
+) :pleonasm
+-->
+{
+	gate.AnnotationSet found_pleonasm = (gate.AnnotationSet)bindings.get("pleonasm");
+	Annotation pleonasm = (Annotation)found_pleonasm.iterator().next();
+
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("firedBy","ruleC");
+	outputAS.add(found_pleonasm.firstNode(), found_pleonasm.lastNode(), "PleonasticIt", features);
+
+    //try to get doc feature
+    Integer cnt = (Integer)doc.getFeatures().get("PLEONASM");
+
+    if (null == cnt) {
+	cnt = new Integer(1);
+    }
+    else {
+	cnt = new Integer(cnt.intValue() + 1);
+    }
+
+    doc.getFeatures().put("PLEONASM",cnt);
+
+}
+
+
+/*
+    IT_[ADVERB-02]_VERB-01_[THAT,TO]_S
+*/
+
+Rule:Rule_D
+Priority: 66
+(
+   (DO)?
+   (DO-NEG)?
+   (IT)
+   (ADVERB-01)?
+   (DO)?
+   (DO-NEG)?
+   (SEEM-VERB)
+   ( (CONJ-02) | (TO) )?
+) :pleonasm
+-->
+{
+	gate.AnnotationSet found_pleonasm = (gate.AnnotationSet)bindings.get("pleonasm");
+	Annotation pleonasm = (Annotation)found_pleonasm.iterator().next();
+
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("firedBy","ruleD");
+	outputAS.add(found_pleonasm.firstNode(), found_pleonasm.lastNode(), "PleonasticIt", features);
+
+    //try to get doc feature
+    Integer cnt = (Integer)doc.getFeatures().get("PLEONASM");
+
+    if (null == cnt) {
+	cnt = new Integer(1);
+    }
+    else {
+	cnt = new Integer(cnt.intValue() + 1);
+    }
+
+    doc.getFeatures().put("PLEONASM",cnt);
+
+}
+
+Rule:Rule_E
+Priority: 55
+(
+   ( (DO) | (HAS) )?
+   (DO-NEG)?
+   (FIND)
+   (IT)
+   (ADVERB-01)?
+   (MODALADJ)
+   ( (CONJ) | (TO) )?
+) :pleonasm
+-->
+{
+	gate.AnnotationSet found_pleonasm = (gate.AnnotationSet)bindings.get("pleonasm");
+	Annotation pleonasm = (Annotation)found_pleonasm.iterator().next();
+
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("firedBy","ruleE");
+	outputAS.add(found_pleonasm.firstNode(), found_pleonasm.lastNode(), "PleonasticIt", features);
+
+    //try to get doc feature
+    Integer cnt = (Integer)doc.getFeatures().get("PLEONASM");
+
+    if (null == cnt) {
+	cnt = new Integer(1);
+    }
+    else {
+	cnt = new Integer(cnt.intValue() + 1);
+    }
+
+    doc.getFeatures().put("PLEONASM",cnt);
+
+}
+
+
+/*
+    IT_IS_[about]_time_[that,to]
+*/
+/*
+Rule:Rule_D
+Priority: 55
+(
+    (
+	(   ((IT) (BE)) |
+	    (IT-S)
+	)
+    (TIME-MODIF)
+    {Token.category=="NN" , Token.string=="time"}
+    ( (THAT) | (TO) | (FOR))
+    ) :pleonasm
+)
+-->
+{
+	gate.AnnotationSet found_pleonasm = (gate.AnnotationSet)bindings.get("pleonasm");
+	Annotation pleonasm = (Annotation)found_pleonasm.iterator().next();
+
+	gate.FeatureMap features = Factory.newFeatureMap();
+	features.put("firedBy","ruleD");
+	outputAS.add(found_pleonasm.firstNode(), found_pleonasm.lastNode(), "PleonasticIt", features);
+
+    //try to get doc feature
+    Integer cnt = (Integer)doc.getFeatures().get("PLEONASM");
+
+    if (null == cnt) {
+	cnt = new Integer(1);
+    }
+    else {
+	cnt = new Integer(cnt.intValue() + 1);
+    }
+
+    doc.getFeatures().put("PLEONASM",cnt);
+
+}
+*/

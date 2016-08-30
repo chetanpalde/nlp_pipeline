@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> *  Copyright (c) 1995-2014, The University of Sheffield. See the file<a name="line.2"></a>
+<span class="sourceLineNo">003</span> *  COPYRIGHT.txt in the software or at http://gate.ac.uk/gate/COPYRIGHT.txt<a name="line.3"></a>
+<span class="sourceLineNo">004</span> *<a name="line.4"></a>
+<span class="sourceLineNo">005</span> *  This file is part of GATE (see http://gate.ac.uk/), and is free<a name="line.5"></a>
+<span class="sourceLineNo">006</span> *  software, licenced under the GNU Library General Public License,<a name="line.6"></a>
+<span class="sourceLineNo">007</span> *  Version 2, June 1991 (in the distribution as file licence.html,<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *  and also available at http://gate.ac.uk/gate/licence.html).<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *  <a name="line.9"></a>
+<span class="sourceLineNo">010</span> *  $Id: JSONTweetFormat.java 18436 2014-11-06 19:03:45Z ian_roberts $<a name="line.10"></a>
+<span class="sourceLineNo">011</span> */<a name="line.11"></a>
+<span class="sourceLineNo">012</span>package gate.corpora;<a name="line.12"></a>
+<span class="sourceLineNo">013</span><a name="line.13"></a>
+<span class="sourceLineNo">014</span>import gate.AnnotationSet;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import gate.DocumentContent;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import gate.GateConstants;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>import gate.Resource;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>import gate.corpora.twitter.PreAnnotation;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>import gate.corpora.twitter.Tweet;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import gate.corpora.twitter.TweetStreamIterator;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import gate.corpora.twitter.TweetUtils;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import gate.creole.ResourceInstantiationException;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import gate.creole.metadata.AutoInstance;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import gate.creole.metadata.CreoleResource;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import gate.util.DocumentFormatException;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import gate.util.InvalidOffsetException;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import gate.util.Out;<a name="line.27"></a>
+<span class="sourceLineNo">028</span><a name="line.28"></a>
+<span class="sourceLineNo">029</span>import java.io.IOException;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import java.util.HashMap;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import java.util.Iterator;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import java.util.LinkedHashMap;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>import java.util.List;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>import java.util.Map;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>import org.apache.commons.lang.StringUtils;<a name="line.35"></a>
+<span class="sourceLineNo">036</span><a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>/** Document format for handling JSON tweets: either one <a name="line.38"></a>
+<span class="sourceLineNo">039</span> *  object {...} or a list [{tweet...}, {tweet...}, ...].<a name="line.39"></a>
+<span class="sourceLineNo">040</span> *  <a name="line.40"></a>
+<span class="sourceLineNo">041</span> *  This format produces one GATE document from one JSON file.<a name="line.41"></a>
+<span class="sourceLineNo">042</span> */<a name="line.42"></a>
+<span class="sourceLineNo">043</span>@CreoleResource(name = "GATE JSON Tweet Document Format", isPrivate = true,<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    autoinstances = {@AutoInstance(hidden = true)},<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    comment = "Format parser for Twitter JSON files",<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    helpURL = "http://gate.ac.uk/userguide/sec:social:twitter:format")<a name="line.46"></a>
+<span class="sourceLineNo">047</span><a name="line.47"></a>
+<span class="sourceLineNo">048</span>public class JSONTweetFormat extends TextualDocumentFormat {<a name="line.48"></a>
+<span class="sourceLineNo">049</span>  private static final long serialVersionUID = 6878020036304333918L;<a name="line.49"></a>
+<span class="sourceLineNo">050</span><a name="line.50"></a>
+<span class="sourceLineNo">051</span>  <a name="line.51"></a>
+<span class="sourceLineNo">052</span>  /** Default construction */<a name="line.52"></a>
+<span class="sourceLineNo">053</span>  public JSONTweetFormat() { super();}<a name="line.53"></a>
+<span class="sourceLineNo">054</span><a name="line.54"></a>
+<span class="sourceLineNo">055</span>  /** Initialise this resource, and return it. */<a name="line.55"></a>
+<span class="sourceLineNo">056</span>  public Resource init() throws ResourceInstantiationException{<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    // Register ad hoc MIME-type<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    // There is an application/json mime type, but I don't think<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    // we want everything to be handled this way?<a name="line.59"></a>
+<span class="sourceLineNo">060</span>    MimeType mime = new MimeType("text","x-json-twitter");<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    // Register the class handler for this MIME-type<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    mimeString2ClassHandlerMap.put(mime.getType()+ "/" + mime.getSubtype(), this);<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    // Register the mime type with string<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    mimeString2mimeTypeMap.put(mime.getType() + "/" + mime.getSubtype(), mime);<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    // Register file suffixes for this mime type<a name="line.65"></a>
+<span class="sourceLineNo">066</span>    suffixes2mimeTypeMap.put("json", mime);<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    // Register magic numbers for this mime type<a name="line.67"></a>
+<span class="sourceLineNo">068</span>    //magic2mimeTypeMap.put("Subject:",mime);<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    // Set the mimeType for this language resource<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    setMimeType(mime);<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    return this;<a name="line.71"></a>
+<span class="sourceLineNo">072</span>  }<a name="line.72"></a>
+<span class="sourceLineNo">073</span>  <a name="line.73"></a>
+<span class="sourceLineNo">074</span>  @Override<a name="line.74"></a>
+<span class="sourceLineNo">075</span>  public void cleanup() {<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    super.cleanup();<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    <a name="line.77"></a>
+<span class="sourceLineNo">078</span>    MimeType mime = getMimeType();<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    <a name="line.79"></a>
+<span class="sourceLineNo">080</span>    mimeString2ClassHandlerMap.remove(mime.getType()+ "/" + mime.getSubtype());<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    mimeString2mimeTypeMap.remove(mime.getType() + "/" + mime.getSubtype());<a name="line.81"></a>
+<span class="sourceLineNo">082</span>    suffixes2mimeTypeMap.remove("json");<a name="line.82"></a>
+<span class="sourceLineNo">083</span>  }<a name="line.83"></a>
+<span class="sourceLineNo">084</span><a name="line.84"></a>
+<span class="sourceLineNo">085</span>  @Override<a name="line.85"></a>
+<span class="sourceLineNo">086</span>  public void unpackMarkup(gate.Document doc) throws DocumentFormatException{<a name="line.86"></a>
+<span class="sourceLineNo">087</span>    if ( (doc == null) || (doc.getSourceUrl() == null &amp;&amp; doc.getContent() == null) ) {<a name="line.87"></a>
+<span class="sourceLineNo">088</span>      throw new DocumentFormatException("GATE document is null or no content found. Nothing to parse!");<a name="line.88"></a>
+<span class="sourceLineNo">089</span>    }<a name="line.89"></a>
+<span class="sourceLineNo">090</span><a name="line.90"></a>
+<span class="sourceLineNo">091</span>    setNewLineProperty(doc);<a name="line.91"></a>
+<span class="sourceLineNo">092</span>    String jsonString = StringUtils.trimToEmpty(doc.getContent().toString());<a name="line.92"></a>
+<span class="sourceLineNo">093</span>    try {<a name="line.93"></a>
+<span class="sourceLineNo">094</span>      // Parse the String<a name="line.94"></a>
+<span class="sourceLineNo">095</span>      Iterator&lt;Tweet&gt; tweetSource = new TweetStreamIterator(jsonString, null, null);<a name="line.95"></a>
+<span class="sourceLineNo">096</span>      Map&lt;Tweet, Long&gt; tweetStarts = new LinkedHashMap&lt;Tweet, Long&gt;();<a name="line.96"></a>
+<span class="sourceLineNo">097</span>      <a name="line.97"></a>
+<span class="sourceLineNo">098</span>      // Put them all together to make the unpacked document content<a name="line.98"></a>
+<span class="sourceLineNo">099</span>      StringBuilder concatenation = new StringBuilder();<a name="line.99"></a>
+<span class="sourceLineNo">100</span>      while(tweetSource.hasNext()) {<a name="line.100"></a>
+<span class="sourceLineNo">101</span>        Tweet tweet = tweetSource.next();<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        if(tweet != null) {<a name="line.102"></a>
+<span class="sourceLineNo">103</span>          // TweetStreamIterator can return null even when hasNext is true,<a name="line.103"></a>
+<span class="sourceLineNo">104</span>          // for search result style JSON.  This is not a problem, just ignore<a name="line.104"></a>
+<span class="sourceLineNo">105</span>          // and check hasNext again.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>          tweetStarts.put(tweet, (long) concatenation.length());<a name="line.106"></a>
+<span class="sourceLineNo">107</span>          concatenation.append(tweet.getString()).append("\n\n");<a name="line.107"></a>
+<span class="sourceLineNo">108</span>        }<a name="line.108"></a>
+<span class="sourceLineNo">109</span>      }<a name="line.109"></a>
+<span class="sourceLineNo">110</span><a name="line.110"></a>
+<span class="sourceLineNo">111</span>      // Set new document content <a name="line.111"></a>
+<span class="sourceLineNo">112</span>      DocumentContent newContent = new DocumentContentImpl(concatenation.toString());<a name="line.112"></a>
+<span class="sourceLineNo">113</span>      doc.edit(0L, doc.getContent().size(), newContent);<a name="line.113"></a>
+<span class="sourceLineNo">114</span><a name="line.114"></a>
+<span class="sourceLineNo">115</span>      // Create Original markups annotations for each tweet<a name="line.115"></a>
+<span class="sourceLineNo">116</span>      for (Tweet tweet : tweetStarts.keySet()) {<a name="line.116"></a>
+<span class="sourceLineNo">117</span>        for (PreAnnotation preAnn : tweet.getAnnotations()) {<a name="line.117"></a>
+<span class="sourceLineNo">118</span>          preAnn.toAnnotation(doc, tweetStarts.get(tweet));<a name="line.118"></a>
+<span class="sourceLineNo">119</span>        }<a name="line.119"></a>
+<span class="sourceLineNo">120</span>      }<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    }<a name="line.121"></a>
+<span class="sourceLineNo">122</span>    catch (InvalidOffsetException | IOException e) {<a name="line.122"></a>
+<span class="sourceLineNo">123</span>      doc.getFeatures().put("parsingError", Boolean.TRUE);<a name="line.123"></a>
+<span class="sourceLineNo">124</span><a name="line.124"></a>
+<span class="sourceLineNo">125</span>      Boolean bThrow =<a name="line.125"></a>
+<span class="sourceLineNo">126</span>              (Boolean)doc.getFeatures().get(<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                      GateConstants.THROWEX_FORMAT_PROPERTY_NAME);<a name="line.127"></a>
+<span class="sourceLineNo">128</span><a name="line.128"></a>
+<span class="sourceLineNo">129</span>      if(bThrow != null &amp;&amp; bThrow.booleanValue()) {<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        // the next line is commented to avoid Document creation fail on<a name="line.130"></a>
+<span class="sourceLineNo">131</span>        // error<a name="line.131"></a>
+<span class="sourceLineNo">132</span>        throw new DocumentFormatException(e);<a name="line.132"></a>
+<span class="sourceLineNo">133</span>      }<a name="line.133"></a>
+<span class="sourceLineNo">134</span>      else {<a name="line.134"></a>
+<span class="sourceLineNo">135</span>        Out.println("Warning: Document remains unparsed. \n"<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                + "\n  Stack Dump: ");<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        e.printStackTrace(Out.getPrintWriter());<a name="line.137"></a>
+<span class="sourceLineNo">138</span>      } // if<a name="line.138"></a>
+<span class="sourceLineNo">139</span>    }<a name="line.139"></a>
+<span class="sourceLineNo">140</span>  }<a name="line.140"></a>
+<span class="sourceLineNo">141</span><a name="line.141"></a>
+<span class="sourceLineNo">142</span>}<a name="line.142"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

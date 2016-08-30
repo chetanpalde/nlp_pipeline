@@ -1,0 +1,9 @@
+Phase: Test
+Options: control = appelt
+
+Rule:OpGreaterThan
+(
+	{Token.int > -42} | {Token.double > -42d}
+):bind 
+--> 
+:bind.SomeAnnotation = {rule="OpGreaterThan"}

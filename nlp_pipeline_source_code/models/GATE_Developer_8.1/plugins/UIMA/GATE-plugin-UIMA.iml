@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/lib/activation.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/axis.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/commons-discovery-0.2.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/commons-logging-1.0.4.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/jaxrpc.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/jVinci.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/mail.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/saaj.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-adapter-soap.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-adapter-vinci.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-core.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-cpe.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-document-annotation.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-examples.jar!/" />
+    <libelement value="jar://$MODULE_DIR$/lib/uima-tools.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/examples/gen-src" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/examples/src" expected_position="1" />
+      <src_folder value="file://$MODULE_DIR$/src" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/test/src" expected_position="3" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/examples/gen-src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/examples/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/src" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library name="activation.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/activation.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="axis.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/axis.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-discovery-0.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/commons-discovery-0.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="commons-logging-1.0.4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/commons-logging-1.0.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jaxrpc.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jaxrpc.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="jVinci.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jVinci.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="mail.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/mail.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="saaj.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/saaj.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-adapter-soap.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-adapter-soap.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-adapter-vinci.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-adapter-vinci.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-core.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-core.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-cpe.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-cpe.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-document-annotation.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-document-annotation.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-examples.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-examples.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="uima-tools.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/uima-tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="jdk" jdkName="JavaSE-1.6" jdkType="JavaSDK" />
+    <orderEntry type="module" module-name="GATE" exported="" />
+  </component>
+</module>

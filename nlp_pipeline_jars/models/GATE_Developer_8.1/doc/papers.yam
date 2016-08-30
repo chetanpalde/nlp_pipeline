@@ -1,0 +1,612 @@
+GATE papers
+
+%2* Which paper to cite if ..
+
+%3* I used GATE:
+
+- H. Cunningham, V. Tablan, A. Roberts, K. Bontcheva (2013) Getting More Out of Biomedical Documents with GATE's Full Lifecycle Open Source Text Analytics. PLoS Comput Biol 9(2): e1002854. doi:10.1371/journal.pcbi.1002854 -- http://tinyurl.com/gate-life-sci/
+- H. Cunningham, et al. Text Processing with GATE (Version 6). University of Sheffield Department of Computer Science. 15 April 2011. ISBN 0956599311. %(http://tinyurl.com/gatebook, Available from Amazon). %(bibtex.html#Cunningham2011a, BibTex).
+
+
+%3* I Used ANNIE (for TwitIE  -- version of ANNIE for social media -- see below):
+
+ - H. Cunningham, D. Maynard, K. Bontcheva, V. Tablan. GATE: A Framework and Graphical Development Environment for Robust NLP Tools and Applications. Proceedings of the 40th Anniversary Meeting of the Association for Computational Linguistics (ACL'02). Philadelphia, July 2002. %(../../sale/acl02/acl-main.pdf,PDF). %(bibtex.html#Cunningham2002, BibTeX).
+
+%3* I used %(http://gatecloud.net, GATECloud.net):
+
+- V. Tablan, I. Roberts, H. Cunningham, and K. Bontcheva. GATECloud.net: a Platform for Large-Scale, Open-Source Text Processing on the Cloud. %(http://rsta.royalsocietypublishing.org/, Philosophical Transactions of the Royal Society A), 371(1983), 2013 %(http://dx.doi.org/10.1098/rsta.2012.0071, doi:10.1098/rsta.2012.0071). %(http://gate.ac.uk/sale/ahm11/journal/revised-sumission-preprint.pdf, A pre-print).
+
+%3* I used %(https://gate.ac.uk/mimir, GATE Mímir):
+
+- V. Tablan, K. Bontcheva, I. Roberts, and H. Cunningham. Mímir: An open-source semantic search framework for interactive information seeking and discovery. Journal of Web Semantics: Science, Services and Agents on the World Wide Web, 2014. %(http://dx.doi.org/10.1016/j.websem.2014.10.002, doi:10.1016/j.websem.2014.10.002). %(bibtex.html#Tablan2014, BibTeX).
+
+%3* I used GATE Teamware:
+
+- K. Bontcheva, H. Cunningham, I. Roberts, A. Roberts, V. Tablan, N. Aswani, G. Gorrell. Teamware: A Web-based, Collaborative Text Annotation Framework.  Language Resources and Evaluation. Volume 47, Issue 4, December 2013. %(http://link.springer.com/article/10.1007/s10579-013-9215-6,PDF)
+
+%3* I used TwitIE / the social media components in GATE:
+
+ - K. Bontcheva, L. Derczynski, A. Funk, M.A. Greenwood, D. Maynard, N. Aswani. TwitIE: An Open-Source Information Extraction Pipeline for Microblog Text. Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2013). %(https://gate.ac.uk/sale/ranlp2013/twitie/twitie-ranlp2013.pdf, PDF), %(https://gate.ac.uk/wiki/twitie.html, Download TwitIE)
+
+%3* I used the machine learning facilities in GATE:
+
+ - Y. Li, K. Bontcheva and H. Cunningham. Adapting SVM for Data Sparseness and Imbalance: A Case Study on Information Extraction. Natural Language Engineering, 15(02), 241-271, 2009. %(http://journals.cambridge.org/repo_A45LfkBD,On-line Link). %(../../sale/nle-svm/svm-ie-nle-revision.pdf,Pre-print), %(bibtex.html#Li2009, BibTeX).
+
+%3* I used the ontology features in GATE:
+
+ - K. Bontcheva, V. Tablan, D. Maynard, H. Cunningham. Evolving GATE to Meet New Challenges in Language Engineering. Natural Language Engineering. 10 (3/4), pp. 349-373. 2004. %(../../sale/jnle03/jnle-final.pdf,Pre-print). %(bibtex.html#Bontcheva2004, BibTeX).
+
+%3* I used GATE for Information Retrieval
+
+- H. Cunningham, A. Hanbury, and S. Rüger. Scaling up high-value retrieval to medium-volume data. In H. Cunningham, A. Hanbury, and S. Rüger, editors, Advances in Multidisciplinary Retrieval (the 1st Information Retrieval Facility Conference). LNCS volume number: 6107, Lecture Notes in Computer Science, Vienna, Austria, May 2010. Springer. %(bibtex.html#Cunningham2010, BibTeX).
+
+%3* On GATE and multimedia:
+
+ - M. Dowman, V. Tablan, H. Cunningham and B. Popov. Web-Assisted Annotation, Semantic Indexing and Search of Television and Radio News. 14th International World Wide Web Conference. Chiba, Japan, 2005. %(http://gate.ac.uk/sale/www05/web-assisted-annotation.pdf,PDF). %(bibtex.html#Dowman2005, BibTeX).
+
+
+%contents
+
+%1 Book Chapters, Journals and Conference papers
+
+%2* Forthcoming / Accepted
+
+- D. Maynard, M. A. Greenwood, I. Roberts, G. Windsor, K. Bontcheva. Real-time Social Media Analytics through Semantic Annotation and Linked Open Data. Proceedings of WebSci 2015, Oxford, UK.
+
+- Diana Maynard and Jonathon Hare. Entity-based Opinion Mining from Text and Multimedia. In "Advances in Social Media Analysis", Mohamed Gaber, Nirmalie Wiratunga, Ayse Goker, and Mihaela Cocea (eds.) 2014, Springer.
+
+- V. Tablan, K. Bontcheva, I. Roberts, and H. Cunningham. Mímir: An open-source semantic search framework for interactive information seeking and discovery. Journal of Web Semantics: Science, Services and Agents on the World Wide Web, 2014. %(http://dx.doi.org/10.1016/j.websem.2014.10.002, doi:10.1016/j.websem.2014.10.002)%footnote(Published online but not yet assigned to a specific volume and issue.)
+
+- K. Bontcheva, L. Derczynski, I. Roberts. Crowdsourcing Named Entity Recognition and Entity Linking Corpora. In Nancy Ide and James Pustejovsky, eds.: The Handbook of Linguistic Annotation.
+
+- L. Derczynski, J. Strötgen, R. Campos, O. Alonso. Time and Information Retrieval: Introduction to the Special Issue. In Information Processing and Management (IPM), 51.
+
+%2* 2015
+
+- G. Gorrell, J. Petrak and K. Bontcheva. LOD-based Disambiguation of Named Entities in @tweets through Context #enrichment. In Proceedings of ESWC, June 2015, Portoroz, Slovenia.
+
+- K. Bontcheva, J. Kieniewicz, S. Andrews and M. Wallis. Semantic Enrichment and Search: A Case Study on Environmental Science Literature. In D-Lib Magazine, Vol 21, Number 1/2, Jan/Feb 2015. %(http://www.dlib.org/dlib/january15/bontcheva/01bontcheva.html, HTML).
+
+
+- B. Pereira Nunes, R. Kawase, B. Fetahu, S. Dietze, M. Casanova, D. Maynard. Interlinking documents based on semantic graphs with an application. In "Knowledge-Based Information Systems in Practice: Smart Innovation, Systems and Technologies" Volume 30, 2015, Springer, ISBN 978-3-319-13544-1, pp 139-155. %(http://link.springer.com/book/10.1007/978-3-319-13545-8, Springer link)
+
+- A. Dietzel and D. Maynard. Climate Change: A Chance for Political Re-Engagement? In Proc. of the Political Studies Association 65th Annual International Conference, April 2015, Sheffield, UK. %(https://gate.ac.uk/sale/psa2015/PSA-Paper.pdf, PDF)
+
+- S. Bethard, L. Derczynski, J. Pustejovsky, M. Verhagen. SemEval-2015 Task 6: Clinical TempEval. In Proceedings of the 9th International Workshop on Semantic Evaluation (SemEval 2015).
+
+- L. Derczynski, D. Maynard, G. Rizzo, M. van Erp, G. Gorrell, R. Troncy, J. Petrak, K. Bontcheva. Analysis of Named Entity Recognition and Linking for Tweets. In Information Processing and Management, 51(2) 32-49. %(http://derczynski.com/sheffield/papers/ner_single.pdf, PDF)
+
+- F. Uzdilli, M. Jaggi, D. Egger, P. Julmy, L. Derczynski, M. Cieliebak. Swiss-Chocolate: Combining Flipout Regularization and Random Forest with Artificially Built Subsystems to Boost Text-Classification for Sentiment. In Proceedings of the 9th International Workshop on Semantic Evaluation (SemEval 2015).
+
+- H. Tissot, G. Gorrell, A. Roberts, L. Derczynski, M. Didonet del Fabro. UFPRSheffield: Contrasting Two Diverse Approaches to Time Expression Identification in Clinical TempEval. In Proceedings of the 9th International Workshop on Semantic Evaluation (SemEval 2015).
+
+- H. Tissot, A. Roberts, L. Derczynski, G. Gorrell, M. Didonet del Fabro.  Analysis of Temporal Expressions Annotated in Clinical Notes. In Proceedings of the 11th Joint ACL-ISO Workshop on Interoperable Semantic Annotation (ISA-11). %(http://derczynski.com/sheffield/papers/ISA-11.pdf, PDF)
+
+- M. Leginus, L. Derczynski, P. Dolog. Enhanced Information Access to Social Streams through Word Clouds with Entity Grouping. In Proceedings of the 11th International Conference on Web Information Systems and Technologies (WEBIST). %(http://derczynski.com/sheffield/papers/webist2015submission.pdf, PDF)
+
+
+%2* 2014
+
+- Gorrell, G., & Bontcheva, K. (2014). Classifying Twitter Favorites: Like, Bookmark, or Thanks? Journal of the Association for Information Science and Technology. %(http://onlinelibrary.wiley.com/doi/10.1002/asi.23352/pdf, PDF)
+
+-  Diana Maynard, Gerhard Gossen, Marco Fisichella, Adam Funk.  Should I care about your opinion? Detection of opinion interestingness and dynamics in social media. Journal of Future Internet, Special Issue on Archiving Community Memories, 2014. http://www.mdpi.com/1999-5903/6/3/457/pdf
+
+- Elena Demidova, Nicola Barbieri, Stefan Dietze, Adam Funk, Helge Holzmann, Diana Maynard, Nikos Papailiou, Wim Peters, Thomas Risse,  Dimitris Spiliotopoulos. Analysing and Enriching Focused Semantic Web Archives for Parliament Applications. In Journal of Future Internet, Special Issue on Archiving Community Memories, 2014. %(http://www.mdpi.com/1999-5903/6/3/433, Download)
+
+- Diana Maynard. Challenges in Analysing Social Media. In Adrian Duşa, Dietrich Nelle, Günter Stock and Gert G. Wagner (eds.) (2014): Facing the Future: European Research Infrastructures for the Humanities and Social Sciences. SCIVERO Verlag, Berlin, 2014.
+
+- Diana Maynard and Mark A. Greenwood. Who cares about sarcastic tweets? Investigating the impact of sarcasm on sentiment analysis. Proc. of LREC 2014, Reykjavik, Iceland, May 2014. %(https://gate.ac.uk/sale/lrec2014/arcomem/sarcasm.pdf, PDF)
+
+
+- Diana Maynard and Kalina Bontcheva. Natural Language Processing. In J. Lehmann and J. Voelker editors, Perspectives of Ontology Learning. IOS Press. 
+
+
+- L. Derczynski, K. Bontcheva. Spatio-temporal grounding of claims made on the web, in Pheme. Proceedings of the 10th Joint ACL - ISO Workshop on Interoperable Semantic Annotation (ISA). %(https://gate.ac.uk/sale/lrec2014/st-project-note/pheme-st-grounding.pdf, PDF)
+
+- L. Derczynski, K. Bontcheva. Passive-Aggressive Sequence Labeling with Discriminative Post-Editing for Recognising Person Entities in Tweets. Proceedings of the meeting of the European chapter of the Association for Computation Linguistics (EACL). %(http://derczynski.com/sheffield/papers/person_tweets.pdf,PDF)
+
+- K. Bontcheva, I. Roberts, L. Derczynski, D. Rout.  The GATE Crowdsourcing Plugin: Crowdsourcing Annotated Corpora Made Easy. Proceedings of the meeting of the European chapter of the Association for Computation Linguistics (EACL). %(https://gate.ac.uk/sale/eacl2014/gate-crowd/gate-crowd-demo-eacl2014.pdf, PDF)
+
+- M. Sabou, K. Bontcheva, L. Derczynski, A. Scharl. 2014. Corpus Annotation through Crowdsourcing: Towards Best Practice Guidelines. Proceedings of the Language Resources and Evaluation Conference (LREC). %(https://gate.ac.uk/sale/lrec2014/crowdsourcing/crowdsourcing-NLP-corpora.pdf, PDF)
+
+- T. Risse, W. Peters, P. Senellart, D. Maynard. Documenting Contemporary Society by Preserving Relevant Information from Twitter. In 'Twitter and Society', edited by K. Weller, A. Bruns, J. Burgess, M. Mahrt and C. Puschmann. 
+ %(http://www.peterlang.com/index.cfm?event=cmp.ccc.seitenstruktur.detailseiten&seitentyp=produkt&pk=71177&cid=5&concordeid=312169, PDF)
+
+- L. Derczynski, C. V. Field, K. S. Bøgh. DKIE: Open Source Information Extraction for Danish. Proceedings of the meeting of the European chapter of the Association for Computation Linguistics (EACL). %(http://derczynski.com/sheffield/papers/dkie.pdf, PDF)
+
+%2* 2013
+
+-  K. Bontcheva, H. Cunningham, I. Roberts, A. Roberts, V. Tablan, N. Aswani, G. Gorrell. Teamware: A Web-based, Collaborative Text Annotation Framework.  Language Resources and Evaluation. Volume 47, Issue 4, December 2013. %(http://link.springer.com/article/10.1007/s10579-013-9215-6,PDF)
+
+- Leon Derczynski, Robert Gaizauskas. Information Retrieval for Temporal Bounding. Proceedings of the International Conference on the Theory of Information Retrieval (ICTIR 2013). %(http://derczynski.com/sheffield/papers/ir4tempbound.pdf, PDF)
+
+- Diana Maynard, David Dupplaw, Jonathon Hare. Multimodal Sentiment Analysis of Social Media.  Proc. of BCS SGAI Workshop on Social Media Analysis, 10 December 2013. %(http://gate.ac.uk/sale/bcs-sgai-2013/arcomem.pdf, PDF) 
+
+- Valentin Tablan; Kalina Bontcheva; Ian Roberts; Hamish Cunningham; Marin Dimitrov. AnnoMarket: An Open Cloud Platform for NLP. Proceedings of the 51st Annual Meeting of the Association for Computational Linguistics (ACL'2013). %(http://aclweb.org/anthology/P/P13/P13-4004.pdf, PDF)
+
+- K. Bontcheva, L. Derczynski, A. Funk, M.A. Greenwood, D. Maynard, N. Aswani. TwitIE: An Open-Source Information Extraction Pipeline for Microblog Text. Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2013). %(https://gate.ac.uk/sale/ranlp2013/twitie/twitie-ranlp2013.pdf, PDF), %(https://gate.ac.uk/wiki/twitie.html, Download TwitIE)
+
+- Demidova, E., Barbieri, N., Dietze, S., Funk, A., Gossen, G., Maynard, D., Papailiou, N., Plachouras, V., Peters, W., Risse, T., Stavrakas, Y. & Tahmasebi, N. (2013). Analysing Entities, Topics and Events in Community Memories. Proceedings of the first International Workshop on Archiving Community Memories.
+
+- M. Brucato, L. Derczynski, H. Llorens, K. Bontcheva, C.S. Jensen. Recognising and Interpreting Named Temporal Expressions. Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2013). %(http://derczynski.com/sheffield/papers/named_timex.pdf,PDF)
+
+- L. Derczynski, A. Ritter, S. Clark, K. Bontcheva. Twitter Part-of-Speech Tagging for All: Overcoming Sparse and Noisy Data. Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2013). %(https://gate.ac.uk/sale/ranlp2013/twitter_pos/twitter_pos.pdf,PDF), %(https://gate.ac.uk/wiki/twitter-postagger.html, Download the POS tagger)
+
+- L. Derczynski, K. Bontcheva. Mining Social Media with Linked Open Data, Entity Recognition, and Event Extraction. Third Workshop on Data Extraction and Object Search (DEOS 2013). %(http://www.slideshare.net/leonderczynski/mining-social-media-with-linked-open-data-entity-recognition-and-event-extraction,slides)
+
+- L. Derczynski, R. Gaizauskas. Information Retrieval for Temporal Bounding. Fourth International Conference on the Theory of Information Retrieval (ICTIR 2013). %(http://derczynski.com/sheffield/papers/ir4tempbound.pdf,PDF)
+
+- L. Derczynski, R. Gaizauskas. Temporal Signals Help Label Temporal Relations. Proceedings of the 51st meeting of the Association for Computational Linguistics (ACL 2013). %(http://derczynski.com/sheffield/papers/siglinks.pdf,PDF)
+
+- N. Uzzaman, H. Llorens, L. Derczynski, J.F. Allen, M. Verhagen, J. Pustejovsky. SemEval-2013 Task 1: TempEval-3: Evaluating Events, Time Expressions, and Temporal Relations. In Proceedings of the 7th International Workshop on Semantic Evaluation (SemEval 2013). %(http://derczynski.com/sheffield/papers/tempeval-3.pdf,PDF)
+
+- B. Pereira Nunes, R. Kawase, B. Fetahu, S. Dietze, M. Casanova, D. Maynard. Interlinking documents based on semantic graphs. 17th International Conference on Knowledge-Based and Intelligent Information & Engineering Systems (KES-2013), 9-12 September 2013, Kitakyushu, Japan.
+
+- D. Rout, K. Bontcheva, M. Hepple. Reliably Evaluating Summaries of Twitter Timelines. Analyzing Microtext. AAAI 2013 Spring Symposium. March 25-27, Stanford, California, 2013. %(http://staffwww.dcs.shef.ac.uk/people/D.Rout/publications/Rout2013a.pdf, PDF)
+
+- D. Rout, D. Preotiuc-Pietro, K. Bontcheva, T. Cohn. Where’s @wally? A Classification Approach to Geolocating Users Based on their Social Ties.  24th ACM Conference on Hypertext and Social Media, 1–3 May, Paris, France. 2013. %(http://staffwww.dcs.shef.ac.uk/people/D.Rout/publications/wally13ht.pdf, PDF)
+
+- L. Derczynski, D. Maynard, N. Aswani, K. Bontcheva. Microblog-Genre Noise and Impact on Semantic Annotation Accuracy. 24th ACM Conference on Hypertext and Social Media, 1–3 May, Paris, France. 2013. %(http://derczynski.com/sheffield/papers/ner_issues.pdf,PDF)
+
+- L. Derczynski, R. Gaizauskas. Empirical Validation of Reichenbach's Tense Framework. In Proceedings of the 10th Conference on Computational Semantics (IWCS 2013). %(http://derczynski.com/sheffield/papers/rbfrek.pdf,PDF)
+
+- L. Derczynski, B. Yang, C.S. Jensen. Towards Context-Aware Search and Analysis on Social Media Data. In Proceedings of the Extending Database Technology conference (EDBT 2013), Genoa, Italy. %(http://derczynski.com/sheffield/papers/scalable_sm.pdf,PDF)
+
+- Cunningham H, Tablan V, Roberts A, Bontcheva K (2013) Getting More Out of Biomedical Documents with GATE's Full Lifecycle Open Source Text Analytics. PLoS Comput Biol 9(2): e1002854. doi:10.1371/journal.pcbi.1002854 -- http://tinyurl.com/gate-life-sci/
+
+- V. Tablan, I. Roberts, H. Cunningham, and K. Bontcheva. GATECloud.net: a Platform for Large-Scale, Open-Source Text Processing on the Cloud. %(http://rsta.royalsocietypublishing.org/, Philosophical Transactions of the Royal Society A), 371(1983), 2013 %(http://dx.doi.org/10.1098/rsta.2012.0071, doi:10.1098/rsta.2012.0071).
+
+- K. Bontcheva, D. Rout. Making Sense of Social Media through Semantics: A Survey. Semantic Web - Interoperability, Usability, Applicability. IOS Press. In Press. %(http://www.semantic-web-journal.net/content/making-sense-social-media-streams-through-semantics-survey, Pre-print with PDF).
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham, K. Bontcheva. Improving habitability of natural language interfaces for querying ontologies with feedback and clarification dialogues. Web Semantics: Science, Services and Agents on the World Wide Web. Volume 19. pages 1-21. %(http://imap.websemanticsjournal.org/index.php/ps/article/view/329, PDF)
+
+
+%2* 2012
+
+- S. Dietze, D. Maynard, E. Demidova, T. Risse, W. Peters, K. Doka, Y. Stavrakas. Preservation of Social Web Content based on Entity Extraction and Consolidation. International Workshop on Semantic Digital Archives (SDA 2012), Paphos, Cyprus, September 2012, Vol. 912 CEUR-WS.org (2012) , p. 18-29.
+
+- M. Sabou, K. Bontcheva, A. Scharl. Crowdsourcing research opportunities: Lessons from Natural Language Processing. I-KNOW, September 2012. %(http://gate.ac.uk/sale/hc-for-nlp-survey/iKnow-lessons-learnt/SabouEtAl.pdf, PDF)
+
+- D. Damljanovic and K. Bontcheva: . Named Entity Disambiguation using Linked Data. Proceedings of the 9th Extended Semantic Web Conference (ESWC 2012), Heraklion, Greece, May 2012. Poster session. %(http://2012.eswc-conferences.org/sites/default/files/eswc2012_submission_334.pdf, PDF)
+
+- D. Maynard, K. Bontcheva, D. Rout. Challenges in developing opinion mining tools for social media. In Proceedings of @NLP can u tag #user_generated_content?!  Workshop at LREC 2012, May 2012, Istanbul, Turkey. %(http://gate.ac.uk/sale/lrec2012/ugc-workshop/opinion-mining-extended.pdf, PDF)
+
+- D. Maynard and M. Greenwood. Large Scale Semantic Annotation, Indexing and Search at The National Archives. In Proceedings of LREC 2012, May 2012, Istanbul, Turkey. %(http://gate.ac.uk/sale/lrec2012/tna/tna.pdf, PDF)
+
+- H. H. Wang, D. Damljanovic, T. R. Payne, N. Gibbins, K. Bontcheva: Transition of legacy systems to semantically enabled applications: TAO method and tools. Semantic Web 3(2): 157-168. 2012. %(http://iospress.metapress.com/content/047p7228g4715t61/fulltext.pdf, PDF)
+
+- M. A. Greenwood, N. Aswani, K. Bontcheva: Reputation Profiling with GATE. CLEF (Online Working Notes/Labs/Workshop). 2012. %(http://gate.ac.uk/sale/replab2012-clef/GATE-RepLab2012.pdf, PDF)
+
+%2* 2011
+
+- K. Bontcheva, H. Cunningham. Semantic Annotations and Retrieval: Manual, Semi-automatic and Automatic Generation. Domingue, John; Fensel, Dieter; Hendler, James A. (Eds.). %(http://www.springer.com/computer/database+management+%26+information+retrieval/book/978-3-540-92912-3, Handbook of Semantic Web Technologies). 2011.
+
+- T. Risse, S. Dietze, D. Maynard and N. Tahmasebi.  Using Events for Content Appraisal and Selection in Web Archives. In Proceedings of DeRiVE 2011: Workshop in conjunction with the 10th International Semantic Web Conference 2011, October 2011, Bonn, Germany. %(http://gate.ac.uk/sale/iswc11/Derive.pdf, PDF)
+
+- D. Damljanovic, U. Kruschwitz and M. Albakour. Using Virtual Documents to move Information Retrieval and Knowledge Management Closer Together, 4th Workshop on Exploiting Semantic Annotation in Information Retrieval, collocated with the 20th ACM Conference on Information and Knowledge Management (CIKM) 2011, October 28, 2011
+
+- V. Tablan, I. Roberts, H. Cunningham, and K. Bontcheva. GATECloud.net: Cloud Infrastructure for Large-Scale, Open-Source Text Processing. In UK e-Science All hands Meeting 2011, York, September 2011.%(http://gate.ac.uk/sale/ahm11/ahm11-short-final.pdf,PDF)
+
+- D. Maynard and A. Funk. Automatic detection of political opinions in tweets.  In Raúl García-Castro, Dieter Fensel and Grigoris Antoniou (eds.) The Semantic Web: ESWC 2011 Selected Workshop Papers, Lecture Notes in Computer Science, Springer, 2011. %(http://gate.ac.uk/sale/eswc11/llncs-highlights/opinion-mining-extended.pdf, PDF) (longer version of MSM paper).
+
+- D. Maynard and A. Funk. Automatic detection of political opinions in tweets. In Proceedings of MSM 2011: Making Sense of Microposts. Workshop at 8th Extended Semantic Web Conference (ESWC 2011). Heraklion, Greece. June 2011. %(http://gate.ac.uk/sale/eswc11/opinion-mining.pdf, PDF)
+
+- H. Wang, D. Damljanovic, T. Payne, N. Gibbins, and K. Bontcheva: Transition of Legacy Systems to Semantically Enabled Applications: TAO Method and Tools. Semantic Web Journal, IOS Press, 2011. (to appear)
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham: FREyA: an Interactive Way of Querying Linked Data using Natural Language. In Raúl García-Castro, Dieter Fensel and Grigoris Antoniou (eds.) The Semantic Web: ESWC 2011 Selected Workshop Papers, Lecture Notes in Computer Science, Springer, 2011. %(http://gate.ac.uk/sale/dd/experiments/qald/post-proceedings/paper.pdf, PDF) (improved version of QALD-1 paper)
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham: FREyA: an Interactive Way of Querying Linked Data using Natural Language. In: Proceedings of 1st Workshop on Question Answering over Linked Data (QALD-1), 
+  Collocated with the 8th Extended Semantic Web Conference (ESWC 2011). Heraklion, Greece (June 2011) %(http://www.sc.cit-ec.uni-bielefeld.de/sites/www.sc.cit-ec.uni-bielefeld.de/files/proceedings.pdf, PDF)
+
+- D. Damljanovic, J. Petrak, M. Lupu, H. Cunningham, M. Carlsson, G. Engstrom, B. Andersson: Random Indexing for Finding Similar Nodes within Large RDF graphs. In Raúl García-Castro, Dieter Fensel and Grigoris Antoniou (eds.) The Semantic Web: ESWC 2011 Selected Workshop Papers, Lecture Notes in Computer Science, Springer, 2011. %(http://gate.ac.uk/sale/dd/experiments/RED2011/postproceedings/ri-main.pdf, PDF) (improved version of RED2011 paper)
+
+- D. Damljanovic, J. Petrak, M. Lupu, H. Cunningham, M. Carlsson, G. Engstrom, B. Andersson: Random Indexing for Finding Similar Nodes within Large RDF graphs. In: Proceedings of the Fourth International Workshop on Resource Discovery (RED2011), 
+  Collocated with the 8th Extended Semantic Web Conference (ESWC 2011). Heraklion, Greece (June 2011)  %(http://gate.ac.uk/sale/dd/experiments/RED2011/ri-main-final.pdf, PDF)
+
+- M. Assel, A. Cheptsov, B. Czink, D. Damljanovic, J. Quesada: MPI Realization of  High  Performance  Search  for  Querying  Large  RDF  Graphs  using  Statistical Semantics . In: Proceedings of the 1st Workshop on High-Performance Computing for the Semantic Web, Collocated with the 8th Extended Semantic Web Conference (ESWC 2011). Heraklion, Greece (June 2011) %(http://wiki.larkc.eu/LarkcProject/statisticalSemantics?action=AttachFile&do=get&target=parallel-random-indexing.pdf, PDF)
+
+%2* 2010
+
+- H. Wang, D. Damljanovic, J. Sun.	 Enhanced Semantic Access to Formal Software Models. In the Proceedings of the 12th International Conference on Formal Engineering Methods, November 16 - 19, 2010, Shanghai, China. %(http://dx.doi.org/10.1007/978-3-642-16901-4_17, PDF)
+
+- K. Bontcheva, H. Cunningham, I. Roberts, V. Tablan. Web-based Collaborative Corpus Annotation: Requirements and a Framework Implementation. In "New Challenges for NLP Frameworks" workshop at LREC, Malta, May 2010.%(http://gate.ac.uk/sale/lrec2010/teamware/teamware-lrec10.pdf,PDF)
+
+- Y. Zeng, Y. Wang, Z. Huang, D. Damljanovic, N. Zhong, and C. Wang. User Interests: Definition, Vocabulary, and Utilization in Unifying Search and Reasoning.  Proceedings of the 2010 International Conference on Active Media Technology, Lecture Notes in Computer Science 6335, 98-107, 2010.
+
+- D. Damljanovic: Towards Portable Controlled Natural Languages for Querying Ontologies. In: Rosner, M., Fuchs, N. (eds.) Second Workshop on Controlled Natural Languages, CEUR Workshop Pre-Proceedings ISSN 1613-0073, vol. 622. http://ceur-ws.org, Marettimo Island, Italy, 13-15 September, 2010. %(http://gate.ac.uk/sale/dd/experiments/cnl/abstract.pdf, PDF)
+
+- A. Wyner, K. Angelov, G. Barzdins, D. Damljanovic, B. Davis, N. Fuchs, S. Hoefler, K. Jones, K. Kaljurand, T. Kuhn, M. Luts, J. Pool, M. Rosner, R. Schwitter, J. Sowa: On controlled natural languages: Properties and prospects. In N. Fuchs, ed.: Controlled Natural Language. Volume 5972 of Lecture Notes in Computer Science. Springer Berlin/Heidelberg (2010) 281–289 10.1007/978-3-642-14418-9 17.
+
+- D. Damljanovic, J. Petrak, H. Cunningham: Random Indexing for Searching Large RDF Graphs. In the Proceedings of the 7th Extended Semantic Web Conference (ESWC 2010), Springer Verlag, Heraklion, Greece, May 31-June 3, 2010. Poster session, %(http://gate.ac.uk/sale/eswc10/ri-rdf-final.pdf, PDF)
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham: Natural Language Interfaces to Ontologies: Combining Syntactic Analysis and Ontology-based Lookup through the User Interaction. In Proceedings of the 7th Extended Semantic Web Conference (ESWC 2010), Springer Verlag, Heraklion, Greece, May 31-June 3, 2010. %(http://gate.ac.uk/sale/eswc10/freya-main.pdf, PDF)
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham: Identification of the Question Focus: Combining Syntactic Analysis and Ontology-based Lookup through the User Interaction. In Proceedings of the 7th Language Resources and Evaluation Conference (LREC 2010), ELRA 2010, La Valletta, Malta, May 17-23, 2010. %(http://gate.ac.uk/sale/lrec2010/answer-type-mooney-final.pdf, PDF)
+
+- N. Aswani, R. Gaizauskas: Developing Morphological Analysers for South Asian Languages: Experimenting with the Hindi and Gujarati Languages. In Proceedings of the 7th Language Resources and Evaluation Conference (LREC 2010), ELRA 2010, La Valletta, Malta, May 17-23, 2010.
+
+- N. Aswani, R. Gaizauskas: English-Hindi Transliteration using Multiple Similarity Metrics. In Proceedings of the 7th Language Resources and Evaluation Conference (LREC 2010), ELRA 2010, La Valletta, Malta, May 17-23, 2010.
+
+- A. Funk, K. Bontcheva, Effective Development with GATE and Reusable Code for Semantically Analysing Heterogeneous Documents.  In "New Challenges for NLP Frameworks" workshop at LREC, Malta, May 2010.  %(../../sale/lrec2010/nlpfw-sf/sf.pdf, PDF paper), %(../../sale/lrec2010/nlpfw-sf/slides/slides.pdf, slides)
+
+- A. Funk, I. Roberts, W. Peters, Implementing a Variety of Linguistic Annotations through a Common Web-Service Interface.  In "Language Resource and Language Technology Standards" workshop at LREC, Malta, May 2010.  %(../../sale/lrec2010/clarin/paper.pdf, PDF paper), %(../../sale/lrec2010/clarin/slides/slides.pdf, slides)
+
+- A. Funk and K. Bontcheva, Ontology-Based Categorization of Web Services with Machine Learning.  In Proceedings of the 7th Language Resources and Evaluation Conference (LREC 2010), ELRA 2010, La Valletta, Malta, May 17-23, 2010.  %(../../sale/lrec2010/service-finder/paper.pdf, PDF paper), %(../../sale/lrec2010/service-finder/poster/poster.pdf, poster)
+
+%2* 2009
+
+- N. Aswani, R. Gaizauskas: Evolving a General Framework for Text Alignment: Case Studies with Two South Asian Languages. In Proceedings of the International Conference on Machine Translation: Twenty-Five Years On, Cranfield, Bedfordshire, UK, November 21-22, 2009.
+
+- Agnoloni, T. Bacci, L. Francesconi, E. Peters, W. Montemagni, M., Venturi, G. (2009), A two-level knowledge approach to support multilingual legislative drafting. In: Breuker, J., Casanovas, P., Klein, M. and Francesconi, E. (eds.) Frontiers in Artificial Intelligence and Applications, Volume 188: Law, Ontologies and the Semantic Web - Channelling the Legal Information Flood
+
+- F. Amardeilh and D. Damljanovic and K. Bontcheva: CA Manager: a Framework for Creating Customised Workflows for Ontology Population and Semantic Annotation. In the Proceedings of the Semantic Authoring, Annotation and Knowledge Markup Workshop (SAAKM 2009) co-located with the 5th International Conference on Knowledge Capture (K-CAP 2009), Redondo Beach, California, USA, 1-4 September, 2009. %(http://hal.archives-ouvertes.fr/docs/00/41/12/47/PDF/saakm09-camanager-final.pdf, PDF)
+
+- F.Amardeilh and D.Damljanovic: Du texte a la connaissance : annotation  semantique et peuplement d'ontologie appliques a des artefacts logiciels,  Conference Ingenierie des Connaissances 2009, 25-29 May, 2009. (in French). %(http://ic2009.inria.fr/docs/papers/AmardeilhDamljanovic_IC2009_29.pdf, PDF)
+
+- K. Bontcheva, B. Davis, A. Funk, Y. Li and T. Wang. Human Language Technologies. Semantic Knowledge Management, John Davies, Marko Grobelnik, and Dunja Mladenic (Eds.), Springer, 37-49, 2009. %(http://www.springerlink.com/content/978-3-540-88844-4, On-line Link)
+
+- D. Damljanovic, F. Amardeilh, K. Bontcheva: CA Manager Framework: Creating Customised Workflows for Ontology Population and Semantic Annotation. In Proceedings of The Fifth International Conference on Knowledge Capture (KCAP'09), California, USA, September 1-4, 2009.%(http://delivery.acm.org/10.1145/1600000/1597770/p177-damljanovic.pdf?key1=1597770&amp;key2=5509954621&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=75107900&amp;CFTOKEN=81656037,  PDF).
+
+- D. Damljanovic, K. Bontcheva: Towards Enhanced Usability of Natural Language  Interfaces to Knowledge Bases. In Devedzic V. and Gasevic D. (Eds.), Special issue  on Semantic Web and Web 2.0, Annals of Information systems, Springer-Verlag, 2009. %(http://gate.ac.uk/sale/annals-of-is/main.pdf, PDF)
+
+- D. Damljanovic, M. Agatonovic, H. Cunningham:  %(http://gate.ac.uk/sale/cnl09/poster/freya-poster.pdf, Usability of Natural Language Interfaces for querying ontologies) presented at %(http://attempto.ifi.uzh.ch/site/cnl2009/, Workshop on Controlled Natural Language (CNL 2009) ), Marettimo Island, Italy, June 08-10, 2009.
+
+- B.Davis, P.Varma, S.Handschuh, L.Dragan, H.Cunningham: Controlled Natural Language for Semantic Annotation. In Workshop on Controlled Natural Language (CNL) 2009, Marettimo Island, Italy, 2009.
+
+- B.Davis, P.Varma, S.Handschuh, L.Dragan, H.Cunningham: On designing Controlled Natural Languages for Semantic Annotation. In Proceedings of the Workshop on Controlled Natural Language (CNL09), Springer-Verlag, Heidelberg, Germany. (In Press) Marettimo Island, Italy, 2009.
+
+- M. Laclavik and D. Maynard. Motivating intelligent email in business: an investigation into current trends for email processing and communication research. Proceedings of Workshop on Emails in e-Commerce and Enterprise Context, 11th IEEE Conference on Commerce and Enterprise Computing, Vienna, Austria, 2009. 
+
+- Y. Li, K. Bontcheva and H. Cunningham. Adapting SVM for Data Sparseness and Imbalance: A Case Study on Information Extraction. Natural Language Engineering, 15(02), 241-271, 2009. %(http://journals.cambridge.org/repo_A45LfkBD, On-line Link)
+
+- D. Maynard and A. Funk and W. Peters. Using Lexico-Syntactic Ontology Design Patterns for ontology creation and population. In Proceedings of ISWC Workshop on Ontology Patterns (WOP 2009), Washington, 2009. %(http://gate.ac.uk/sale/iswc09/odp09/sardine.pdf, PDF)
+
+- D. Maynard and A. Funk and W. Peters. NLP-based support for ontology lifecycle development. Proceedings of ISWC Workshop on Collaborative Construction, Management and Linking of Ontologies (CK 2009), Washington, 2009. %(http://gate.ac.uk/sale/iswc09/ck09/neon.pdf, PDF)
+
+- D. Maynard and A. Funk and W. Peters. SPRAT: a tool for automatic semantic pattern-based ontology population. Proceedings of the International Conference for Digital Libraries and the Semantic Web, Trento, Italy, 2009. %(http://gate.ac.uk/sale/icsd09/sprat.pdf, PDF)
+
+- W.Peters: Text-based Legal Ontology Enrichment, In: proceedings of LOAIT 2009, Barcelona, Spain.%(http://sunsite.informatik.rwth-aachen.de/Publications/CEUR-WS/Vol-465/paper7.pdf, PDF)
+
+ - H.Saggion, A.Funk: Extracting Opinions and Facts for Business Intelligence. __Revue des Nouvelles Technologies de l’Information__ (RNTI), no. E-17 pp119-146; November 2009. %(http://gate.ac.uk/sale/rnti-09/final-version/Saggion-Funks-OM-09.pdf, PDF)
+
+%2* 2008
+
+
+ - M. Agatonovic, N. Aswani, K. Bontcheva, H. Cunningham, T. Heitz, Y. Li, I. Roberts and V. Tablan. Large-scale, Parallel Automatic Patent Annotation. In Proceedings of 1st International CIKM Workshop on Patent Information Retrieval - PaIR'08, Napa Valley, California, USA, 30 October, 2008. %(http://www.gate.ac.uk/sale/pair08/pair03-aswani.pdf, PDF)
+
+ - D.Damljanovic, V.Tablan, K.Bontcheva: A text-based query interface to owl ontologies. In: 6th Language Resources and Evaluation Conference (LREC), Marrakech, Morocco, ELRA (May 2008). %(http://gate.ac.uk/sale/lrec2008/clone-ql/clone-ql-paper.pdf, PDF)
+
+ - Damljanovic, D.,Bontcheva, K.. Enhanced Semantic Access to Software Artefacts. In Workshop on Semantic Web Enabled Software Engineering (SWESE) held in conjunction with ISWC'08, Karlsruhe, Germany, October 2008. %(http://www.abdn.ac.uk/~r01srt7/swese2008/pdf/swese2008_submission_9.pdf, PDF)
+
+ - Brian Davis, Ahmad Ali Iqbal, Adam Funk, Valentin Tablan, Kalina Bontcheva, Hamish Cunningham and Siegfried Handschuh: RoundTrip Ontology Authoring. In _Proceedings of the 7th International Semantic Web Conference (ISWC2008)_, Karlsruhe, Germany, October 2008.
+
+
+ - E. Della Valle, D. Cerizza, I. Celino, A. Turati, H. Lausen, N. Steinmetz, M. Erdmann and A. Funk. Service-Finder: realizing Web Service Discovery at Web Scale. In Proceedings of European Semantic Technology Conference (ESTC 2008), Vienna, Austria, September, 2008. %(http://videolectures.net/estc08_valle_rsf/, Video)
+
+ - Adam Funk, Yaoyong Li, Horacio Saggion, Kalina Bontcheva and Christian Leibold: Opinion Analysis for Business Intelligence Applications. In _First International Workshop on Ontology-supported Business Intelligence (OBI2008)_ at the _7th International Semantic Web Conference (ISWC)_, Karlsruhe, Germany, October 2008. %(http://gate.ac.uk/sale/iswc08/obi-musing/musing-om-iswc08.pdf, PDF)
+
+ - Y. Li and K. Bontcheva . Adapting Support Vector Machines for F-term-based Classification of Patents. ACM Transactions on Asian Language Information Processing, 7(2), 7:1--7:19, 2008. %(http://portal.acm.org/citation.cfm?id=1362786&amp;jmp=cit&amp;coll=PORTAL&amp;dl=ACM&amp;CFID=34798472&amp;CFTOKEN=19117470#CIT, Link)
+
+
+ - Y. Li and H. Cunningham. Geometric and Quantum Methods for Information Retrieval. SIGIR Forum, 42(2), 22-32, 2008. %(http://www.sigir.org/forum/2008D-TOC.html, Link)
+
+ - D. Maynard. Benchmarking Textual Annotation Tools for the Semantic Web. In Proc. of 6th International Conference on Language Resources and Evaluation (LREC), Marrakech, Morocco, 2008. %(http://gate.ac.uk/sale/lrec2008/benchmarking.pdf, PDF)
+
+ - D. Maynard, Y. Li and W. Peters. NLP Techniques for Term Extraction and Ontology Population. Bridging the Gap between Text and Knowledge - Selected Contributions to Ontology Learning and Population from Text, P. Buitelaar and P. Cimiano (editors). IOS Press, 2007. %(http://gate.ac.uk/sale/olp-book/main.pdf, PDF)
+
+ - D. Maynard, W. Peters and Y. Li. Evaluating Evaluation Metrics for Ontology-Based Applications: Infinite Reflection. In Proc. of 6th International Conference on Language Resources and Evaluation (LREC), Marrakech, Morocco, 2008. %(http://gate.ac.uk/sale/lrec2008/bdm.pdf, PDF)
+
+ - Montiel-Ponsoda, E., Aguado de Cea, G. and Gomez-Perez, A., and Peters, W., Modeling multilinguality in ontologies, In: Proceedings of Coling 2008, Manchester, U.K.%(http://www.aclweb.org/anthology-new/C/C08/C08-2017.pdf, PDF)
+
+
+ - V. Tablan, D. Damljanovic, and K. Bontcheva. A natural language query interface to structured information. In Proceedings of the 5h European Semantic Web Conference (ESWC 2008), Tenerife, Spain, June, 2008. %(http://gate.ac.uk/sale/eswc08/clone-ql/clone-ql.pdf, PDF)
+
+
+
+%2* 2007
+
+ - H. Saggion, A. Funk, D. Maynard, K. Bontcheva. Ontology-based Information Extraction for Business Applications. In Proceedings of the 6th International Semantic Web Conference (ISWC 2007), Busan, Korea, November, 2007. %(http://gate.ac.uk/sale/iswc07/musing/musing-iswc07.pdf, PDF)
+
+ - A. Funk, V. Tablan, K. Bontcheva, H. Cunningham, B. Davis, S. Handschuh. CLOnE: Controlled Language for Ontology Editing. In Proceedings of the International Semantic Web Conference (ISWC 2007), Busan, Korea, November, 2007. %(http://gate.ac.uk/sale/iswc07/clone/clone.pdf, PDF)
+
+
+ - A. Funk, D. Maynard, H. Saggion and K. Bontcheva. Ontological Integration of Information Extracted from Multiple Sources. In the Multi-source Multilingual Information Extraction and Summarization (MMIES) workshop at Recent Advances in Natural Language Processing (RANLP07), Borovets, Bulgaria, September, 2007. %(http://gate.ac.uk/sale/ranlp2007/musing.pdf, PDF)
+
+ - Y. Li, K. Bontcheva and H. Cunningham. Hierarchical, Perceptron-like Learning for Ontology Based Information Extraction. Proceedings of the 16th International World Wide Web Conference (WWW2007), pp. 777-786. May, 2007. %(http://gate.ac.uk/sale/www07/www428-li.pdf, PDF)
+
+ - Y. Li, K. Bontcheva and H. Cunningham. Cost Sensitive Evaluation Measures for F-term Patent Classification. Proceedings of the First International Workshop on Evaluating Information Access (EVIA 2007), pp. pp. 44-53. May, 2007. %(http://gate.ac.uk/sale/ntcir6-papers/patent-evaluation.pdf, PDF)
+
+ - Y. Li, K. Bontcheva and H. Cunningham. SVM Based Learning System for F-term Patent Classification. Proceedings of the Sixth NTCIR Workshop Meeting on Evaluation of Information Access Technologies: Information Retrieval, Question Answering and Cross-Lingual Information Access, pp. 396-402. May, 2007. %(http://gate.ac.uk/sale/ntcir6-papers/ntcir6-classification-main.pdf, PDF)
+
+ - Y. Li, K. Bontcheva and H. Cunningham. Experiments of Opinion Analysis on the Corpora MPQA and NTCIR-6. Proceedings of the Sixth NTCIR Workshop Meeting on Evaluation of Information Access Technologies: Information Retrieval, Question Answering and Cross-Lingual Information Access, pp. 323-329. May, 2007. %(http://gate.ac.uk/sale/ntcir6-papers/ntcir6-opinion-main.pdf, PDF)
+
+
+ - Y. Li and J. Shawe-Taylor. Advanced Learning Algorithms for Cross-language Patent Retrieval and Classification. Information Processing and Management, 43(5), pp. 1183-1199. 2007. %(http://www.sciencedirect.com/science?_ob=PublicationURL&amp;_tockey=%23TOC%235948%232007%23999569994%23650727%23FLA%23&amp;_cdi=5948&amp;_pubType=J&amp;_auth=y&amp;_acct=C000010619&amp;_version=1&amp;_urlVersion=0&amp;_userid=128590&amp;md5=aed4e5c432444d1abac41dd22a39c60e, Link)
+
+ - D. Maynard, H. Saggion, M. Yankova, K. Bontcheva and W. Peters. Natural Language Technology for Information Integration in Business Intelligence. 10th International Conference on Business Information Systems, Poland, 25-27 April, 2007. %(http://gate.ac.uk/sale/bis07/musing-bis07-final.pdf, PDF)
+
+ - D. Maynard, W. Peters, M. d'Aquin and M. Sabou. Change Management for Metadata Evolution. In Proceedings of ESWC International Workshop on Ontology Dynamics (IWOD), Innsbruck, Austria, June, 2007. %(http://gate.ac.uk/sale/eswc07/iwod/iwod.pdf, PDF)
+
+ - Peters, W., Sagri, M., and Tiscornia, D. 2007. The structuring of legal knowledge in LOIS. Artfiicial Intelligence and Law, 15, 2 (Jun. 2007), 117-135.%(http://www.springerlink.com/content/d04l7h2507700g45/, Link)
+
+
+ - Peters, W., Montiel-Ponsoda, E., Aguado de Cea, G. and Gomez-Perez, A., Localizing Ontologies in Owl, ISWC 2007 workshop Ontolex2007, Busan, Korea %(http://www.dcs.shef.ac.uk/~wim/ontolex2007-peters-montiel-aguado.pdf, PDF)
+
+ - Montiel-Ponsoda, E. Aguado de Cea, G. Suarez-Figueroa, M.C. Palma, R. Peters, W., LexOMV: An OMV extension to capture multilinguality. ISWC 2007 workshop Ontolex 2007, Busan, Korea %(http://www.neon-project.org/web-content/images/Publications/ontolex2007-lexomv-montiel-crv.pdf, PDF)
+
+ - H.Saggion, SHEF: Semantic Tagging and Summarization Techniques Applied to Cross-document Coreference. In Proceedings of Semeval 2007, Association for Computational Linguistics, June, 2007. %(http://gate.ac.uk/sale/semeval07/papers/shef-semeval07.pdf, PDF)
+
+
+%2* 2006
+
+ - N.Aswani, K.Bontcheva ;and H.Cunningham: ;Mining Information for Instance Unification. In the proceedings of 5th International Semantic Web conference, Athens, GA, USA, November, 2006. %(http://gate.ac.uk/sale/iswc06/iswc06.pdf, PDF)
+
+ - K. Bontcheva, M. Sabou. Learning Ontologies from Software Artifacts: Exploring and Combining Multiple Sources. In proceedings of Workshop on Semantic Web Enabled Software Engineering (SWESE), November, 2006. %(http://gate.ac.uk/sale/iswc06/tao.pdf, PDF)
+
+ - K. Bontcheva, J. Davies, A. Duke, T. Glover, N. Kings, I. Thurlow. Semantic Information Access. In Semantic Web Technologies: Trends and Research in Ontology-based Systems. J. Davies, R. Studer, P. Warren (eds). John Wiley, 2006. %(http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470025964.html, Link)
+
+
+ - K.Bontcheva, H.Cunningham, A.Kiryakov and V.Tablan. Semantic Annotation and Human Language Technology. Semantic Web Technology: Trends and Research. John Wiley and Sons Ltd. 2006. %(http://www.gate.ac.uk/projects/sekt/semantic-annotation-and-hlt.pdf, Abstract) %(http://www.amazon.co.uk/exec/obidos/ASIN/0470025964/202-9434424-1432653, Link )
+
+ - B. Davis, Siegfried Handschuh, H. Cunningham and V. Tablan, Further use of Controlled Natural Language for Semantic Annotation of Wikis. In the proceedings of the 1st Semantic Authoring and Annotation Workshop at ISWC2006, Athens, GA, USA, November, 2006. %(http://siegfried-handschuh.net/pub/2006/cl_saaw06.pdf, PDF)
+
+ - Y. Li, J. Shawe-Taylor. Using KCCA for Japanese-English Cross-language Information Retrieval and Document Classification. Journal of Intelligent Information Systems, 27(2), 117-133. 2006. %(http://www.springerlink.com/content/v1vu407326m6/?p=3700283908254f5d83dde52438a04e68&amp;pi=0, Link)
+
+ - D. Maynard, W. Peters, Y. Li. Metrics for Evaluation of Ontology-based Information Extraction. In Proc of WWW 2006 Workshop on ";Evaluation of Ontologies for the Web"; (EON 2006), Edinburgh, Scotland, 2006. %(http://gate.ac.uk/sale/eon06/eon.pdf, PDF)
+
+
+ - V.Tablan, T.Polajnar, ;H.Cunningham,K.Bontcheva. User-friendly ontology authoring using a controlled language. Proceedings of the 5th International Conference on Language Resources and Evaluation (LREC), Genoa, Italy, May, 2006. %(http://gate.ac.uk/sale/lrec2006/clie/clie.pdf, PDF)
+
+ - T. Wang, Y. Li, K. Bontcheva, H. Cunningham, J. Wang. Automatic Extraction of Hierarchical Relations from Text. Proceedings of the Third European Semantic Web Conference (ESWC 2006), Lecture Notes in Computer Science 4011, Springer, 2006. %(http://gate.ac.uk/sale/eswc06/eswc06-relation.pdf, PDF)
+
+
+%2* 2005
+
+ - N. Aswani, V. Tablan, K. Bontcheva and H. Cunningham. Indexing and Querying Linguistic Metadata and Document Content. Proceedings of Fifth International Conference on Recent Advances in Natural Language Processing (RANLP-2005), 2005. %(http://gate.ac.uk/sale/ranlp05/ranlp05-annic.pdf, PDF)
+
+
+ - K. Bontcheva. Generating Tailored Textual Summaries from Ontologies. Second European Semantic Web Conference (ESWC'05), Crete, 2005. %(http://gate.ac.uk/sale/eswc05/eswc05.pdf, PDF)
+
+ - G. Crane, K. Bontcheva, J. A. Rydberg-Cox, C. E. Wulfman. Emerging language technologies and the rediscovery of the past: a research agenda. International Journal on Digital Libraries 5(4): 309-316. 2005. %(http://www.springerlink.com/content/62nbj9h6xn9h9f6x/, Link)
+
+ - H. Cunningham. Information Extraction, Automatic. Encyclopedia of Language and Linguistics, 2nd Edition, Elsevier. 2005. %(http://gate.ac.uk/sale/ell2/ie/main.pdf, preprint PDF)
+
+ - H. Cunningham, K. Bontcheva. Computational Language Systems, Architectures. Encyclopedia of Language and Linguistics, 2nd Edition, Elsevier. 2005. %(http://gate.ac.uk/sale/ell2/sale/main.pdf, preprint PDF)
+
+ - H. Cunningham, K. Bontcheva, Y. Li. Knowledge Management and Human Language: Crossing the Chasm. Journal of Knowledge Management, Vol. 9, No. 5. pp. 108--131. 2005. %(http://www.gate.ac.uk/projects/sekt/knowledge-mgmt-and-human-language.pdf, Abstract)
+
+
+ - J. Davies, A. Duke, N. Kings, D. Mladenic, K. Bontcheva, M. Grcar, R. Benjamins, J. Contreras, M. B. Civico, T. Glover. Next Generation Knowledge Access. Journal of Knowledge Management, Vol. 9, No. 5. pp. 64--84. 2005. %(http://www.gate.ac.uk/projects/sekt/next-generation-knowledge-access.pdf, Abstract)
+
+ - M. Dowman, V. Tablan, H. Cunningham and B. Popov. Web-Assisted Annotation, Semantic Indexing and Search of Television and Radio News. 14th International World Wide Web Conference. Chiba, Japan, 2005. %(http://gate.ac.uk/sale/www05/web-assisted-annotation.pdf, PDF)
+
+ - M. Dowman, V. Tablan, H. Cunningham and B. Popov. Content Augmentation for Mixed-Mode News Broadcasts. 3rd European Conference on Interactive Television: User Centred ITV Systems, Programmes and Applications. Aalborg University, Denmark, 2005. %(http://gate.ac.uk/sale/euro-itv-2005/content-augmentation-for-mixed-mode-news-broadcast-consumption.pdf, PDF).
+
+ - M. Dowman, V. Tablan, H. Cunningham, C. Ursu and B. Popov. Semantically Enhanced Television News through Web and Video Integration. Second European Semantic Web Conference (ESWC'05), Crete, 2005. %(http://www.acemedia.org/ESWC2005_MSW/papers/ESWC_2005_MMSW_Tablan_Television_News.pdf, PDF)
+
+
+ - Y. Li and C. Miao and K. Bontcheva and H. Cunningham. Perceptron Learning for Chinese Word Segmentation. Proceedings of Fourth SIGHAN Workshop on Chinese Language processing (Sighan-05), pp. 154-157. 2005. %(http://gate.ac.uk/sale/sighan05/perceptron-chineseSeg.pdf, PDF)
+
+ - Y. Li, K. Bontcheva, and H. Cunningham. Using Uneven Margins SVM and Perceptron for Information Extraction. Proceedings of Ninth Conference on Computational Natural Language Learning (CoNLL-2005), pp. 72-79. 2005. %(http://gate.ac.uk/sale/conll-2005/conll05-yyli.pdf, PDF)
+
+ - Y. Li, K. Bontcheva, and H. Cunningham. SVM Based Learning System For Information Extraction. J. Winkler, M. Niranjan and N. Lawerence (Eds.): Deterministic and Statistical Methods in Machine Learning, LNAI 3635, Springer Verlag, pp. 319-339. 2005. %(http://gate.ac.uk/sale/ml-ws04/lncs-svm-revision.pdf, PDF)
+
+ - D. Maynard. Benchmarking ontology-based annotation tools for the Semantic Web. UK e-Science Programme All Hands Meeting (AHM2005) Workshop ";Text Mining, e-Research and Grid-enabled Language Technology";, Nottingham, UK, 2005. %(http://gate.ac.uk/sale/ahm05/ahm.pdf, PDF)
+
+
+ - D. Maynard, M. Yankova, A. Kourakis and A. Kokossis. Ontology-based information extraction for market monitoring and technology watch, ESWC Workshop ";End User Aspects of the Semantic Web";, Heraklion, Crete, 2005. %(http://kmi.open.ac.uk/events/usersweb/papers/03_maynard_final.pdf, PDF)
+
+ - C. Ursu, V. Tablan and H. Cunningham. Semantic Analysis for Tomorrow's Audio-Visual Digital Archives. Proceedings of 2nd European Workshop on the Integration of Knowledge, Semantic and Digital Media Technologies (EWIMT-2005), London, UK, 2005. %(http://gate.ac.uk/sale/ewimt05/ewimt05.pdf, PDF)
+
+
+
+%2* 2004
+
+
+ - K. Bontcheva. Open-source Tools for Creation, Maintenance, and Storage of Lexical Resources for Language Generation from Ontologies. Fourth International Conference on Language Resources and Evaluation (LREC'2004). Lisbon, Portugal. 2004. %(http://www.dcs.shef.ac.uk/~kalina/papers/bontcheva-lrec04.pdf, PDF).
+
+
+ - Bontcheva, V. Tablan, D. Maynard, H. Cunningham. Evolving GATE to Meet New Challenges in Language Engineering. Natural Language Engineering. 10 (3/4), pp. 349-373. 2004. %(../../sale/jnle03/jnle-final.pdf, PDF)
+
+ - K. Bontcheva, Y. Wilks. Automatic Report Generation from Ontologies: the MIAKT approach. Nineth International Conference on Applications of Natural Language to Information Systems (NLDB'2004). Manchester, UK. 2004. %(http://www.dcs.shef.ac.uk/%7Ekalina/papers/nldb04.pdf, PDF).
+
+ - H. Cunningham, D. Scott. Journal of Natural Language Engineering. Introduction to the Special Issue on Software Architecture for Language Engineering. 2004. %(http://gate.ac.uk/sale/jnle-sale/intro/intro-main.pdf, PDF)
+
+ - A. Dalli, V. Tablan, K. Bontcheva, Y. Wilks, D. Broeder, H. Brugman, P. Wittenburg. Web Services Architecture for Language Resources. Fourth International Conference on Language Resources and Evaluation (LREC'2004). Lisbon, Portugal. 2004.%(http://gate.ac.uk/sale/lrec2004/gazcollector.ps, PS)
+
+
+ - M. Dimitrov, K. Bontcheva, H. Cunningham, D. Maynard, A Light-weight Approach to Coreference Resolution for Named Entities, In Anaphora Processing: Linguistic, Cognitive and Computational Modelling, Antonio Branco, Tony McEnery and Ruslan Mitkov (editors), 2004. %(http://www.benjamins.com/cgi-bin/t_bookview.cgi?bookid=CILT%20263, Link)
+
+ - Y. Li and K. Bontcheva and H. Cunningham. An SVM Based Learning Algorithm for Information Extraction. Machine Learning Workshop. Sheffield, UK. 2004. %(http://gate.ac.uk/sale/ml-ws04/mlw2004.pdf, PDF)
+
+ - D. Maynard, K. Bontcheva, H. Cunningham. Automatic Language-Independent Induction of Gazetteer Lists. Fourth International Conference on Language Resources and Evaluation (LREC'2004). Lisbon, Portugal. 2004. %(http://gate.ac.uk/sale/lrec2004/gazcollector.pdf, PDF)
+
+ - D. Maynard, M. Yankova, N. Aswani, H. Cunningham. Automatic Creation and Monitoring of Semantic Metadata in a Dynamic Knowledge Portal. Proceedings of the 11th International Conference on Artificial Intelligence: Methodology, Systems, Applications (AIMSA 2004), Varna, Bulgaria, 2004. %(http://www.springerlink.com/content/aa33t0y3jjr5tt81/, PDF)
+
+ - M.M. Wood, S.J. Lydon, V. Tablan, D. Maynard, H. Cunningham. Populating a Database from Parallel Texts using Ontology-based Information Extraction. NLDB 2004, 2004. %(http://www.springerlink.com/content/eg4u7gd5yege87n8/, PDF)
+
+
+
+
+%2* 2003
+
+
+ - K. Bontcheva, H. Cunningham. The Semantic Web: A New Opportunity and Challenge for Human Language Technology. Workshop on Human Language Technology for the Semantic Web and Web Services. Held in conjunction with the Second International Semantic Web Conference (ISWC'03). H. Cunningham, Y. Ding, A. Kiryakov (eds). Florida, USA. October 2003. %(http://www.gate.ac.uk/sale/iswc03/iswc03.pdf, PDF)
+
+ - K. Bontcheva, A. Kiryakov, H. Cunningham, B. Popov. M. Dimitrov. Semantic Web Enabled, Open Source Language Technology. Language Technology and the Semantic Web, Workshop on NLP and XML (NLPXML-2003), held in conjunction with EACL 2003, Budapest, 2003. %(../../sale/eacl03-semweb/bontcheva-etal-final.pdf, PDF)
+
+ - K. Bontcheva, D.Maynard, V. Tablan, and H. Cunningham. GATE: A Unicode-based Infrastructure Supporting Multilingual Information Extraction. Workshop on Information Extraction for Slavonic and other Central and Eastern European Languages. Held in conjunction with the 4th International Conference ";Recent Advances in Natural Language Processing"; (RANLP'2003), Bulgaria, 2003. %(http://gate.ac.uk/sale/iesl03/iesl03.pdf, PDF)
+
+
+ - H. Cunningham, V. Tablan, K. Bontcheva, M. Dimitrov. Language engineering tools for collaborative corpus annotation. Proceedings of Corpus Linguistics 2003, Lancaster, UK, 2003. %(../../sale/cl03/distrib-ollie-cl03.doc, DOC)
+
+ - D.Maynard. Multi-Source and Multilingual Information Extraction. Expert Update, 2003. %(http://gate.ac.uk/sale/expertupdate/muse.pdf, PDF)
+
+ - D.Maynard, K. Bontcheva and H. Cunningham. Towards a semantic extraction of named entities. Recent Advances in Natural Language Processing, Bulgaria, 2003. %(http://gate.ac.uk/sale/ranlp03/ranlp03.pdf, PDF)
+
+ - D. Maynard, H. Cunningham. Multilingual adaptations of a reusable information extraction tool. EACL 2003, Budapest, 2003. %(../../sale/eacl03/demo.pdf, PDF)
+
+ - D. Maynard, V. Tablan, K. Bontcheva, H. Cunningham. Rapid customisation of an Information Extraction system for surprise languages. ACM Transactions on Asian Language Information Processing, Special issue on Rapid Development of Language Capabilities: The Surprise Languages. 2003. %(http://portal.acm.org/citation.cfm?id=979872.979880, Link)
+
+
+ - D.Maynard, V. Tablan and H. Cunningham. NE recognition without training data on a language you don't speak. ACL Workshop on Multilingual and Mixed-language Named Entity Recognition: Combining Statistical and Symbolic Models, Sapporo, Japan, 2003. %(http://gate.ac.uk/sale/acl03/surprise.pdf, PDF)
+
+ - D. Manov and A. Kiryakov and B. Popov and K. Bontcheva and D. Maynard, H. Cunningham. Experiments with geographic knowledge for information extraction. Workshop on Analysis of Geographic References, HLT/NAACL'03, Edmonton, Canada, 2003. %(http://gate.ac.uk/sale/hlt03/paper03.pdf, PDF)
+
+ - H. Saggion, K. Bontcheva, H. Cunningham. Robust Generic and Query-based Summarisation. Proceedings of the European Chapter of Computational Linguistics (EACL), Research Notes and Demos, 2003. %(http://portal.acm.org/citation.cfm?id=1067737.1067793&amp;coll=GUIDE&amp;dl=GUIDE, Link)
+
+ - H. Saggion, H. Cunningham, K. Bontcheva, D. Maynard, O. Hamza, Y. Wilks. Multimedia Indexing through Multi-source and Multi-language Information Extraction: The MUMIS Project. Data & Knowledge Engineering Journal, Volume 48, pp. 247-264, 2003. %(http://linkinghub.elsevier.com/retrieve/pii/S0169023X03001083, Link)
+
+
+ - H. Saggion, J. Kuper, T. Declerck, D. Reidsma, H. Cunningham. Intelligent Multimedia Indexing and Retrieval through Multi-source Information Extraction and Merging. IJCAI 2003, Acapulco, Mexico, 9-15 August 2003. %(http://eprints.eemcs.utwente.nl/6704/01/mumis_ijcai_03.pdf, PDF)
+
+ - V. Tablan, K. Bontcheva, D. Maynard, H. Cunningham. OLLIE: On-Line Learning for Information Extraction. HLT-NAACL 2003 Workshop: Software Engineering and Architecture of Language Technology Systems (SEALTS). Edmonton, Canada, 2003. %(http://gate.ac.uk/sale/hlt03/ollie-sealts.pdf, PDF)
+
+ - I.Witten, K.Don, M.Dewsnip, V.Tablan. Text mining in a digital library. Journal of Digital Libraries special issue ";Digital Libraries as experienced by the editors of the Journal"; 2003. %(http://www.dcs.shef.ac.uk/~valyt/download/greenstone-gate.pdf, PDF)
+
+ - M. M. Wood and S. J. Lydon and V. Tablan and D. Maynard and H. Cunningham. Using parallel texts to improve recall in IE. Recent Advances in Natural Language Processing, Bulgaria, 2003.
+
+
+
+
+%2* 2002 
+
+ - P. Baker and A. Hardie and T. McEnery and H. Cunningham and R. Gaizauskas. EMILLE, A 67-Million Word Corpus of Indic Languages: Data Collection, Mark-up and Harmonisation. Proceedings of 3rd Language Resources and Evaluation Conference (LREC 2002) pp. 819-825. %(http://gandalf.aksis.uib.no/lrec2002/pdf/319.pdf, PDF)
+
+ - K. Bontcheva, H. Cunningham, V. Tablan, D.Maynard, O.Hamza. Using GATE as an Environment for Teaching NLP. Proceedings of the ACL Workshop on Effective Tools and Methodologies in Teaching NLP, 2002. %(../../sale/acl02/gate4teaching.pdf, PDF)
+
+ - K. Bontcheva, H. Cunningham, V. Tablan, D. Maynard, H. Saggion. Developing Reusable and Robust Language Processing Components for Information Systems using GATE. 3rd International Workshop on Natural Language and Information Systems (NLIS'2002), IEEE Computer Society Press, 2002. %(../../sale/nlis/nlis.ps, PS)
+
+
+ - K. Bontcheva, M. Dimitrov, D. Maynard, V. Tablan, H. Cunningham. Shallow Methods for Named Entity Coreference Resolution. Chaines de references et resolveurs d'anaphores, workshop TALN 2002, Nancy, France, 2002. %(../../sale/taln02/taln-ws-coref.pdf, PDF)
+
+ - K. Bontcheva, D. Maynard, H. Cunningham, H. Saggion. Using Human Language Technology for Automatic Annotation and Indexing of Digital Library Content. Proceedings of the 6th European Conference on Research and Advanced Technology for Digital Libraries (ECDL'2002), Rome, September 2002. %(../../sale/ecdl02/ecdl.pdf, PDF)
+
+ - H. Cunningham, K. Bontcheva, D. Maynard, V. Tablan. GATE -- A New Release. ELSNews, 11(1), 2002. %(http://www.elsnet.org/publications/elsnews/11.1.pdf, PDF)
+
+ - H. Cunningham, D. Maynard, K. Bontcheva, V. Tablan. GATE: A Framework and Graphical Development Environment for Robust NLP Tools and Applications. Proceedings of the 40th Anniversary Meeting of the Association for Computational Linguistics (ACL'02). Philadelphia, July 2002. %(../../sale/acl02/acl-main.pdf, PDF).
+
+
+ - H. Cunningham. GATE, a General Architecture for Text Engineering. Computers and the Humanities, volume 36, pp. 223-254, 2002. %(http://www.ingentaconnect.com/content/klu/chum/2002/00000036/00000002/00383881, PDF)
+
+ - M. Dimitrov, K. Bontcheva, H. Cunningham, D. Maynard. A Light-weight Approach to Coreference Resolution for Named Entities in Text. Proceedings of the Fourth Discourse Anaphora and Anaphor Resolution Colloquium (DAARC), Lisbon, September 2002. %(../../sale/daarc2002/DAARC2002.pdf, PDF)
+
+ - P. Lal and S. Ruger. Extract-based Summarization with Simplification. Proceedings of the ACL Workshop on Text Summarisation / DUC 2002, Philadelphia, July 2002. %(http://www.doc.ic.ac.uk/~srueger/pr-p.lal-2002/duc02-final.pdf, PDF)
+
+ - D.Maynard, K. Bontcheva, H. Saggion, H. Cunningham, O. Hamza. Using a Text Engineering Framework to Build an Extendable and Portable IE-based Summarisation System. Proceedings of the ACL Workshop on Text Summarisation, Philadelphia, July 2002. %(../../sale/hsl/hsl.pdf, PDF)
+
+ - D. Maynard, H. Cunningham, K. Bontcheva, M. Dimitrov. Adapting A Robust Multi-Genre NE System for Automatic Content Extraction. Proceedings of the Tenth International Conference on Artificial Intelligence: Methodology, Systems, Applications (AIMSA 2002), 2002. %(../../sale/aimsa/aimsa.pdf, PDF).
+
+
+ - D. Maynard, H.Cunningham, R.Gaizauskas. Named Entity Recognition at Sheffield University. Nordic Language Technology -- Arbog for Nordisk Sprogtechnologisk Forskningsprogram 2002-2004, 141-145, Museum Tusculanums Forlag. Maynard, V. Tablan, H. Cunningham, C. Ursu, H. Saggion, K. Bontcheva and Y. Wilks. Architectural Elements of Language Engineering Robustness. Journal of Natural Language Engineering -- Special Issue on Robust Methods in Analysis of Natural Language Data, Volume 8, Number 2-3, 257-274, 2002. %(../../sale/robust/robust.pdf, PDF)
+
+ - K. Pastra, D. Maynard, H. Cunningham, O. Hamza, Y. Wilks. How feasible is the reuse of grammars for Named Entity Recognition? Language Resources and Evaluation Conference (LREC'2002), 2002. %(../../sale/lrec2002/reusability.ps, PS)
+
+ - H. Saggion. Shallow-based Robust Summarization. Workshop on Text Summarization (ATALA), Paris, France, 2002.
+
+ - H. Saggion, H. Cunningham, K. Bontcheva, D. Maynard, C. Ursu, O. Hamza, Y. Wilks. Access to Multimedia Information through Multisource and Multilanguage Information Extraction. 7th Workshop on Applications of Natural Language to Information Systems (NLDB 2002), Stockholm, Sweden, 2002. %(http://www.springerlink.com/content/khfh2mc43vmmaknd/, Link)
+
+
+ - H. Saggion, H. Cunningham, D. Maynard, K. Bontcheva, O. Hamza, C. Ursu, Y. Wilks. Extracting Information for Information Indexing of Multimedia Material. Language Resources and Evaluation Conference (LREC'2002), 2002. %(../../sale/lrec2002/mumis_lrec2002.ps, PS)
+
+ - V. Tablan, C. Ursu, K. Bontcheva, H. Cunningham, D. Maynard, O. Hamza, T. McEnery, P. Baker, M. Leisher. A Unicode-based Environment for Creation and Use of Language Resources. Language Resources and Evaluation Conference (LREC'2002), 2002. %(../../sale/lrec02-unicode/unicode-lrs.pdf, PDF)
+
+
+%2* 2001 and earlier
+
+ - K. Bontcheva, C. Brewster, F. Ciravegna, H. Cunningham, L. Guthrie, R. Gaizauskas, Y. Wilks. Using HLT for Acquiring, Retrieving and Publishing Knowledge in AKT. 2001 EACL/ACL Workshop on Human Language Technology and Knowledge Management, Toulouse, France, July 2001. %(http://www.dcs.shef.ac.uk/%7Ekalina/papers/hlt+km2001.pdf, PDF)
+
+ - D. Maynard and V. Tablan and C. Ursu and H. Cunningham and Y. Wilks. Named Entity Recognition from Diverse Text Types. Recent Advances in Natural Language Processing 2001 Conference, Tzigov Chark, Bulgaria, 2001.%(../../sale/ranlp2001/maynard-etal.pdf, PDF)
+
+
+ - Gamback, Bjorn and Olsson, Fredrik. Experiences of Language Engineering Algorithm Reuse. In Proceedings of the Second Conference on Language Resources Evaluation, Athens, 2000. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/gamback-lrec2000.ps, PS)
+
+ - K. Bontcheva and H. Brugman and A. Russel and P. Wittenburg and H. Cunningham. An Experiment in Unifying Audio-Visual and Textual Infrastructures for Language Processing R&D. In Workshop on Using Toolsets and Architectures To Build NLP Systems at COLING-2000, Luxembourg, 2000. %(../../sale/eudico/PILOT.PS, PS)
+
+ - H. Cunningham, K. Bontcheva, W. Peters, Y. Wilks. Uniform language resource access and distribution in the context of a General Architecture for Text Engineering (GATE). Proceedings of the Workshop on Ontologies and Language Resources (OntoLex'2000), Sozopol, Bulgaria, 8-10 September, 2000. %(../../sale/ontolex/ontolex.ps, PS)
+
+
+ - H. Cunningham and K. Bontcheva and V. Tablan and Y. Wilks. Software Infrastructure for Language Resources: a Taxonomy of Previous Work and a Requirements Analysis. In Proceedings of the Second Conference on Language Resources Evaluation, Athens, 2000. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun00b.abstract, Abstract). %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun00b.pdf, PDF). %(../../sale/lrec2000/lrecmain.html, HTML)
+
+ - H. Cunningham and D. Maynard and K. Bontcheva and V. Tablan and Y. Wilks. Experience of using GATE for NLP R&D. In Workshop on Using Toolsets and Architectures To Build NLP Systems at COLING-2000, Luxembourg, 2000. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun00c.ps, PostScript). %(../../sale/coling2000/colmain.html, HTML)
+
+ - A.M. McEnery and P. Baker and R. Gaizauskas and H. Cunningham. EMILLE: Building a Corpus of South Asian Languages. Vivek, A Quarterly in Artificial Intelligence. Number 3, Volume 13, Pages 23-32. 2000. %(http://www.mt-archive.info/BCS-2000-McEnery.pdf, Link)
+
+
+
+ - H. Cunningham and R. Gaizauskas, and K. Humphreys and Y. Wilks. Experience with a Language Engineering Architecture: Three Years of GATE. In _Proceedings of the AISB'99 Workshop on Reference Architectures and Data Standards for NLP_, The Society for the Study of Artificial Intelligence and Simulation of Behaviour, Edinburgh, U.K. Apr, 1999. %(http://www.dcs.shef.ac.uk/~hamish/GateAisb99.html, HTML).
+
+
+ - H. Cunningham and W. Peters and C. McCauley and K. Bontcheva and Y. Wilks. A Level Playing Field for Language Resource Evaluation. In _Workshop on Distributing and Accessing Lexical Resources at Conference on Language Resources Evaluation, Granada, Spain_, 1998. %(http://www.dcs.shef.ac.uk/~hamish/dalr, HTML). %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun98a.ps, PostScript).
+
+
+ - H. Cunningham and M. Stevenson and Y. Wilks. Implementing a Sense Tagger within a General Architecture for Language Engineering. Proceedings of the Third Conference on New Methods in Language Engineering (NeMLaP-3), pages 59-72, Sydney, Australia, 1998. %(http://acl.ldc.upenn.edu/W/W98/W98-1208.pdf, PDF)
+
+ - W. Peters and H. Cunningham and C. McCauley and K. Bontcheva and Y. Wilks. Uniform Language Resource Access and Distribution. In _Workshop on Distributing and Accessing Lexical Resources at Conference on Language Resources Evaluation, Granada, Spain_, 1998. %(http://nlp.shef.ac.uk/research/papers/external/Cun98a.ps, PS)
+
+ - M. Stevenson and H. Cunningham and Y. Wilks. Sense Tagging and Language Engineering. In _Proceedings of the 13th European Conference on Artificial Intelligence (ECAI-98)_, pages 185-189, Brighton, UK, 1998. %(http://www.dcs.shef.ac.uk/~marks/publications/ecai98.ps, PS)
+
+
+
+ - H. Cunningham and K. Humphreys and R. Gaizauskas and Y. Wilks. Software Infrastructure for Natural Language Processing. In _Proceedings of the Fifth Conference on Applied Natural Language Processing (ANLP-97)_, Mar, 1997. %(http://xxx.lanl.gov/abs/cs.CL/9702005, http://xxx.lanl.gov/abs/cs.CL/9702005). Local %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun97a.ps.gz, PostScript).
+
+ - H. Cunningham and K. Humphreys and R. Gaizauskas and Y. Wilks. GATE -- a TIPSTER-based General Architecture for Text Engineering. In _Proceedings of the TIPSTER Text Program (Phase III) 6 Month Workshop_, DARPA, Morgan Kaufmann, California, May, 1997. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun97e.ps, PostScript).
+
+
+
+ - H. Cunningham and K. Humphreys and R. Gaizauskas and Y. Wilks. TIPSTER-Compatible Projects at Sheffield. In _Advances in Text Processing, TIPSTER Program Phase II_, DARPA, Morgan Kaufmann, California, 1996. %(http://citeseer.comp.nus.edu.sg/cache/papers/cs/2072/ftp:zSzzSzftp.dcs.shef.ac.ukzSzhomezSzkwhzSzauto_paperszSzCun96b.ps.gz/tipster-compatible-projects-at.ps.gz, PS)
+
+ - H. Cunningham and Y. Wilks and R. Gaizauskas. GATE -- a General Architecture for Text Engineering. In _Proceedings of the 16th Conference on Computational Linguistics (COLING-96)_, Copenhagen, Aug, 1996. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun96b.ps, PostScript).
+
+ - H. Cunningham and Y. Wilks and R. Gaizauskas. New Methods, Current Trends and Software Infrastructure for NLP. In _Proceedings of the Conference on New Methods in Natural Language Processing (NeMLaP-2)_, Bilkent University, Turkey, Sep, 1996. %(http://xxx.lanl.gov/abs/cs.CL/9607025, http://xxx.lanl.gov/abs/cs.CL/9607025). Local %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun96c.ps, PostScript).
+
+
+ - H. Cunningham and Y. Wilks and R. Gaizauskas. Software Infrastructure for Language Engineering. In _Proceedings of the AISB Workshop on Language Engineering for Document Analysis and Recognition_, Brighton, U.K. Apr, 1996. %(http://citeseer.ist.psu.edu/rd/0%2C143752%2C1%2C0.25%2CDownload/http://citeseer.ist.psu.edu/cache/papers/cs/140/ftp:zSzzSzftp.dcs.shef.ac.ukzSzhomezSzhamishzSzledar.pdf/cunningham96software.pdf, PDF)
+
+ - R. Gaizauskas, H. Cunningham, Y. Wilks, P. Rodgers, and K. Humphreys. GATE: An Environment to Support Research and Development in Natural Language Engineering. In _Proceedings of the 8th IEEE International Conference on Tools with Artificial Intelligence_, Toulouse, France, 1996. %(http://www.dcs.shef.ac.uk/~robertg/publications/abstracts/ictai96.abs, Abstract), %(ftp://ftp.dcs.shef.ac.uk/home/robertg/ictai96.ps, Postscript)
+
+
+
+ - H. Cunningham and M. Freeman and W.J. Black. Software Reuse, Object-Oriented Frameworks and Natural Language Processing. In _New Methods in Language Processing (NeMLaP-1), September 1994_, (Re-published in book form 1997 by UCL Press), Manchester, 1994.
+
+%1 PhD and MSc Theses
+
+ - H. Cunningham. %(../../sale/thesis/index.html, Software Architecture for Language Engineering.) _PhD Thesis_, University of Sheffield, 2000.
+
+
+ - M. Dimitrov. A Light-weight Approach to Coreference Resolution for Named Entities in Text. _MSc Thesis_, University of Sofia, Bulgaria, 2002. %(http://www.ontotext.com/ie/thesis-m.pdf, PDF)
+
+ - P. Lal. Text Summarization. _MSc Thesis _, Imperial College, London, 2002. %(http://www.doc.ic.ac.uk/~srueger/pr-p.lal-2002/report.pdf, PDF).
+
+
+%1 Tech reports etc.
+
+
+ - S. Bethard, L. Derczynski, J. Pustejovsky, M. Verhagen. Clinical TempEval. Computing Research Repository (arXiv). %(http://derczynski.com/sheffield/papers/clinical-tempeval.pdf, PDF)
+
+ - T. Polajnar and V. Tablan and H. Cunningham. User-Friendly Ontology Authoring Using a Controlled Language. Technical report CS-05-10, University of Sheffield, Department of Computer Science, 2005. %(http://www.dcs.shef.ac.uk/intranet/research/resmes/CS0510.pdf, PDF).
+
+ - D. Maynard and V. Tablan and K. Bontcheva and H. Cunningham and Y, Wilks. MUlti-Source Entity recognition -- an Information Extraction System for Diverse Text Types. Technical report CS--02--03, University of Sheffield, Department of Computer Science, 2003. %(../../sale/muse/muse_techrpt.ps, PostScript).
+
+ - A. Kiryakov. Technical Report CS--03--03, Department of Computer Science, University of Sheffield. Ontology and Reasoning in MUMIS: Towards the Semantic Web. 2003. %(../../sale/mumis-semweb/mumis-semweb.doc, Word.)
+
+ - H. Cunningham and D. Maynard and V. Tablan. JAPE: a Java Annotation Patterns Engine (Second Edition). Technical report CS--00--10, University of Sheffield, Department of Computer Science, 2000. %(ftp://ftp.dcs.shef.ac.uk/home/hamish/auto_papers/Cun00e.ps.gz, PostScript ).
+
+ - D. Maynard and H. Cunningham and K. Bontcheva and R. Catizone and G. Demetriou and R. Gaizauskas and O. Hamza and M. Hepple and P. Herring and B. Mitchell and M. Oakes and W. Peters and A. Setzer and M. Stevenson and V. Tablan and C. Ursu and Y. Wilks. A Survey of Uses of GATE. Technical report CS--00--06, University of Sheffield, Department of Computer Science, 2000. %(../../sale/coling2000/techrpt.html, HTML).
+
+ - H. Brugman and K. Bontcheva and P. Wittenburg and H. Cunningham. Integrating Multimedia and Textual Software Architectures for Language Technology. Max-Planck Institute for Psycholinguistics, Nijmegen, Nethedlands, 1999.
+
+ - H. Cunningham. JAPE: a Java Annotation Patterns Engine. Department of Computer Science, University of Sheffield, May, 1999. %(http://citeseer.ist.psu.edu/rd/55076162%2C380721%2C1%2C0.25%2CDownload/http://coblitz.codeen.org:3125/citeseer.ist.psu.edu/cache/papers/cs/17310/ftp:zSzzSzftp.dcs.shef.ac.ukzSzhomezSzhamishzSzauto_paperszSzCun00e.pdf/cunningham00jape.pdf, PDF)
+
+
+ - H. Cunningham and K. Humphreys and R. Gaizauskas and M. Stower. CREOLE Developer's Manual. Department of Computer Science, University of Sheffield, Department of Computer Science, University of Sheffield. 1996.
+
+ - R. Gaizauskas and P. Rodgers and H. Cunningham and K. Humphreys. GATE User Guide. Department of Computer Science, University of Sheffield, Department of Computer Science, University of Sheffield. 1996.
+
+ - K. Humphreys and R. Gaizauskas and H. Cunningham and S. Azzam. CREOLE Module Specifications. Department of Computer Science, University of Sheffield, Department of Computer Science, University of Sheffield, 1996.
+
+ - H. Cunningham and R. Gaizauskas and Y. Wilks. A General Architecture for Text Engineering (GATE) -- a new approach to Language Engineering R&D. Department of Computer Science, University of Sheffield, 1995. %(http://xxx.lanl.gov/abs/cs.CL/9601009, http://xxx.lanl.gov/abs/cs.CL/9601009 ).
+
+%1 Our BibTeX file.
+
+%(gate.bib, Download here.)

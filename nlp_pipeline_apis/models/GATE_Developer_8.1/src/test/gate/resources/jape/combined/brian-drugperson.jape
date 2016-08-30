@@ -1,0 +1,106 @@
+// brian-drugperson.jape
+// Brianm, 1/Nov/98
+
+Phase:	DrugPerson
+Options: control = appelt
+
+// the parts of the rules that specify personName could be replaced
+// with some of the macros and rules definied in other, more extensive
+// person-finding grammars
+
+////////////////////////////////////////
+
+Rule:	DrugPerson1
+// {Mafia boss} X Y
+
+  {Lookup.majorType == "DRUG_PERSON"}
+  ( ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+  ):personName
+
+  -->
+
+  :personName.Name = {kind = "person", rule = "DrugPerson1"}
+
+////////////////////////////////////////
+
+Rule:	DrugPerson2a
+// XY[,] a [known] {drug addict}
+// could even be extended to find a trailing location:
+// XY[,] a [known] {drug addict} from {southern Europe}
+
+  (
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+  ):personName
+    {Token.lowerString == ","}
+    {Token.lowerString == "a"}
+    {Token, Lookup.majorType == "DRUG_PERSON"}
+
+  -->
+
+  :personName.Name = {kind = "person", rule = "DrugPerson2a"}
+
+////////////////////////////////////////
+
+Rule:	DrugPerson2b
+// XY[,] a [known] {drug addict}
+// could even be extended to find a trailing location:
+// XY[,] a [known] {drug addict} from {southern Europe}
+
+  (
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+  ):personName
+    {Token.lowerString == ","}
+    {Token.lowerString == "a"}
+    {Token.lowerString == "known"}
+    {Token, Lookup.majorType == "DRUG_PERSON"}
+
+  -->
+
+  :personName.Name = {kind = "person", rule = "DrugPerson2b"}
+
+////////////////////////////////////////
+
+Rule:	DrugPerson3a
+// XY[,] a [known] {heroin} {addict}
+// could even be extended to find a trailing location:
+// XY[,] a [known] {heroin} {addict} from {southern Europe}
+
+  (
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+  ):personName
+    {Token.lowerString == ","}
+    {Token.lowerString == "a"}
+    {Token, Lookup.majorType == "DRUG"}
+    {Token, Lookup.majorType == "DRUG_PERSON"}
+
+  -->
+
+  :personName.Name = {kind = "person", rule = "DrugPerson3a"}
+
+////////////////////////////////////////
+
+Rule:	DrugPerson3b
+// XY[,] a [known] {heroin} {addict}
+// could even be extended to find a trailing location:
+// XY[,] a [known] {heroin} {addict} from {southern Europe}
+
+  (
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+    ( {Token.orth == "allCaps"} | {Token.orth == "initCap"} )
+  ):personName
+    {Token.lowerString == ","}
+    {Token.lowerString == "a"}
+    {Token.lowerString == "known"}
+    {Token, Lookup.majorType == "DRUG"}
+    {Token, Lookup.majorType == "DRUG_PERSON"}
+
+  -->
+
+  :personName.Name = {kind = "person", rule = "DrugPerson3b"}
+
+////////////////////////////////////////
+
