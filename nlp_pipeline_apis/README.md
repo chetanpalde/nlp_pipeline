@@ -29,7 +29,7 @@
 
 #How to use:
 		Use the following command and specify your route from the following routes
-		Command: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"<Your Input>"}' http://localhost:9000/<your-route>		
+		Command: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"<Your Input>"}' http://localhost:9000/<your-route>		
 		
 		#routes:	
 	
@@ -55,7 +55,7 @@ The following are the APIs provided which you can use independently:
 The sentence splitter splits the input string into number of sentences. The splitting is done with respect to the fullstop. The method accepts an input string and it returns the output sentences in following JSON format. Here, for sentence splitting, we have used Apache OpenNlp library.
 		url: http://localhost:9000/sentence-splitter
 
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/sentence-splitter 
 
 	Input String: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.
 	
@@ -74,9 +74,9 @@ The sentence splitter splits the input string into number of sentences. The spli
 	
 		url: http://localhost:9000/tokenize
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/tokenize
 	
-	Input String: “Barak Obama is the President of the United States of America”
+	Input String: Barak Obama is the President of the United States of America
 	
 	Output: 
 	
@@ -102,7 +102,7 @@ The sentence splitter splits the input string into number of sentences. The spli
 	
 		url: http://localhost:9000/lemmatize
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/lemmatize
 	
 	Input String: Everyone loves NLP because its cool
 	
@@ -162,7 +162,7 @@ The sentence splitter splits the input string into number of sentences. The spli
 	
 		url: http://localhost:9000/get-part-of-speech
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-part-of-speech
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-part-of-speech
 		
 	Input String: Barak Obama is the President of the United States of America
 	
@@ -192,11 +192,11 @@ The sentence splitter splits the input string into number of sentences. The spli
 			2. Verb Phrase(VP):   a verb with another word or words indicating tense, mood, or person.
 			3. Preposition Phase(PP): Every prepositional phrase is a series of words made up of a preposition and its object. The object may be a noun, pronoun, gerund or c clause. A prepositional 						phrase functions as an adjective or adverb.
 	
-	Here, for shallow parsing, we have used Stanford CoreNLP library. The method takes an input string as parameter and returns the output in the following JSON format.
+	Here, for shallow parsing, we have used Stanford CoreNLP library. It takes an input string as parameter and returns the output in the following JSON format.
 	
 		url: http://localhost:9000/shallow-parse
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' http://localhost:9000/shallow-parse
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' http://localhost:9000/shallow-parse
 	
 		
 	Input text: Barak Obama is the President of the United States of America
@@ -288,18 +288,11 @@ The sentence splitter splits the input string into number of sentences. The spli
 		sdep - semantic dependent 
 			xsubj - controlling subject
 
-	#For Play Apis:
 		url: http://localhost:9000/deep-parse
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/deep-parse
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/deep-parse
 	
-	#For nlp_pipeline.jar: 
-	
-		String deepParse(String input){
-		
-		}
-	
-	
+
 	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
@@ -332,11 +325,10 @@ The sentence splitter splits the input string into number of sentences. The spli
 	For Named Entity Recognization, here we have used Gate Annie NER library.	
 	It takes string as an input and returns the output of the mentioned entities in the  following JSON format.
 
-	#For Play Apis:
 		url: http://localhost:9000/get-gate-ner
 		
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-gate-ner
+		eg: curl  -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-gate-ner
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of 		    India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 		    85% in 10th grade
 	
@@ -368,11 +360,11 @@ The sentence splitter splits the input string into number of sentences. The spli
 		5.Percentage
 		6.Date
 		7.Time 
-	The method takes string as input and returns the output in the following JSON format.
+	It takes string as input and returns the output in the following JSON format.
 	
 		url: http://localhost:9000/get-open-nlp-ner
 		
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-open-nlp-ner
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-open-nlp-ner
 		
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade.
 	
@@ -405,10 +397,10 @@ The sentence splitter splits the input string into number of sentences. The spli
 		5.Percent
 		6.Date
 		7.Time 
-	The method takes an input string and returns the output in the following JSON format. 
+	It takes an input string and returns the output in the following JSON format. 
 
 		url: http://localhost:9000/get-stanford-ner 
-		eg: curl -v -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-stanford-ner 
+		eg: curl -X POST -H "Content-Type:application/json" -d '{"sentence":"Your String Data"}' 	http://localhost:9000/get-stanford-ner 
 	
 	Input text: Sachin Tendulkar is regarded as the god of cricket. Mr.Barak Obama is the President of United States. Its Narendra Modi who is holding the title of Prime minister of India. Delhi is capital of India. Indias independence day is on 15th August 1947. India donated Pakistan $60 crore for rehabitation. Huge companies such as Intel, Google, etc. are setting their foots in India. I got 85% in 10th grade. I knew about it at 1:30 PM.
 	
