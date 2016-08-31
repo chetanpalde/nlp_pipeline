@@ -300,7 +300,7 @@ The sentence splitter splits the input string into number of sentences. The spli
 		}
 	
 	
-	Input text: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.  It is ambitious.
+	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
 	
