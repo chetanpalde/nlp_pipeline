@@ -311,7 +311,7 @@ The following are the APIs provided which you can use independently:
 		}
 	
 	
-	Input text: Everyone loves NLP because its cool. Everyone should learn it. You will enjoy it.  It is ambitious.
+	Input text: Barak Obama is the President of the United States of America
 	
 	Output:
 	
