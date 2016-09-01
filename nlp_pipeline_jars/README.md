@@ -13,15 +13,25 @@
 
 
 #Set Up:
-		1. Download the nlp_pipeline.jar and the models folder.
-		2.Keep the models.zip folder to the location where the nlp_pipeline.jar is kept.
-			If you do not keep the models folder on required location, it wont compile.
+		1. Download the nlp_pipeline_source_code project.
+		2. Make a Jar file from the project as mentioned in the fields below.
+		3. After the creation of the jar file, copy the models folder present in the nlp_pipeline_source_code folder and 
+		paste it in the directory depending on your use as mentioned in 'How to use it'.
+		If you do not keep the models folder on required location, it wont compile.
 		3. To run nlp_pipeline.jar, you need Oracle Java 8 to be installed.
 		After you follow these instructions, you are ready to go furthur.
 
+#How to make nlp_pipeline.jar:
+		1.Download the nlp_pipeline_source_code.
+		2.Open Eclipse -->File --> Open Projects from File System --> Directory --> Give the location of downloaded nlp_pipeline_source_code --> De-select the 'Search for nested projects' --> You will see the NLP-pipeline Project be selected --> Finish.
+		3.Run the project once so that you will be sure about the setup is correct or not.
+		4.Now, to make .jar file, go to File --> Export --> Java --> Runnable Jar File --> Next --> 
+		In Launch configurations, select Main-NLP_pipeline --> Select export destination --> Select Extract Required Libraries into generated JAR --> Finish --> Ok 
+		Ignore if some warning occours.
+		5. Now, your Jar file is generated on the defined location.
 #How to use it:
 	#1.Using nlp_pipeline.jar into your project:
-		1. Place the downloaded models folder in your project directory where the src and bin folders are. 
+		1. Place the models folder in your project directory where the src and bin folders are. 
 		2. Now go to your IDE and Right click on your project --> Build Path --> Configure Build Path --> 
 		Libraries --> Add External Jars --> Browse the jar and press ok. It will load the jar in your project.
 		3. To use the methods of this jar, you need to set up an NlpApi Object as follows:
