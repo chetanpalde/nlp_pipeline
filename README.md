@@ -1,12 +1,10 @@
 #NLP-Pipeline
 
-The provided repository contains the following three folders:
+The provided repository contains the following two folders:
 #1. nlp_pipeline_apis
 	Provides APIs in the play framework. These APIs are built in Java.
-#2. nlp_pipeline_jar
-	Provides nlp_pipeline.jar file which can be imported in your project.
-#3. nlp_pipeline_sourcecode
-	Provides the source code for the nlp_pipeline.jar.
+#2. nlp_pipeline_sourcecode
+	Provides the source code for the NLP_pipeline project in Java.
 	
 #The above projects provides variours APIs related to NLP. We have provided following APIs to our users:
 	1.Sentence Splitter
