@@ -119,7 +119,7 @@ The sentence splitter splits the input string into number of sentences. The spli
 	{"lemmatizer":[{"sentence":"","lemmas"[{"lemma":"","begin_position":,"word":"","end_position":}]}]}
 
 #4. Part of speech 
-	Part of speech module analyses the input string and returns the JSON format of the part of speech entities. The input string is splitted into sentences and for each sentence, part of speech is analysed for every word.  Here, for part of speech, we have used Stanford CoreNLP library.There are approximately 38 different parts of speech given below.
+	Part of speech module analyses the input string and returns the JSON format of the part of speech entities. The input string is splitted into sentences and for each sentence, part of speech is analysed for every word.  Here, for part of speech, we have used Stanford CoreNLP library.There are approximately 36 different parts of speech given below.
 	
 	POS Labels: 
 	 
