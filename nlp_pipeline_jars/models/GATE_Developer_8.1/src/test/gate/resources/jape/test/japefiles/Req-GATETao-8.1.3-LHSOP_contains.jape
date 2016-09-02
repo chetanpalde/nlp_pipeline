@@ -1,7 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:OpContains
-({Location contains Location}):bind 
---> 
-:bind.SomeAnnotation = {rule="OpContains"}

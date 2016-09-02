@@ -1,2 +1,0 @@
-# Ensure protons is loaded locally
-http://proton.semanticweb.org/2005/04/protons.owl protons.owl

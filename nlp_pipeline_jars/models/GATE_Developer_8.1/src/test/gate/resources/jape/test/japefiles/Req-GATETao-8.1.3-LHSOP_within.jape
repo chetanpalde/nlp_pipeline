@@ -1,7 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:OpWithin
-({Location within Location}):bind 
---> 
-:bind.SomeAnnotation = {rule="OpWithin"}

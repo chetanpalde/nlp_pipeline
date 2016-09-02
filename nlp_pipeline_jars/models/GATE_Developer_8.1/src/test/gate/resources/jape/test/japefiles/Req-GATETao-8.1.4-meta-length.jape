@@ -1,9 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:MetaLength
-(
-	{Span@length == 60}
-):bind 
---> 
-:bind.SomeAnnotation = {rule="MetaLength"}

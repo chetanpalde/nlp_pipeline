@@ -1,1 +1,0 @@
-CLDC and MIDP devices require 1,024K of BGN and 1000 JPY.

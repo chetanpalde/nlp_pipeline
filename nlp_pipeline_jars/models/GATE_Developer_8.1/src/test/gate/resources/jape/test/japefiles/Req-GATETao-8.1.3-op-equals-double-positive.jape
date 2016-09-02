@@ -1,9 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:OpEquals
-(
- 	{Token.double == 3.14} 
-):bind 
---> 
-:bind.SomeAnnotation = {rule="OpEquals"}

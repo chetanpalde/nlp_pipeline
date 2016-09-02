@@ -1,9 +1,0 @@
-Phase: NPhase
-Rule: SurnameStartingWithDe
-(
-{Token.string == "de",
-  Lookup.majorType == "name",
-  Lookup.minorType == "surname"}
-):de
--->
-:de.Surname = {prefix = "de", rule="SurnameStartingWithDe"}

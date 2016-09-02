@@ -1,9 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:SimpleAnnotation
-(
-	{!Location}  
-):bind
--->
-:bind.Annotation = {rule = "NegativeAnnotation"}

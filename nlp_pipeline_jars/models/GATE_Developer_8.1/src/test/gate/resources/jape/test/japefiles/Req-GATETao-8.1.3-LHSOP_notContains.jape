@@ -1,7 +1,0 @@
-Phase: Test
-Options: control = appelt
-
-Rule:OpNotWithin
-({TempPerson notContains Lookup}):bind 
---> 
-:bind.SomeAnnotation = {rule="OpNotContains"}
