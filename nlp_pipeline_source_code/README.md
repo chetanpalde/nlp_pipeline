@@ -14,11 +14,12 @@
 
 #Set Up:
 		1. Download the nlp_pipeline_source_code project.
-		2. Make a Jar file from the project as mentioned in the fields below.
-		3. After the creation of the jar file, copy the models folder present in the nlp_pipeline_source_code folder and 
-		paste it in the directory depending on your use as mentioned in 'How to use it'.
+		2. Now download and extract the file stanford-corenlp-full-2014-10-31.zip from the following link and copy the stanford-corenlp-3.5.0-models.jar file from the extracted folder and paste it into the jar directory of the nlp_pipeline_source_code project. 
+			http://nlp.stanford.edu/software/stanford-corenlp-full-2014-10-31.zip
+		3. Make a Jar file from the project as mentioned in the fields below.
+		4. After the creation of the jar file, copy the models folder present in the nlp_pipeline_source_code folder and paste it in the directory depending on your use as mentioned in 'How to use it'.
 		If you do not keep the models folder on required location, it wont compile.
-		3. To run nlp_pipeline.jar, you need Oracle Java 8 to be installed.
+		5. To run nlp_pipeline.jar, you need Oracle Java 8 to be installed.
 		After you follow these instructions, you are ready to go furthur.
 
 #How to make nlp_pipeline.jar:
